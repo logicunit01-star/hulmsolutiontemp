@@ -1,0 +1,71 @@
+PASS  status 200  (200)
+PASS  title = live  (FBR Integrated POS Software in Pakistan | Hulm POS)
+PASS  meta description = live
+PASS  canonical self  (https://hulmsolutions.com/fbr-integrated-pos-pakistan/)
+PASS  og:image absolute
+PASS  single <main>  (found 1)
+PASS  one H1 = "Best FBR Integrated POS Software in Pakistan"  (Best FBR Integrated POS Software in Pakistan)
+PASS  words 1200–2200  (1212)
+PASS  H2: FBR POS Integration in Pakistan
+PASS  H2: Benefits of Hulm Solutions FBR POS
+PASS  H2: Our FBR POS Integration Services
+PASS  H2: Who Should Integrate FBR POS
+PASS  H2: E-Commerce FBR POS Integration
+PASS  H2: How FBR POS Invoicing Works
+PASS  H2: Your Competitors Already Have a System. Do You?
+PASS  "fbr integrated pos" ≥ 2  (3)
+PASS  "fbr pos" ≥ 8  (12)
+PASS  "fbr pos integration" ≥ 3  (6)
+PASS  "fbr" ≥ 30  (46)
+PASS  "pakistan" ≥ 8  (13)
+PASS  "pos system" ≥ 2  (3)
+PASS  "pos software" ≥ 1  (5)
+PASS  "tier-1" ≥ 3  (6)
+PASS  "qr code" ≥ 3  (6)
+PASS  "invoice" ≥ 12  (21)
+PASS  "sales tax" ≥ 4  (4)
+PASS  "tax calculations" ≥ 2  (5)
+PASS  "compliant" ≥ 3  (5)
+PASS  "real-time" ≥ 2  (3)
+PASS  "retail" ≥ 4  (12)
+PASS  "hulm solutions" ≥ 4  (6)
+PASS  "shopify" ≥ 1  (1)
+PASS  "woocommerce" ≥ 1  (1)
+PASS  "iris" ≥ 1  (1)
+PASS  "srb" ≥ 1  (2)
+PASS  "pra" ≥ 1  (4)
+PASS  "kpra" ≥ 1  (2)
+PASS  "fbr integrated pos software in pakistan" ≤ 4 (no stuffing)  (1)
+PASS  "fbr" ≤ 55 (no stuffing)  (46)
+PASS  link /
+PASS  link /pricing/
+PASS  link /features/
+PASS  link /integration/
+PASS  link /website/
+PASS  link /zatca/
+PASS  link /inventory-management/
+PASS  link /reporting-module/
+PASS  link /mobile-pos/
+PASS  link /industries/retail-store/
+PASS  link /industries/restaurant-pos/
+PASS  link /industries/pharmacy-store/
+PASS  link /industries/bakery-pos-system/
+PASS  link /industries/salon-pos/
+PASS  link /industries/clothing-store/
+PASS  link /industries/jewellery-shop/
+PASS  link /industries/furniture-store/
+PASS  link /industries/electric-store/
+PASS  link /industries/toys-store/
+PASS  link /blog/best-point-of-sale-system-for-small-business-in-pakistan/
+PASS  internal hrefs end with /
+PASS  schema Organization
+PASS  schema WebSite
+PASS  schema WebPage
+PASS  schema BreadcrumbList
+PASS  schema Service
+PASS  schema HowTo
+PASS  schema FAQPage
+PASS  FAQ schema = visible FAQs  (schema 6 / visible 6)
+PASS  every <img> has alt
+
+/fbr-integrated-pos-pakistan/: 69/69 checks passed. Words: 1212.

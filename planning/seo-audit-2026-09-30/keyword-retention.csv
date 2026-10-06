@@ -1,0 +1,95 @@
+url,keyword,live_body_mentions,local_body_mentions,in_live_title,in_local_title,in_live_h1,in_local_h1,status
+/,best pos software in pakistan,4,2,False,False,True,True,MENTIONS_DROPPED
+/,pos software,8,5,True,True,True,True,OK
+/,point of sale,2,0,True,True,False,False,MENTIONS_DROPPED
+/,pos system for small business,0,0,False,False,False,False,OK
+/,fbr,24,12,False,False,False,False,MENTIONS_DROPPED
+/about/,hulm solutions,5,6,True,True,False,False,OK
+/about/,pos,20,21,False,False,False,False,OK
+/features/,pos system features,1,0,False,False,True,False,MENTIONS_DROPPED;LOST_FROM_H1
+/features/,pos software features,0,0,True,False,False,False,LOST_FROM_TITLE
+/features/,pos features,0,0,False,False,False,False,OK
+/pricing/,pos software price in pakistan,0,0,True,False,False,False,LOST_FROM_TITLE
+/pricing/,pricing,8,4,False,True,True,False,MENTIONS_DROPPED;LOST_FROM_H1
+/pricing/,pos price,0,0,False,False,False,False,OK
+/industries/,pos software for all,1,0,True,False,True,False,MENTIONS_DROPPED;LOST_FROM_TITLE;LOST_FROM_H1
+/industries/,pos industries,2,0,True,False,True,False,MENTIONS_DROPPED;LOST_FROM_TITLE;LOST_FROM_H1
+/industries/,point of sale,0,0,True,False,False,False,LOST_FROM_TITLE
+/fbr-integrated-pos-pakistan/,fbr integrated pos,2,1,True,True,True,True,MENTIONS_DROPPED
+/fbr-integrated-pos-pakistan/,fbr pos,8,2,False,False,False,False,MENTIONS_DROPPED
+/fbr-integrated-pos-pakistan/,pakistan,7,13,True,True,True,True,OK
+/mobile-pos/,mobile pos system,15,8,True,True,True,True,MENTIONS_DROPPED
+/mobile-pos/,mobile pos software,3,1,True,True,False,False,MENTIONS_DROPPED
+/mobile-pos/,mobile pos,26,18,True,True,True,True,OK
+/inventory-management/,inventory management software,23,6,True,True,True,True,MENTIONS_DROPPED
+/inventory-management/,pos inventory management,1,0,True,True,False,False,MENTIONS_DROPPED
+/inventory-management/,inventory control software,0,1,True,True,False,False,OK
+/purchase-orders/,purchase order management software,4,3,True,True,True,True,OK
+/purchase-orders/,purchase order,33,32,True,True,True,True,OK
+/purchase-orders/,po software,1,1,False,False,True,True,OK
+/customer-management/,customer relationship management,9,6,True,True,True,True,OK
+/customer-management/,crm,7,6,False,True,False,False,OK
+/order-management/,order management system,11,6,True,True,False,False,MENTIONS_DROPPED
+/order-management/,order management software,10,5,False,False,True,True,MENTIONS_DROPPED
+/order-management/,order management,42,24,True,True,True,True,MENTIONS_DROPPED
+/vendors-management/,vendor management system,5,4,True,True,True,True,OK
+/vendors-management/,supplier,4,20,True,True,False,False,OK
+/reporting-module/,reporting,15,16,True,True,True,True,OK
+/reporting-module/,analytics,1,4,True,True,False,False,OK
+/logistics-management-software/,logistics management software,8,5,True,True,True,True,OK
+/logistics-management-software/,fleet tracking,0,0,True,True,False,False,OK
+/cattle-management-software/,cattle management software,3,2,True,True,True,True,OK
+/cattle-management-software/,cattle management,3,6,True,True,True,True,OK
+/website/,ecommerce store,0,2,True,True,False,False,OK
+/website/,online store,5,3,False,False,False,True,OK
+/integration/,pos integration,4,0,True,False,True,False,MENTIONS_DROPPED;LOST_FROM_TITLE;LOST_FROM_H1
+/integration/,shopify,2,1,False,False,True,False,MENTIONS_DROPPED;LOST_FROM_H1
+/zatca/,zatca,14,9,True,True,True,True,OK
+/zatca/,e-invoicing,1,1,True,True,False,False,OK
+/pos-software-ksa/,point of sale software in saudi arabia,1,0,True,True,False,False,MENTIONS_DROPPED
+/pos-software-ksa/,pos software in ksa,1,1,False,False,True,True,OK
+/pos-software-ksa/,saudi arabia,20,20,True,True,True,True,OK
+/pos-software-uae/,pos software in uae,4,1,False,False,True,True,MENTIONS_DROPPED
+/pos-software-uae/,dubai,9,2,True,True,False,False,MENTIONS_DROPPED
+/pos-software-uae/,uae,27,7,True,True,True,True,MENTIONS_DROPPED
+/pos-software-qatar/,point of sale in qatar,6,2,True,True,True,True,MENTIONS_DROPPED
+/pos-software-qatar/,pos system qatar,8,2,True,True,True,True,MENTIONS_DROPPED
+/pos-software-qatar/,qatar,30,29,True,True,True,True,OK
+/pos-software-usa/,pos software in usa,3,0,False,False,False,False,MENTIONS_DROPPED
+/pos-software-usa/,usa,13,3,True,True,True,True,MENTIONS_DROPPED
+/industries/retail-store/,retail store pos system,1,0,False,False,True,False,MENTIONS_DROPPED;LOST_FROM_H1
+/industries/retail-store/,pos systems for retail stores,0,0,True,False,False,False,LOST_FROM_TITLE
+/industries/retail-store/,retail pos,4,2,True,True,False,False,MENTIONS_DROPPED
+/industries/restaurant-pos/,restaurant pos software,3,0,False,True,True,False,MENTIONS_DROPPED;LOST_FROM_H1
+/industries/restaurant-pos/,restaurant point of sale,2,0,True,False,False,False,MENTIONS_DROPPED;LOST_FROM_TITLE
+/industries/restaurant-pos/,restaurant pos,12,1,True,True,True,False,MENTIONS_DROPPED;LOST_FROM_H1
+/industries/pharmacy-store/,pharmacy point of sale,2,0,True,False,True,False,MENTIONS_DROPPED;LOST_FROM_TITLE;LOST_FROM_H1
+/industries/pharmacy-store/,pharmacy pos,1,1,False,True,False,False,OK
+/industries/bakery-pos-system/,bakery pos system,9,0,True,False,True,False,MENTIONS_DROPPED;LOST_FROM_TITLE;LOST_FROM_H1
+/industries/bakery-pos-system/,pos system for bakery,3,0,True,False,False,False,MENTIONS_DROPPED;LOST_FROM_TITLE
+/industries/bakery-pos-system/,bakery pos,14,1,True,True,True,False,MENTIONS_DROPPED;LOST_FROM_H1
+/industries/salon-pos/,salon pos,17,0,True,True,True,False,MENTIONS_DROPPED;LOST_FROM_H1
+/industries/salon-pos/,spa pos,6,1,True,False,True,False,MENTIONS_DROPPED;LOST_FROM_TITLE;LOST_FROM_H1
+/industries/salon-pos/,salon & spa pos,2,0,True,False,False,False,MENTIONS_DROPPED;LOST_FROM_TITLE
+/industries/clothing-store/,pos system for clothing store,0,0,True,False,False,False,LOST_FROM_TITLE
+/industries/clothing-store/,clothing store pos,2,0,False,True,True,False,MENTIONS_DROPPED;LOST_FROM_H1
+/industries/cafe/,cafe pos system,6,4,True,True,True,True,OK
+/industries/cafe/,cafe point of sale,6,2,True,False,False,False,MENTIONS_DROPPED;LOST_FROM_TITLE
+/industries/cafe/,cafe pos,14,8,True,True,True,True,MENTIONS_DROPPED
+/industries/jewellery-shop/,jewelry pos system,8,5,True,True,True,True,OK
+/industries/jewellery-shop/,pos system for jewelry store,5,1,True,False,False,False,MENTIONS_DROPPED;LOST_FROM_TITLE
+/industries/jewellery-shop/,jewelry pos,11,8,True,True,True,True,OK
+/industries/electric-store/,pos system for electric store,0,0,True,False,False,False,LOST_FROM_TITLE
+/industries/electric-store/,electric store pos,5,3,False,True,True,True,OK
+/industries/furniture-store/,pos system for furniture store,2,2,True,True,True,True,OK
+/industries/furniture-store/,furniture store,9,9,True,True,True,True,OK
+/industries/toys-store/,toy store pos system,5,4,True,True,True,True,OK
+/industries/toys-store/,pos for toy store,0,0,True,False,False,False,LOST_FROM_TITLE
+/industries/toys-store/,toy store pos,12,7,True,True,True,True,MENTIONS_DROPPED
+/industries/manufacturing-industries/,pos system for manufacturer,0,0,True,False,False,False,LOST_FROM_TITLE
+/industries/manufacturing-industries/,manufacturing industry pos,1,2,False,True,True,True,OK
+/industries/manufacturing-industries/,manufacturing,14,16,False,True,True,True,OK
+/blogs/,pos blog,0,0,True,False,False,False,LOST_FROM_TITLE
+/blogs/,insights,0,1,True,True,False,True,OK
+/pos-case-studies/,pos case studies,1,0,True,False,True,False,MENTIONS_DROPPED;LOST_FROM_TITLE;LOST_FROM_H1
+/pos-case-studies/,case study,0,5,False,False,False,False,OK

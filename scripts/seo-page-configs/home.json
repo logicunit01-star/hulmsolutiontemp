@@ -1,0 +1,42 @@
+{
+  "path": "/",
+  "h1": "Best POS Software in Pakistan to run sales, stock and every branch",
+  "minWords": 750,
+  "maxWords": 1600,
+  "requiredH2": [],
+  "keywords": {
+    "best pos software in pakistan": 3,
+    "pos software": 5,
+    "pos system": 4,
+    "point of sale": 2,
+    "pakistan": 8,
+    "fbr": 8,
+    "fbr-compliant": 2,
+    "inventory": 5,
+    "cloud-based pos": 2,
+    "branch": 6,
+    "mobile pos": 2,
+    "small business": 2,
+    "pkr 2,500": 3,
+    "free trial": 3,
+    "retail": 3,
+    "restaurant": 3,
+    "pharmac": 2,
+    "bakeri": 1,
+    "salon": 1,
+    "clothing": 1
+  },
+  "maxKeyword": { "best pos software in pakistan": 5, "pos software": 12, "pos system": 12, "fbr": 20, "pakistan": 20 },
+  "requiredLinks": [
+    "/features/", "/inventory-management/", "/purchase-orders/", "/reporting-module/", "/mobile-pos/",
+    "/customer-management/", "/order-management/", "/vendors-management/", "/logistics-management-software/",
+    "/cattle-management-software/", "/website/", "/fbr-integrated-pos-pakistan/", "/industries/",
+    "/industries/retail-store/", "/industries/restaurant-pos/", "/industries/pharmacy-store/",
+    "/industries/bakery-pos-system/", "/industries/salon-pos/", "/industries/clothing-store/",
+    "/industries/cafe/", "/industries/jewellery-shop/", "/industries/electric-store/",
+    "/industries/furniture-store/", "/industries/toys-store/", "/industries/manufacturing-industries/",
+    "/pricing/", "/pos-case-studies/", "/blog/what-is-pos/",
+    "/blog/best-point-of-sale-system-for-small-business-in-pakistan/"
+  ],
+  "schemaTypes": ["Organization", "WebSite", "WebPage", "BreadcrumbList", "SoftwareApplication", "FAQPage"]
+}

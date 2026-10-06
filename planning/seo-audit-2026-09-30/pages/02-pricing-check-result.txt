@@ -1,0 +1,85 @@
+PASS  status 200  (200)
+PASS  title = live  (Hulm POS Software Price in Pakistan | Hulm Solutions)
+PASS  meta description = live
+PASS  canonical self  (https://hulmsolutions.com/pricing/)
+PASS  og:image absolute
+PASS  single <main>  (found 1)
+PASS  one H1 = "Simple Pricing for Every Business"  (Simple Pricing for Every Business)
+PASS  words 1200–2000  (1327)
+PASS  H2: Hulm POS Plans
+PASS  H2: Quick Feature Comparison
+PASS  H2: Add-ons & Onboarding Charges
+PASS  H2: Why Choose Hulm Solutions?
+PASS  H2: Frequently Asked Questions
+PASS  H2: Customer Success Stories
+PASS  H2: Start Running Your Business Smarter Today
+PASS  "pos software price in pakistan" ≥ 1  (1)
+PASS  "pricing" ≥ 4  (10)
+PASS  "pkr" ≥ 9  (17)
+PASS  "pakistan" ≥ 4  (9)
+PASS  "fbr" ≥ 11  (13)
+PASS  "tier-1" ≥ 2  (4)
+PASS  "fbr integration" ≥ 6  (9)
+PASS  "pos billing" ≥ 3  (3)
+PASS  "pos software" ≥ 3  (8)
+PASS  "inventory" ≥ 11  (11)
+PASS  "crm" ≥ 3  (3)
+PASS  "vendor" ≥ 3  (3)
+PASS  "order management" ≥ 3  (4)
+PASS  "reporting" ≥ 5  (5)
+PASS  "analytics" ≥ 3  (3)
+PASS  "whatsapp" ≥ 2  (2)
+PASS  "free trial" ≥ 5  (11)
+PASS  "credit card" ≥ 1  (3)
+PASS  "setup" ≥ 3  (6)
+PASS  "hardware" ≥ 1  (1)
+PASS  "cloud" ≥ 1  (2)
+PASS  "android" ≥ 1  (1)
+PASS  "branch" ≥ 12  (17)
+PASS  "users" ≥ 6  (9)
+PASS  "hulm solutions" ≥ 4  (4)
+PASS  "hulm pos" ≥ 3  (9)
+PASS  "logistics" ≥ 3  (6)
+PASS  "accounting" ≥ 2  (2)
+PASS  "automation" ≥ 3  (4)
+PASS  "api" ≥ 4  (4)
+PASS  "sla" ≥ 1  (1)
+PASS  "migration" ≥ 1  (2)
+PASS  "training" ≥ 1  (2)
+PASS  "restaurant" ≥ 3  (4)
+PASS  "retail" ≥ 5  (6)
+PASS  "support" ≥ 8  (8)
+PASS  "starter" ≥ 3  (4)
+PASS  "growth" ≥ 3  (4)
+PASS  "enterprise" ≥ 3  (4)
+PASS  "pos software price in pakistan" ≤ 3 (no stuffing)  (1)
+PASS  "pricing" ≤ 16 (no stuffing)  (10)
+PASS  link /
+PASS  link /features/
+PASS  link /fbr-integrated-pos-pakistan/
+PASS  link /contact/
+PASS  link /pos-case-studies/
+PASS  link /blog/best-free-pos-software-and-system/
+PASS  link /inventory-management/
+PASS  link /customer-management/
+PASS  link /purchase-orders/
+PASS  link /order-management/
+PASS  link /reporting-module/
+PASS  link /logistics-management-software/
+PASS  link /integration/
+PASS  link /industries/retail-store/
+PASS  link /industries/restaurant-pos/
+PASS  link /industries/pharmacy-store/
+PASS  link /cattle-management-software/
+PASS  internal hrefs end with /
+PASS  schema Organization
+PASS  schema WebSite
+PASS  schema WebPage
+PASS  schema BreadcrumbList
+PASS  schema SoftwareApplication
+PASS  schema Offer
+PASS  schema FAQPage
+PASS  FAQ schema = visible FAQs  (schema 8 / visible 8)
+PASS  every <img> has alt
+
+/pricing/: 83/83 checks passed. Words: 1327.

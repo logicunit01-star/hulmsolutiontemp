@@ -1,0 +1,11 @@
+{
+  "path": "/fbr-integrated-pos-pakistan/",
+  "h1": "Best FBR Integrated POS Software in Pakistan",
+  "minWords": 650,
+  "maxWords": 1300,
+  "requiredH2": ["FBR POS integration in Pakistan: what the setup supports", "How FBR POS invoicing works in four steps", "Who should integrate FBR POS", "FBR POS integration FAQs"],
+  "keywords": { "fbr integrated pos": 2, "fbr": 12, "pos system": 1, "invoice": 5, "qr code": 3, "pakistan": 3, "tier-1": 2, "retail": 2 },
+  "maxKeyword": { "fbr": 40, "fbr integrated pos": 5 },
+  "requiredLinks": ["/pricing/", "/features/", "/inventory-management/", "/reporting-module/", "/industries/retail-store/", "/industries/restaurant-pos/", "/industries/pharmacy-store/", "/website/", "/blog/what-is-pos/"],
+  "schemaTypes": ["Organization", "WebSite", "WebPage", "BreadcrumbList", "Service", "FAQPage"]
+}

@@ -1,0 +1,47 @@
+{
+  "path": "/pricing/",
+  "h1": "POS software price in Pakistan: simple pricing plans for every business",
+  "minWords": 600,
+  "maxWords": 1400,
+  "requiredH2": [
+    "Compare POS system plans as the operation grows",
+    "POS add-ons and services priced separately",
+    "POS pricing questions"
+  ],
+  "keywords": {
+    "pos software price in pakistan": 2,
+    "pos system": 2,
+    "pricing": 3,
+    "pkr 2,500": 2,
+    "billing": 2,
+    "inventory": 3,
+    "free trial": 2,
+    "fbr integration": 2,
+    "branch": 5
+  },
+  "maxKeyword": {
+    "pos software price in pakistan": 4,
+    "pos system": 8
+  },
+  "requiredLinks": [
+    "/features/",
+    "/inventory-management/",
+    "/customer-management/",
+    "/purchase-orders/",
+    "/order-management/",
+    "/reporting-module/",
+    "/fbr-integrated-pos-pakistan/",
+    "/mobile-pos/",
+    "/integration/",
+    "/book-a-demo/"
+  ],
+  "schemaTypes": [
+    "Organization",
+    "WebSite",
+    "WebPage",
+    "BreadcrumbList",
+    "SoftwareApplication",
+    "Offer",
+    "FAQPage"
+  ]
+}

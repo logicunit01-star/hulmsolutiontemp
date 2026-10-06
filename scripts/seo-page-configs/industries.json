@@ -1,0 +1,61 @@
+{
+  "path": "/industries/",
+  "h1": "POS software for all industries, shaped around the way you sell",
+  "minWords": 600,
+  "maxWords": 1500,
+  "requiredH2": [
+    "Industries we serve with Hulm POS",
+    "More POS systems for specialised industries",
+    "POS industries FAQs"
+  ],
+  "keywords": {
+    "pos software": 2,
+    "pos system": 2,
+    "industries": 3,
+    "industry": 4,
+    "retail": 3,
+    "restaurant": 3,
+    "pharmac": 2,
+    "bakery": 2,
+    "salon": 2,
+    "cafe": 2,
+    "clothing": 1,
+    "jewellery": 1,
+    "electric": 1,
+    "furniture": 1,
+    "toy": 1,
+    "manufactur": 1,
+    "inventory": 3,
+    "fbr": 2
+  },
+  "maxKeyword": {
+    "pos system": 24,
+    "pos software": 6
+  },
+  "requiredLinks": [
+    "/industries/retail-store/",
+    "/industries/restaurant-pos/",
+    "/industries/pharmacy-store/",
+    "/industries/bakery-pos-system/",
+    "/industries/salon-pos/",
+    "/industries/clothing-store/",
+    "/industries/cafe/",
+    "/industries/furniture-store/",
+    "/industries/toys-store/",
+    "/industries/jewellery-shop/",
+    "/industries/electric-store/",
+    "/industries/manufacturing-industries/",
+    "/fbr-integrated-pos-pakistan/",
+    "/pricing/",
+    "/contact/",
+    "/blog/what-is-pos/"
+  ],
+  "schemaTypes": [
+    "Organization",
+    "WebSite",
+    "CollectionPage",
+    "BreadcrumbList",
+    "ItemList",
+    "FAQPage"
+  ]
+}

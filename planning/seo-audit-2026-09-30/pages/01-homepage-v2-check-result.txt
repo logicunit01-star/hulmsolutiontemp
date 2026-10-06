@@ -1,0 +1,73 @@
+PASS  status 200  (200)
+PASS  title = live  (POS | Best POS Software | Point of Sale Systems in Pakistan)
+PASS  meta description = live
+PASS  canonical self  (https://hulmsolutions.com/)
+PASS  og:image absolute
+PASS  single <main>  (found 1)
+PASS  one H1 = "Best POS Software in Pakistan to run sales, stock and every branch"  (Best POS Software in Pakistan to run sales, stock and every branch)
+PASS  words 750–1600  (856)
+PASS  "best pos software in pakistan" ≥ 3  (3)
+PASS  "pos software" ≥ 5  (8)
+PASS  "pos system" ≥ 4  (5)
+PASS  "point of sale" ≥ 2  (2)
+PASS  "pakistan" ≥ 8  (11)
+PASS  "fbr" ≥ 8  (15)
+PASS  "fbr-compliant" ≥ 2  (2)
+PASS  "inventory" ≥ 5  (11)
+PASS  "cloud-based pos" ≥ 2  (2)
+PASS  "branch" ≥ 6  (13)
+PASS  "mobile pos" ≥ 2  (2)
+PASS  "small business" ≥ 2  (2)
+PASS  "pkr 2,500" ≥ 3  (5)
+PASS  "free trial" ≥ 3  (7)
+PASS  "retail" ≥ 3  (5)
+PASS  "restaurant" ≥ 3  (5)
+PASS  "pharmac" ≥ 2  (2)
+PASS  "bakeri" ≥ 1  (2)
+PASS  "salon" ≥ 1  (2)
+PASS  "clothing" ≥ 1  (2)
+PASS  "best pos software in pakistan" ≤ 5 (no stuffing)  (3)
+PASS  "pos software" ≤ 12 (no stuffing)  (8)
+PASS  "pos system" ≤ 12 (no stuffing)  (5)
+PASS  "fbr" ≤ 20 (no stuffing)  (15)
+PASS  "pakistan" ≤ 20 (no stuffing)  (11)
+PASS  link /features/
+PASS  link /inventory-management/
+PASS  link /purchase-orders/
+PASS  link /reporting-module/
+PASS  link /mobile-pos/
+PASS  link /customer-management/
+PASS  link /order-management/
+PASS  link /vendors-management/
+PASS  link /logistics-management-software/
+PASS  link /cattle-management-software/
+PASS  link /website/
+PASS  link /fbr-integrated-pos-pakistan/
+PASS  link /industries/
+PASS  link /industries/retail-store/
+PASS  link /industries/restaurant-pos/
+PASS  link /industries/pharmacy-store/
+PASS  link /industries/bakery-pos-system/
+PASS  link /industries/salon-pos/
+PASS  link /industries/clothing-store/
+PASS  link /industries/cafe/
+PASS  link /industries/jewellery-shop/
+PASS  link /industries/electric-store/
+PASS  link /industries/furniture-store/
+PASS  link /industries/toys-store/
+PASS  link /industries/manufacturing-industries/
+PASS  link /pricing/
+PASS  link /pos-case-studies/
+PASS  link /blog/what-is-pos/
+PASS  link /blog/best-point-of-sale-system-for-small-business-in-pakistan/
+PASS  internal hrefs end with /
+PASS  schema Organization
+PASS  schema WebSite
+PASS  schema WebPage
+PASS  schema BreadcrumbList
+PASS  schema SoftwareApplication
+PASS  schema FAQPage
+PASS  FAQ schema = visible FAQs  (schema 8 / visible 8)
+PASS  every <img> has alt
+
+/: 71/71 checks passed. Words: 856.

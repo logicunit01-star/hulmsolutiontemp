@@ -1,0 +1,51 @@
+source_url,target_url,anchor_text,placement,reason
+SITEWIDE header,/mobile-pos/,Mobile POS,Product menu,Restore sitewide link (was in live Apps menu)
+SITEWIDE header,/order-management/,Order Management,Product menu,Orphan in local build
+SITEWIDE header,/vendors-management/,Vendor Management,Product menu,Only 1 inlink locally
+SITEWIDE header,/logistics-management-software/,Logistics Management,Product menu,Orphan in local build
+SITEWIDE header,/cattle-management-software/,Cattle Management,Product menu,Orphan in local build; unique ranking asset
+SITEWIDE header,/website/,Ecommerce Store,Product menu,Orphan in local build
+SITEWIDE header,/integration/,Integrations,Product menu,Restore live menu link
+SITEWIDE header,/industries/{all 12}/,{Industry} POS,Industries mega menu,Live menu listed all 12 industries
+SITEWIDE footer,/industries/{all 12}/,{Industry} POS System,Industries column,Live footer listed all 12
+SITEWIDE footer,/zatca/,ZATCA Invoicing Integration,Integration column,Orphan in local build
+SITEWIDE footer,/fbr-integrated-pos-pakistan/,FBR Invoicing Integration,Integration column,Keep
+SITEWIDE footer,/pos-software-usa/ /pos-software-ksa/ /pos-software-uae/ /pos-software-qatar/ /,POS Software in {Country},Locations column,Keep country hub links
+SITEWIDE footer,/author/,Our editorial team,Company column,Orphan in local build
+/,/blog/what-is-pos/,what is a POS system,FAQ or education strip,Pass authority to top informational post
+/,/blog/best-point-of-sale-system-for-small-business-in-pakistan/,POS system for small business in Pakistan,Below comparison table,Supports head term 'pos system for small business'
+/,/mobile-pos/,mobile POS,Modules grid,Restore module link
+/,/industries/{cafe|toys-store|jewellery-shop|electric-store|furniture-store|manufacturing-industries}/,{Industry} POS,Industries grid,6 industry links lost from homepage body
+/features/,/blog/what-is-pos/,point of sale system,Intro paragraph,Topic support
+/features/,/blog/how-does-pos-machine-work/,how a POS machine works,Hardware section,Topic support
+/pricing/,/blog/best-free-pos-software-and-system/,free POS software,Free trial / FAQ,Matches 'free pos' intent
+/pricing/,/fbr-integrated-pos-pakistan/,FBR integrated POS,Plan comparison,Commercial support
+/fbr-integrated-pos-pakistan/,/blog/best-point-of-sale-system-for-small-business-in-pakistan/,choosing a POS for a small business in Pakistan,Body,Cluster link
+/fbr-integrated-pos-pakistan/,/pricing/,FBR POS pricing,CTA,Conversion path
+/industries/retail-store/,/blog/best-pos-system-for-retail/,best POS system for retail,Body,Cluster link
+/industries/retail-store/,/blog/cloud-pos-software-for-retail-stores/,cloud POS for retail stores,Body,Cluster link
+/industries/retail-store/,/inventory-management/,retail inventory management,Features,Restore lost link
+/industries/retail-store/,/customer-management/,customer management,Features,Restore lost link
+/industries/restaurant-pos/,/inventory-management/,restaurant inventory management,Features,Restore lost link
+/industries/restaurant-pos/,/logistics-management-software/,delivery and logistics,Features,Restore lost link
+/industries/restaurant-pos/,/pricing/,restaurant POS pricing,CTA,Restore lost link
+/industries/pharmacy-store/,/logistics-management-software/,logistics management,Features,Restore lost link
+/industries/toys-store/,/inventory-management/,inventory management,Features,Restore lost link
+/industries/cafe/,/blog/what-is-pos-experience-12-tips-to-satisfy-your-customers/,improve the POS experience,Body,Cluster link
+/reporting-module/,/blog/pos-reconciliation/,POS reconciliation,Body,Cluster link
+/customer-management/,/blog/what-is-pos-experience-12-tips-to-satisfy-your-customers/,POS customer experience,Body,Cluster link
+/mobile-pos/,/blog/how-does-pos-machine-work/,how POS machines work,Body,Cluster link
+/pos-case-studies/{each}/,/industries/{matching}/ + /pricing/ + /fbr-integrated-pos-pakistan/ + /reporting-module/,as in live case study,Body + sidebar,Restore 3-5 lost links per case study
+/blog/what-is-pos/,/blog/how-does-pos-machine-work/ /blog/what-is-point-of-sale-transaction/ /blog/cloud-pos-software-for-retail-stores/ /features/ /industries/retail-store/,as in live article,Body,Restore 15 lost links (pillar post)
+/blog/what-is-point-of-sale-transaction/,/blog/what-is-a-pos-purchase/ /blog/what-is-pos-debit-meaning/ /blog/pos-reconciliation/,POS purchase / POS debit / POS reconciliation,Body + related,Transactions cluster
+/blog/what-is-a-pos-purchase/,/blog/what-is-point-of-sale-transaction/ /blog/what-is-pos-debit-meaning/,POS transaction / POS debit,Body + related,Transactions cluster
+/blog/what-is-pos-debit-meaning/,/blog/what-is-point-of-sale-transaction/ /blog/what-is-a-pos-purchase/ /blog/pos-reconciliation/,,Related,Transactions cluster
+/blog/pos-reconciliation/,/reporting-module/ /blog/what-is-point-of-sale-transaction/,end-of-day reporting / POS transactions,Body,Cluster + money page
+/blog/best-pos-system-for-retail/,/industries/retail-store/ /industries/clothing-store/ /blog/cloud-pos-software-for-retail-stores/ /pricing/,,Body + related,Retail cluster
+/blog/cloud-pos-software-for-retail-stores/,/industries/retail-store/ /blog/best-pos-system-for-retail/ /mobile-pos/,,Body + related,Retail cluster
+/blog/best-point-of-sale-system-for-small-business-in-pakistan/,/ /pricing/ /fbr-integrated-pos-pakistan/ /blog/best-free-pos-software-and-system/,best POS software in Pakistan / POS pricing / FBR POS,Body,Head-term support to homepage
+/blog/best-free-pos-software-and-system/,/pricing/ /blog/best-point-of-sale-system-for-small-business-in-pakistan/,,Body + related,Buying cluster
+/blog/what-is-pos-skills-understand-pos-skill-meaning/,/blog/what-is-a-pos-person-meaning-and-responsibilities/ /blog/what-is-pos-experience-12-tips-to-satisfy-your-customers/,POS person / POS experience,Related,People cluster
+/blog/what-is-a-pos-person-meaning-and-responsibilities/,/blog/what-is-pos-skills-understand-pos-skill-meaning/ /features/,POS skills,Related,People cluster
+/blog/what-is-pos-experience-12-tips-to-satisfy-your-customers/,/customer-management/ /blog/what-is-pos-skills-understand-pos-skill-meaning/,customer management,Body + related,People cluster
+/blog/how-does-pos-machine-work/,/mobile-pos/ /blog/what-is-pos/ /blog/what-is-pos-debit-meaning/,,Body + related,Basics cluster

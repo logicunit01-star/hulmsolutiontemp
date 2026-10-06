@@ -1,0 +1,70 @@
+PASS  status 200  (200)
+PASS  title = live  (POS Software for All (Point of Sale) POS Industries)
+PASS  meta description = live
+PASS  canonical self  (https://hulmsolutions.com/industries/)
+PASS  og:image absolute
+PASS  single <main>  (found 1)
+PASS  one H1 = "HulmPOS Software for All POS Industries"  (HulmPOS Software for All POS Industries)
+PASS  words 1000–2200  (1382)
+PASS  H2: Hulm POS Industries
+PASS  H2: Industries We Serve
+PASS  H2: Innovative Solutions for Every Industry
+PASS  H2: Customer Success Stories
+PASS  H2: Frequently Asked Questions
+PASS  "pos system" ≥ 12  (24)
+PASS  "pos systems" ≥ 12  (12)
+PASS  "pos software" ≥ 2  (4)
+PASS  "industries" ≥ 6  (6)
+PASS  "industry" ≥ 6  (12)
+PASS  "pos for" ≥ 12  (22)
+PASS  "retail" ≥ 8  (13)
+PASS  "restaurant" ≥ 5  (9)
+PASS  "pharmac" ≥ 3  (6)
+PASS  "bakery" ≥ 3  (8)
+PASS  "bakeries" ≥ 1  (2)
+PASS  "salon" ≥ 4  (6)
+PASS  "cafe" ≥ 4  (5)
+PASS  "clothing" ≥ 2  (2)
+PASS  "fashion" ≥ 2  (2)
+PASS  "jewellery" ≥ 2  (3)
+PASS  "electric" ≥ 2  (3)
+PASS  "furniture" ≥ 2  (3)
+PASS  "toy" ≥ 2  (3)
+PASS  "manufacturing" ≥ 2  (3)
+PASS  "inventory" ≥ 10  (19)
+PASS  "customer" ≥ 12  (24)
+PASS  "streamline" ≥ 5  (8)
+PASS  "hulm solutions" ≥ 2  (4)
+PASS  "fbr" ≥ 3  (10)
+PASS  "pos system" ≤ 40 (no stuffing)  (24)
+PASS  link /industries/retail-store/
+PASS  link /industries/restaurant-pos/
+PASS  link /industries/pharmacy-store/
+PASS  link /industries/bakery-pos-system/
+PASS  link /industries/salon-pos/
+PASS  link /industries/clothing-store/
+PASS  link /industries/cafe/
+PASS  link /industries/furniture-store/
+PASS  link /industries/toys-store/
+PASS  link /industries/jewellery-shop/
+PASS  link /industries/electric-store/
+PASS  link /industries/manufacturing-industries/
+PASS  link /features/
+PASS  link /inventory-management/
+PASS  link /reporting-module/
+PASS  link /fbr-integrated-pos-pakistan/
+PASS  link /pricing/
+PASS  link /integration/
+PASS  link /pos-case-studies/
+PASS  link /blog/what-is-pos/
+PASS  internal hrefs end with /
+PASS  schema Organization
+PASS  schema WebSite
+PASS  schema CollectionPage
+PASS  schema BreadcrumbList
+PASS  schema ItemList
+PASS  schema FAQPage
+PASS  FAQ schema = visible FAQs  (schema 9 / visible 9)
+PASS  every <img> has alt
+
+/industries/: 68/68 checks passed. Words: 1382.

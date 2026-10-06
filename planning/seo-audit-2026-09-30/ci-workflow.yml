@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-seo-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+      BASE_URL: http://localhost:3100
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: npm run build
+      - name: Start the production server
+        run: |
+          npx next start -p 3100 &
+          for i in $(seq 1 30); do curl -sf -o /dev/null http://localhost:3100/ && break; sleep 2; done
+      # Every live WordPress URL keeps its title, description, canonical, H1 and schema.
+      - run: node scripts/seo-site-scan.mjs --strict
+      # No broken internal links or generic anchors.
+      - run: node scripts/link-audit.mjs --strict
+      # Keyword and structure checks for the core pages.
+      - run: |
+          for page in home pricing fbr features industries; do
+            node scripts/seo-page-check.mjs "$page"
+          done

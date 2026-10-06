@@ -1,0 +1,11 @@
+{
+  "path": "/features/",
+  "h1": "Complete POS System Features for Modern Businesses",
+  "minWords": 550,
+  "maxWords": 1200,
+  "requiredH2": ["POS & billing features for daily sales", "POS features tailored to your business", "POS features FAQs"],
+  "keywords": { "pos system": 2, "pos software": 1, "features": 5, "retail": 3, "restaurant": 3, "inventory": 3, "billing": 3, "staff": 2, "integration": 2 },
+  "maxKeyword": { "pos system": 8, "features": 16 },
+  "requiredLinks": ["/industries/retail-store/", "/industries/restaurant-pos/", "/industries/salon-pos/", "/inventory-management/", "/purchase-orders/", "/order-management/", "/reporting-module/", "/mobile-pos/", "/integration/", "/pricing/", "/fbr-integrated-pos-pakistan/", "/blog/what-is-pos/"],
+  "schemaTypes": ["Organization", "WebSite", "WebPage", "BreadcrumbList", "SoftwareApplication", "FAQPage"]
+}

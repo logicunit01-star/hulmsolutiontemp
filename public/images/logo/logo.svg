@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+  <g transform="translate(10, 10)">
+    <!-- Abstract geometric shapes reflecting the attached logo description -->
+    <path d="M 20 100 L 20 20 L 60 50 Z" fill="#7AE582" />
+    <path d="M 60 50 L 20 20 L 60 -10 Z" fill="#25A18E" />
+    <path d="M 60 50 L 60 -10 L 100 20 Z" fill="#7AE582" />
+    <path d="M 100 20 L 60 -10 L 100 -40 Z" fill="#25A18E" />
+    <!-- Text -->
+    <text x="140" y="70" font-family="Inter, sans-serif" font-weight="700" font-size="64" fill="#25A18E">Hulm</text>
+    <text x="145" y="95" font-family="Inter, sans-serif" font-weight="600" font-size="16" fill="#1F2933">Making Every Sale Seamless</text>
+  </g>
+</svg>

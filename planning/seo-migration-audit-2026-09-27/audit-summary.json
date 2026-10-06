@@ -1,0 +1,431 @@
+{
+  "generated_at": "2026-09-26T23:17:28.963Z",
+  "production": "https://hulmsolutions.com",
+  "staging": "https://stalwart-toffee-39860f.netlify.app",
+  "production_sitemap_pages": 58,
+  "staging_sitemap_pages": 59,
+  "staging_final_200": 58,
+  "exact_routes_retained": 57,
+  "redirects_to_different_route": [
+    {
+      "route": "/author",
+      "final": "/author/hulm-solutions-editorial-team"
+    }
+  ],
+  "canonical_matches_final_route": 58,
+  "exact_titles": 0,
+  "exact_h1s": 37,
+  "exact_descriptions": 14,
+  "pages_below_80_title_term_coverage": [
+    "/",
+    "/about",
+    "/author",
+    "/blog/how-does-pos-machine-work",
+    "/blog/what-is-pos-experience-12-tips-to-satisfy-your-customers",
+    "/blog/what-is-pos-skills-understand-pos-skill-meaning",
+    "/blogs",
+    "/contact",
+    "/features",
+    "/industries",
+    "/industries/bakery-pos-system",
+    "/industries/cafe",
+    "/industries/clothing-store",
+    "/industries/manufacturing-industries",
+    "/industries/pharmacy-store",
+    "/industries/restaurant-pos",
+    "/industries/retail-store",
+    "/industries/salon-pos",
+    "/integration",
+    "/pos-case-studies",
+    "/pricing"
+  ],
+  "pages_below_70_heading_term_coverage": [
+    "/",
+    "/about",
+    "/author",
+    "/blog/best-free-pos-software-and-system",
+    "/blog/best-pos-system-for-retail",
+    "/blog/how-does-pos-machine-work",
+    "/blog/what-is-a-pos-person-meaning-and-responsibilities",
+    "/blog/what-is-a-pos-purchase",
+    "/blog/what-is-pos",
+    "/blogs",
+    "/cattle-management-software",
+    "/contact",
+    "/customer-management",
+    "/fbr-integrated-pos-pakistan",
+    "/features",
+    "/industries",
+    "/industries/bakery-pos-system",
+    "/industries/cafe",
+    "/industries/clothing-store",
+    "/industries/electric-store",
+    "/industries/furniture-store",
+    "/industries/jewellery-shop",
+    "/industries/manufacturing-industries",
+    "/industries/pharmacy-store",
+    "/industries/restaurant-pos",
+    "/industries/retail-store",
+    "/industries/salon-pos",
+    "/industries/toys-store",
+    "/integration",
+    "/inventory-management",
+    "/logistics-management-software",
+    "/mobile-pos",
+    "/order-management",
+    "/pos-case-studies",
+    "/pos-case-studies/cupcake-queen-bakery-pos-qatar",
+    "/pos-case-studies/farhan-caterers-pos-karachi",
+    "/pos-case-studies/implementing-a-pos-system-for-retail-the-laptop-store",
+    "/pos-case-studies/implementing-pos-systems-for-medical-euquipment-industry",
+    "/pos-case-studies/real-tech-pos-system-karachi",
+    "/pos-software-ksa",
+    "/pos-software-qatar",
+    "/pos-software-uae",
+    "/pos-software-usa",
+    "/pricing",
+    "/privacy-policy",
+    "/purchase-orders",
+    "/reporting-module",
+    "/terms-and-conditions",
+    "/vendors-management",
+    "/website",
+    "/zatca"
+  ],
+  "pages_below_70_body_vocabulary_retention": [
+    "/",
+    "/author",
+    "/blog/best-pos-system-for-retail",
+    "/blog/what-is-pos",
+    "/blogs",
+    "/contact",
+    "/customer-management",
+    "/fbr-integrated-pos-pakistan",
+    "/features",
+    "/industries",
+    "/industries/bakery-pos-system",
+    "/industries/cafe",
+    "/industries/clothing-store",
+    "/industries/electric-store",
+    "/industries/furniture-store",
+    "/industries/jewellery-shop",
+    "/industries/manufacturing-industries",
+    "/industries/pharmacy-store",
+    "/industries/restaurant-pos",
+    "/industries/retail-store",
+    "/industries/salon-pos",
+    "/industries/toys-store",
+    "/integration",
+    "/inventory-management",
+    "/logistics-management-software",
+    "/mobile-pos",
+    "/order-management",
+    "/pos-case-studies",
+    "/pos-case-studies/cupcake-queen-bakery-pos-qatar",
+    "/pos-case-studies/farhan-caterers-pos-karachi",
+    "/pos-case-studies/implementing-a-pos-system-for-retail-the-laptop-store",
+    "/pos-case-studies/implementing-pos-systems-for-medical-euquipment-industry",
+    "/pos-case-studies/real-tech-pos-system-karachi",
+    "/pos-software-ksa",
+    "/pos-software-qatar",
+    "/pos-software-uae",
+    "/pos-software-usa",
+    "/pricing",
+    "/purchase-orders",
+    "/reporting-module",
+    "/terms-and-conditions",
+    "/vendors-management",
+    "/website",
+    "/zatca"
+  ],
+  "pages_with_fewer_words": [
+    {
+      "route": "/",
+      "production": 2726,
+      "staging": 614
+    },
+    {
+      "route": "/blog/best-free-pos-software-and-system",
+      "production": 1281,
+      "staging": 937
+    },
+    {
+      "route": "/blog/best-point-of-sale-system-for-small-business-in-pakistan",
+      "production": 3783,
+      "staging": 3526
+    },
+    {
+      "route": "/blog/best-pos-system-for-retail",
+      "production": 2360,
+      "staging": 1553
+    },
+    {
+      "route": "/blog/cloud-pos-software-for-retail-stores",
+      "production": 1358,
+      "staging": 1013
+    },
+    {
+      "route": "/blog/how-does-pos-machine-work",
+      "production": 1527,
+      "staging": 1204
+    },
+    {
+      "route": "/blog/pos-reconciliation",
+      "production": 1665,
+      "staging": 1310
+    },
+    {
+      "route": "/blog/what-is-a-pos-person-meaning-and-responsibilities",
+      "production": 2052,
+      "staging": 1725
+    },
+    {
+      "route": "/blog/what-is-a-pos-purchase",
+      "production": 3693,
+      "staging": 3359
+    },
+    {
+      "route": "/blog/what-is-point-of-sale-transaction",
+      "production": 2096,
+      "staging": 1774
+    },
+    {
+      "route": "/blog/what-is-pos-debit-meaning",
+      "production": 2388,
+      "staging": 2107
+    },
+    {
+      "route": "/blog/what-is-pos-experience-12-tips-to-satisfy-your-customers",
+      "production": 2095,
+      "staging": 1762
+    },
+    {
+      "route": "/blog/what-is-pos-skills-understand-pos-skill-meaning",
+      "production": 2010,
+      "staging": 1684
+    },
+    {
+      "route": "/blog/what-is-pos",
+      "production": 2709,
+      "staging": 1614
+    },
+    {
+      "route": "/features",
+      "production": 1114,
+      "staging": 600
+    },
+    {
+      "route": "/industries",
+      "production": 1119,
+      "staging": 499
+    },
+    {
+      "route": "/industries/bakery-pos-system",
+      "production": 1148,
+      "staging": 523
+    },
+    {
+      "route": "/industries/cafe",
+      "production": 1303,
+      "staging": 432
+    },
+    {
+      "route": "/industries/clothing-store",
+      "production": 913,
+      "staging": 510
+    },
+    {
+      "route": "/industries/electric-store",
+      "production": 1007,
+      "staging": 352
+    },
+    {
+      "route": "/industries/furniture-store",
+      "production": 915,
+      "staging": 329
+    },
+    {
+      "route": "/industries/jewellery-shop",
+      "production": 1269,
+      "staging": 427
+    },
+    {
+      "route": "/industries/manufacturing-industries",
+      "production": 879,
+      "staging": 362
+    },
+    {
+      "route": "/industries/pharmacy-store",
+      "production": 1006,
+      "staging": 506
+    },
+    {
+      "route": "/industries/restaurant-pos",
+      "production": 1405,
+      "staging": 514
+    },
+    {
+      "route": "/industries/retail-store",
+      "production": 1060,
+      "staging": 554
+    },
+    {
+      "route": "/industries/salon-pos",
+      "production": 1391,
+      "staging": 440
+    },
+    {
+      "route": "/industries/toys-store",
+      "production": 1323,
+      "staging": 463
+    },
+    {
+      "route": "/inventory-management",
+      "production": 1548,
+      "staging": 1103
+    },
+    {
+      "route": "/logistics-management-software",
+      "production": 1088,
+      "staging": 1027
+    },
+    {
+      "route": "/mobile-pos",
+      "production": 1707,
+      "staging": 1163
+    },
+    {
+      "route": "/order-management",
+      "production": 1285,
+      "staging": 1126
+    },
+    {
+      "route": "/pos-software-ksa",
+      "production": 1723,
+      "staging": 1428
+    },
+    {
+      "route": "/pos-software-qatar",
+      "production": 1681,
+      "staging": 1411
+    },
+    {
+      "route": "/pos-software-uae",
+      "production": 1747,
+      "staging": 1448
+    },
+    {
+      "route": "/pos-software-usa",
+      "production": 1594,
+      "staging": 1432
+    },
+    {
+      "route": "/pricing",
+      "production": 1420,
+      "staging": 516
+    },
+    {
+      "route": "/privacy-policy",
+      "production": 486,
+      "staging": 437
+    },
+    {
+      "route": "/purchase-orders",
+      "production": 1291,
+      "staging": 1157
+    },
+    {
+      "route": "/terms-and-conditions",
+      "production": 547,
+      "staging": 449
+    },
+    {
+      "route": "/website",
+      "production": 1521,
+      "staging": 1116
+    }
+  ],
+  "internal_link_routes_checked": 220,
+  "internal_link_final_failures": [],
+  "internal_links_not_direct_to_canonical": [],
+  "canonical_routes_with_no_internal_inlinks": [
+    "/cattle-management-software",
+    "/logistics-management-software",
+    "/zatca"
+  ],
+  "canonical_routes_unreachable_from_home": [
+    "/cattle-management-software",
+    "/logistics-management-software",
+    "/zatca"
+  ],
+  "canonical_routes_deeper_than_three_clicks": [
+    "/cattle-management-software",
+    "/logistics-management-software",
+    "/zatca"
+  ],
+  "click_depth_by_route": {
+    "/": 0,
+    "/about": 1,
+    "/author/hulm-solutions-editorial-team": 2,
+    "/blog/best-free-pos-software-and-system": 2,
+    "/blog/best-point-of-sale-system-for-small-business-in-pakistan": 2,
+    "/blog/best-pos-system-for-retail": 2,
+    "/blog/cloud-pos-software-for-retail-stores": 2,
+    "/blog/how-does-pos-machine-work": 2,
+    "/blog/pos-reconciliation": 2,
+    "/blog/what-is-a-pos-person-meaning-and-responsibilities": 2,
+    "/blog/what-is-a-pos-purchase": 2,
+    "/blog/what-is-point-of-sale-transaction": 2,
+    "/blog/what-is-pos-debit-meaning": 2,
+    "/blog/what-is-pos-experience-12-tips-to-satisfy-your-customers": 2,
+    "/blog/what-is-pos-skills-understand-pos-skill-meaning": 2,
+    "/blog/what-is-pos": 2,
+    "/blogs": 1,
+    "/cattle-management-software": null,
+    "/contact": 1,
+    "/customer-management": 1,
+    "/fbr-integrated-pos-pakistan": 1,
+    "/features": 1,
+    "/industries": 1,
+    "/industries/bakery-pos-system": 1,
+    "/industries/cafe": 2,
+    "/industries/clothing-store": 1,
+    "/industries/electric-store": 2,
+    "/industries/furniture-store": 2,
+    "/industries/jewellery-shop": 2,
+    "/industries/manufacturing-industries": 2,
+    "/industries/pharmacy-store": 1,
+    "/industries/restaurant-pos": 1,
+    "/industries/retail-store": 1,
+    "/industries/salon-pos": 1,
+    "/industries/toys-store": 2,
+    "/integration": 1,
+    "/inventory-management": 1,
+    "/logistics-management-software": null,
+    "/mobile-pos": 2,
+    "/order-management": 2,
+    "/pos-case-studies": 1,
+    "/pos-case-studies/cupcake-queen-bakery-pos-qatar": 2,
+    "/pos-case-studies/farhan-caterers-pos-karachi": 2,
+    "/pos-case-studies/implementing-a-pos-system-for-retail-the-laptop-store": 2,
+    "/pos-case-studies/implementing-pos-systems-for-medical-euquipment-industry": 2,
+    "/pos-case-studies/real-tech-pos-system-karachi": 2,
+    "/pos-software-ksa": 1,
+    "/pos-software-qatar": 1,
+    "/pos-software-uae": 1,
+    "/pos-software-usa": 1,
+    "/pricing": 1,
+    "/privacy-policy": 1,
+    "/purchase-orders": 1,
+    "/reporting-module": 1,
+    "/terms-and-conditions": 1,
+    "/vendors-management": 3,
+    "/website": 2,
+    "/zatca": null
+  },
+  "risk_counts": {
+    "HIGH": 26,
+    "MEDIUM": 32,
+    "LOW": 0
+  }
+}

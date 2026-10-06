@@ -1,0 +1,109 @@
+PASS  title = live  (POS | Best POS Software | Point of Sale Systems in Pakistan)
+PASS  meta description = live
+PASS  canonical  (https://hulmsolutions.com/)
+PASS  og:image present
+PASS  single <main>  (found 1)
+PASS  exactly one H1 = 'Best POS Software in Pakistan'  (Best POS Software in Pakistan)
+PASS  word count 2,000–2,600  (2388 words)
+PASS  H2: start with pos, grow into a complete business suite
+PASS  H2: still managing your business on excel, whatsapp and paper?
+PASS  H2: one login. everything your business runs on.
+PASS  H2: powerful pos dashboard with easy to use interface
+PASS  H2: benefits of hulm pos system
+PASS  H2: fbr-integrated pos software for pakistan
+PASS  H2: why pakistani businesses choose hulm over every other option
+PASS  H2: why choose hulm pos system?
+PASS  H2: industries we serve
+PASS  H2: live on hulm in under 5 minutes
+PASS  H2: pakistani businesses run on hulm. here is what they say
+PASS  H2: trusted solutions by businesses across the world
+PASS  H2: frequently asked questions
+PASS  H2: your competitors already have a system. you can too for free.
+PASS  keyword "best pos software in pakistan" ≥ 4  (4)
+PASS  keyword "pos software" ≥ 8  (11)
+PASS  keyword "point of sale" ≥ 2  (3)
+PASS  keyword "pos system" ≥ 5  (7)
+PASS  keyword "pakistan" ≥ 30  (37)
+PASS  keyword "pakistani" ≥ 15  (17)
+PASS  keyword "fbr" ≥ 20  (27)
+PASS  keyword "fbr-compliant" ≥ 6  (8)
+PASS  keyword "compliant invoice" ≥ 5  (6)
+PASS  keyword "fbr integrat" ≥ 3  (5)
+PASS  keyword "inventory management" ≥ 3  (4)
+PASS  keyword "real time" ≥ 3  (4)
+PASS  keyword "real-time" ≥ 3  (5)
+PASS  keyword "mobile pos" ≥ 4  (5)
+PASS  keyword "cattle management" ≥ 3  (4)
+PASS  keyword "logistics" ≥ 4  (5)
+PASS  keyword "vendor management" ≥ 2  (3)
+PASS  keyword "customer management" ≥ 2  (2)
+PASS  keyword "order management" ≥ 2  (2)
+PASS  keyword "reporting" ≥ 3  (7)
+PASS  keyword "analytics" ≥ 2  (3)
+PASS  keyword "cloud" ≥ 3  (8)
+PASS  keyword "pkr 2,500" ≥ 3  (6)
+PASS  keyword "free trial" ≥ 5  (11)
+PASS  keyword "no credit card" ≥ 2  (5)
+PASS  keyword "sme" ≥ 2  (3)
+PASS  keyword "small business" ≥ 2  (3)
+PASS  keyword "retail" ≥ 8  (11)
+PASS  keyword "restaurant" ≥ 6  (9)
+PASS  keyword "bakery" ≥ 2  (5)
+PASS  keyword "pharmacy" ≥ 2  (2)
+PASS  keyword "salon" ≥ 2  (4)
+PASS  keyword "cafe" ≥ 2  (2)
+PASS  keyword "clothing" ≥ 2  (2)
+PASS  keyword "jewellery" ≥ 2  (2)
+PASS  keyword "electric" ≥ 2  (2)
+PASS  keyword "furniture" ≥ 2  (2)
+PASS  keyword "toy" ≥ 2  (2)
+PASS  keyword "manufacturing" ≥ 2  (2)
+PASS  keyword "karachi" ≥ 2  (2)
+PASS  keyword "lahore" ≥ 2  (2)
+PASS  keyword "qr code" ≥ 2  (2)
+PASS  keyword "barcode" ≥ 1  (2)
+PASS  keyword "zatca" ≥ 1  (1)
+PASS  keyword "business suite" ≥ 2  (3)
+PASS  keyword "hulm solutions" ≥ 3  (5)
+PASS  "best pos software in pakistan" not stuffed (≤ 8)  (4)
+PASS  link /fbr-integrated-pos-pakistan/
+PASS  link /features/
+PASS  link /pricing/
+PASS  link /industries/
+PASS  link /zatca/
+PASS  link /pos-case-studies/
+PASS  link /inventory-management/
+PASS  link /purchase-orders/
+PASS  link /vendors-management/
+PASS  link /customer-management/
+PASS  link /order-management/
+PASS  link /reporting-module/
+PASS  link /logistics-management-software/
+PASS  link /mobile-pos/
+PASS  link /cattle-management-software/
+PASS  link /industries/retail-store/
+PASS  link /industries/restaurant-pos/
+PASS  link /industries/pharmacy-store/
+PASS  link /industries/bakery-pos-system/
+PASS  link /industries/salon-pos/
+PASS  link /industries/clothing-store/
+PASS  link /industries/cafe/
+PASS  link /industries/jewellery-shop/
+PASS  link /industries/electric-store/
+PASS  link /industries/furniture-store/
+PASS  link /industries/toys-store/
+PASS  link /industries/manufacturing-industries/
+PASS  link /blog/what-is-pos/
+PASS  link /blog/best-point-of-sale-system-for-small-business-in-pakistan/
+PASS  all internal hrefs end with /
+PASS  schema Organization
+PASS  schema WebSite
+PASS  schema WebPage
+PASS  schema BreadcrumbList
+PASS  schema SoftwareApplication
+PASS  schema FAQPage
+PASS  FAQ schema count = visible FAQ count  (schema 9 / visible 9)
+PASS  FAQ answers in HTML
+PASS  every <img> has an alt attribute  (0 missing)
+
+107/107 checks passed. Words: 2388.

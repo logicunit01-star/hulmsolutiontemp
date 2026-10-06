@@ -19,7 +19,6 @@ const inter = Inter({
 const schibsted = Schibsted_Grotesk({
   variable: "--font-schibsted",
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
   display: "swap",
 });
 

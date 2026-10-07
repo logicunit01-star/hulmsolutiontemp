@@ -44,7 +44,7 @@ export const homeContent = {
   },
   problems: {
     eyebrow: "One source of truth",
-    heading: "Replace Excel, WhatsApp and paper with one POS system",
+    heading: "Replace Excel, WhatsApp and paper with Best POS Software in Pakistan",
     description:
       "Hulm brings the information your team needs into one place, so every sale updates stock, customers and reports across the business.",
     items: [
@@ -64,7 +64,7 @@ export const homeContent = {
   },
   outcomes: {
     eyebrow: "From counter to control room",
-    heading: "All-in-one POS software for sales, inventory and reporting",
+    heading: "All-in-one Best POS software in Pakistan for sales, inventory and reporting",
     description:
       "Start with the POS billing your team uses every day, then add inventory management, purchasing and reporting as your business grows.",
     items: [
@@ -112,7 +112,7 @@ export const homeContent = {
     eyebrow: "FBR integration support",
     heading: "FBR-integrated POS with compliant invoicing at checkout",
     description:
-      "For businesses that need FBR integration, Hulm supports the setup and connects eligible transactions to the invoicing workflow, so every sale can carry an FBR invoice number and QR code. Requirements vary by business, so our team confirms the right setup with you.",
+      "For businesses looking for the Best POS Software In Pakistan with FBR integration, Hulm supports the setup and connects eligible transactions to the invoicing workflow, so every sale can carry an FBR invoice number and QR code. Requirements vary by business, so our team confirms the right setup with you.",
     bullets: [
       "Guidance during FBR setup",
       "Invoice and QR-code workflow support",
@@ -212,7 +212,7 @@ export const homeContent = {
   },
   faq: {
     eyebrow: "What to know before you start",
-    heading: "POS software in Pakistan: frequently asked questions",
+    heading: "Best POS software in Pakistan: frequently asked questions",
     items: [
       {
         q: "What is the best POS software in Pakistan?",

@@ -97,7 +97,7 @@ export function TrustedBy() {
       <Container>
         <h2
           id="trusted-by"
-          className="text-xl sm:text-2xl lg:text-[1.75rem] font-bold tracking-tight text-[#111E1C]"
+          className="text-lg sm:text-xl font-bold tracking-tight text-[#0F2A26]"
         >
           Trusted By
         </h2>

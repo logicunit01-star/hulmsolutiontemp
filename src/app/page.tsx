@@ -11,8 +11,6 @@ import {
   CheckCircle2,
   ClipboardList,
   ExternalLink,
-  PackageCheck,
-  ReceiptText,
   ShieldCheck,
   ShoppingCart,
   Smartphone,
@@ -26,6 +24,7 @@ import { FaqDetails, faqPageSchema } from "@/components/seo/faq-details";
 import { BenefitsSection } from "@/components/home/BenefitsSection";
 import { DashboardCarousel } from "@/components/home/DashboardCarousel";
 import { GoogleReviewsSection } from "@/components/home/GoogleReviewsSection";
+import { ReplaceManualSection } from "@/components/home/ReplaceManualSection";
 import { TrustedBy } from "@/components/home/trusted-by";
 import { WhyChooseSection } from "@/components/home/WhyChooseSection";
 import { Button } from "@/components/ui/button";
@@ -63,7 +62,6 @@ export const metadata: Metadata = {
 };
 
 const outcomeIcons = [ShoppingCart, Boxes, ClipboardList, BarChart3];
-const problemIcons = [ReceiptText, PackageCheck, Building2];
 
 const pageSchema = {
   "@context": "https://schema.org",
@@ -113,11 +111,11 @@ function SectionIntro({
 }) {
   return (
     <div className={centered ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
-      <h2 data-eyebrow={eyebrow} className="text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl lg:text-5xl">
+      <h2 data-eyebrow={eyebrow} className="text-2xl font-bold tracking-tight text-[#0F2A26] text-balance sm:text-3xl lg:text-[34px] lg:leading-[1.22]">
         {heading}
       </h2>
       {description ? (
-        <p className="mt-5 text-base leading-7 text-zinc-600 sm:text-lg">{description}</p>
+        <p className="mt-4 text-base leading-7 text-zinc-600 sm:text-lg">{description}</p>
       ) : null}
     </div>
   );
@@ -134,10 +132,10 @@ export default function HomePage() {
       />
       <section className="relative overflow-hidden border-b border-zinc-200/70 bg-white pt-12 pb-16 sm:pt-16 lg:pt-20 lg:pb-24">
         <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
-        <Container className="relative grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
-          <div className="max-w-2xl">
+        <Container className="relative grid items-center gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-14">
+          <div className="max-w-2xl lg:col-span-6">
             <p className="mb-5 text-sm font-semibold text-[#167c70]">{homeContent.hero.eyebrow}</p>
-            <h1 className="text-[2.5rem] font-bold leading-[1.03] tracking-[-0.035em] text-[#0F2A26] sm:text-[3.4rem] lg:text-[3.6rem]">
+            <h1 className="text-3xl font-bold leading-[1.12] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px]">
               {homeContent.hero.headline.replace(/every branch$/, "")}
               <span className="mark-lime">every branch</span>
             </h1>
@@ -168,43 +166,30 @@ export default function HomePage() {
             </ul>
           </div>
 
-          <div className="relative lg:-mr-24 xl:-mr-40">
-            <Image
-              src="/images/home/dashboard/hulm-solutions-create-sales-order.webp"
-              alt="Hulm POS software create sales order screen"
-              width={1197}
-              height={688}
-              priority
-              sizes="(min-width: 1024px) 60vw, 100vw"
-              className="h-auto w-full rounded-xl border border-zinc-200 shadow-[0_40px_80px_-40px_rgba(21,40,37,0.45)]"
+          <div className="relative w-full max-w-xl mx-auto lg:col-span-6 lg:max-w-none">
+            {/* Soft ambient glow behind dashboard */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#167c70]/15 via-[#7ae582]/10 to-transparent blur-2xl -z-10"
             />
+            <div className="relative overflow-hidden rounded-2xl border border-zinc-200/90 bg-white p-1 sm:p-2 shadow-[0_25px_60px_-15px_rgba(21,40,37,0.22)]">
+              <Image
+                src="/images/home/dashboard/hulm-solutions-create-sales-order.webp"
+                alt="Hulm POS software create sales order screen"
+                width={1197}
+                height={688}
+                priority
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="h-auto w-full rounded-xl object-contain"
+              />
+            </div>
           </div>
         </Container>
       </section>
 
       <TrustedBy />
 
-      <Section data-reveal>
-        <Container>
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-            <SectionIntro {...homeContent.problems} />
-            <div className="grid gap-4 sm:grid-cols-3">
-              {homeContent.problems.items.map((item, index) => {
-                const Icon = problemIcons[index];
-                return (
-                  <article key={item.title} className="lift rounded-2xl border border-zinc-200 bg-white p-5">
-                    <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-[#F7F6F2] text-[#167c70]">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="text-lg font-bold text-[#0F2A26]">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-zinc-600">{item.description}</p>
-                  </article>
-                );
-              })}
-            </div>
-          </div>
-        </Container>
-      </Section>
+      <ReplaceManualSection />
 
       <Section data-reveal className="bg-[#F7F6F2]">
         <Container>
@@ -258,7 +243,7 @@ export default function HomePage() {
           <div className="grid overflow-hidden rounded-2xl bg-[#0F2A26] text-white lg:grid-cols-[1.1fr_0.9fr]">
             <div className="p-8 sm:p-10 lg:p-14">
               
-              <h2 className="max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">{homeContent.compliance.heading}</h2>
+              <h2 className="max-w-2xl text-2xl font-bold tracking-tight text-white text-balance sm:text-3xl lg:text-[32px] lg:leading-[1.22]">{homeContent.compliance.heading}</h2>
               <p className="mt-5 max-w-2xl text-base leading-7 text-white/75">{homeContent.compliance.description}</p>
               <ul className="mt-7 space-y-3">
                 {homeContent.compliance.bullets.map((bullet) => (
@@ -382,7 +367,7 @@ export default function HomePage() {
 
               <h2
                 data-eyebrow={homeContent.pricing.eyebrow}
-                className="text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl lg:text-[42px] lg:leading-[1.15]"
+                className="text-2xl font-bold tracking-tight text-[#0F2A26] text-balance sm:text-3xl lg:text-[34px] lg:leading-[1.22]"
               >
                 {homeContent.pricing.heading}
               </h2>
@@ -482,7 +467,7 @@ export default function HomePage() {
           <div className="relative overflow-hidden rounded-2xl bg-[#0F2A26] px-7 py-12 text-center text-white sm:px-12 sm:py-16">
             <div className="relative mx-auto max-w-3xl">
               
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+              <h2 className="text-2xl font-bold tracking-tight text-white text-balance sm:text-3xl lg:text-[36px] lg:leading-[1.2]">
                 {homeContent.finalCta.heading.replace(/better operation$/, "")}
                 <span className="mark-lime-dark">better operation</span>
               </h2>

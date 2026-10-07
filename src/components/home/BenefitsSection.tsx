@@ -102,7 +102,7 @@ export function BenefitsSection() {
               <span>Core Advantages</span>
             </div>
 
-            <h2 className="text-2xl font-bold tracking-tight text-[#0F2A26] sm:text-3xl lg:text-4xl leading-[1.2]">
+            <h2 className="text-2xl sm:text-[28px] lg:text-[30px] font-bold text-[#0F2A26] tracking-tight leading-[1.25] text-balance">
               Benefits of Hulm POS System
             </h2>
 

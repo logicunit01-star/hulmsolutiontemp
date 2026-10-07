@@ -30,13 +30,22 @@ const workflowCards = [
   },
 ];
 
-const highlights = [
-  "FBR-Compliant",
-  "Cloud & Offline",
-  "Multi-Location",
-  "Barcode Ready",
-  "Real-Time Reports",
-  "24/7 Setup Support",
+const keyPoints = [
+  "User-Friendly Design",
+  "24/7 Support",
+  "Customizable Solutions",
+  "Advanced Security",
+  "Comprehensive Features",
+  "Cloud Accessibility",
+  "FBR-Compliant Invoicing",
+  "Real-Time Insights",
+  "Barcode Scanners",
+  "Compatible with all Devices",
+  "Use it Multiple Locations",
+  "Record of clients",
+  "Cost-Effective",
+  "Scalable for Growth",
+  "Easy to understand Interface",
 ];
 
 export function WhyChooseSection() {
@@ -49,33 +58,46 @@ export function WhyChooseSection() {
             <p className="mb-2.5 text-xs sm:text-sm font-bold tracking-wide uppercase text-[#167c70]">
               Connected Business Operations
             </p>
-            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-[#0F2A26] tracking-tight leading-[1.25] mb-4">
+            <h2 className="text-2xl sm:text-[28px] lg:text-[30px] font-bold text-[#0F2A26] tracking-tight leading-[1.25] mb-3.5 text-balance">
               Why Choose Hulm POS System?
             </h2>
-            <p className="text-sm sm:text-base text-zinc-600 leading-relaxed font-normal mb-6">
+            <p className="text-sm sm:text-base text-zinc-600 leading-relaxed font-normal mb-5">
               Hulm Solutions POS makes your business operations easy, efficient, and reliable at very competitive prices. Simple yet powerful features and robust cloud architecture adjust to every unique need of retail stores, restaurants, and growing businesses across Pakistan.
             </p>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
-              {highlights.map((item) => (
-                <div key={item} className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#0F2A26]">
-                  <CheckCircle2 className="w-4 h-4 text-[#167c70] shrink-0" aria-hidden="true" />
-                  <span>{item}</span>
-                </div>
-              ))}
+            {/* Key Points For Choosing Hulm POS */}
+            <div className="rounded-2xl border border-zinc-200/80 bg-white/80 p-4 sm:p-5 shadow-xs backdrop-blur-xs">
+              <h3 className="mb-3.5 text-xs sm:text-sm font-bold tracking-wide uppercase text-[#167c70] flex items-center gap-2">
+                <span>Key Points For Choosing Hulm POS:</span>
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2 sm:gap-2.5">
+                {keyPoints.map((item) => (
+                  <div key={item} className="flex items-center gap-2 text-xs sm:text-[13px] font-semibold text-[#0F2A26]">
+                    <CheckCircle2 className="w-4 h-4 text-[#167c70] shrink-0" aria-hidden="true" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
           <div className="lg:col-span-5 flex justify-center items-center">
-            <div className="relative w-full max-w-md bg-white rounded-2xl p-4 sm:p-6 border border-[#E4E2DA]/80 shadow-xs">
-              <Image
-                src="/images/home/why-hulmsolution.jpg"
-                alt="why-hulmsolution"
-                width={600}
-                height={547}
-                className="w-full h-auto object-contain mx-auto"
-                sizes="(min-width: 1024px) 35vw, 100vw"
+            <div className="relative w-full max-w-lg">
+              {/* Soft ambient emerald aura */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-3 rounded-3xl bg-gradient-to-tr from-[#167c70]/15 via-[#7ae582]/12 to-transparent blur-2xl -z-10"
               />
+              <div className="relative overflow-hidden rounded-2xl border border-emerald-900/10 bg-white p-2 sm:p-3 shadow-[0_20px_50px_-15px_rgba(15,42,38,0.08)]">
+                <Image
+                  src="/images/home/why-choose-hulm-pos.png"
+                  alt="Why Choose Hulm POS System - FBR compliant, cloud and offline, multi-location, barcode ready, real-time reports, 24/7 setup support"
+                  width={1224}
+                  height={1285}
+                  className="w-full h-auto object-contain rounded-xl mx-auto transition-transform duration-500 hover:scale-[1.01]"
+                  sizes="(min-width: 1024px) 42vw, 100vw"
+                />
+              </div>
             </div>
           </div>
         </div>

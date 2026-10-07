@@ -234,8 +234,7 @@ export function GoogleReviewsSection({
                 <span className="text-[#C0772C] font-bold">{averageRating} ★</span>
               </div>
 
-              {/* Heading */}
-              <h2 className="text-2xl sm:text-3xl font-semibold text-[#0F2A26] tracking-tight leading-[1.25] mb-3">
+              <h2 className="text-2xl sm:text-[28px] lg:text-[30px] font-bold text-[#0F2A26] tracking-tight leading-[1.25] mb-3 text-balance">
                 {heading}
               </h2>
 

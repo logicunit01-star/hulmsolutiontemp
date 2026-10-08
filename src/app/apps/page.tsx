@@ -110,7 +110,7 @@ export default function ProductPage() {
           <div className="relative lg:pl-4">
             <div>
               <Image
-                src="/images/home/dashboard/hulm-solutions-products-sales-order.webp"
+                src="/images/product/hulm-solutions-products-sales-order.webp"
                 alt="Hulm POS product catalogue screen"
                 width={1197}
                 height={688}

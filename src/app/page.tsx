@@ -201,7 +201,7 @@ export default function HomePage() {
             />
             <div className="relative overflow-hidden rounded-2xl border border-zinc-200/90 bg-white p-1 sm:p-2 shadow-[0_25px_60px_-15px_rgba(21,40,37,0.22)]">
               <Image
-                src="/images/home/dashboard/hulm-solutions-create-sales-order.webp"
+                src="/images/home/hero-create-sales-order.webp"
                 alt="Hulm POS software create sales order screen"
                 width={1197}
                 height={688}

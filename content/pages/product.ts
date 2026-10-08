@@ -107,17 +107,17 @@ export const productContent = {
       {
         title: "Sales orders",
         description: "A clear path from product selection to a recorded sale.",
-        image: "/images/home/dashboard/hulm-solutions-create-sales-order.webp",
+        image: "/images/product/hulm-solutions-create-sales-order.webp",
       },
       {
         title: "Product catalogue",
         description: "One place to organise the items your team sells and tracks.",
-        image: "/images/home/dashboard/hulm-solutions-products-sales-order.webp",
+        image: "/images/product/hulm-solutions-products-sales-order.webp",
       },
       {
         title: "Customer directory",
         description: "Customer records that stay connected to everyday selling.",
-        image: "/images/home/dashboard/hulm-solutions-customers-sales-order.webp",
+        image: "/images/product/hulm-solutions-customers-sales-order.webp",
       },
     ],
   },

@@ -127,8 +127,8 @@ export function DashboardCarousel({ screens, slides }: DashboardCarouselProps) {
                   <Image
                     src={screen.image}
                     alt={`Hulm POS screen: ${screen.title}`}
-                    width={1197}
-                    height={688}
+                    width={1024}
+                    height={495}
                     sizes="(max-width: 1024px) 100vw, 1100px"
                     priority={idx === 0}
                     loading={idx === 0 ? "eager" : "lazy"}

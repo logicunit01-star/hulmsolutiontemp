@@ -97,6 +97,31 @@ const pageSchema = {
     faqPageSchema(homeContent.faq.items, `${siteUrl}/#faq`),
   ],
 };
+function renderFormattedDescription(text: string) {
+  const parts = text.split(/(Best POS Software [Ii]n Pakistan)/g);
+  return parts.map((part, index) =>
+    /Best POS Software [Ii]n Pakistan/i.test(part) ? (
+      <strong key={index} className="font-bold text-[#0F2A26]">
+        {part}
+      </strong>
+    ) : (
+      part
+    )
+  );
+}
+
+function renderFormattedDescriptionDark(text: string) {
+  const parts = text.split(/(Best POS Software [Ii]n Pakistan)/g);
+  return parts.map((part, index) =>
+    /Best POS Software [Ii]n Pakistan/i.test(part) ? (
+      <strong key={index} className="font-bold text-white">
+        {part}
+      </strong>
+    ) : (
+      part
+    )
+  );
+}
 
 function SectionIntro({
   eyebrow,
@@ -106,7 +131,7 @@ function SectionIntro({
 }: {
   eyebrow: string;
   heading: string;
-  description?: string;
+  description?: React.ReactNode;
   centered?: boolean;
 }) {
   return (
@@ -115,7 +140,9 @@ function SectionIntro({
         {heading}
       </h2>
       {description ? (
-        <p className="mt-4 text-base leading-7 text-zinc-600 sm:text-lg">{description}</p>
+        <p className="mt-4 text-base leading-7 text-zinc-600 sm:text-lg">
+          {typeof description === "string" ? renderFormattedDescription(description) : description}
+        </p>
       ) : null}
     </div>
   );
@@ -244,7 +271,7 @@ export default function HomePage() {
             <div className="p-8 sm:p-10 lg:p-14">
               
               <h2 className="max-w-2xl text-2xl font-bold tracking-tight text-white text-balance sm:text-3xl lg:text-[32px] lg:leading-[1.22]">{homeContent.compliance.heading}</h2>
-              <p className="mt-5 max-w-2xl text-base leading-7 text-white/75">{homeContent.compliance.description}</p>
+              <p className="mt-5 max-w-2xl text-base leading-7 text-white/75">{renderFormattedDescriptionDark(homeContent.compliance.description)}</p>
               <ul className="mt-7 space-y-3">
                 {homeContent.compliance.bullets.map((bullet) => (
                   <li key={bullet} className="flex items-center gap-3 text-sm font-medium text-white/90 sm:text-base">

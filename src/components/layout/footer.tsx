@@ -21,29 +21,27 @@ const productLinks = [
 ]
 
 const industryLinks = [
-  { title: "Retail store POS", href: "/industries/retail-store/" },
-  { title: "Restaurant POS", href: "/industries/restaurant-pos/" },
-  { title: "Cafe POS", href: "/industries/cafe/" },
-  { title: "Bakery POS", href: "/industries/bakery-pos-system/" },
-  { title: "Pharmacy POS", href: "/industries/pharmacy-store/" },
-  { title: "Salon & spa POS", href: "/industries/salon-pos/" },
-  { title: "Clothing store POS", href: "/industries/clothing-store/" },
-  { title: "Jewellery shop POS", href: "/industries/jewellery-shop/" },
-  { title: "Electric store POS", href: "/industries/electric-store/" },
-  { title: "Furniture store POS", href: "/industries/furniture-store/" },
-  { title: "Toy store POS", href: "/industries/toys-store/" },
-  { title: "Manufacturing POS", href: "/industries/manufacturing-industries/" },
+  { title: "Retail store", href: "/industries/retail-store/" },
+  { title: "Restaurant", href: "/industries/restaurant-pos/" },
+  { title: "Cafe", href: "/industries/cafe/" },
+  { title: "Bakery", href: "/industries/bakery-pos-system/" },
+  { title: "Pharmacy", href: "/industries/pharmacy-store/" },
+  { title: "Salon & spa", href: "/industries/salon-pos/" },
+  { title: "Clothing store", href: "/industries/clothing-store/" },
+  { title: "Jewellery shop", href: "/industries/jewellery-shop/" },
+  { title: "Electric store", href: "/industries/electric-store/" },
+  { title: "Furniture store", href: "/industries/furniture-store/" },
+  { title: "Toy store", href: "/industries/toys-store/" },
+  { title: "Manufacturing", href: "/industries/manufacturing-industries/" },
 ]
 
 const resourceLinks = [
-  { title: "FBR integrated POS", href: "/fbr-integrated-pos-pakistan/" },
+  { title: "FBR integrated", href: "/fbr-integrated-pos-pakistan/" },
   { title: "ZATCA e-invoicing", href: "/zatca/" },
   { title: "Pricing", href: "/pricing/" },
   { title: "Customer stories", href: "/pos-case-studies/" },
   { title: "Blog", href: "/blogs/" },
   { title: "Integrations", href: "/integration/" },
-  { title: "Book a demo", href: "/book-a-demo/" },
-  { title: "POS hardware", href: "/pos-hardware/" },
   { title: "POS software in Karachi", href: "/pos-software-karachi/" },
   { title: "POS software in Lahore", href: "/pos-software-lahore/" },
   { title: "POS software in Islamabad", href: "/pos-software-islamabad/" },
@@ -98,7 +96,7 @@ export function Footer() {
               <LogoLockup height={50} tone="dark" />
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-6 text-slate-400">
-              Cloud POS for growing businesses that need faster sales, accurate stock and clearer control across every location.
+              Cloud Point of Sale for growing businesses that need faster sales, accurate stock and clearer control across every location.
             </p>
 
             <div className="mt-5 flex flex-col gap-2 text-sm">

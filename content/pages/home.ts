@@ -23,7 +23,7 @@ export const homeContent = {
     ogImage: "/images/uploads/2026/06/hero-image-hulm.webp",
   },
   hero: {
-    eyebrow: "Cloud POS for growing businesses",
+    eyebrow: "Cloud Point of Sale for growing businesses",
     headline: "Best POS Software in Pakistan to run sales, stock and every branch",
     description:
       "Sell faster, keep stock accurate and manage every branch from one connected point of sale system built for growing businesses in Pakistan, from a single shop to a multi-branch chain.",
@@ -66,14 +66,14 @@ export const homeContent = {
     eyebrow: "From counter to control room",
     heading: "All-in-one Best POS software in Pakistan for sales, inventory and reporting",
     description:
-      "Start with the POS billing your team uses every day, then add inventory management, purchasing and reporting as your business grows.",
+      "Start with the Point of Sale billing your team uses every day, then add inventory management, purchasing and reporting as your business grows.",
     items: [
       {
         label: "Sell",
         title: "A faster, simpler checkout",
-        bullets: ["Cloud-based POS", "Customer records", "Digital sales history"],
+        bullets: ["Cloud-based", "Customer records", "Digital sales history"],
         href: "/features/",
-        linkLabel: "Explore POS features",
+        linkLabel: "Explore features",
       },
       {
         label: "Stock",
@@ -118,13 +118,13 @@ export const homeContent = {
       "Invoice and QR-code workflow support",
       "Transaction records kept with your sales data",
     ],
-    cta: { label: "Explore FBR-integrated POS", href: "/fbr-integrated-pos-pakistan/" },
+    cta: { label: "FBR-integrated Point of Sale Software", href: "/fbr-integrated-pos-pakistan/" },
   },
   industries: {
     eyebrow: "Built around real workflows",
     heading: "A POS system for the way your industry sells",
     description:
-      "The same POS foundation, shaped for Pakistani retail stores, restaurants, pharmacies, bakeries, salons, clothing stores and more.",
+      "The same Point of Sale foundation, shaped for Pakistani retail stores, restaurants, pharmacies, bakeries, salons, clothing stores and more.",
     items: [
       { title: "Retail stores", href: "/industries/retail-store/", image: "/images/industries/retail.jpg" },
       { title: "Restaurants", href: "/industries/restaurant-pos/", image: "/images/industries/restaurant.jpg" },
@@ -148,7 +148,7 @@ export const homeContent = {
     eyebrow: "See Hulm in action",
     heading: "An easy-to-use cloud POS dashboard",
     description:
-      "Give your team focused screens for selling, managing products and serving customers, while owners keep the wider view of every branch.",
+      "Give your team focused screens for selling, managing products and serving customers with the Best POS Software In Pakistan, while owners keep the wider view of every branch.",
     screens: [
       {
         title: "Create a sales order",
@@ -201,7 +201,7 @@ export const homeContent = {
   },
   pricing: {
     eyebrow: "Simple place to start",
-    heading: "Start with POS, then grow at your own pace",
+    heading: "Start with Point of Sale Software, then grow at your own pace",
     description:
       "Hulm POS software price in Pakistan starts at PKR 2,500 per month. Compare what is included and choose the plan that fits your locations and team.",
     price: "PKR 2,500",
@@ -216,7 +216,7 @@ export const homeContent = {
     items: [
       {
         q: "What is the best POS software in Pakistan?",
-        a: "The best POS software depends on how your business sells. Hulm POS is built for Pakistani businesses that want billing, FBR integration, inventory management, customer records, purchasing and multi-branch reporting in one cloud-based POS, starting at PKR 2,500 per month.",
+        a: "The best POS software depends on how your business sells. Hulm POS is built for Pakistani businesses that want billing, FBR integration, inventory management, customer records, purchasing and multi-branch reporting in one cloud-based Point of Sale software, starting at PKR 2,500 per month.",
       },
       {
         q: "What does Hulm POS help me manage?",
@@ -226,7 +226,7 @@ export const homeContent = {
       {
         q: "How much does POS software cost in Pakistan?",
         a: "Hulm POS starts at PKR 2,500 per month with a 14-day free trial and no setup fee. Higher plans add more users, branches and operational apps.",
-        link: { label: "POS pricing plans", href: "/pricing/" },
+        link: { label: "Pricing plans", href: "/pricing/" },
       },
       {
         q: "Can I manage more than one branch?",
@@ -235,7 +235,7 @@ export const homeContent = {
       {
         q: "Does Hulm support FBR integration?",
         a: "Yes. Hulm supports FBR integration for eligible businesses in Pakistan and helps you set up FBR-compliant invoices with QR codes.",
-        link: { label: "FBR integrated POS software", href: "/fbr-integrated-pos-pakistan/" },
+        link: { label: "FBR integrated Software", href: "/fbr-integrated-pos-pakistan/" },
       },
       {
         q: "Is Hulm a good POS system for small business?",
@@ -245,7 +245,7 @@ export const homeContent = {
       {
         q: "Do I need special POS hardware?",
         a: "No. Hulm runs in the web browser on computers, tablets and phones, with no app to download, and integrates easily with standard receipt printers, barcode scanners and cash drawers.",
-        link: { label: "mobile POS", href: "/mobile-pos/" },
+        link: { label: "Mobile POS", href: "/mobile-pos/" },
       },
       {
         q: "Is there a free trial?",
@@ -257,7 +257,7 @@ export const homeContent = {
     eyebrow: "Ready when you are",
     heading: "Put your next sale at the centre of a better operation",
     description:
-      "Try Hulm POS for 14 days, or speak with our team in Pakistan about your branches, inventory and FBR requirements.",
+      "Try Hulm Point of Sale for 14 days, or speak with our team in Pakistan about your branches, inventory and FBR requirements.",
     primaryCta: { label: "Start 14-Day Free Trial", href: "https://app.hulmsolutions.com/Register" },
     secondaryCta: { label: "Book a demo", href: "/book-a-demo/" },
   },

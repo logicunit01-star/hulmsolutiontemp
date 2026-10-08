@@ -58,7 +58,7 @@ function InfographicGraphic() {
 }
 
 export function ReplaceManualSection() {
-  const { eyebrow, heading, description, items } = homeContent.problems;
+  const {heading, description, items } = homeContent.problems;
 
   return (
     <Section
@@ -81,17 +81,14 @@ export function ReplaceManualSection() {
           <div className="lg:col-span-7">
             {/* Pill Eyebrow */}
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/8 px-3.5 py-1 text-xs font-semibold text-[#167c70]">
-              <Sparkles className="h-3.5 w-3.5" />
-              <span>{eyebrow}</span>
-              <span className="text-[#167c70]/40">•</span>
               <span className="text-[11px] font-bold uppercase tracking-wider text-[#167c70]/80">
-                Manual to Cloud POS
+                Manual Operation to Cloud Point of Sale Software
               </span>
             </div>
 
             {/* Main Heading with Highlight */}
             <h2
-              data-eyebrow={eyebrow}
+              
               className="text-2xl font-bold tracking-tight text-[#0F2A26] text-balance sm:text-3xl lg:text-[32px] lg:leading-[1.22]"
             >
               {heading.replace(/Best POS Software in Pakistan$/, "")}

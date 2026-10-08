@@ -62,7 +62,7 @@ export function WhyChooseSection() {
               Why Choose Hulm POS System?
             </h2>
             <p className="text-sm sm:text-base text-zinc-600 leading-relaxed font-normal mb-5">
-              Hulm Solutions POS makes your business operations easy, efficient, and reliable at very competitive prices. Simple yet powerful features and robust cloud architecture adjust to every unique need of retail stores, restaurants, and growing businesses across Pakistan.
+              Hulm Solutions POS makes your business operations easy, efficient, and reliable at very competitive prices. As the <strong className="font-bold text-[#0F2A26]">Best POS Software In Pakistan</strong>, it offers simple yet powerful features and robust cloud architecture that adjust to every unique need of retail stores, restaurants, and growing businesses across Pakistan.
             </p>
 
             {/* Key Points For Choosing Hulm POS */}

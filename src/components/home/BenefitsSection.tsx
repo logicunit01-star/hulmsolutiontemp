@@ -87,7 +87,7 @@ export function BenefitsSection() {
                   </div>
                   <div>
                     <p className="text-[10px] font-bold tracking-wider text-[#167c70] uppercase">Unified Hub</p>
-                    <p className="text-xs font-bold text-[#0F2A26]">100% Cloud POS</p>
+                    <p className="text-xs font-bold text-[#0F2A26]">100% Cloud Based</p>
                   </div>
                 </div>
               </div>

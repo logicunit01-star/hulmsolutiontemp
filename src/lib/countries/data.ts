@@ -992,13 +992,5 @@ export const REGIONAL_LOCATIONS = [
     role: "Middle East",
     region: "Middle East",
     href: "/pos-software-qatar/"
-  },
-  {
-    code: "PK",
-    country: "Pakistan",
-    flag: "🇵🇰",
-    role: "HQ & Engineering",
-    region: "South Asia",
-    href: "/fbr-integrated-pos-pakistan/"
   }
 ];

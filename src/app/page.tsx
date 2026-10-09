@@ -24,6 +24,7 @@ import { FaqDetails, faqPageSchema } from "@/components/seo/faq-details";
 import { BenefitsSection } from "@/components/home/BenefitsSection";
 import { DashboardCarousel } from "@/components/home/DashboardCarousel";
 import { GoogleReviewsSection } from "@/components/home/GoogleReviewsSection";
+import { PosFeaturesSection } from "@/components/home/PosFeaturesSection";
 import { ReplaceManualSection } from "@/components/home/ReplaceManualSection";
 import { TrustedBy } from "@/components/home/trusted-by";
 import { WhyChooseSection } from "@/components/home/WhyChooseSection";
@@ -349,13 +350,15 @@ export default function HomePage() {
       </Section>
 
       <Section data-reveal>
-        <Container>
+        <Container className="max-w-[1360px]">
           <SectionIntro {...homeContent.product} centered />
-          <div className="mt-10 sm:mt-12">
+          <div className="mt-8 sm:mt-10">
             <DashboardCarousel screens={homeContent.product.screens} />
           </div>
         </Container>
       </Section>
+
+      <PosFeaturesSection />
 
       <BenefitsSection />
 

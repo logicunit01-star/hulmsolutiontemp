@@ -96,7 +96,7 @@ export function DashboardCarousel({ screens, slides }: DashboardCarouselProps) {
 
   return (
     <div
-      className="relative max-w-5xl mx-auto focus:outline-none select-none"
+      className="relative w-full max-w-[1280px] mx-auto focus:outline-none select-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onKeyDown={handleKeyDown}
@@ -105,11 +105,17 @@ export function DashboardCarousel({ screens, slides }: DashboardCarouselProps) {
       aria-roledescription="carousel"
       aria-label="POS Dashboard Preview Carousel"
     >
+      {/* Soft ambient glow behind expanded showcase */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -inset-3 sm:-inset-5 rounded-3xl bg-gradient-to-tr from-[#167c70]/12 via-[#7ae582]/10 to-transparent blur-2xl -z-10"
+      />
+
       {/* Main Showcase Window Frame */}
-      <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-[#E4E2DA] bg-white shadow-[0_20px_60px_-15px_rgba(15,42,38,0.12)]">
-        {/* Carousel Image Track Area */}
+      <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-[#E4E2DA] bg-white shadow-[0_25px_70px_-15px_rgba(15,42,38,0.14)]">
+        {/* Carousel Image Track Area - Edge-to-Edge for Maximum Image Size */}
         <div
-          className="relative overflow-hidden bg-gradient-to-b from-[#f8faf9] to-[#edf4f2]"
+          className="relative overflow-hidden bg-white"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
@@ -121,15 +127,15 @@ export function DashboardCarousel({ screens, slides }: DashboardCarouselProps) {
             {items.map((screen, idx) => (
               <div
                 key={screen.title + idx}
-                className="w-full shrink-0 p-2 sm:p-4 md:p-6 flex items-center justify-center"
+                className="w-full shrink-0 flex items-center justify-center bg-white"
               >
-                <div className="relative w-full overflow-hidden rounded-xl md:rounded-2xl border border-[#E4E2DA] bg-white shadow-sm">
+                <div className="relative w-full overflow-hidden bg-white">
                   <Image
                     src={screen.image}
                     alt={`Hulm POS screen: ${screen.title}`}
-                    width={1024}
-                    height={495}
-                    sizes="(max-width: 1024px) 100vw, 1100px"
+                    width={1280}
+                    height={620}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 96vw, 1280px"
                     priority={idx === 0}
                     loading={idx === 0 ? "eager" : "lazy"}
                     className="h-auto w-full object-contain select-none"
@@ -145,9 +151,9 @@ export function DashboardCarousel({ screens, slides }: DashboardCarouselProps) {
             type="button"
             onClick={prevSlide}
             aria-label="Previous dashboard slide"
-            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/95 hover:bg-white text-[#0F2A26] hover:text-[#167c70] border border-[#E4E2DA] shadow-md hover:shadow-xl flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#167c70]/40 cursor-pointer backdrop-blur-xs"
+            className="absolute left-2.5 sm:left-4 md:left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-white text-[#0F2A26] hover:text-[#167c70] border border-[#E4E2DA] shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#167c70]/40 cursor-pointer backdrop-blur-md"
           >
-            <ChevronLeft className="w-5 h-5 stroke-[2.2]" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2]" />
           </button>
 
           {/* Next Arrow Button */}
@@ -155,9 +161,9 @@ export function DashboardCarousel({ screens, slides }: DashboardCarouselProps) {
             type="button"
             onClick={nextSlide}
             aria-label="Next dashboard slide"
-            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/95 hover:bg-white text-[#0F2A26] hover:text-[#167c70] border border-[#E4E2DA] shadow-md hover:shadow-xl flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#167c70]/40 cursor-pointer backdrop-blur-xs"
+            className="absolute right-2.5 sm:right-4 md:right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-white text-[#0F2A26] hover:text-[#167c70] border border-[#E4E2DA] shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#167c70]/40 cursor-pointer backdrop-blur-md"
           >
-            <ChevronRight className="w-5 h-5 stroke-[2.2]" />
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2]" />
           </button>
         </div>
 
@@ -165,7 +171,7 @@ export function DashboardCarousel({ screens, slides }: DashboardCarouselProps) {
         <div className="border-t border-[#E4E2DA] bg-white px-5 py-4 sm:px-8 sm:py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1 rounded-md bg-[#edf7f5] px-2 py-0.5 text-xs font-bold text-[#167c70]">
+              <span className="inline-flex items-center gap-1 rounded-md bg-[#edf7f5] px-2.5 py-1 text-xs font-bold text-[#167c70]">
                 Screen 0{currentIndex + 1}
               </span>
               <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#0F2A26] truncate">

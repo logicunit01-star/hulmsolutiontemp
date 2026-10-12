@@ -96,7 +96,7 @@ export function DashboardCarousel({ screens, slides }: DashboardCarouselProps) {
 
   return (
     <div
-      className="relative w-full max-w-[1280px] mx-auto focus:outline-none select-none"
+      className="relative w-full max-w-5xl mx-auto focus:outline-none select-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onKeyDown={handleKeyDown}
@@ -105,15 +105,15 @@ export function DashboardCarousel({ screens, slides }: DashboardCarouselProps) {
       aria-roledescription="carousel"
       aria-label="POS Dashboard Preview Carousel"
     >
-      {/* Soft ambient glow behind expanded showcase */}
+      {/* Soft ambient glow behind showcase */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -inset-3 sm:-inset-5 rounded-3xl bg-gradient-to-tr from-[#167c70]/12 via-[#7ae582]/10 to-transparent blur-2xl -z-10"
+        className="pointer-events-none absolute -inset-3 sm:-inset-5 rounded-3xl bg-gradient-to-tr from-[#167c70]/10 via-[#7ae582]/8 to-transparent blur-2xl -z-10"
       />
 
       {/* Main Showcase Window Frame */}
-      <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-[#E4E2DA] bg-white shadow-[0_25px_70px_-15px_rgba(15,42,38,0.14)]">
-        {/* Carousel Image Track Area - Edge-to-Edge for Maximum Image Size */}
+      <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border border-[#E4E2DA] bg-white shadow-[0_20px_50px_-15px_rgba(15,42,38,0.12)]">
+        {/* Carousel Image Track Area */}
         <div
           className="relative overflow-hidden bg-white"
           onTouchStart={handleTouchStart}
@@ -133,12 +133,13 @@ export function DashboardCarousel({ screens, slides }: DashboardCarouselProps) {
                   <Image
                     src={screen.image}
                     alt={`Hulm POS screen: ${screen.title}`}
-                    width={1280}
-                    height={620}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 96vw, 1280px"
+                    width={1024}
+                    height={495}
+                    unoptimized
                     priority={idx === 0}
                     loading={idx === 0 ? "eager" : "lazy"}
                     className="h-auto w-full object-contain select-none"
+                    style={{ imageRendering: "-webkit-optimize-contrast" }}
                     draggable={false}
                   />
                 </div>
@@ -151,9 +152,9 @@ export function DashboardCarousel({ screens, slides }: DashboardCarouselProps) {
             type="button"
             onClick={prevSlide}
             aria-label="Previous dashboard slide"
-            className="absolute left-2.5 sm:left-4 md:left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-white text-[#0F2A26] hover:text-[#167c70] border border-[#E4E2DA] shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#167c70]/40 cursor-pointer backdrop-blur-md"
+            className="absolute left-1.5 sm:left-4 md:left-5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-white/95 hover:bg-white text-[#0F2A26] hover:text-[#167c70] border border-[#E4E2DA] shadow-md hover:shadow-xl flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#167c70]/40 cursor-pointer backdrop-blur-md"
           >
-            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2]" />
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 stroke-[2.2]" />
           </button>
 
           {/* Next Arrow Button */}
@@ -161,31 +162,31 @@ export function DashboardCarousel({ screens, slides }: DashboardCarouselProps) {
             type="button"
             onClick={nextSlide}
             aria-label="Next dashboard slide"
-            className="absolute right-2.5 sm:right-4 md:right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-white text-[#0F2A26] hover:text-[#167c70] border border-[#E4E2DA] shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#167c70]/40 cursor-pointer backdrop-blur-md"
+            className="absolute right-1.5 sm:right-4 md:right-5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-white/95 hover:bg-white text-[#0F2A26] hover:text-[#167c70] border border-[#E4E2DA] shadow-md hover:shadow-xl flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#167c70]/40 cursor-pointer backdrop-blur-md"
           >
-            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2]" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 stroke-[2.2]" />
           </button>
         </div>
 
         {/* Synchronized Screen Details Card & Indicators */}
-        <div className="border-t border-[#E4E2DA] bg-white px-5 py-4 sm:px-8 sm:py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="border-t border-[#E4E2DA] bg-white px-4 py-3 sm:px-8 sm:py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1 rounded-md bg-[#edf7f5] px-2.5 py-1 text-xs font-bold text-[#167c70]">
+              <span className="inline-flex items-center gap-1 rounded-md bg-[#edf7f5] px-2 py-0.5 sm:px-2.5 sm:py-1 text-[11px] sm:text-xs font-bold text-[#167c70] shrink-0">
                 Screen 0{currentIndex + 1}
               </span>
-              <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#0F2A26] truncate">
+              <h3 className="text-sm sm:text-lg md:text-xl font-bold text-[#0F2A26] truncate">
                 {items[currentIndex]?.title}
               </h3>
             </div>
-            <p className="mt-1 text-xs sm:text-sm text-zinc-600 line-clamp-2 sm:line-clamp-none">
+            <p className="mt-1 text-xs sm:text-sm text-zinc-600 line-clamp-2">
               {items[currentIndex]?.description}
             </p>
           </div>
 
           {/* Pagination Dots & Numeric Counter */}
-          <div className="flex items-center gap-3 shrink-0 self-center sm:self-auto">
-            <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0 self-center sm:self-auto">
+            <div className="flex items-center gap-1 sm:gap-1.5">
               {items.map((_, i) => (
                 <button
                   key={i}
@@ -194,13 +195,13 @@ export function DashboardCarousel({ screens, slides }: DashboardCarouselProps) {
                   aria-label={`Go to slide ${i + 1}`}
                   className={`transition-all duration-300 rounded-full cursor-pointer ${
                     currentIndex === i
-                      ? "w-7 h-2.5 bg-[#167c70] shadow-xs"
-                      : "w-2.5 h-2.5 bg-zinc-300 hover:bg-zinc-400"
+                      ? "w-5 sm:w-7 h-2 sm:h-2.5 bg-[#167c70] shadow-xs"
+                      : "w-2 sm:w-2.5 h-2 sm:h-2.5 bg-zinc-300 hover:bg-zinc-400"
                   }`}
                 />
               ))}
             </div>
-            <span className="text-xs font-mono font-semibold text-zinc-500 ml-1">
+            <span className="text-[11px] sm:text-xs font-mono font-semibold text-zinc-500 ml-0.5 sm:ml-1">
               {String(currentIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
             </span>
           </div>

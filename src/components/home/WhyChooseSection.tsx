@@ -58,7 +58,7 @@ export function WhyChooseSection() {
             <p className="mb-2.5 text-xs sm:text-sm font-bold tracking-wide uppercase text-[#167c70]">
               Connected Business Operations
             </p>
-            <h2 className="text-2xl sm:text-[28px] lg:text-[30px] font-bold text-[#0F2A26] tracking-tight leading-[1.25] mb-3.5 text-balance">
+            <h2 className="text-xl sm:text-[28px] lg:text-[30px] font-bold text-[#0F2A26] tracking-tight leading-[1.25] mb-3 text-balance">
               Why Choose Hulm POS System?
             </h2>
             <p className="text-sm sm:text-base text-zinc-600 leading-relaxed font-normal mb-5">
@@ -70,7 +70,7 @@ export function WhyChooseSection() {
               <h3 className="mb-3.5 text-xs sm:text-sm font-bold tracking-wide uppercase text-[#167c70] flex items-center gap-2">
                 <span>Key Points For Choosing Hulm POS:</span>
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2 sm:gap-2.5">
+              <div className="grid grid-cols-1 min-[420px]:grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 gap-2 sm:gap-2.5">
                 {keyPoints.map((item) => (
                   <div key={item} className="flex items-center gap-2 text-xs sm:text-[13px] font-semibold text-[#0F2A26]">
                     <CheckCircle2 className="w-4 h-4 text-[#167c70] shrink-0" aria-hidden="true" />
@@ -110,23 +110,23 @@ export function WhyChooseSection() {
             aria-hidden="true"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5">
             {workflowCards.map((card) => {
               const Icon = card.icon;
               return (
                 <div
                   key={card.step}
-                  className="relative z-10 bg-white rounded-2xl border border-[#E4E2DA] p-6 sm:p-7 shadow-xs hover:border-[#25a18e]/50 hover:shadow-md transition-all duration-300"
+                  className="relative z-10 bg-white rounded-2xl border border-[#E4E2DA] p-5 sm:p-7 shadow-xs hover:border-[#25a18e]/50 hover:shadow-md transition-all duration-300"
                 >
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="w-10 h-10 rounded-full bg-[#167c70]/10 text-[#167c70] flex items-center justify-center shrink-0">
-                      <Icon className="w-5 h-5 stroke-[2]" aria-hidden="true" />
+                  <div className="flex items-center justify-between mb-4 sm:mb-5">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#167c70]/10 text-[#167c70] flex items-center justify-center shrink-0">
+                      <Icon className="w-4.5 h-4.5 sm:w-5 sm:h-5 stroke-[2]" aria-hidden="true" />
                     </div>
                     <span className="text-xs font-semibold tracking-wider text-zinc-400">
                       {card.step}
                     </span>
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-[#0F2A26] mb-2">
+                  <h3 className="text-base sm:text-lg font-bold text-[#0F2A26] mb-1.5 sm:mb-2">
                     {card.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">

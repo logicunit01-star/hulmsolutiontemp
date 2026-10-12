@@ -156,16 +156,16 @@ export function ReplaceManualSection() {
 
             {/* Action Row */}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button asChild size="lg" className="bg-[#0F2A26] text-white hover:bg-[#167c70] shadow-sm">
+              <Button asChild size="lg" className="w-full sm:w-auto bg-[#0F2A26] text-white hover:bg-[#167c70] shadow-sm">
                 <Link href="https://app.hulmsolutions.com/Register" target="_blank" rel="noreferrer">
                   Start 14-Day Free Trial
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-zinc-300 hover:border-[#167c70]">
+              <Button asChild size="lg" variant="outline" className="w-full sm:w-auto border-zinc-300 hover:border-[#167c70]">
                 <Link href="/book-a-demo/">Book a Demo</Link>
               </Button>
-              <span className="text-xs text-zinc-500 sm:ml-2">
+              <span className="text-xs text-zinc-500 sm:ml-2 text-center sm:text-left">
                 No credit card needed &bull; Instant setup
               </span>
             </div>

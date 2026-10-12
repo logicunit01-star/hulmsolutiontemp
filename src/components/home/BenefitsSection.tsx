@@ -55,11 +55,11 @@ export function BenefitsSection() {
       {/* Ambient background glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-20 left-1/2 -z-10 h-80 w-[55rem] -translate-x-1/2 bg-[radial-gradient(ellipse_at_top,rgba(22,124,112,0.07),transparent_70%)]"
+        className="pointer-events-none absolute -top-20 left-1/2 -z-10 h-80 w-full max-w-4xl -translate-x-1/2 bg-[radial-gradient(ellipse_at_top,rgba(22,124,112,0.07),transparent_70%)]"
       />
 
       <Container>
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-14">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14">
           {/* Left Column: Graphic with ambient backdrop & badge */}
           <div className="flex items-center justify-center lg:col-span-5">
             <div className="relative mx-auto w-full max-w-md lg:max-w-none">
@@ -81,13 +81,13 @@ export function BenefitsSection() {
                 />
 
                 {/* Floating micro-badge */}
-                <div className="absolute -bottom-3 -right-2 flex items-center gap-2.5 rounded-xl border border-zinc-200/80 bg-white px-3.5 py-2 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] sm:-bottom-4 sm:right-4">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#167c70] text-white">
-                    <Check className="h-4 w-4 stroke-[3]" />
+                <div className="absolute bottom-2 right-2 flex items-center gap-2 sm:gap-2.5 rounded-xl border border-zinc-200/80 bg-white px-3 py-1.5 sm:px-3.5 sm:py-2 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] sm:-bottom-4 sm:right-4">
+                  <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-[#167c70] text-white">
+                    <Check className="h-3.5 w-3.5 sm:h-4 sm:w-4 stroke-[3]" />
                   </div>
                   <div>
-                    <p className="text-[10px] font-bold tracking-wider text-[#167c70] uppercase">Unified Hub</p>
-                    <p className="text-xs font-bold text-[#0F2A26]">100% Cloud Based</p>
+                    <p className="text-[9px] sm:text-[10px] font-bold tracking-wider text-[#167c70] uppercase">Unified Hub</p>
+                    <p className="text-[11px] sm:text-xs font-bold text-[#0F2A26]">100% Cloud Based</p>
                   </div>
                 </div>
               </div>
@@ -102,16 +102,16 @@ export function BenefitsSection() {
               <span>Core Advantages</span>
             </div>
 
-            <h2 className="text-2xl sm:text-[28px] lg:text-[30px] font-bold text-[#0F2A26] tracking-tight leading-[1.25] text-balance">
+            <h2 className="text-xl sm:text-[28px] lg:text-[30px] font-bold text-[#0F2A26] tracking-tight leading-[1.25] text-balance">
               Benefits of Hulm POS System
             </h2>
 
-            <p className="mt-3.5 text-sm sm:text-base leading-relaxed text-zinc-600 max-w-2xl font-normal">
+            <p className="mt-3 text-sm sm:text-base leading-relaxed text-zinc-600 max-w-2xl font-normal">
               At Hulm Solutions, we empower businesses to thrive by simplifying the way they operate and engage with customers. Here are the key benefits of choosing Hulm Solutions for your business:
             </p>
 
             {/* 2-Column Responsive Benefits Cards Grid */}
-            <div className="mt-7 grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3">
+            <div className="mt-6 sm:mt-7 grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3">
               {benefits.map((item, index) => (
                 <div
                   key={index}
@@ -129,17 +129,17 @@ export function BenefitsSection() {
             </div>
 
             {/* Bottom Action Strip */}
-            <div className="mt-7 flex flex-wrap items-center gap-4 border-t border-zinc-100 pt-5">
+            <div className="mt-6 sm:mt-7 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 border-t border-zinc-100 pt-5">
               <a
                 href="https://dashboard.hulmsolutions.com/signup"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-track-location="benefits_section"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#0F2A26] px-5 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-xs transition-colors hover:bg-[#167c70]"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#0F2A26] px-5 py-3 sm:py-2.5 text-xs sm:text-sm font-semibold text-white shadow-xs transition-colors hover:bg-[#167c70] text-center"
               >
                 Start free trial <ArrowRight className="h-4 w-4" />
               </a>
-              <span className="flex items-center gap-1.5 text-xs font-medium text-zinc-500">
+              <span className="flex items-center justify-center sm:justify-start gap-1.5 text-xs font-medium text-zinc-500">
                 <Check className="h-3.5 w-3.5 stroke-[2.5] text-[#167c70]" />
                 14-day free access &bull; No credit card required
               </span>

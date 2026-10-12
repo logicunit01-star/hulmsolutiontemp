@@ -158,15 +158,15 @@ export function GoogleReviewsSection({
   const reviewCount = reviews.length;
   const averageRating = (reviews.reduce((sum, r) => sum + r.rating, 0) / Math.max(reviewCount, 1)).toFixed(1);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [cardsPerPage, setCardsPerPage] = useState(2);
+  const [cardsPerPage, setCardsPerPage] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  // Responsive cards: 1 on mobile/small tablets, 2 on desktop
+  // Responsive cards: 1 on mobile/tablets (<1024px), 2 on desktop
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 768) {
+      if (window.innerWidth < 1024) {
         setCardsPerPage(1);
       } else {
         setCardsPerPage(2);
@@ -341,7 +341,7 @@ export function GoogleReviewsSection({
                     
                     <div>
                       {/* Top Row: Avatar + Name + Business Pill */}
-                      <div className="flex items-center justify-between gap-2 mb-3.5">
+                      <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 mb-3.5">
                         <div className="flex items-center gap-2.5 min-w-0">
                           <div className="relative shrink-0">
                             <div className="w-10 h-10 rounded-full overflow-hidden border border-gray-200 bg-zinc-100">

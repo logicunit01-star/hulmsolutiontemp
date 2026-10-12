@@ -171,13 +171,13 @@ export default function HomePage() {
               {homeContent.hero.description}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg">
+              <Button asChild size="lg" className="w-full sm:w-auto">
                 <Link href={homeContent.hero.primaryCta.href} target="_blank" rel="noreferrer">
                   {homeContent.hero.primaryCta.label}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline">
+              <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
                 <Link href={homeContent.hero.secondaryCta.href}>
                   {homeContent.hero.secondaryCta.label}
                 </Link>
@@ -269,33 +269,33 @@ export default function HomePage() {
       <Section data-reveal>
         <Container>
           <div className="grid overflow-hidden rounded-2xl bg-[#0F2A26] text-white lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="p-8 sm:p-10 lg:p-14">
+            <div className="p-5 sm:p-10 lg:p-14">
               
-              <h2 className="max-w-2xl text-2xl font-bold tracking-tight text-white text-balance sm:text-3xl lg:text-[32px] lg:leading-[1.22]">{homeContent.compliance.heading}</h2>
-              <p className="mt-5 max-w-2xl text-base leading-7 text-white/75">{renderFormattedDescriptionDark(homeContent.compliance.description)}</p>
-              <ul className="mt-7 space-y-3">
+              <h2 className="max-w-2xl text-xl sm:text-2xl font-bold tracking-tight text-white text-balance lg:text-[32px] lg:leading-[1.22]">{homeContent.compliance.heading}</h2>
+              <p className="mt-4 sm:mt-5 max-w-2xl text-sm sm:text-base leading-relaxed text-white/75">{renderFormattedDescriptionDark(homeContent.compliance.description)}</p>
+              <ul className="mt-6 sm:mt-7 space-y-2.5 sm:space-y-3">
                 {homeContent.compliance.bullets.map((bullet) => (
-                  <li key={bullet} className="flex items-center gap-3 text-sm font-medium text-white/90 sm:text-base">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[#7AE582]" />
-                    {bullet}
+                  <li key={bullet} className="flex items-center gap-2.5 sm:gap-3 text-sm font-medium text-white/90 sm:text-base">
+                    <CheckCircle2 className="h-4.5 w-4.5 sm:h-5 sm:w-5 shrink-0 text-[#7AE582]" />
+                    <span>{bullet}</span>
                   </li>
                 ))}
               </ul>
-              <Button asChild size="lg" className="mt-8 bg-white text-[#0F2A26] hover:bg-[#F7F6F2]">
-                <Link href={homeContent.compliance.cta.href}>
-                  {homeContent.compliance.cta.label}
-                  <ArrowRight className="ml-2 h-4 w-4" />
+              <Button asChild size="lg" className="mt-7 sm:mt-8 w-full sm:w-auto h-auto min-h-12 py-3 px-5 sm:px-8 bg-white text-[#0F2A26] hover:bg-[#F7F6F2] text-sm sm:text-base font-semibold whitespace-normal text-center">
+                <Link href={homeContent.compliance.cta.href} className="inline-flex items-center justify-center gap-2">
+                  <span>{homeContent.compliance.cta.label}</span>
+                  <ArrowRight className="h-4 w-4 shrink-0" />
                 </Link>
               </Button>
             </div>
-            <div className="grid min-h-72 place-items-center bg-[#16352F] p-8">
-              <div className="w-full max-w-sm rounded-2xl border border-white/15 bg-white/10 p-7 backdrop-blur-sm">
-                <div className="grid h-14 w-14 place-items-center rounded-2xl bg-[#7AE582] text-[#0F2A26]">
-                  <ShieldCheck className="h-7 w-7" />
+            <div className="grid min-h-60 sm:min-h-72 place-items-center bg-[#16352F] p-5 sm:p-8">
+              <div className="w-full max-w-sm rounded-2xl border border-white/15 bg-white/10 p-5 sm:p-7 backdrop-blur-sm">
+                <div className="grid h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-2xl bg-[#7AE582] text-[#0F2A26]">
+                  <ShieldCheck className="h-6 w-6 sm:h-7 sm:w-7" />
                 </div>
-                <p className="mt-8 text-sm font-semibold text-[#7AE582]">Connected workflow</p>
-                <p className="mt-2 text-2xl font-bold">Sale → invoice → business record</p>
-                <p className="mt-3 text-sm leading-6 text-white/65">Keep the compliance workflow close to the transaction that created it.</p>
+                <p className="mt-6 sm:mt-8 text-xs sm:text-sm font-semibold text-[#7AE582]">Connected workflow</p>
+                <p className="mt-1.5 sm:mt-2 text-xl sm:text-2xl font-bold">Sale → invoice → business record</p>
+                <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm leading-6 text-white/65">Keep the compliance workflow close to the transaction that created it.</p>
               </div>
             </div>
           </div>
@@ -350,7 +350,7 @@ export default function HomePage() {
       </Section>
 
       <Section data-reveal>
-        <Container className="max-w-[1360px]">
+        <Container>
           <SectionIntro {...homeContent.product} centered />
           <div className="mt-8 sm:mt-10">
             <DashboardCarousel screens={homeContent.product.screens} />
@@ -381,7 +381,7 @@ export default function HomePage() {
         />
 
         <Container>
-          <div className="relative overflow-hidden rounded-3xl border border-[#dce7e3] bg-white p-8 shadow-[0_24px_70px_-25px_rgba(21,40,37,0.12)] sm:p-10 lg:grid lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-14 lg:p-14">
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[#dce7e3] bg-white p-5 sm:p-10 lg:grid lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-14 lg:p-14 shadow-[0_24px_70px_-25px_rgba(21,40,37,0.12)]">
             {/* Subtle decorative top accent line */}
             <div
               aria-hidden="true"
@@ -390,50 +390,56 @@ export default function HomePage() {
 
             {/* Left Column: Heading, description & value pillars */}
             <div>
-              <div className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-[#167c70]/20 bg-[#167c70]/8 px-3.5 py-1 text-xs font-semibold text-[#167c70]">
+              <div className="mb-3.5 sm:mb-4 inline-flex items-center gap-1.5 rounded-full border border-[#167c70]/20 bg-[#167c70]/8 px-3.5 py-1 text-xs font-semibold text-[#167c70]">
                 <Sparkles className="h-3.5 w-3.5" />
                 <span>{homeContent.pricing.eyebrow}</span>
               </div>
 
               <h2
                 data-eyebrow={homeContent.pricing.eyebrow}
-                className="text-2xl font-bold tracking-tight text-[#0F2A26] text-balance sm:text-3xl lg:text-[34px] lg:leading-[1.22]"
+                className="text-xl font-bold tracking-tight text-[#0F2A26] text-balance sm:text-3xl lg:text-[34px] lg:leading-[1.22]"
               >
                 {homeContent.pricing.heading}
               </h2>
 
-              <p className="mt-4 text-base leading-relaxed text-zinc-600 sm:text-lg max-w-xl">
+              <p className="mt-3.5 sm:mt-4 text-sm sm:text-base leading-relaxed text-zinc-600 sm:text-lg max-w-xl">
                 {homeContent.pricing.description}
               </p>
 
               {/* 3 Value Pillars */}
-              <div className="mt-8 grid grid-cols-1 gap-4 border-t border-zinc-100 pt-6 sm:grid-cols-3">
-                <div className="flex flex-col gap-1.5">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#167c70]/10 text-[#167c70]">
+              <div className="mt-6 sm:mt-8 grid grid-cols-1 gap-3.5 sm:gap-4 border-t border-zinc-100 pt-5 sm:pt-6 sm:grid-cols-3">
+                <div className="flex sm:flex-col items-center sm:items-start gap-3 sm:gap-1.5">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#167c70]/10 text-[#167c70]">
                     <Zap className="h-4.5 w-4.5" />
                   </div>
-                  <p className="text-sm font-semibold text-[#0F2A26]">Quick Setup</p>
-                  <p className="text-xs leading-relaxed text-zinc-500">Be up and running same day with guided onboarding.</p>
+                  <div>
+                    <p className="text-sm font-semibold text-[#0F2A26]">Quick Setup</p>
+                    <p className="text-xs leading-relaxed text-zinc-500">Be up and running same day with onboarding.</p>
+                  </div>
                 </div>
-                <div className="flex flex-col gap-1.5">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#167c70]/10 text-[#167c70]">
+                <div className="flex sm:flex-col items-center sm:items-start gap-3 sm:gap-1.5">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#167c70]/10 text-[#167c70]">
                     <ShieldCheck className="h-4.5 w-4.5" />
                   </div>
-                  <p className="text-sm font-semibold text-[#0F2A26]">No Hidden Costs</p>
-                  <p className="text-xs leading-relaxed text-zinc-500">Transparent monthly billing with no setup penalties.</p>
+                  <div>
+                    <p className="text-sm font-semibold text-[#0F2A26]">No Hidden Costs</p>
+                    <p className="text-xs leading-relaxed text-zinc-500">Transparent monthly billing with no setup penalties.</p>
+                  </div>
                 </div>
-                <div className="flex flex-col gap-1.5">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#167c70]/10 text-[#167c70]">
+                <div className="flex sm:flex-col items-center sm:items-start gap-3 sm:gap-1.5">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#167c70]/10 text-[#167c70]">
                     <TrendingUp className="h-4.5 w-4.5" />
                   </div>
-                  <p className="text-sm font-semibold text-[#0F2A26]">Scales With You</p>
-                  <p className="text-xs leading-relaxed text-zinc-500">Add counters, registers, and branches as you expand.</p>
+                  <div>
+                    <p className="text-sm font-semibold text-[#0F2A26]">Scales With You</p>
+                    <p className="text-xs leading-relaxed text-zinc-500">Add counters, registers, and branches as you grow.</p>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Right Column: Premium High-Converting Pricing Card */}
-            <div className="relative mt-8 overflow-hidden rounded-2xl border-2 border-[#167c70]/25 bg-gradient-to-b from-[#f8fbf9] via-white to-[#f4f9f6] p-7 shadow-[0_20px_45px_-12px_rgba(22,124,112,0.12)] sm:p-8 lg:mt-0">
+            <div className="relative mt-7 sm:mt-8 lg:mt-0 overflow-hidden rounded-2xl border-2 border-[#167c70]/25 bg-gradient-to-b from-[#f8fbf9] via-white to-[#f4f9f6] p-5 sm:p-8 shadow-[0_20px_45px_-12px_rgba(22,124,112,0.12)]">
               {/* Card Header & Badge */}
               <div className="flex items-center justify-between gap-3">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#167c70]">
@@ -445,8 +451,8 @@ export default function HomePage() {
               </div>
 
               {/* Price display */}
-              <div className="mt-4 flex items-baseline gap-2">
-                <span className="text-4xl font-extrabold tracking-tight text-[#0F2A26] sm:text-5xl">
+              <div className="mt-3.5 sm:mt-4 flex items-baseline gap-2">
+                <span className="text-3xl font-extrabold tracking-tight text-[#0F2A26] sm:text-5xl">
                   {homeContent.pricing.price}
                 </span>
                 <span className="text-sm font-semibold text-zinc-500">
@@ -456,9 +462,9 @@ export default function HomePage() {
               <p className="mt-1 text-xs text-zinc-500">Billed monthly &bull; Cancel or change plans anytime</p>
 
               {/* Bullets List */}
-              <ul className="mt-6 space-y-3.5 border-t border-zinc-100 pt-6">
+              <ul className="mt-5 sm:mt-6 space-y-3 sm:space-y-3.5 border-t border-zinc-100 pt-5 sm:pt-6">
                 {homeContent.pricing.bullets.map((bullet) => (
-                  <li key={bullet} className="flex items-center gap-3 text-sm font-medium text-zinc-700">
+                  <li key={bullet} className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm font-medium text-zinc-700">
                     <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#167c70]/10 text-[#167c70]">
                       <Check className="h-3.5 w-3.5 stroke-[2.5]" aria-hidden="true" />
                     </div>
@@ -468,7 +474,7 @@ export default function HomePage() {
               </ul>
 
               {/* CTA Button */}
-              <Button asChild size="lg" className="group mt-7 h-12 w-full justify-center rounded-xl bg-[#0F2A26] text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-[#167c70]">
+              <Button asChild size="lg" className="group mt-6 sm:mt-7 h-12 w-full justify-center rounded-xl bg-[#0F2A26] text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-[#167c70]">
                 <Link href={homeContent.pricing.cta.href}>
                   <span>{homeContent.pricing.cta.label}</span>
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -476,7 +482,7 @@ export default function HomePage() {
               </Button>
 
               {/* Trust Reassurance */}
-              <div className="mt-4 flex items-center justify-center gap-1.5 text-xs font-medium text-zinc-500">
+              <div className="mt-3.5 sm:mt-4 flex items-center justify-center gap-1.5 text-xs font-medium text-zinc-500">
                 <ShieldCheck className="h-3.5 w-3.5 text-[#167c70]" />
                 <span>14-day free trial &bull; Instant activation</span>
               </div>
@@ -494,22 +500,22 @@ export default function HomePage() {
 
       <Section data-reveal>
         <Container>
-          <div className="relative overflow-hidden rounded-2xl bg-[#0F2A26] px-7 py-12 text-center text-white sm:px-12 sm:py-16">
+          <div className="relative overflow-hidden rounded-2xl bg-[#0F2A26] px-5 py-10 text-center text-white sm:px-12 sm:py-16">
             <div className="relative mx-auto max-w-3xl">
               
-              <h2 className="text-2xl font-bold tracking-tight text-white text-balance sm:text-3xl lg:text-[36px] lg:leading-[1.2]">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white text-balance lg:text-[36px] lg:leading-[1.2]">
                 {homeContent.finalCta.heading.replace(/better operation$/, "")}
                 <span className="mark-lime-dark">better operation</span>
               </h2>
-              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{homeContent.finalCta.description}</p>
-              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                <Button asChild size="lg" className="bg-[#7AE582] text-[#0F2A26] hover:bg-white">
+              <p className="mx-auto mt-4 sm:mt-5 max-w-2xl text-sm sm:text-base leading-relaxed text-white/70 sm:text-lg">{homeContent.finalCta.description}</p>
+              <div className="mt-7 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+                <Button asChild size="lg" className="bg-[#7AE582] text-[#0F2A26] hover:bg-white w-full sm:w-auto">
                   <Link href={homeContent.finalCta.primaryCta.href} target="_blank" rel="noreferrer">
                     {homeContent.finalCta.primaryCta.label}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-white/35 bg-transparent text-white hover:bg-white/10 hover:text-white">
+                <Button asChild size="lg" variant="outline" className="border-white/35 bg-transparent text-white hover:bg-white/10 hover:text-white w-full sm:w-auto">
                   <Link href={homeContent.finalCta.secondaryCta.href}>
                     {homeContent.finalCta.secondaryCta.label}
                   </Link>

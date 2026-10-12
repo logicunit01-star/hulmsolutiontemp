@@ -206,7 +206,7 @@ export function PosFeaturesSection() {
         tabIndex={0}
         role="button"
         aria-label={`${feature.title}. Click or tap to flip and view feature details.`}
-        className={`group perspective-1000 relative h-[235px] sm:h-[225px] w-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#167c70] rounded-xl select-none ${
+        className={`group perspective-1000 relative h-[245px] sm:h-[230px] lg:h-[225px] w-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#167c70] rounded-xl select-none ${
           isFlipped ? "is-flipped" : ""
         }`}
       >

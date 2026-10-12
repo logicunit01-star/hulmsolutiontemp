@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   robots: draftRobots,
 };
 
-const link = "font-medium text-[#1b7f70] hover:underline";
+const link = "font-medium text-[#167c70] hover:underline";
 
 const sections: LegalSection[] = [
   {

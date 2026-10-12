@@ -8,9 +8,13 @@ import {
   ExternalLink,
   Layers3,
   ReceiptText,
+  ShieldCheck,
+  Sparkles,
+  TrendingUp,
   Users,
   Workflow,
   X,
+  Zap,
 } from "lucide-react";
 
 import { FaqDetails } from "@/components/seo/faq-details";
@@ -87,15 +91,20 @@ export default function PricingPage() {
     <div className="relative overflow-hidden bg-white">
       <JsonLd data={schema} />
       <Breadcrumbs items={[{ name: "Pricing" }]} className="border-b border-[#E4E2DA]/70 bg-white" />
-      <section className="relative border-b border-[#E4E2DA] bg-white py-16 sm:py-20 lg:py-24">
+      <section className="relative overflow-hidden border-b border-[#E4E2DA] bg-white py-14 sm:py-18 lg:py-22">
+        <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
         <Container className="relative text-center">
-          <div className="mx-auto inline-flex items-center gap-2 text-sm font-semibold text-[#167c70]">
-            {pricingContent.hero.eyebrow}
+          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3.5 py-1 text-xs font-semibold text-[#167c70]">
+            <Sparkles className="h-3.5 w-3.5 text-[#25A18E]" />
+            <span>{pricingContent.hero.eyebrow}</span>
           </div>
-          <h1 className="mx-auto mt-6 max-w-4xl text-4xl font-bold leading-[1.08] tracking-[-0.035em] text-[#0F2A26] sm:text-5xl lg:text-[3.8rem]">
-            {pricingContent.hero.headline}
+          <h1 className="mx-auto mt-6 max-w-4xl text-3xl font-bold leading-[1.12] tracking-[-0.035em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px]">
+            Simple, transparent pricing for{" "}
+            <span className="mark-lime">every business</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-zinc-600">{pricingContent.hero.description}</p>
+          <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-zinc-600">
+            {pricingContent.hero.description}
+          </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Button asChild size="lg">
               <Link href={pricingContent.hero.primaryCta.href} target="_blank" rel="noreferrer">
@@ -118,54 +127,96 @@ export default function PricingPage() {
               </li>
             ))}
           </ul>
+
+          {/* 3 Value Pillars (from homepage theme) */}
+          <div className="mx-auto mt-12 max-w-4xl grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-[#E4E2DA] pt-8 text-left">
+            <div className="flex items-start gap-3 rounded-xl border border-[#E4E2DA] bg-[#FAF9F5] p-4">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#167c70]/10 text-[#167c70]">
+                <Zap className="h-4.5 w-4.5" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-[#0F2A26]">Quick Setup</p>
+                <p className="text-xs text-zinc-500 leading-relaxed">Be up and running same day with onboarding.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 rounded-xl border border-[#E4E2DA] bg-[#FAF9F5] p-4">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#167c70]/10 text-[#167c70]">
+                <ShieldCheck className="h-4.5 w-4.5" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-[#0F2A26]">No Hidden Costs</p>
+                <p className="text-xs text-zinc-500 leading-relaxed">Transparent billing with no setup penalties.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 rounded-xl border border-[#E4E2DA] bg-[#FAF9F5] p-4">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#167c70]/10 text-[#167c70]">
+                <TrendingUp className="h-4.5 w-4.5" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-[#0F2A26]">Scales With You</p>
+                <p className="text-xs text-zinc-500 leading-relaxed">Add counters and branches as you grow.</p>
+              </div>
+            </div>
+          </div>
         </Container>
       </section>
 
       <Section data-reveal className="pt-10 md:pt-14 lg:pt-16">
         <Container>
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4 items-stretch">
             {pricingContent.plans.map((plan) => (
               <article
                 key={plan.name}
                 data-track-location={`pricing_plan_${plan.name.toLowerCase()}`}
-                className={`relative flex h-full flex-col rounded-2xl border p-6 sm:p-7 ${
+                className={`lift relative flex h-full flex-col rounded-2xl p-6 sm:p-7 transition-all duration-300 ${
                   plan.highlighted
-                    ? "border-[#25a18e] bg-[#f2fbf9] shadow-[0_22px_60px_-34px_rgba(32,159,143,0.65)] ring-1 ring-[#25a18e]/20"
-                    : "border-zinc-200 bg-white shadow-sm"
+                    ? "border-2 border-[#167c70] bg-gradient-to-b from-[#f8fbf9] via-white to-[#f4f9f6] shadow-[0_20px_45px_-12px_rgba(22,124,112,0.18)]"
+                    : "border border-[#E4E2DA] bg-white shadow-xs hover:border-[#167c70]/30 hover:shadow-md"
                 }`}
               >
                 {plan.highlighted ? (
-                  <span className="absolute -top-3 left-6 rounded-full bg-[#167c70] px-3 py-1 text-xs font-bold text-white shadow-sm">
-                    For growing teams
+                  <span className="absolute -top-3 left-6 inline-flex items-center gap-1 rounded-full bg-[#167c70] px-3 py-0.5 text-xs font-bold text-white shadow-sm">
+                    <Sparkles className="h-3 w-3" /> Most Popular
                   </span>
                 ) : null}
-                <div className={plan.highlighted ? "pt-3" : ""}>
-                  <p className="text-sm font-semibold text-[#167c70]">{plan.name}</p>
+                <div className={plan.highlighted ? "pt-2" : ""}>
+                  <p className="text-sm font-bold uppercase tracking-wider text-[#167c70]">{plan.name}</p>
                   <h2 className="mt-2 min-h-14 text-xl font-bold leading-7 text-[#0F2A26]">{plan.audience}</h2>
-                  <p className="mt-3 min-h-18 text-sm leading-6 text-zinc-600">{plan.summary}</p>
+                  <p className="mt-2 min-h-16 text-sm leading-6 text-zinc-600">{plan.summary}</p>
                 </div>
 
-                <div className="mt-6 border-y border-zinc-200/80 py-6">
-                  <p className="text-3xl font-bold tracking-tight text-[#0F2A26]">
+                <div className="mt-5 border-y border-zinc-100 py-5">
+                  <p className="text-3xl font-extrabold tracking-tight text-[#0F2A26]">
                     {plan.price}
                     <span className="ml-2 text-sm font-medium text-zinc-500">{plan.cadence}</span>
                   </p>
-                  <p className="mt-3 flex items-center gap-2 text-sm font-semibold text-zinc-700">
+                  <p className="mt-2.5 flex items-center gap-2 text-xs sm:text-sm font-semibold text-zinc-700">
                     <Building2 className="h-4 w-4 text-[#167c70]" />
                     {plan.capacity}
                   </p>
                 </div>
 
-                <ul className="mt-6 flex-1 space-y-3">
+                <ul className="mt-5 flex-1 space-y-3">
                   {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2.5 text-sm leading-6 text-zinc-700">
-                      <Check className="mt-1 h-4 w-4 shrink-0 text-[#167c70]" />
-                      {feature}
+                    <li key={feature} className="flex items-start gap-2.5 text-xs sm:text-sm leading-5 text-zinc-700">
+                      <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#167c70]/10 text-[#167c70] mt-0.5">
+                        <Check className="h-3.5 w-3.5 stroke-[2.5]" />
+                      </div>
+                      <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
 
-                <Button asChild size="lg" variant={plan.highlighted ? "default" : "outline"} className="mt-8 w-full">
+                <Button
+                  asChild
+                  size="lg"
+                  className={
+                    plan.highlighted
+                      ? "mt-8 w-full bg-[#0F2A26] text-white hover:bg-[#167c70]"
+                      : "mt-8 w-full"
+                  }
+                  variant={plan.highlighted ? "default" : "outline"}
+                >
                   <Link
                     href={plan.cta.href}
                     target={plan.cta.href.startsWith("http") ? "_blank" : undefined}
@@ -178,7 +229,7 @@ export default function PricingPage() {
               </article>
             ))}
           </div>
-          <p className="mx-auto mt-7 max-w-3xl text-center text-sm leading-6 text-zinc-500">
+          <p className="mx-auto mt-7 max-w-3xl text-center text-xs sm:text-sm leading-6 text-zinc-500">
             Prices are shown in PKR. Confirm the billing schedule, applicable taxes, optional services and final payable amount with Hulm before purchase.
             Subscriptions follow our{" "}
             <Link href="/terms-and-conditions/" className="font-medium text-[#167c70] underline-offset-2 hover:underline">terms and conditions</Link>.
@@ -299,10 +350,10 @@ export default function PricingPage() {
               <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">{pricingContent.finalCta.heading}</h2>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{pricingContent.finalCta.description}</p>
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                <Button asChild size="lg" className="bg-white text-[#0F2A26] hover:bg-[#F7F6F2]">
+                <Button asChild size="lg" className="bg-[#7AE582] text-[#0F2A26] hover:bg-white w-full sm:w-auto">
                   <Link href={pricingContent.finalCta.primaryCta.href} target="_blank" rel="noreferrer">
                     {pricingContent.finalCta.primaryCta.label}
-                    <ExternalLink className="ml-2 h-4 w-4" />
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-white/35 bg-transparent text-white hover:bg-white/10 hover:text-white">

@@ -84,7 +84,7 @@ export function FinalCtaForm({
               placeholder="e.g. Ahmed Khan"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full h-11 sm:h-12 px-3.5 rounded-xl bg-zinc-50 border border-zinc-200 text-sm text-zinc-900 placeholder:text-zinc-400 focus:bg-white focus:border-[#209f8f] focus:ring-3 focus:ring-[#209f8f]/15 outline-none transition-all"
+              className="w-full h-11 sm:h-12 px-3.5 rounded-xl bg-zinc-50 border border-zinc-200 text-sm text-zinc-900 placeholder:text-zinc-400 focus:bg-white focus:border-[#167c70] focus:ring-3 focus:ring-[#167c70]/15 outline-none transition-all"
             />
           </div>
           <div>
@@ -98,7 +98,7 @@ export function FinalCtaForm({
               placeholder="e.g. Khan Retail"
               value={formData.businessName}
               onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-              className="w-full h-11 sm:h-12 px-3.5 rounded-xl bg-zinc-50 border border-zinc-200 text-sm text-zinc-900 placeholder:text-zinc-400 focus:bg-white focus:border-[#209f8f] focus:ring-3 focus:ring-[#209f8f]/15 outline-none transition-all"
+              className="w-full h-11 sm:h-12 px-3.5 rounded-xl bg-zinc-50 border border-zinc-200 text-sm text-zinc-900 placeholder:text-zinc-400 focus:bg-white focus:border-[#167c70] focus:ring-3 focus:ring-[#167c70]/15 outline-none transition-all"
             />
           </div>
         </div>
@@ -115,7 +115,7 @@ export function FinalCtaForm({
               placeholder="0300 1234567"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full h-11 sm:h-12 px-3.5 rounded-xl bg-zinc-50 border border-zinc-200 text-sm text-zinc-900 placeholder:text-zinc-400 focus:bg-white focus:border-[#209f8f] focus:ring-3 focus:ring-[#209f8f]/15 outline-none transition-all"
+              className="w-full h-11 sm:h-12 px-3.5 rounded-xl bg-zinc-50 border border-zinc-200 text-sm text-zinc-900 placeholder:text-zinc-400 focus:bg-white focus:border-[#167c70] focus:ring-3 focus:ring-[#167c70]/15 outline-none transition-all"
             />
           </div>
           <div>
@@ -129,7 +129,7 @@ export function FinalCtaForm({
               placeholder="name@business.com"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full h-11 sm:h-12 px-3.5 rounded-xl bg-zinc-50 border border-zinc-200 text-sm text-zinc-900 placeholder:text-zinc-400 focus:bg-white focus:border-[#209f8f] focus:ring-3 focus:ring-[#209f8f]/15 outline-none transition-all"
+              className="w-full h-11 sm:h-12 px-3.5 rounded-xl bg-zinc-50 border border-zinc-200 text-sm text-zinc-900 placeholder:text-zinc-400 focus:bg-white focus:border-[#167c70] focus:ring-3 focus:ring-[#167c70]/15 outline-none transition-all"
             />
           </div>
         </div>
@@ -143,7 +143,7 @@ export function FinalCtaForm({
               id="fcta-industry"
               value={formData.industry}
               onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-              className="w-full h-11 sm:h-12 px-3.5 rounded-xl bg-zinc-50 border border-zinc-200 text-sm text-zinc-900 focus:bg-white focus:border-[#209f8f] focus:ring-3 focus:ring-[#209f8f]/15 outline-none transition-all appearance-none pr-10 cursor-pointer"
+              className="w-full h-11 sm:h-12 px-3.5 rounded-xl bg-zinc-50 border border-zinc-200 text-sm text-zinc-900 focus:bg-white focus:border-[#167c70] focus:ring-3 focus:ring-[#167c70]/15 outline-none transition-all appearance-none pr-10 cursor-pointer"
             >
               <option value="">Select your industry</option>
               <option value="retail">Retail Store</option>

@@ -31,11 +31,11 @@ export function BlogFaqEnhancer() {
       // Clear questionEl content and structure it cleanly like SiteFaqAccordion
       questionEl.innerHTML = "";
       questionEl.className =
-        "schema-faq-question flex items-center justify-between gap-4 font-semibold text-base sm:text-lg text-[#152825] cursor-pointer select-none";
+        "schema-faq-question flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-[#0F2A26] cursor-pointer select-none";
 
       const leftSpan = document.createElement("span");
       leftSpan.className = "flex items-start sm:items-center gap-3";
-      leftSpan.innerHTML = `<span class="text-[#25a18e] font-semibold text-base sm:text-lg shrink-0">Q:</span><span class="leading-snug">${cleanQuestion}</span>`;
+      leftSpan.innerHTML = `<span class="text-[#167c70] font-bold text-base sm:text-lg shrink-0">Q:</span><span class="leading-snug">${cleanQuestion}</span>`;
       questionEl.appendChild(leftSpan);
 
       // Add animated Chevron icon
@@ -54,14 +54,14 @@ export function BlogFaqEnhancer() {
 
       answerEl.className =
         "schema-faq-answer text-sm sm:text-base text-zinc-600 leading-relaxed border-t border-zinc-100 pt-4 mt-3";
-      answerEl.innerHTML = `<strong class="text-[#152825] font-semibold mr-2">Ans:</strong><span>${cleanedAnswerHtml}</span>`;
+      answerEl.innerHTML = `<strong class="text-[#0F2A26] font-bold mr-2">Ans:</strong><span>${cleanedAnswerHtml}</span>`;
 
       function updateState(open: boolean) {
         if (open) {
           section.classList.add("is-open");
           answerEl!.style.display = "block";
           chevronWrapper.style.transform = "rotate(180deg)";
-          chevronWrapper.style.color = "#25a18e";
+          chevronWrapper.style.color = "#167c70";
         } else {
           section.classList.remove("is-open");
           answerEl!.style.display = "none";

@@ -12,7 +12,7 @@ export function BlogHeader({ title, description }: BlogHeaderProps) {
     <Section className="pt-16 pb-8 md:pt-24 md:pb-12 bg-white">
       <Container>
         <div className="max-w-3xl flex flex-col items-start space-y-4">
-          <h1 className="text-4xl md:text-5xl font-semibold text-[#152825] tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-semibold text-[#0F2A26] tracking-tight">
             {title}
           </h1>
           {description && (
@@ -25,3 +25,4 @@ export function BlogHeader({ title, description }: BlogHeaderProps) {
     </Section>
   );
 }
+

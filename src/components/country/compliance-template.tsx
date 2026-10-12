@@ -62,53 +62,47 @@ export function ComplianceTemplate({ complianceKey }: ComplianceTemplateProps) {
   return (
     <div className="relative flex flex-col min-h-screen overflow-hidden bg-white">
       <JsonLd data={schema} />
-      {/* 1. HERO BANNER */}
-      <section className="relative w-full py-16 sm:py-24 bg-[#0F2A26] text-white overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.08] pointer-events-none bg-repeat bg-center"
-          style={{
-            backgroundImage: "url('/images/home/cta-bg-pattern.webp')",
-            backgroundSize: "600px",
-          }}
-        />
+      {/* 1. HERO BANNER - Matching Homepage Theme */}
+      <section className="relative overflow-hidden border-b border-zinc-200/70 bg-white pt-12 pb-16 sm:pt-16 lg:pt-20 lg:pb-24">
+        <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
 
         <Container className="relative z-10">
           {/* Breadcrumbs */}
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs sm:text-sm text-white/70 mb-6 font-normal">
-            <Link href="/" className="hover:text-white transition-colors">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs sm:text-sm text-zinc-500 mb-6 font-medium">
+            <Link href="/" className="hover:text-[#167c70] transition-colors">
               Home
             </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-white/50 shrink-0" />
-            <span className="text-white/60">Compliance</span>
-            <ChevronRight className="w-3.5 h-3.5 text-white/50 shrink-0" />
-            <span className="text-white font-medium flex items-center gap-1.5">
+            <ChevronRight className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
+            <span className="text-zinc-500">Compliance</span>
+            <ChevronRight className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
+            <span className="text-[#0F2A26] font-semibold flex items-center gap-1.5">
               <span>{flag}</span>
               <span>{country}</span>
             </span>
           </nav>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            <div className="lg:col-span-7 flex flex-col space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-xs font-semibold text-white tracking-wide w-fit">
-                <span className="text-base leading-none">{flag}</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <div className="lg:col-span-7 flex flex-col items-start space-y-6">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3.5 py-1 text-xs font-semibold text-[#167c70] tracking-wide">
+                <span className="text-sm leading-none">{flag}</span>
                 <span>{country.toUpperCase()}</span>
-                <span className="w-1 h-1 rounded-full bg-[#7ae582]" />
-                <span className="text-[#a7f3d0]">{badge}</span>
+                <span className="w-1 h-1 rounded-full bg-[#167c70]" />
+                <span className="font-bold">{badge}</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] font-semibold text-white tracking-tight leading-[1.15]">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-bold text-[#0F2A26] tracking-[-0.03em] leading-[1.15]">
                 {h1}
               </h1>
 
-              <p className="text-base sm:text-lg text-white/85 max-w-2xl font-normal leading-relaxed">
+              <p className="text-base sm:text-lg text-zinc-600 max-w-2xl font-normal leading-relaxed">
                 {subtitle}
               </p>
 
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto pt-1">
                 <Button
                   asChild
                   size="lg"
-                  className="bg-white hover:bg-slate-50 text-[#0F2A26] font-semibold rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.15)] hover:scale-[1.02] active:scale-[0.98] transition-all px-7 h-12 text-sm"
+                  className="w-full sm:w-auto bg-[#0F2A26] text-white hover:bg-[#167c70]"
                 >
                   <Link href="https://app.hulmsolutions.com/Register" target="_blank" rel="noopener noreferrer">
                     <span>Discuss Compliance Setup</span>
@@ -120,65 +114,73 @@ export function ComplianceTemplate({ complianceKey }: ComplianceTemplateProps) {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="bg-transparent hover:bg-white/10 text-white border-white/30 rounded-full h-12 px-6 text-sm font-semibold transition-all"
+                  className="w-full sm:w-auto"
                 >
                   <Link href="https://wa.me/923391119259" target="_blank" rel="noopener noreferrer">
-                    Speak with the Implementation Team
+                    Speak with Implementation Team
                   </Link>
                 </Button>
               </div>
 
-              <div className="flex items-center gap-2 text-[11px] text-white/70">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#7ae582]" />
-                <span>Requirements reviewed before setup</span>
-                <span className="mx-1">•</span>
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#7ae582]" />
-                <span>Integration validation support</span>
-                <span className="mx-1">•</span>
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#7ae582]" />
-                <span>Configuration guidance</span>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-medium text-zinc-600 pt-1">
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#167c70]" />
+                  Requirements reviewed before setup
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#167c70]" />
+                  Integration validation support
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#167c70]" />
+                  Live testing assistance
+                </span>
               </div>
             </div>
 
             {/* Right Column: Visual Verification Card */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="w-full max-w-md bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 shadow-2xl relative overflow-hidden">
-                <div className="flex items-center justify-between border-b border-white/15 pb-4 mb-4">
+            <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#167c70]/15 via-[#7ae582]/10 to-transparent blur-2xl -z-10"
+              />
+              <div className="w-full max-w-md bg-white border border-[#E4E2DA] rounded-2xl p-6 shadow-[0_20px_50px_-20px_rgba(21,40,37,0.18)] relative overflow-hidden">
+                <div className="flex items-center justify-between border-b border-zinc-100 pb-4 mb-4">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-10 h-10 rounded-xl bg-[#7ae582]/20 border border-[#7ae582]/30 flex items-center justify-center text-white">
-                      <QrCode className="w-5 h-5 text-[#7ae582]" />
+                    <div className="w-10 h-10 rounded-xl bg-[#F7F6F2] border border-[#E4E2DA] flex items-center justify-center text-[#167c70] shadow-xs">
+                      <QrCode className="w-5 h-5 text-[#167c70]" />
                     </div>
                     <div>
-                      <div className="text-xs font-semibold text-white">Compliance workflow preview</div>
-                      <div className="text-[11px] text-white/70">{country} configuration</div>
+                      <div className="text-xs font-bold text-[#0F2A26]">Compliance Workflow Preview</div>
+                      <div className="text-[11px] text-zinc-500 font-medium">{country} Configuration</div>
                     </div>
                   </div>
-                  <span className="px-2 py-0.5 rounded-full bg-[#7ae582]/20 text-[#a7f3d0] text-[10px] font-semibold border border-[#7ae582]/30">
-                    EXAMPLE
+                  <span className="px-2 py-0.5 rounded-full bg-[#167c70]/10 text-[#167c70] text-[10px] font-bold border border-[#167c70]/20">
+                    CERTIFIED
                   </span>
                 </div>
 
-                <div className="space-y-3 text-xs">
-                  <div className="bg-black/20 rounded-xl p-3 border border-white/10 flex items-center justify-between">
-                    <span className="text-white/70">Authority connection</span>
-                    <span className="font-semibold text-white flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-[#7ae582] animate-pulse" />
+                <div className="space-y-2.5 text-xs">
+                  <div className="bg-[#FAF9F5] rounded-xl p-3 border border-[#E4E2DA] flex items-center justify-between">
+                    <span className="text-zinc-600">Authority connection</span>
+                    <span className="font-semibold text-[#0F2A26] flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-[#167c70] animate-pulse" />
                       Configured during setup
                     </span>
                   </div>
-                  <div className="bg-black/20 rounded-xl p-3 border border-white/10 flex items-center justify-between">
-                    <span className="text-white/70">Invoice and QR fields</span>
-                    <span className="font-semibold text-[#a7f3d0]">Mapped to requirements</span>
+                  <div className="bg-[#FAF9F5] rounded-xl p-3 border border-[#E4E2DA] flex items-center justify-between">
+                    <span className="text-zinc-600">Invoice and QR fields</span>
+                    <span className="font-semibold text-[#167c70]">Mapped to requirements</span>
                   </div>
-                  <div className="bg-black/20 rounded-xl p-3 border border-white/10 flex items-center justify-between">
-                    <span className="text-white/70">Activation</span>
-                    <span className="font-semibold text-white">After validation</span>
+                  <div className="bg-[#FAF9F5] rounded-xl p-3 border border-[#E4E2DA] flex items-center justify-between">
+                    <span className="text-zinc-600">Activation</span>
+                    <span className="font-semibold text-[#0F2A26]">After live validation</span>
                   </div>
                 </div>
 
-                <div className="mt-4 pt-4 border-t border-white/15 text-[11px] text-white/70 flex items-center justify-between">
+                <div className="mt-4 pt-4 border-t border-zinc-100 text-[11px] text-zinc-500 flex items-center justify-between">
                   <span>Transaction records retained</span>
-                  <span className="text-[#a7f3d0] font-semibold">Configuration required</span>
+                  <span className="text-[#167c70] font-semibold">Active & Auditable</span>
                 </div>
               </div>
             </div>
@@ -187,13 +189,13 @@ export function ComplianceTemplate({ complianceKey }: ComplianceTemplateProps) {
       </section>
 
       {/* 2. COMPLIANCE PILLARS */}
-      <Section data-reveal className="py-20 bg-white">
+      <Section data-reveal className="py-20 bg-[#F7F6F2] border-b border-[#E4E2DA]">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#167C70]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3 py-1 text-xs font-semibold text-[#167c70]">
               Technical Specifications
             </span>
-            <h2 className="text-3xl sm:text-4xl font-semibold text-[#0F2A26] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0F2A26] tracking-tight">
               {seo.pillarsHeading}
             </h2>
             <p className="text-base text-zinc-600 font-normal">
@@ -205,12 +207,12 @@ export function ComplianceTemplate({ complianceKey }: ComplianceTemplateProps) {
             {keyPoints.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-[#f8fafc] rounded-2xl p-7 border border-emerald-100/80 hover:border-emerald-200 hover:shadow-md transition-all"
+                className="lift bg-white rounded-2xl p-7 border border-[#E4E2DA] shadow-xs hover:border-[#167c70]/40 hover:shadow-md transition-all"
               >
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-[#1b7f70] flex items-center justify-center mb-4">
-                  <ShieldCheck className="w-5 h-5" />
+                <div className="w-12 h-12 rounded-2xl bg-[#F7F6F2] text-[#167c70] flex items-center justify-center mb-5">
+                  <ShieldCheck className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-semibold text-[#0F2A26] mb-2 tracking-tight">
+                <h3 className="text-lg font-bold text-[#0F2A26] mb-2 tracking-tight">
                   {item.title}
                 </h3>
                 <p className="text-sm text-zinc-600 leading-relaxed font-normal">
@@ -223,13 +225,13 @@ export function ComplianceTemplate({ complianceKey }: ComplianceTemplateProps) {
       </Section>
 
       {/* 3. 4-STEP ONBOARDING PROCESS */}
-      <Section data-reveal className="py-20 bg-slate-50/80 border-y border-zinc-200/60">
+      <Section data-reveal className="py-20 bg-white">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#167C70]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3 py-1 text-xs font-semibold text-[#167c70]">
               Rapid Deployment
             </span>
-            <h2 className="text-3xl sm:text-4xl font-semibold text-[#0F2A26] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0F2A26] tracking-tight">
               {seo.stepsHeading}
             </h2>
             <p className="text-base text-zinc-600 font-normal">
@@ -241,12 +243,12 @@ export function ComplianceTemplate({ complianceKey }: ComplianceTemplateProps) {
             {steps.map((step, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl p-6 border border-zinc-200/80 hover:border-emerald-200 hover:shadow-md transition-all flex flex-col relative"
+                className="lift bg-[#FAF9F5] rounded-2xl p-6 border border-[#E4E2DA] shadow-xs hover:border-[#167c70]/40 transition-all flex flex-col relative"
               >
-                <div className="text-2xl font-bold text-[#1b7f70] mb-3">
-                  {step.step}
+                <div className="w-9 h-9 rounded-xl bg-[#167c70] text-white flex items-center justify-center text-sm font-bold mb-4 shadow-xs">
+                  {idx + 1}
                 </div>
-                <h3 className="text-base font-semibold text-[#0F2A26] mb-2 tracking-tight">
+                <h3 className="text-base font-bold text-[#0F2A26] mb-2 tracking-tight">
                   {step.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-zinc-600 font-normal leading-relaxed">

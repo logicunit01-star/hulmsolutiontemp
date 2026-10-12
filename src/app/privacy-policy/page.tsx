@@ -60,7 +60,7 @@ const sections: LegalSection[] = [
   },
   {
     heading: "Cookies and Tracking",
-    paragraphs: ["Hulm Solutions uses cookies and similar technologies to support website functionality, understand website performance and provide relevant features. Browser settings can be used to manage or disable cookies.", <>See the <Link className="font-medium text-[#1b7f70] hover:underline" href="/cookie-policy/">cookie policy</Link> for the cookies the website uses.</>],
+    paragraphs: ["Hulm Solutions uses cookies and similar technologies to support website functionality, understand website performance and provide relevant features. Browser settings can be used to manage or disable cookies.", <>See the <Link className="font-medium text-[#167c70] hover:underline" href="/cookie-policy/">cookie policy</Link> for the cookies the website uses.</>],
   },
   {
     heading: "Third-Party Links",

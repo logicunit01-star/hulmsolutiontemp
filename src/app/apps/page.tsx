@@ -17,6 +17,7 @@ import {
   ShieldCheck,
   ShoppingCart,
   Smartphone,
+  Sparkles,
   Store,
   Users,
 } from "lucide-react";
@@ -73,10 +74,12 @@ export default function ProductPage() {
     <div className="relative overflow-hidden bg-white">
       <JsonLd data={schema} />
       <Breadcrumbs items={[{ name: "Product" }]} className="border-b border-[#E4E2DA]/70 bg-white" />
-      <section className="relative border-b border-[#E4E2DA] bg-white py-14 sm:py-18 lg:py-24">
-        <Container className="relative grid items-center gap-12 lg:grid-cols-[0.88fr_1.12fr] lg:gap-16">
+      <section className="relative overflow-hidden border-b border-[#E4E2DA] bg-white py-14 sm:py-18 lg:py-24">
+        <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
+        <Container className="relative z-10 grid items-center gap-12 lg:grid-cols-[0.88fr_1.12fr] lg:gap-16">
           <div className="max-w-2xl">
-            <div className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-[#167c70]">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3.5 py-1 text-xs font-semibold text-[#167c70] tracking-wide">
+              <Sparkles className="h-3.5 w-3.5 text-[#167c70]" />
               {productContent.hero.eyebrow}
             </div>
             <h1 className="text-4xl font-bold leading-[1.08] tracking-[-0.035em] text-[#0F2A26] sm:text-5xl lg:text-[3.8rem]">
@@ -84,13 +87,13 @@ export default function ProductPage() {
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-zinc-600">{productContent.hero.description}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg">
+              <Button asChild size="lg" className="rounded-full bg-[#0F2A26] text-white hover:bg-[#167c70] shadow-sm">
                 <Link href={productContent.hero.primaryCta.href} target="_blank" rel="noreferrer">
                   {productContent.hero.primaryCta.label}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline">
+              <Button asChild size="lg" variant="outline" className="rounded-full border-[#E4E2DA] text-[#0F2A26] hover:bg-[#F7F6F2]">
                 <Link href={productContent.hero.secondaryCta.href}>
                   {productContent.hero.secondaryCta.label}
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -108,7 +111,8 @@ export default function ProductPage() {
           </div>
 
           <div className="relative lg:pl-4">
-            <div>
+            <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#167c70]/15 via-[#7ae582]/10 to-transparent blur-2xl -z-10" />
+            <div className="overflow-hidden rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] p-2 shadow-xl">
               <Image
                 src="/images/product/hulm-solutions-products-sales-order.webp"
                 alt="Hulm POS product catalogue screen"
@@ -116,7 +120,7 @@ export default function ProductPage() {
                 height={688}
                 priority
                 sizes="(min-width: 1024px) 52vw, 100vw"
-                className="h-auto w-full rounded-xl border border-zinc-200 shadow-[0_40px_80px_-40px_rgba(21,40,37,0.45)]"
+                className="h-auto w-full rounded-xl"
               />
             </div>
           </div>
@@ -131,7 +135,7 @@ export default function ProductPage() {
             {productContent.workflow.steps.map((step, index) => {
               const Icon = workflowIcons[index];
               return (
-                <article key={step.title} className="relative rounded-2xl border border-[#E4E2DA] bg-white p-6 shadow-sm">
+                <article key={step.title} className="relative rounded-2xl border border-[#E4E2DA] bg-white p-6 shadow-xs hover:-translate-y-1 hover:shadow-md transition-all duration-300">
                   <div className="mb-6 flex items-center justify-between">
                     <div className="relative z-10 grid h-12 w-12 place-items-center rounded-2xl bg-[#F7F6F2] text-[#167c70] ring-8 ring-white">
                       <Icon className="h-6 w-6" />
@@ -248,7 +252,7 @@ export default function ProductPage() {
                   </li>
                 ))}
               </ul>
-              <Button asChild size="lg" className="mt-8">
+              <Button asChild size="lg" className="mt-8 rounded-full bg-[#0F2A26] text-white hover:bg-[#167c70] shadow-sm">
                 <Link href={productContent.compliance.cta.href}>
                   {productContent.compliance.cta.label}
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -284,13 +288,13 @@ export default function ProductPage() {
               <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">{productContent.finalCta.heading}</h2>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{productContent.finalCta.description}</p>
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                <Button asChild size="lg" className="bg-white text-[#0F2A26] hover:bg-[#F7F6F2]">
+                <Button asChild size="lg" className="rounded-full bg-[#7AE582] font-semibold text-[#0F2A26] hover:bg-[#68d770] shadow-sm">
                   <Link href={productContent.finalCta.primaryCta.href} target="_blank" rel="noreferrer">
                     {productContent.finalCta.primaryCta.label}
                     <ExternalLink className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-white/35 bg-transparent text-white hover:bg-white/10 hover:text-white">
+                <Button asChild size="lg" variant="outline" className="rounded-full border border-white/25 bg-transparent text-white hover:bg-white/10 hover:text-white">
                   <Link href={productContent.finalCta.secondaryCta.href}>
                     {productContent.finalCta.secondaryCta.label}
                     <ArrowRight className="ml-2 h-4 w-4" />

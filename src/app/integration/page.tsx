@@ -1,6 +1,7 @@
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import { Plug, ShoppingCart, Calculator, ArrowRight, ShieldCheck, Code2, Boxes } from "lucide-react";
+import { Plug, ShoppingCart, Calculator, ArrowRight, ShieldCheck, Code2, Boxes, Sparkles } from "lucide-react";
+import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { FinalCta } from "@/components/home/final-cta";
 import { GoogleReviewsSection } from "@/components/home/GoogleReviewsSection";
 import Link from "next/link";
@@ -53,8 +54,8 @@ const integrations = [
     linkLabel: "Explore FBR integrated POS",
     description: "Connect eligible sales to a configured FBR invoice workflow. Registration, device and reporting requirements are confirmed during setup.",
     icon: ShieldCheck,
-    color: "text-emerald-600",
-    bg: "bg-emerald-50 border border-emerald-100"
+    color: "text-[#167c70]",
+    bg: "bg-[#167c70]/10 border border-[#167c70]/20"
   },
   {
     title: "Ecommerce & Online Store Integrations",
@@ -63,7 +64,7 @@ const integrations = [
     description: "Supported WooCommerce and Shopify connectors can exchange products, stock and orders between Hulm POS and your online store based on the agreed configuration.",
     icon: ShoppingCart,
     color: "text-[#167c70]",
-    bg: "bg-[#209f8f]/10 border border-[#209f8f]/20"
+    bg: "bg-[#167c70]/10 border border-[#167c70]/20"
   },
   {
     title: "Accounting & Finance Integrations",
@@ -90,7 +91,7 @@ const integrations = [
     href: "/inventory-management/",
     linkLabel: "Explore inventory management",
     color: "text-[#167c70]",
-    bg: "bg-[#209f8f]/10 border border-[#209f8f]/20"
+    bg: "bg-[#167c70]/10 border border-[#167c70]/20"
   },
   {
     title: "API & Custom Integrations",
@@ -98,59 +99,58 @@ const integrations = [
     icon: Code2,
     href: "/pricing/",
     linkLabel: "See plans with API integrations",
-    color: "text-slate-700",
-    bg: "bg-slate-50 border border-slate-200"
+    color: "text-zinc-700",
+    bg: "bg-zinc-100 border border-zinc-200"
   }
 ];
 
 export default function IntegrationPage() {
   preloadHeroPattern();
   return (
-    <div className="relative flex flex-col min-h-screen overflow-hidden">
+    <div className="relative flex flex-col min-h-screen overflow-hidden bg-white">
       <JsonLd data={schema} />
+      <Breadcrumbs items={[{ name: "Integrations" }]} className="border-b border-[#E4E2DA]/70 bg-white" />
       {/* Hero */}
-      <section className="relative w-full py-20 sm:py-28 bg-[#0F2A26] text-white text-center overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.08] pointer-events-none bg-repeat bg-center"
-          style={{
-            backgroundImage: "url('/images/home/cta-bg-pattern.webp')",
-            backgroundSize: "600px",
-          }}
-        />
+      <section className="relative overflow-hidden border-b border-zinc-200/70 bg-white pt-10 pb-16 sm:pt-14 lg:pt-16 lg:pb-20 text-center">
+        <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
 
         <div className="relative z-10 max-w-3xl mx-auto px-6">
-          <div className="inline-flex items-center gap-2 text-sm font-semibold text-[#7AE582] mb-4">
-            Ecosystem Integrations
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3.5 py-1 text-xs font-semibold text-[#167c70] tracking-wide mb-5">
+            <Sparkles className="w-3.5 h-3.5 text-[#167c70]" />
+            <span>Ecosystem Integrations</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-white mb-4 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-[-0.03em] text-[#0F2A26] mb-4 leading-tight">
             Hulm POS integration for retail, restaurants, Shopify &amp; more
           </h1>
-          <p className="text-base sm:text-lg text-white/90 font-normal leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-zinc-600 font-normal leading-relaxed max-w-2xl mx-auto">
             Connect your retail POS or restaurant POS with supported commerce, accounting, payment and tax workflows, including Shopify, WooCommerce and FBR. We confirm compatibility and configuration before implementation.
           </p>
         </div>
       </section>
 
-      <Section data-reveal className="bg-[#F7F6F2] py-20">
+      <Section data-reveal className="bg-[#F7F6F2] py-20 border-b border-[#E4E2DA]">
         <Container>
-          <div className="mx-auto mb-12 max-w-3xl text-center">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#0F2A26] tracking-tight">Hulm Solutions POS integration ecosystem</h2>
-            <p className="mt-4 text-base text-zinc-600 leading-relaxed">Why POS integrations matter: every connected tool removes a manual step between the sale, the stock count and the books.</p>
+          <div className="mx-auto mb-12 max-w-3xl text-center space-y-3">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">
+              Unified Data
+            </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0F2A26] tracking-tight">Hulm Solutions POS integration ecosystem</h2>
+            <p className="text-base text-zinc-600 leading-relaxed font-normal">Why POS integrations matter: every connected tool removes a manual step between the sale, the stock count and the books.</p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {integrations.map((integration, idx) => {
               const Icon = integration.icon;
               return (
-                <div key={idx} className="bg-white p-8 lg:p-10 rounded-2xl border border-gray-200/80 shadow-xs flex flex-col md:flex-row gap-6 items-start hover:shadow-md transition-shadow duration-300">
-                  <div className={`w-14 h-14 rounded-xl flex items-center justify-center shrink-0 ${integration.bg} ${integration.color}`}>
-                    <Icon className="w-7 h-7" />
+                <div key={idx} className="lift bg-white p-7 lg:p-9 rounded-2xl border border-[#E4E2DA] shadow-xs flex flex-col md:flex-row gap-5 items-start hover:border-[#167c70] transition-colors">
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${integration.bg} ${integration.color}`}>
+                    <Icon className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-semibold text-[#0F2A26] mb-2">{integration.title}</h3>
-                    <p className="text-gray-600 leading-relaxed text-sm mb-5">
+                    <h3 className="text-xl font-bold text-[#0F2A26] mb-2">{integration.title}</h3>
+                    <p className="text-zinc-600 leading-relaxed text-sm mb-4 font-normal">
                       {integration.description}
                     </p>
-                    <Link href={integration.href} className="inline-flex items-center text-[#167c70] font-semibold text-sm hover:text-[#1a8578] transition-colors">
+                    <Link href={integration.href} className="inline-flex items-center text-[#167c70] font-semibold text-sm hover:text-[#105f56] transition-colors">
                       {integration.linkLabel} <ArrowRight className="w-4 h-4 ml-1.5" />
                     </Link>
                   </div>
@@ -161,9 +161,14 @@ export default function IntegrationPage() {
         </Container>
       </Section>
 
-      <Section data-reveal className="bg-white py-16 md:py-24">
+      <Section data-reveal className="bg-white py-16 md:py-24 border-b border-[#E4E2DA]">
         <Container className="max-w-3xl">
-          <h2 className="mb-10 text-center text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#0F2A26] tracking-tight">POS integration FAQs</h2>
+          <div className="text-center mb-10 space-y-3">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">
+              Got Questions?
+            </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0F2A26] tracking-tight">POS integration FAQs</h2>
+          </div>
           <FaqDetails items={faqItems} />
           <LinkChips heading="Explore Hulm POS apps" items={[
             { label: "POS features", href: "/features/" },

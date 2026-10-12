@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
-import { CalendarCheck, CheckCircle2, ReceiptText, Boxes, BarChart3, ExternalLink } from "lucide-react";
+import { CalendarCheck, CheckCircle2, ReceiptText, Boxes, BarChart3, ExternalLink, Sparkles } from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
 
 import { LeadForm } from "@/components/leads/lead-form";
 import { ClientLogos } from "@/components/home/client-logos";
+import { GoogleReviewsSection } from "@/components/home/GoogleReviewsSection";
+import { FinalCta } from "@/components/home/final-cta";
 import { FaqDetails } from "@/components/seo/faq-details";
 import { JsonLd } from "@/components/seo/json-ld";
 import { LinkChips } from "@/components/seo/link-chips";
@@ -53,65 +55,83 @@ export default function BookDemoPage() {
     <div className="relative overflow-hidden bg-white">
       <JsonLd data={schema} />
       <Breadcrumbs items={[{ name: "Book a demo" }]} className="border-b border-[#E4E2DA]/70 bg-white" />
-      <section className="relative border-b border-[#E4E2DA] bg-white py-14 sm:py-18 lg:py-20">
-        <Container className="relative grid items-start gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
+      <section className="relative overflow-hidden border-b border-[#E4E2DA] bg-white py-14 sm:py-18 lg:py-22">
+        <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
+        <Container className="relative grid items-start gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <div>
-            <p className="inline-flex items-center gap-2 text-sm font-semibold text-[#167c70]">
-              <CalendarCheck className="h-4 w-4" /> Free, no obligation
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3.5 py-1 text-xs font-semibold text-[#167c70]">
+              <Sparkles className="h-3.5 w-3.5 text-[#25A18E]" />
+              <span>Free 1-on-1 Walkthrough &bull; Zero Obligation</span>
+            </div>
+            <h1 className="text-3xl font-bold leading-[1.12] tracking-[-0.035em] text-[#0F2A26] sm:text-4xl lg:text-[44px]">
+              Book a free <span className="mark-lime">Hulm POS demo</span>
+            </h1>
+            <p className="mt-5 max-w-xl text-base sm:text-lg leading-relaxed text-zinc-600">
+              See how Hulm POS software runs checkout, inventory, purchasing, and multiple branches. We customize the walkthrough around your specific industry and daily workflows.
             </p>
-            <h1 className="mt-6 text-4xl font-bold leading-[1.08] tracking-[-0.035em] text-[#0F2A26] sm:text-5xl">Book a free Hulm POS demo</h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-zinc-600">
-              See how Hulm POS software would run your counter, stock and branches. The walkthrough is set up around your business, not a generic script.
-            </p>
-            <ul className="mt-8 space-y-5">
+            <ul className="mt-8 space-y-4">
               {seeItems.map((item) => (
-                <li key={item.title} className="flex gap-4">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#F7F6F2] text-[#167c70]">
+                <li key={item.title} className="lift flex gap-4 rounded-xl border border-[#E4E2DA] bg-[#FAF9F5] p-4 transition-all hover:bg-white hover:shadow-xs">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white border border-[#E4E2DA] text-[#167c70] shadow-xs">
                     <item.icon className="h-5 w-5" />
                   </span>
-                  <span>
-                    <span className="block font-semibold text-[#0F2A26]">{item.title}</span>
+                  <div>
+                    <span className="block text-base font-bold text-[#0F2A26]">{item.title}</span>
                     <span className="mt-1 block text-sm leading-6 text-zinc-600">{item.text}</span>
-                  </span>
+                  </div>
                 </li>
               ))}
             </ul>
-            <div className="mt-10 rounded-2xl border border-[#E4E2DA] bg-white p-6">
-              <h2 className="text-lg font-bold text-[#0F2A26]">How it works</h2>
+            <div className="mt-8 rounded-2xl border border-[#E4E2DA] bg-white p-6 shadow-xs">
+              <h2 className="text-base font-bold text-[#0F2A26]">What happens after you book:</h2>
               <ol className="mt-4 space-y-3">
                 {steps.map((step, i) => (
                   <li key={step} className="flex items-start gap-3 text-sm text-zinc-700">
                     <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#167c70] text-xs font-bold text-white">{i + 1}</span>
-                    {step}
+                    <span className="pt-0.5">{step}</span>
                   </li>
                 ))}
               </ol>
             </div>
           </div>
 
-          <div data-track-location="demo_form" className="relative rounded-2xl border border-gray-200 bg-white p-6 shadow-[0_12px_40px_rgba(0,0,0,0.06)] sm:p-8">
-            <h2 className="text-2xl font-semibold tracking-tight text-[#0F2A26]">Request your demo</h2>
-            <p className="mb-6 mt-1 text-sm text-zinc-500">Takes under a minute. We reply on WhatsApp or phone.</p>
-            <LeadForm source="demo" submitLabel="Book my free demo" />
-            <div className="mt-6 flex flex-col gap-3 border-t border-zinc-100 pt-6 sm:flex-row">
-              <a
-                href={whatsappUrl("Hi Hulm, I'd like to book a Hulm POS demo.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-[#1f9d55]/40 px-4 py-3 text-sm font-semibold text-[#17803f] hover:bg-[#f0faf4]"
-              >
-                <WhatsAppIcon size={18} className="h-4 w-4" /> Book on WhatsApp
-              </a>
-              {contactInfo.bookingUrl ? (
+          <div className="relative">
+            {/* Ambient glow behind form */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#167c70]/15 via-[#7ae582]/10 to-transparent blur-2xl -z-10"
+            />
+            <div data-track-location="demo_form" className="relative rounded-2xl sm:rounded-3xl border border-[#E4E2DA] bg-white p-6 shadow-[0_20px_50px_-20px_rgba(21,40,37,0.18)] sm:p-8">
+              <div className="mb-6 flex items-center justify-between">
+                <div>
+                  <h2 className="text-2xl font-bold tracking-tight text-[#0F2A26]">Request your demo</h2>
+                  <p className="mt-1 text-xs sm:text-sm text-zinc-500">Takes under 60 seconds &bull; We reply on WhatsApp or phone</p>
+                </div>
+                <div className="hidden sm:flex h-9 w-9 items-center justify-center rounded-full bg-[#167c70]/10 text-[#167c70]">
+                  <CalendarCheck className="h-5 w-5" />
+                </div>
+              </div>
+              <LeadForm source="demo" submitLabel="Schedule my free walkthrough" />
+              <div className="mt-6 flex flex-col gap-3 border-t border-zinc-100 pt-6 sm:flex-row">
                 <a
-                  href={contactInfo.bookingUrl}
+                  href={whatsappUrl("Hi Hulm, I'd like to book a Hulm POS demo.")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-[#167c70]/40 px-4 py-3 text-sm font-semibold text-[#167c70] hover:bg-[#f2fbf9]"
+                  className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-[#1f9d55]/40 bg-white px-4 py-3 text-sm font-semibold text-[#17803f] hover:bg-[#f0faf4] transition-colors shadow-xs"
                 >
-                  <CalendarCheck className="h-4 w-4" /> Pick a time <ExternalLink className="h-3.5 w-3.5" />
+                  <WhatsAppIcon size={18} className="h-4 w-4" /> Book on WhatsApp
                 </a>
-              ) : null}
+                {contactInfo.bookingUrl ? (
+                  <a
+                    href={contactInfo.bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-[#167c70]/40 bg-white px-4 py-3 text-sm font-semibold text-[#167c70] hover:bg-[#f2fbf9] transition-colors shadow-xs"
+                  >
+                    <CalendarCheck className="h-4 w-4" /> Pick a time <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
+                ) : null}
+              </div>
             </div>
           </div>
         </Container>
@@ -119,12 +139,15 @@ export default function BookDemoPage() {
 
       <ClientLogos heading="Join businesses already running on Hulm" />
 
-      <Section data-reveal>
+      <Section data-reveal className="bg-[#F7F6F2] py-16 sm:py-20 border-y border-[#E4E2DA]">
         <Container className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">Demo questions</h2>
-            <p className="mt-4 text-base leading-7 text-zinc-600">Prefer to try it yourself first?</p>
-            <a href={contactInfo.signupUrl} className="mt-4 inline-flex items-center gap-2 font-semibold text-[#167c70]">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3 py-1 text-xs font-semibold text-[#167c70]">
+              <span>Frequently Asked Questions</span>
+            </div>
+            <h2 className="text-2xl font-bold tracking-tight text-[#0F2A26] sm:text-3xl">Demo questions</h2>
+            <p className="mt-4 text-base leading-7 text-zinc-600">Prefer to try it yourself right away?</p>
+            <a href={contactInfo.signupUrl} className="mt-4 inline-flex items-center gap-2 font-semibold text-[#167c70] hover:underline">
               <CheckCircle2 className="h-4 w-4" /> Start the 14-day free trial
             </a>
             <LinkChips heading="Demos for every industry" items={industryLinks.slice(0, 8)} className="mt-8" />
@@ -136,6 +159,13 @@ export default function BookDemoPage() {
           <FaqDetails items={faqItems} />
         </Container>
       </Section>
+
+      <GoogleReviewsSection />
+
+      <FinalCta
+        heading="Ready to see Hulm POS on your own products?"
+        subheading="Book your personalized walkthrough today. Zero pressure, 100% focused on your business."
+      />
     </div>
   );
 }

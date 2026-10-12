@@ -10,6 +10,7 @@ import {
   ExternalLink,
   Lightbulb,
   ShieldCheck,
+  Sparkles,
 } from "lucide-react";
 
 import { FaqDetails, type FaqDetailsItem } from "@/components/seo/faq-details";
@@ -70,9 +71,9 @@ function SectionIntro({ eyebrow, heading, description, centered = false }: {
 }) {
   return (
     <div className={centered ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
-      <p className="mb-4 text-sm font-bold text-[#167c70]">{eyebrow}</p>
-      <h2 className="text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl lg:text-5xl">{heading}</h2>
-      {description ? <p className="mt-5 text-base leading-7 text-zinc-600 sm:text-lg">{description}</p> : null}
+      <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">{eyebrow}</span>
+      <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl lg:text-5xl">{heading}</h2>
+      {description ? <p className="mt-4 text-base leading-7 text-zinc-600 sm:text-lg">{description}</p> : null}
     </div>
   );
 }
@@ -117,39 +118,47 @@ export default async function IndustrySubpage({ params }: Props) {
   return (
     <div className="relative overflow-hidden bg-white">
       <JsonLd data={schema} />
-      <section className="relative border-b border-[#E4E2DA] bg-white py-14 sm:py-18 lg:py-22">
-        <Container className="relative">
-          <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-2 text-sm text-zinc-500">
-            <Link href="/" className="transition hover:text-[#167c70]">Home</Link>
-            <ChevronRight className="h-4 w-4" />
-            <Link href="/industries/" className="transition hover:text-[#167c70]">Industries</Link>
-            <ChevronRight className="h-4 w-4" />
+      <section className="relative overflow-hidden border-b border-zinc-200/70 bg-white pt-10 pb-16 sm:pt-14 lg:pt-16 lg:pb-20">
+        <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
+        <Container className="relative z-10">
+          <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-zinc-500">
+            <Link href="/" className="transition hover:text-[#0F2A26]">Home</Link>
+            <ChevronRight className="h-3.5 w-3.5 text-zinc-400" />
+            <Link href="/industries/" className="transition hover:text-[#0F2A26]">Industries</Link>
+            <ChevronRight className="h-3.5 w-3.5 text-zinc-400" />
             <span className="font-semibold text-[#0F2A26]">{data.name}</span>
           </nav>
           <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
             <div>
-              <div className="inline-flex items-center gap-2 text-sm font-semibold text-[#167c70]">
-                {data.hero.badge}
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3.5 py-1 text-xs font-semibold text-[#167c70] tracking-wide">
+                <Sparkles className="h-3.5 w-3.5 text-[#167c70]" />
+                <span>{data.hero.badge}</span>
               </div>
               <h1 className="mt-6 max-w-4xl text-4xl font-bold leading-[1.08] tracking-[-0.035em] text-[#0F2A26] sm:text-5xl lg:text-[3.7rem]">{seo?.h1 ?? data.hero.headline}</h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-600">{seo?.intro ?? data.hero.description}</p>
+              <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-zinc-600">{seo?.intro ?? data.hero.description}</p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button asChild size="lg">
+                <Button asChild size="lg" className="rounded-full bg-[#0F2A26] hover:bg-[#167c70] text-white shadow-sm px-7 h-12 text-sm font-semibold">
                   <Link href={data.hero.primaryCtaLink} target={data.hero.primaryCtaLink.startsWith("http") ? "_blank" : undefined} rel={data.hero.primaryCtaLink.startsWith("http") ? "noreferrer" : undefined}>
                     {data.hero.primaryCtaText}
                     {data.hero.primaryCtaLink.startsWith("http") ? <ExternalLink className="ml-2 h-4 w-4" /> : <ArrowRight className="ml-2 h-4 w-4" />}
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline">
+                <Button asChild size="lg" variant="outline" className="rounded-full border-[#E4E2DA] hover:bg-[#F7F6F2] h-12 px-6 text-sm font-semibold">
                   <Link href={data.hero.secondaryCtaLink}>{data.hero.secondaryCtaText}<ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
               </div>
             </div>
-            <div className="relative min-h-80 overflow-hidden rounded-2xl border border-white bg-white shadow-[0_28px_70px_-38px_rgba(21,63,57,0.6)] sm:min-h-[430px]">
-              <Image src={data.image} alt={`${data.name} POS system by Hulm`} fill priority sizes="(max-width: 1024px) 100vw, 42vw" className="object-cover" />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0F2A26]/90 to-transparent p-7 pt-24 text-white">
-                <p className="text-sm font-semibold text-[#7AE582]">Connected workflow</p>
-                <p className="mt-2 max-w-md text-lg font-semibold">Sales, stock and daily activity in one operating view.</p>
+            <div className="relative">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#167c70]/15 via-[#7ae582]/10 to-transparent blur-2xl -z-10"
+              />
+              <div className="relative min-h-80 overflow-hidden rounded-2xl border border-[#E4E2DA] bg-white shadow-xl sm:min-h-[430px]">
+                <Image src={data.image} alt={`${data.name} POS system by Hulm`} fill priority sizes="(max-width: 1024px) 100vw, 42vw" className="object-cover" />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0F2A26]/90 via-[#0F2A26]/30 to-transparent p-7 pt-24 text-white">
+                  <p className="text-sm font-semibold text-[#7AE582]">Connected workflow</p>
+                  <p className="mt-2 max-w-md text-lg font-semibold">Sales, stock and daily activity in one operating view.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -169,7 +178,7 @@ export default async function IndustrySubpage({ params }: Props) {
             <SectionIntro eyebrow="Workflow overview" heading={h2.overview ?? data.overview.heading} description={data.overview.description} />
             <div className="grid gap-4 sm:grid-cols-2">
               {data.overview.points.map((point) => (
-                <div key={point} className="flex items-start gap-3 rounded-2xl border border-[#E4E2DA] bg-[#f8fbfa] p-5 text-sm font-semibold leading-6 text-[#0F2A26]">
+                <div key={point} className="flex items-start gap-3 rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] p-5 text-sm font-semibold leading-6 text-[#0F2A26]">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#167c70]" />
                   {point}
                 </div>
@@ -180,17 +189,17 @@ export default async function IndustrySubpage({ params }: Props) {
       ) : null}
 
       {data.problems?.items.length ? (
-        <Section data-reveal className="bg-[#f7faf9]">
+        <Section data-reveal className="bg-[#F7F6F2] border-y border-[#E4E2DA]">
           <Container>
             <SectionIntro eyebrow="Operational friction" heading={h2.problems ?? data.problems.heading} centered />
             <div className="mt-12 grid gap-6 lg:grid-cols-3">
               {data.problems.items.map((item) => (
-                <article key={item.solutionTitle} className="rounded-2xl border border-zinc-200 bg-white p-7 shadow-sm">
+                <article key={item.solutionTitle} className="lift rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-sm">
                   <div className="flex items-start gap-3 text-sm leading-6 text-zinc-600">
                     <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-[#c96f4e]" />
                     <p>{item.problem}</p>
                   </div>
-                  <div className="my-6 h-px bg-zinc-100" />
+                  <div className="my-6 h-px bg-[#E4E2DA]" />
                   <div className="flex items-start gap-3">
                     <Lightbulb className="mt-0.5 h-5 w-5 shrink-0 text-[#167c70]" />
                     <div>
@@ -211,8 +220,8 @@ export default async function IndustrySubpage({ params }: Props) {
             <SectionIntro eyebrow="Capabilities" heading={h2.features ?? data.features.heading} description="The final configuration depends on your plan, processes, devices and rollout scope." centered />
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {data.features.items.map((feature, index) => (
-                <article key={feature.title} className="rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-sm">
-                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-[#F7F6F2] text-sm font-bold text-[#167c70]">{String(index + 1).padStart(2, "0")}</div>
+                <article key={feature.title} className="lift rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-sm">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-[#FAF9F5] border border-[#E4E2DA] text-sm font-bold text-[#167c70]">{String(index + 1).padStart(2, "0")}</div>
                   <h3 className="mt-6 text-xl font-bold text-[#0F2A26]">{feature.title}</h3>
                   <p className="mt-3 text-sm leading-6 text-zinc-600">{feature.description}</p>
                 </article>
@@ -227,9 +236,9 @@ export default async function IndustrySubpage({ params }: Props) {
           <Container>
             <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
               <div>
-                <p className="text-sm font-bold text-[#7AE582]">Common setups</p>
-                <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">{h2.useCases ?? data.useCases.heading}</h2>
-                <p className="mt-5 text-base leading-7 text-white/65">Start with the operating model closest to yours, then adjust the details during implementation.</p>
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#7AE582]">Common setups</span>
+                <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">{h2.useCases ?? data.useCases.heading}</h2>
+                <p className="mt-4 text-base leading-7 text-white/70">Start with the operating model closest to yours, then adjust the details during implementation.</p>
               </div>
               <div className="grid gap-5 sm:grid-cols-3">
                 {data.useCases.cases.map((item) => (
@@ -247,18 +256,18 @@ export default async function IndustrySubpage({ params }: Props) {
       {data.fbr?.points.length ? (
         <Section data-reveal>
           <Container>
-            <div className="relative overflow-hidden rounded-2xl border border-[#bfe2dc] bg-[#eaf7f4] p-7 sm:p-10 lg:p-12">
+            <div className="relative overflow-hidden rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] p-7 sm:p-10 lg:p-12 shadow-sm">
               <div className="relative grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
                 <div>
-                  <div className="grid h-14 w-14 place-items-center rounded-2xl bg-[#0F2A26] text-[#7AE582]"><ShieldCheck className="h-6 w-6" /></div>
-                  <p className="mt-6 text-sm font-bold text-[#167c70]">FBR integration support</p>
+                  <div className="grid h-14 w-14 place-items-center rounded-2xl bg-[#0F2A26] text-[#7AE582] shadow-sm"><ShieldCheck className="h-6 w-6" /></div>
+                  <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">FBR integration support</span>
                   <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#0F2A26]">{h2.fbr ?? data.fbr.heading}</h2>
                   {data.fbr.description ? <p className="mt-4 text-sm leading-6 text-zinc-600 sm:text-base">{data.fbr.description}</p> : null}
-                  <Link href="/fbr-integrated-pos-pakistan/" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#167c70]">Review FBR integration <ArrowRight className="h-4 w-4" /></Link>
+                  <Link href="/fbr-integrated-pos-pakistan/" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#167c70] hover:text-[#105f56]">Review FBR integration <ArrowRight className="h-4 w-4" /></Link>
                 </div>
                 <div className="grid gap-4">
                   {data.fbr.points.map((point) => (
-                    <article key={point.title} className="rounded-2xl border border-white/70 bg-white/75 p-5">
+                    <article key={point.title} className="rounded-2xl border border-[#E4E2DA] bg-white p-5 shadow-xs">
                       <h3 className="font-bold text-[#0F2A26]">{point.title}</h3>
                       <p className="mt-2 text-sm leading-6 text-zinc-600">{point.description}</p>
                     </article>
@@ -271,11 +280,11 @@ export default async function IndustrySubpage({ params }: Props) {
       ) : null}
 
       {data.whoCanBenefit?.items.length || data.benefits?.items.length ? (
-        <Section data-reveal className="bg-[#F7F6F2]">
+        <Section data-reveal className="bg-[#F7F6F2] border-t border-[#E4E2DA]">
           <Container className="grid gap-6 lg:grid-cols-2">
             {data.whoCanBenefit?.items.length ? (
-              <article className="rounded-2xl border border-zinc-200 bg-white p-7 shadow-sm sm:p-9">
-                <p className="text-sm font-bold text-[#167c70]">Who it can support</p>
+              <article className="lift rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-sm sm:p-9">
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">Who it can support</span>
                 <h2 className="mt-3 text-2xl font-bold text-[#0F2A26]">{h2.who ?? data.whoCanBenefit.heading}</h2>
                 <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                   {data.whoCanBenefit.items.map((item) => <li key={item} className="flex items-start gap-2 text-sm leading-6 text-zinc-700"><Check className="mt-1 h-4 w-4 shrink-0 text-[#167c70]" />{item}</li>)}
@@ -283,8 +292,8 @@ export default async function IndustrySubpage({ params }: Props) {
               </article>
             ) : null}
             {data.benefits?.items.length ? (
-              <article className="rounded-2xl border border-zinc-200 bg-white p-7 shadow-sm sm:p-9">
-                <p className="text-sm font-bold text-[#167c70]">Expected outcomes</p>
+              <article className="lift rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-sm sm:p-9">
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">Expected outcomes</span>
                 <h2 className="mt-3 text-2xl font-bold text-[#0F2A26]">{h2.benefits ?? data.benefits.heading}</h2>
                 <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                   {data.benefits.items.map((item) => <li key={item} className="flex items-start gap-2 text-sm leading-6 text-zinc-700"><Check className="mt-1 h-4 w-4 shrink-0 text-[#167c70]" />{item}</li>)}
@@ -298,7 +307,7 @@ export default async function IndustrySubpage({ params }: Props) {
       <CaseStudyCard route={route} />
 
       {faqItems.length ? (
-        <Section data-reveal>
+        <Section data-reveal className="border-t border-[#E4E2DA]">
           <Container className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
             <div>
               <SectionIntro eyebrow="Setup questions" heading={seo?.faqHeading ?? `${data.name} POS FAQs`} description="These answers set expectations before plan selection and implementation." />
@@ -315,16 +324,16 @@ export default async function IndustrySubpage({ params }: Props) {
         </Section>
       ) : null}
 
-      <Section data-reveal className="bg-[#f7faf9]">
+      <Section data-reveal className="bg-[#F7F6F2] border-t border-[#E4E2DA]">
         <Container>
           <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <SectionIntro eyebrow="Explore industries" heading="More POS systems by industry" />
-            <Link href="/industries/" className="inline-flex items-center gap-2 text-sm font-bold text-[#167c70]">View all industries <ArrowRight className="h-4 w-4" /></Link>
+            <Link href="/industries/" className="inline-flex items-center gap-2 text-sm font-bold text-[#167c70] hover:text-[#105f56]">View all industries <ArrowRight className="h-4 w-4" /></Link>
           </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {otherIndustries.map((item) => (
-              <Link key={item.slug} href={`/industries/${item.slug}/`} className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-[#25a18e]/45 hover:shadow-lg">
-                <div className="relative h-36"><Image src={item.image} alt={`${item.name} POS system`} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" /></div>
+              <Link key={item.slug} href={`/industries/${item.slug}/`} className="lift group overflow-hidden rounded-2xl border border-[#E4E2DA] bg-white shadow-sm transition hover:border-[#167c70]">
+                <div className="relative h-36"><Image src={item.image} alt={`${item.name} POS system`} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover transition duration-500 group-hover:scale-105" /></div>
                 <div className="flex items-center justify-between gap-3 p-5"><h3 className="font-bold text-[#0F2A26]">{item.name}</h3><ArrowRight className="h-4 w-4 text-[#167c70] transition group-hover:translate-x-1" /></div>
               </Link>
             ))}
@@ -336,14 +345,14 @@ export default async function IndustrySubpage({ params }: Props) {
 
       <Section data-reveal>
         <Container>
-          <div className="relative overflow-hidden rounded-2xl bg-[#0F2A26] px-7 py-12 text-center text-white sm:px-12 sm:py-16">
+          <div className="relative overflow-hidden rounded-2xl bg-[#0F2A26] px-7 py-12 text-center text-white sm:px-12 sm:py-16 shadow-xl border border-[#167c70]/20">
             <div className="relative mx-auto max-w-3xl">
-              <p className="text-sm font-bold text-[#7AE582]">Plan the right rollout</p>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">{data.finalCta.heading}</h2>
-              <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{data.finalCta.subheading || data.finalCta.description}</p>
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#7AE582]">Plan the right rollout</span>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">{data.finalCta.heading}</h2>
+              <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{data.finalCta.subheading || data.finalCta.description}</p>
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                <Button asChild size="lg" className="bg-white text-[#0F2A26] hover:bg-[#F7F6F2]"><Link href={data.finalCta.primaryCtaLink} target={data.finalCta.primaryCtaLink.startsWith("http") ? "_blank" : undefined} rel={data.finalCta.primaryCtaLink.startsWith("http") ? "noreferrer" : undefined}>{data.finalCta.primaryCtaText}<ExternalLink className="ml-2 h-4 w-4" /></Link></Button>
-                <Button asChild size="lg" variant="outline" className="border-white/35 bg-transparent text-white hover:bg-white/10 hover:text-white"><Link href={data.finalCta.secondaryCtaLink}>{data.finalCta.secondaryCtaText}<ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
+                <Button asChild size="lg" className="rounded-full bg-[#7AE582] text-[#0F2A26] hover:bg-[#8ef095] font-semibold shadow-sm"><Link href={data.finalCta.primaryCtaLink} target={data.finalCta.primaryCtaLink.startsWith("http") ? "_blank" : undefined} rel={data.finalCta.primaryCtaLink.startsWith("http") ? "noreferrer" : undefined}>{data.finalCta.primaryCtaText}<ExternalLink className="ml-2 h-4 w-4" /></Link></Button>
+                <Button asChild size="lg" variant="outline" className="rounded-full border-white/35 bg-transparent text-white hover:bg-white/10 hover:text-white"><Link href={data.finalCta.secondaryCtaLink}>{data.finalCta.secondaryCtaText}<ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
               </div>
             </div>
           </div>

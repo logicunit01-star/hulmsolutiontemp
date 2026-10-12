@@ -8,6 +8,7 @@ import {
   ExternalLink,
   Printer,
   ShoppingCart,
+  Sparkles,
   Store,
   Scissors,
   UserRound,
@@ -48,24 +49,27 @@ export default function FeaturesPage() {
     <div className="relative flex min-h-screen flex-col overflow-hidden">
       <JsonLd data={schema} />
       <Breadcrumbs items={[{ name: "Features" }]} className="border-b border-[#E4E2DA]/70 bg-white" />
-      <Section data-reveal className="border-b border-gray-100 bg-[#F7F6F2] pb-16 pt-20 text-center lg:pt-28">
-        <Container>
+      <Section data-reveal className="relative overflow-hidden border-b border-zinc-200/70 bg-white pt-14 pb-16 text-center sm:pt-18 lg:pt-22 lg:pb-24">
+        <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
+        <Container className="relative">
           <div className="mx-auto max-w-3xl">
-            <div className="inline-flex items-center gap-2 text-sm font-semibold text-[#167C70] mb-6">
-              {c.hero.eyebrow}
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3.5 py-1 text-xs font-semibold text-[#167c70]">
+              <Sparkles className="h-3.5 w-3.5 text-[#25A18E]" />
+              <span>{c.hero.eyebrow}</span>
             </div>
-            <h1 className="mb-5 text-3xl font-semibold leading-tight tracking-tight text-[#0F2A26] sm:text-4xl md:text-5xl">
-              {c.hero.headline}
+            <h1 className="mb-5 text-3xl font-bold leading-[1.12] tracking-[-0.03em] text-[#0F2A26] sm:text-4xl lg:text-[44px]">
+              {c.hero.headline.replace(/grow faster$/, "")}
+              <span className="mark-lime">grow faster</span>
             </h1>
             <p className="mb-8 text-base leading-relaxed text-zinc-600 sm:text-lg">{c.hero.description}</p>
             <div className="flex flex-col justify-center gap-3 sm:flex-row">
-              <Button asChild size="lg">
+              <Button asChild size="lg" className="w-full sm:w-auto">
                 <Link href={c.hero.primaryCta.href} target="_blank" rel="noreferrer">
                   {c.hero.primaryCta.label}
                   <ExternalLink className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline">
+              <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
                 <Link href={c.hero.secondaryCta.href}>
                   {c.hero.secondaryCta.label}
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -83,21 +87,24 @@ export default function FeaturesPage() {
         topic="POS features"
       />
 
-      <Section data-reveal className="bg-white py-20 lg:py-24">
+      <Section data-reveal className="bg-[#F7F6F2] py-20 lg:py-24 border-y border-[#E4E2DA]">
         <Container>
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <h2 className="text-2xl font-semibold tracking-tight text-[#0F2A26] sm:text-3xl lg:text-4xl">{c.core.heading}</h2>
-            <p className="mt-4 text-base leading-relaxed text-zinc-600">{c.core.description}</p>
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3 py-1 text-xs font-semibold text-[#167c70]">
+              <span>Core Modules</span>
+            </div>
+            <h2 className="text-2xl font-bold tracking-tight text-[#0F2A26] sm:text-3xl lg:text-4xl">{c.core.heading}</h2>
+            <p className="mt-3 text-base leading-relaxed text-zinc-600">{c.core.description}</p>
           </div>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {c.core.items.map((feature, idx) => {
               const Icon = coreIcons[idx];
               return (
-                <div key={feature.title} className="rounded-2xl border border-gray-200/80 bg-white p-8 shadow-xs transition-all duration-300 hover:border-[#209f8f]/40 hover:shadow-md">
-                  <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-[#209f8f]/10 text-[#146b60]">
+                <div key={feature.title} className="lift rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-xs transition-all duration-300 hover:border-[#167c70]/40 hover:shadow-md">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F7F6F2] text-[#167c70]">
                     <Icon className="h-6 w-6" strokeWidth={2} />
                   </div>
-                  <h3 className="mb-2 text-lg font-semibold text-[#0F2A26]">{feature.title}</h3>
+                  <h3 className="mb-2 text-xl font-bold text-[#0F2A26]">{feature.title}</h3>
                   <p className="text-sm leading-relaxed text-zinc-600">{feature.description}</p>
                 </div>
               );
@@ -106,26 +113,38 @@ export default function FeaturesPage() {
         </Container>
       </Section>
 
-      <Section data-reveal className="bg-white pb-20 pt-0">
+      <Section data-reveal className="bg-white py-16 sm:py-20">
         <Container className="max-w-4xl">
-          <h2 className="mb-6 text-center text-2xl font-semibold tracking-tight text-[#0F2A26] sm:text-3xl">Watch the Hulm POS walkthrough</h2>
-          <LiteYouTube id={HULM_DEMO_VIDEO.id} title={HULM_DEMO_VIDEO.title} />
+          <div className="text-center mb-8">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3 py-1 text-xs font-semibold text-[#167c70]">
+              <span>Video Demonstration</span>
+            </div>
+            <h2 className="text-2xl font-bold tracking-tight text-[#0F2A26] sm:text-3xl">Watch the Hulm POS walkthrough</h2>
+          </div>
+          <div className="relative overflow-hidden rounded-2xl border border-[#E4E2DA] bg-[#0F2A26] p-2 shadow-xl">
+            <LiteYouTube id={HULM_DEMO_VIDEO.id} title={HULM_DEMO_VIDEO.title} />
+          </div>
         </Container>
       </Section>
 
-      <Section data-reveal className="border-y border-gray-100 bg-[#F7F6F2] py-20 lg:py-24">
+      <Section data-reveal className="border-y border-[#E4E2DA] bg-[#FAF9F5] py-20 lg:py-24">
         <Container>
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <h2 className="text-2xl font-semibold tracking-tight text-[#0F2A26] sm:text-3xl lg:text-4xl">{c.tailored.heading}</h2>
-            <p className="mt-4 text-base leading-relaxed text-zinc-600">{c.tailored.description}</p>
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3 py-1 text-xs font-semibold text-[#167c70]">
+              <span>Industry Workflows</span>
+            </div>
+            <h2 className="text-2xl font-bold tracking-tight text-[#0F2A26] sm:text-3xl lg:text-4xl">{c.tailored.heading}</h2>
+            <p className="mt-3 text-base leading-relaxed text-zinc-600">{c.tailored.description}</p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {c.tailored.items.map((item, idx) => {
               const Icon = tailoredIcons[idx];
               return (
-                <article key={item.title} className="flex flex-col rounded-2xl border border-gray-200/80 bg-white p-7 shadow-xs">
-                  <Icon className="h-6 w-6 text-[#167c70]" />
-                  <h3 className="mt-4 text-lg font-semibold text-[#0F2A26]">{item.title}</h3>
+                <article key={item.title} className="lift flex flex-col rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-xs">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F7F6F2] text-[#167c70] mb-5">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#0F2A26]">{item.title}</h3>
                   <ul className="mt-4 flex-1 space-y-2.5">
                     {item.bullets.map((b) => (
                       <li key={b} className="flex items-start gap-2 text-sm text-zinc-700">

@@ -63,7 +63,7 @@ export function Header() {
             </a>
             <Link
               href="/book-a-demo/"
-              className="inline-flex h-10 items-center rounded-lg border border-zinc-300 px-4 text-[14px] font-semibold text-[#0F2A26] transition-colors hover:border-[#152825]"
+              className="inline-flex h-10 items-center rounded-lg border border-zinc-300 px-4 text-[14px] font-semibold text-[#0F2A26] transition-colors hover:border-[#0F2A26]"
             >
               Book a demo
             </Link>

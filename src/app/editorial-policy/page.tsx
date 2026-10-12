@@ -25,7 +25,7 @@ const sections: LegalSection[] = [
     heading: "Who writes our articles",
     paragraphs: [
       <>
-        Articles on the Hulm blog are written by <Link className="font-medium text-[#1b7f70] hover:underline" href={PRIMARY_AUTHOR.url}>{PRIMARY_AUTHOR.name}</Link>,{" "}
+        Articles on the Hulm blog are written by <Link className="font-medium text-[#167c70] hover:underline" href={PRIMARY_AUTHOR.url}>{PRIMARY_AUTHOR.name}</Link>,{" "}
         {PRIMARY_AUTHOR.jobTitle} at {PRIMARY_AUTHOR.worksFor}, and by members of the {EDITORIAL_TEAM.name}. Each article shows its author and reviewer at the top and in the author box at the end.
       </>,
     ],
@@ -56,7 +56,7 @@ const sections: LegalSection[] = [
     heading: "Corrections",
     paragraphs: [
       <>
-        If you find an error, email <Link className="font-medium text-[#1b7f70] hover:underline" href="mailto:info@hulmsolutions.com">info@hulmsolutions.com</Link> with the article link. We review reports and update the article and its Updated date when a correction is needed.
+        If you find an error, email <Link className="font-medium text-[#167c70] hover:underline" href="mailto:info@hulmsolutions.com">info@hulmsolutions.com</Link> with the article link. We review reports and update the article and its Updated date when a correction is needed.
       </>,
     ],
   },
@@ -70,7 +70,7 @@ export default function EditorialPolicyPage() {
         eyebrow="Hulm Blog"
         title="Editorial Policy"
         effectiveDate="2 October 2026"
-        introduction={<>How the Hulm Solutions blog is written, reviewed and kept up to date. Read the latest articles on the <Link className="font-medium text-[#1b7f70] hover:underline" href="/blogs/">Hulm blog</Link>.</>}
+        introduction={<>How the Hulm Solutions blog is written, reviewed and kept up to date. Read the latest articles on the <Link className="font-medium text-[#167c70] hover:underline" href="/blogs/">Hulm blog</Link>.</>}
         sections={sections}
       />
     </>

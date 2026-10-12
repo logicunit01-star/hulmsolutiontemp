@@ -47,7 +47,7 @@ export function RegionSelector() {
         aria-haspopup="menu"
         aria-controls="regional-editions-menu"
       >
-        <span className="w-5 h-4 rounded bg-[#1b7f70]/10 border border-[#1b7f70]/20 text-[9.5px] font-bold text-[#146b60] flex items-center justify-center shrink-0">
+        <span className="w-5 h-4 rounded bg-[#167c70]/10 border border-[#167c70]/20 text-[9.5px] font-bold text-[#167c70] flex items-center justify-center shrink-0">
           {activeLocation.code}
         </span>
         <span className="font-semibold text-xs text-[#0F2A26]">{activeLocation.country}</span>

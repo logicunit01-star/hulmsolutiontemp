@@ -279,19 +279,19 @@ export function MobileNav() {
                     Sign in
                   </Link>
                 </Button>
-                <Button className="h-11 rounded-xl bg-[#0F2A26] text-xs text-white hover:bg-[#25a18e]" asChild>
+                <Button className="h-11 rounded-xl bg-[#0F2A26] text-xs text-white hover:bg-[#167c70]" asChild>
                   <Link
                     href="https://app.hulmsolutions.com/Register"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={closeMenu}
-                    style={{ backgroundColor: "#152825", color: "#fff" }}
+                    style={{ backgroundColor: "#0F2A26", color: "#fff" }}
                   >
                     Start free trial
                   </Link>
                 </Button>
               </div>
-              <Link href="/book-a-demo/" onClick={closeMenu} className="mt-3 block text-center text-xs font-semibold text-[#168779] hover:underline">
+              <Link href="/book-a-demo/" onClick={closeMenu} className="mt-3 block text-center text-xs font-semibold text-[#167c70] hover:underline">
                 Prefer a guided setup? Book a demo
               </Link>
             </div>

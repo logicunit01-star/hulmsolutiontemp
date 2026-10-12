@@ -38,7 +38,7 @@ export function PostCard({ post }: PostCardProps) {
       
       <CardContent className="flex flex-col flex-grow p-6">
         <Link href={`/blog/${post.slug}`} className="group-hover:text-primary transition-colors">
-          <h2 className="text-xl font-semibold text-[#152825] mb-3 leading-tight line-clamp-2">
+          <h2 className="text-xl font-semibold text-[#0F2A26] mb-3 leading-tight line-clamp-2">
             {post.title}
           </h2>
         </Link>
@@ -83,3 +83,4 @@ export function PostCard({ post }: PostCardProps) {
     </Card>
   );
 }
+

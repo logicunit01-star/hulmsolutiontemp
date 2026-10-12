@@ -11,7 +11,7 @@ const description =
 
 export const metadata = newPageMetadata({ path: route, title, description });
 
-const link = "font-medium text-[#1b7f70] hover:underline";
+const link = "font-medium text-[#167c70] hover:underline";
 
 const sections: LegalSection[] = [
   {

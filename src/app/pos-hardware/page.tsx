@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/seo/breadcrumbs";
-import { ArrowRight, Banknote, CreditCard, ExternalLink, Laptop, Printer, ScanLine, Tag, Wifi } from "lucide-react";
+import { ArrowRight, Banknote, CreditCard, ExternalLink, Laptop, Printer, ScanLine, Sparkles, Tag, Wifi } from "lucide-react";
 
 import { FinalCta } from "@/components/home/final-cta";
 import { FaqDetails, type FaqDetailsItem } from "@/components/seo/faq-details";
@@ -115,24 +115,26 @@ export default function PosHardwarePage() {
       <JsonLd data={schema} />
       <Breadcrumbs items={[{ name: "POS hardware" }]} className="border-b border-[#E4E2DA]/70 bg-white" />
 
-      <section className="relative overflow-hidden border-b border-[#E4E2DA] bg-white py-16 sm:py-20 lg:py-24">
-        <Container className="text-center">
-          <p className="mx-auto inline-flex items-center gap-2 text-sm font-semibold text-[#167c70]">
-            <Printer className="h-4 w-4" aria-hidden="true" /> Works with standard hardware
-          </p>
-          <h1 className="mx-auto mt-6 max-w-4xl text-4xl font-bold leading-[1.08] tracking-[-0.035em] text-[#0F2A26] sm:text-5xl lg:text-[3.6rem]">
+      <section className="relative overflow-hidden border-b border-zinc-200/70 bg-white pt-10 pb-16 sm:pt-14 lg:pt-16 lg:pb-20 text-center">
+        <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
+        <Container className="relative z-10 text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3.5 py-1 text-xs font-semibold text-[#167c70] tracking-wide mb-5">
+            <Sparkles className="h-3.5 w-3.5 text-[#167c70]" />
+            <span>Works with standard hardware</span>
+          </div>
+          <h1 className="mx-auto max-w-4xl text-4xl font-bold leading-[1.08] tracking-[-0.035em] text-[#0F2A26] sm:text-5xl lg:text-[3.6rem]">
             POS hardware that works with Hulm POS
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-zinc-600">
+          <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-zinc-600">
             Hulm POS software runs in a web browser, so you can start on a computer or tablet you already own. Standard receipt printers, barcode scanners, cash drawers and label printers integrate easily.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="rounded-full bg-[#0F2A26] hover:bg-[#167c70] text-white shadow-sm px-7 h-12 text-sm font-semibold">
               <a href={contactInfo.signupUrl} target="_blank" rel="noreferrer">
                 Start 14-Day Free Trial <ExternalLink className="ml-2 h-4 w-4" aria-hidden="true" />
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg" variant="outline" className="rounded-full border-[#E4E2DA] hover:bg-[#F7F6F2] h-12 px-6 text-sm font-semibold">
               <a href={whatsappUrl("Hi Hulm, I have a question about POS hardware for Hulm POS.")} target="_blank" rel="noopener noreferrer">
                 Ask about your hardware
               </a>
@@ -141,23 +143,26 @@ export default function PosHardwarePage() {
         </Container>
       </section>
 
-      <Section data-reveal className="py-16 md:py-20">
+      <Section data-reveal className="py-16 md:py-20 bg-white">
         <Container>
-          <div className="mx-auto mb-10 max-w-3xl text-center">
+          <div className="mx-auto mb-12 max-w-3xl text-center space-y-3">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">
+              Hardware Essentials
+            </span>
             <h2 className="text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">The POS hardware a counter needs</h2>
-            <p className="mt-4 text-base leading-7 text-zinc-600">
+            <p className="text-base leading-relaxed text-zinc-600 font-normal">
               Start with a device and a receipt printer, then add a scanner, cash drawer or label printer as your POS system grows.
             </p>
           </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {devices.map((d) => (
-              <article key={d.title} className="flex flex-col rounded-2xl border border-gray-200/80 bg-[#F7F6F2] p-7">
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#F7F6F2] text-[#167c70]">
+              <article key={d.title} className="lift flex flex-col rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] p-7 shadow-xs group">
+                <span className="grid h-12 w-12 place-items-center rounded-xl bg-white border border-[#E4E2DA] text-[#167c70] group-hover:bg-[#167c70] group-hover:text-white transition-colors">
                   <d.icon className="h-5 w-5" aria-hidden="true" />
                 </span>
-                <h3 className="mt-4 text-lg font-semibold text-[#0F2A26]">{d.title}</h3>
-                <p className="mt-2 flex-1 text-sm leading-6 text-zinc-600">{d.text}</p>
-                <Link href={d.link.href} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[#167c70] hover:underline">
+                <h3 className="mt-5 text-lg font-bold text-[#0F2A26]">{d.title}</h3>
+                <p className="mt-2.5 flex-1 text-sm leading-6 text-zinc-600 font-normal">{d.text}</p>
+                <Link href={d.link.href} className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#167c70] hover:text-[#105f56]">
                   {d.link.label} <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
               </article>
@@ -168,28 +173,36 @@ export default function PosHardwarePage() {
 
       <Section data-reveal className="border-y border-[#E4E2DA] bg-[#F7F6F2] py-16 md:py-20">
         <Container>
-          <h2 className="mb-8 text-center text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">Setting up POS hardware with Hulm</h2>
-          <ol className="grid gap-5 md:grid-cols-3">
+          <div className="mx-auto mb-10 max-w-3xl text-center space-y-3">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">
+              Easy Deployment
+            </span>
+            <h2 className="text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">Setting up POS hardware with Hulm</h2>
+          </div>
+          <ol className="grid gap-6 md:grid-cols-3">
             {setupSteps.map((s, i) => (
-              <li key={s.title} className="rounded-2xl border border-gray-200/80 bg-white p-6">
-                <span className="grid h-8 w-8 place-items-center rounded-full bg-[#167c70] text-sm font-bold text-white">{i + 1}</span>
-                <h3 className="mt-4 font-semibold text-[#0F2A26]">{s.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-zinc-600">{s.text}</p>
+              <li key={s.title} className="lift rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-xs">
+                <span className="grid h-8 w-8 place-items-center rounded-full bg-[#167c70] text-sm font-bold text-white shadow-xs">{i + 1}</span>
+                <h3 className="mt-5 font-bold text-[#0F2A26] text-lg">{s.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-zinc-600 font-normal">{s.text}</p>
               </li>
             ))}
           </ol>
-          <p className="mx-auto mt-8 flex max-w-2xl items-start justify-center gap-2 text-center text-sm text-zinc-600">
+          <p className="mx-auto mt-8 flex max-w-2xl items-start justify-center gap-2 text-center text-xs sm:text-sm text-zinc-600">
             <Wifi className="mt-0.5 h-4 w-4 shrink-0 text-[#167c70]" aria-hidden="true" />
             Hulm needs an internet connection on the counter device. Keep a mobile hotspot as backup.
           </p>
         </Container>
       </Section>
 
-      <Section data-reveal className="py-16 md:py-20">
+      <Section data-reveal className="py-16 md:py-20 bg-white">
         <Container className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">POS hardware FAQs</h2>
-            <p className="mt-4 text-base leading-7 text-zinc-600">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">
+              Got Questions?
+            </span>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">POS hardware FAQs</h2>
+            <p className="mt-4 text-base leading-7 text-zinc-600 font-normal">
               Buying hardware in Pakistan? Standard models from any local POS hardware supplier work. Check{" "}
               <Link href="/pricing/" className="font-semibold text-[#167c70] underline underline-offset-2">POS software pricing</Link> for the software side.
             </p>

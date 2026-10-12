@@ -28,7 +28,7 @@ export function PostHeader({ post }: PostHeaderProps) {
             ← Back to Blog
           </Link>
           
-          <h1 className="text-3xl md:text-5xl font-semibold text-[#152825] leading-tight tracking-tight">
+          <h1 className="text-3xl md:text-5xl font-semibold text-[#0F2A26] leading-tight tracking-tight">
             {post.title}
           </h1>
           
@@ -74,3 +74,4 @@ export function PostHeader({ post }: PostHeaderProps) {
     </Section>
   );
 }
+

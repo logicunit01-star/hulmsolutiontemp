@@ -92,22 +92,38 @@ export function TrustedBy() {
   return (
     <section
       aria-labelledby="trusted-by"
-      className="border-b border-[#e6efed] bg-[#f4faf8]/60 pt-7 pb-2 sm:pt-9 sm:pb-3"
+      className="relative overflow-hidden border-b border-[#E4E2DA] bg-[#FAF9F5] pt-8 pb-8 sm:pt-10 sm:pb-10"
     >
       <Container>
-        <h2
-          id="trusted-by"
-          className="text-lg sm:text-xl font-bold tracking-tight text-[#0F2A26]"
-        >
-          Trusted By
-        </h2>
+        <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-2">
+          <h2
+            id="trusted-by"
+            className="text-xl sm:text-2xl md:text-[26px] font-bold tracking-tight text-[#0F2A26]"
+          >
+            Trusted By
+          </h2>
+          <p className="text-xs sm:text-sm font-medium text-zinc-500">
+            Featured across leading software review platforms & directories
+          </p>
+        </div>
       </Container>
-      <div className="certificate-slider mt-3 sm:mt-4 !bg-transparent !py-4">
-        <div className="slider-track">
-          {/* First set of badges */}
-          {badges.map((b, i) => renderItem(b, `badge-1-${i}`))}
-          {/* Duplicate set for infinite loop */}
-          {badges.map((b, i) => renderItem(b, `badge-2-${i}`))}
+      <div className="relative overflow-hidden mt-3 sm:mt-4">
+        {/* Soft edge fade masks for seamless infinite scroll */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-24 md:w-36 bg-gradient-to-r from-[#FAF9F5] to-transparent z-10"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-24 md:w-36 bg-gradient-to-l from-[#FAF9F5] to-transparent z-10"
+        />
+        <div className="certificate-slider !bg-transparent !py-2 sm:!py-3">
+          <div className="slider-track">
+            {/* First set of badges */}
+            {badges.map((b, i) => renderItem(b, `badge-1-${i}`))}
+            {/* Duplicate set for infinite loop */}
+            {badges.map((b, i) => renderItem(b, `badge-2-${i}`))}
+          </div>
         </div>
       </div>
     </section>

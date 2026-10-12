@@ -24,6 +24,7 @@ import { FaqDetails, faqPageSchema } from "@/components/seo/faq-details";
 import { BenefitsSection } from "@/components/home/BenefitsSection";
 import { DashboardCarousel } from "@/components/home/DashboardCarousel";
 import { GoogleReviewsSection } from "@/components/home/GoogleReviewsSection";
+import { OutcomesSection } from "@/components/home/OutcomesSection";
 import { PosFeaturesSection } from "@/components/home/PosFeaturesSection";
 import { ReplaceManualSection } from "@/components/home/ReplaceManualSection";
 import { TrustedBy } from "@/components/home/trusted-by";
@@ -61,8 +62,6 @@ export const metadata: Metadata = {
     images: [homeContent.seo.ogImage],
   },
 };
-
-const outcomeIcons = [ShoppingCart, Boxes, ClipboardList, BarChart3];
 
 const pageSchema = {
   "@context": "https://schema.org",
@@ -158,16 +157,16 @@ export default function HomePage() {
           __html: JSON.stringify(pageSchema).replace(/</g, "\\u003c"),
         }}
       />
-      <section className="relative overflow-hidden border-b border-zinc-200/70 bg-white pt-8 pb-14 sm:pt-16 sm:pb-16 lg:pt-20 lg:pb-24">
+      <section className="relative overflow-hidden border-b border-zinc-200/70 bg-white pt-12 pb-14 sm:pt-16 sm:pb-16 lg:pt-20 lg:pb-24">
         <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
         <Container className="relative grid items-center gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-14">
           <div className="max-w-2xl lg:col-span-6">
             <p className="hidden md:block mb-5 text-sm font-semibold text-[#167c70]">{homeContent.hero.eyebrow}</p>
-            <h1 className="text-3xl font-bold leading-[1.12] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px]">
+            <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px]">
               {homeContent.hero.headline.replace(/every branch$/, "")}
               <span className="mark-lime">every branch</span>
             </h1>
-            <p className="mt-4 sm:mt-6 max-w-xl text-sm sm:text-base lg:text-lg leading-relaxed sm:leading-8 text-zinc-600">
+            <p className="mt-6 sm:mt-7 max-w-xl text-sm sm:text-base lg:text-lg leading-relaxed sm:leading-8 text-zinc-600">
               {homeContent.hero.description}
             </p>
 
@@ -237,54 +236,18 @@ export default function HomePage() {
 
       <TrustedBy />
 
-      <ReplaceManualSection />
-
-      <Section data-reveal className="bg-[#F7F6F2]">
+      <Section data-reveal className="py-14 sm:py-18 lg:py-20">
         <Container>
-          <SectionIntro {...homeContent.outcomes} centered />
-          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {homeContent.outcomes.items.map((item, index) => {
-              const Icon = outcomeIcons[index];
-              return (
-                <article key={item.title} className="lift flex h-full flex-col rounded-2xl border border-[#E4E2DA] bg-white p-6">
-                  <div className="mb-6 flex items-center justify-between">
-                    <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#F7F6F2] text-[#167c70]">
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <span className="text-xs font-semibold text-[#167c70]">{item.label}</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-[#0F2A26]">{item.title}</h3>
-                  <ul className="mt-5 space-y-2">
-                    {item.bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-center gap-2 text-sm text-zinc-700">
-                        <Check className="h-4 w-4 text-[#167c70]" />
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link href={item.href} className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#167c70] hover:text-[#125f57]">
-                    {item.linkLabel}
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </article>
-              );
-            })}
-          </div>
-          <div className="mt-10 text-center">
-            <p className="text-sm font-bold text-[#0F2A26]">{homeContent.outcomes.moreHeading}</p>
-            <ul className="mt-4 flex flex-wrap justify-center gap-2.5">
-              {homeContent.outcomes.more.map((chip) => (
-                <li key={chip.href}>
-                  <Link href={chip.href} className="inline-flex items-center gap-1.5 rounded-lg border border-[#E4E2DA] bg-white px-3.5 py-2 text-sm font-semibold text-[#167c70] hover:border-[#25a18e]">
-                    {chip.label}
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <SectionIntro {...homeContent.product} centered />
+          <div className="mt-8 sm:mt-10">
+            <DashboardCarousel screens={homeContent.product.screens} />
           </div>
         </Container>
       </Section>
+
+      <ReplaceManualSection />
+
+      <OutcomesSection />
 
       <Section data-reveal>
         <Container>
@@ -365,15 +328,6 @@ export default function HomePage() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-          </div>
-        </Container>
-      </Section>
-
-      <Section data-reveal>
-        <Container>
-          <SectionIntro {...homeContent.product} centered />
-          <div className="mt-8 sm:mt-10">
-            <DashboardCarousel screens={homeContent.product.screens} />
           </div>
         </Container>
       </Section>

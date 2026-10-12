@@ -138,6 +138,8 @@ export function PosFeaturesSection() {
   const carouselRef = useRef<HTMLDivElement>(null);
   const pillsRef = useRef<HTMLDivElement>(null);
 
+  const isFirstRender = useRef(true);
+
   const toggleCard = (index: number) => {
     setFlippedCards((prev) => ({
       ...prev,
@@ -149,12 +151,19 @@ export function PosFeaturesSection() {
     if (index < 0 || index >= features.length) return;
     setActiveMobileIndex(index);
     if (carouselRef.current) {
-      const cardEl = carouselRef.current.children[index] as HTMLElement;
+      const container = carouselRef.current;
+      const cardEl = container.children[index] as HTMLElement | undefined;
       if (cardEl) {
-        cardEl.scrollIntoView({
+        const containerRect = container.getBoundingClientRect();
+        const cardRect = cardEl.getBoundingClientRect();
+        const targetScrollLeft =
+          container.scrollLeft +
+          (cardRect.left - containerRect.left) -
+          (container.clientWidth / 2) +
+          (cardEl.clientWidth / 2);
+        container.scrollTo({
+          left: Math.max(0, targetScrollLeft),
           behavior: "smooth",
-          block: "nearest",
-          inline: "center",
         });
       }
     }
@@ -175,15 +184,27 @@ export function PosFeaturesSection() {
     }
   };
 
-  // Keep the active pill in view when mobile card changes
+  // Keep the active pill in view when mobile card changes (container-scoped horizontal scroll only)
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
     if (pillsRef.current) {
-      const activePill = pillsRef.current.children[activeMobileIndex] as HTMLElement | undefined;
+      const container = pillsRef.current;
+      const activePill = container.children[activeMobileIndex] as HTMLElement | undefined;
       if (activePill) {
-        activePill.scrollIntoView({
+        const containerRect = container.getBoundingClientRect();
+        const pillRect = activePill.getBoundingClientRect();
+        const targetScrollLeft =
+          container.scrollLeft +
+          (pillRect.left - containerRect.left) -
+          (container.clientWidth / 2) +
+          (activePill.clientWidth / 2);
+        container.scrollTo({
+          left: Math.max(0, targetScrollLeft),
           behavior: "smooth",
-          block: "nearest",
-          inline: "center",
         });
       }
     }

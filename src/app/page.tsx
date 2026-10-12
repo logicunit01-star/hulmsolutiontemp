@@ -190,7 +190,7 @@ export default function HomePage() {
             </div>
 
             <div className="mt-6 sm:mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg" className="w-full sm:w-auto">
+              <Button asChild size="lg" className="hidden sm:inline-flex w-full sm:w-auto">
                 <Link href={homeContent.hero.primaryCta.href} target="_blank" rel="noreferrer">
                   {homeContent.hero.primaryCta.label}
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -202,7 +202,7 @@ export default function HomePage() {
                 </Link>
               </Button>
             </div>
-            <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-zinc-500">{homeContent.hero.offer}</p>
+            <p className="hidden sm:block mt-3 sm:mt-4 text-xs sm:text-sm text-zinc-500">{homeContent.hero.offer}</p>
             <ul className="hidden md:flex mt-6 flex-col gap-3 text-sm font-medium text-zinc-600 sm:flex-row sm:flex-wrap sm:gap-x-6">
               {homeContent.hero.proof.map((item) => (
                 <li key={item} className="flex items-center gap-2">

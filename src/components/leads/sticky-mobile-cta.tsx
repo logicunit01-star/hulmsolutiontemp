@@ -12,11 +12,11 @@ import { contactInfo, whatsappUrl } from "@/lib/contact-info";
  */
 export function StickyMobileCta() {
   const pathname = usePathname() || "/";
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   useEffect(() => {
     const onScroll = () => {
       const nearBottom = window.innerHeight + window.scrollY > document.body.scrollHeight - 700;
-      setShow(window.scrollY > 640 && !nearBottom);
+      setShow(!nearBottom);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -24,6 +24,9 @@ export function StickyMobileCta() {
   }, [pathname]);
   useEffect(() => {
     document.documentElement.dataset.stickyCta = show ? "on" : "off";
+    return () => {
+      document.documentElement.dataset.stickyCta = "off";
+    };
   }, [show]);
   if (pathname.startsWith("/thank-you") || pathname.startsWith("/book-a-demo") || pathname.startsWith("/contact")) return null;
   return (

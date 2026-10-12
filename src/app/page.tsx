@@ -158,19 +158,39 @@ export default function HomePage() {
           __html: JSON.stringify(pageSchema).replace(/</g, "\\u003c"),
         }}
       />
-      <section className="relative overflow-hidden border-b border-zinc-200/70 bg-white pt-12 pb-16 sm:pt-16 lg:pt-20 lg:pb-24">
+      <section className="relative overflow-hidden border-b border-zinc-200/70 bg-white pt-8 pb-14 sm:pt-16 sm:pb-16 lg:pt-20 lg:pb-24">
         <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
         <Container className="relative grid items-center gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-14">
           <div className="max-w-2xl lg:col-span-6">
-            <p className="mb-5 text-sm font-semibold text-[#167c70]">{homeContent.hero.eyebrow}</p>
+            <p className="hidden md:block mb-5 text-sm font-semibold text-[#167c70]">{homeContent.hero.eyebrow}</p>
             <h1 className="text-3xl font-bold leading-[1.12] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px]">
               {homeContent.hero.headline.replace(/every branch$/, "")}
               <span className="mark-lime">every branch</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-zinc-600">
+            <p className="mt-4 sm:mt-6 max-w-xl text-sm sm:text-base lg:text-lg leading-relaxed sm:leading-8 text-zinc-600">
               {homeContent.hero.description}
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+
+            {/* Mobile Showcase Image (Positioned directly after description on mobile) */}
+            <div className="block lg:hidden my-6">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-2 rounded-2xl bg-gradient-to-tr from-[#167c70]/12 via-[#7ae582]/8 to-transparent blur-xl -z-10"
+              />
+              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-zinc-200/90 bg-white p-1 sm:p-1.5 shadow-[0_15px_35px_-10px_rgba(21,40,37,0.18)]">
+                <Image
+                  src="/images/home/hero-pos-terminal.webp"
+                  alt="Hulm POS software point of sale terminal screen"
+                  width={1024}
+                  height={498}
+                  priority
+                  sizes="100vw"
+                  className="h-auto w-full rounded-lg sm:rounded-xl object-contain select-none"
+                />
+              </div>
+            </div>
+
+            <div className="mt-6 sm:mt-8 flex flex-col gap-3 sm:flex-row">
               <Button asChild size="lg" className="w-full sm:w-auto">
                 <Link href={homeContent.hero.primaryCta.href} target="_blank" rel="noreferrer">
                   {homeContent.hero.primaryCta.label}
@@ -183,8 +203,8 @@ export default function HomePage() {
                 </Link>
               </Button>
             </div>
-            <p className="mt-4 text-sm text-zinc-500">{homeContent.hero.offer}</p>
-            <ul className="mt-6 flex flex-col gap-3 text-sm font-medium text-zinc-600 sm:flex-row sm:flex-wrap sm:gap-x-6">
+            <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-zinc-500">{homeContent.hero.offer}</p>
+            <ul className="hidden md:flex mt-6 flex-col gap-3 text-sm font-medium text-zinc-600 sm:flex-row sm:flex-wrap sm:gap-x-6">
               {homeContent.hero.proof.map((item) => (
                 <li key={item} className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-[#167c70]" />
@@ -194,7 +214,7 @@ export default function HomePage() {
             </ul>
           </div>
 
-          <div className="relative w-full max-w-xl mx-auto lg:col-span-6 lg:max-w-none">
+          <div className="hidden lg:block relative w-full max-w-xl mx-auto lg:col-span-6 lg:max-w-none">
             {/* Soft ambient glow behind dashboard */}
             <div
               aria-hidden="true"
@@ -202,10 +222,10 @@ export default function HomePage() {
             />
             <div className="relative overflow-hidden rounded-2xl border border-zinc-200/90 bg-white p-1 sm:p-2 shadow-[0_25px_60px_-15px_rgba(21,40,37,0.22)]">
               <Image
-                src="/images/home/hero-create-sales-order.webp"
-                alt="Hulm POS software create sales order screen"
-                width={1197}
-                height={688}
+                src="/images/home/hero-pos-terminal.webp"
+                alt="Hulm POS software point of sale terminal screen"
+                width={1024}
+                height={498}
                 priority
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="h-auto w-full rounded-xl object-contain"

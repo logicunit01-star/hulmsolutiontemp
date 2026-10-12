@@ -151,6 +151,11 @@ export const homeContent = {
       "Give your team focused screens for selling, managing products and serving customers with the Best POS Software In Pakistan, while owners keep the wider view of every branch.",
     screens: [
       {
+        title: "Point of Sale & cashier checkout",
+        description: "Fast product catalogue search, category navigation, multi-item shopping cart, on-hold sales and instant receipt checkout.",
+        image: "/images/home/dashboard/hulm-pos-terminal.webp",
+      },
+      {
         title: "Sales history & transaction records",
         description: "Review completed sales tickets, payment methods and amounts, with quick actions to issue returns or reprint receipts.",
         image: "/images/home/dashboard/hulm-pos-sales-history.webp",

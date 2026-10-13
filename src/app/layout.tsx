@@ -4,6 +4,7 @@ import "./globals.css";
 import { RevealObserver } from "@/components/motion/reveal-observer";
 import { StickyMobileCta } from "@/components/leads/sticky-mobile-cta";
 import { GoogleTagManager } from "@/components/analytics/google-tag-manager";
+import { MicrosoftClarity } from "@/components/analytics/clarity";
 import { SiteTracking } from "@/components/analytics/site-tracking";
 import { WhatsAppFloat } from "@/components/leads/whatsapp-float";
 import { contactInfo } from "@/lib/contact-info";
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.webmanifest",
   verification: {
-    google: "eja9u_sG9QlN7Hwff1OOVI1tP9koIfOzBF-XbvrzNEI",
+    google: "u11VcMpy0A_fhTFKRCbkFBcZcETYqzydjWxiYT4BAXQ",
   },
   icons: {
     icon: [
@@ -127,6 +128,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${schibsted.variable}`}>
       <body className={`antialiased flex min-h-screen flex-col text-[#0F2A26]`}>
         <GoogleTagManager id={gtmId} />
+        <MicrosoftClarity />
         {hubspotPortalId && (
           <script
             type="text/javascript"

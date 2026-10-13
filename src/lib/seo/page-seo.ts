@@ -50,6 +50,9 @@ export function seoMetadata(route: string, opts: { ogImage?: string; ogAlt?: str
   return {
     title: { absolute: live.title },
     description: live.description,
+    verification: {
+      google: "u11VcMpy0A_fhTFKRCbkFBcZcETYqzydjWxiYT4BAXQ",
+    },
     alternates: REGIONAL_PATHS.has(path) ? { canonical: path, languages: REGIONAL_ALTERNATES, types: SITE_FEEDS } : { canonical: path, types: SITE_FEEDS },
     robots: {
       index: false,

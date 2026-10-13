@@ -24,6 +24,7 @@ const schibsted = Schibsted_Grotesk({
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://hulmsolutions.com";
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-TMMQ565S";
+const hubspotPortalId = process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID || process.env.HUBSPOT_PORTAL_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -126,6 +127,15 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${schibsted.variable}`}>
       <body className={`antialiased flex min-h-screen flex-col text-[#0F2A26]`}>
         <GoogleTagManager id={gtmId} />
+        {hubspotPortalId && (
+          <script
+            type="text/javascript"
+            id="hs-script-loader"
+            async
+            defer
+            src={`//js.hs-scripts.com/${hubspotPortalId}.js`}
+          />
+        )}
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}

@@ -19,7 +19,7 @@ export const contactContent: StandardPageContent = {
       type: "contact-info",
       heading: "Need Assistance?",
       items: [
-        { label: "Phone", value: "+92 339 111 9259" },
+        { label: "WhatsApp", value: "0339 111 9259" },
         { label: "Email", value: "info@hulmsolutions.com" },
         { label: "Address", value: "C-27, Block 14, Gulistan-e-Johar, Karachi, Pakistan" }
       ]

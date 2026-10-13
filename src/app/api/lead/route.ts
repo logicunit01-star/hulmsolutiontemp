@@ -64,6 +64,54 @@ export async function POST(request: Request) {
 
   const deliveries: Promise<boolean>[] = [];
 
+  // HubSpot Forms API (submits lead directly into HubSpot Form)
+  const hsPortalId = process.env.HUBSPOT_PORTAL_ID;
+  const hsFormId = process.env.HUBSPOT_FORM_ID;
+  if (hsPortalId && hsFormId) {
+    const cookieHeader = request.headers.get("cookie") || "";
+    const hutkMatch = cookieHeader.match(/hubspotutk=([^;]+)/);
+    const hutk = hutkMatch ? hutkMatch[1] : undefined;
+
+    const fields = [
+      { name: "firstname", value: lead.name },
+      { name: "name", value: lead.name },
+      { name: "email", value: lead.email },
+      { name: "phone", value: lead.phone },
+      { name: "mobilephone", value: lead.phone },
+      { name: "company", value: lead.businessName },
+      { name: "businessName", value: lead.businessName },
+      { name: "industry", value: lead.industry },
+      { name: "message", value: lead.message },
+    ].filter((f) => f.value);
+
+    const hsHeaders: Record<string, string> = {
+      "Content-Type": "application/json",
+    };
+    if (process.env.HUBSPOT_ACCESS_TOKEN) {
+      hsHeaders["Authorization"] = `Bearer ${process.env.HUBSPOT_ACCESS_TOKEN}`;
+    }
+
+    deliveries.push(
+      fetch(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${hsPortalId}/${hsFormId}`,
+        {
+          method: "POST",
+          headers: hsHeaders,
+          body: JSON.stringify({
+            fields,
+            context: {
+              hutk,
+              pageUri: lead.page || "https://hulmsolutions.com/contact/",
+              pageName: lead.source === "demo" ? "Book a Demo" : "Contact",
+            },
+          }),
+        }
+      )
+        .then((r) => r.ok)
+        .catch(() => false)
+    );
+  }
+
   const webhook = process.env.LEAD_WEBHOOK_URL;
   if (webhook) {
     deliveries.push(

@@ -10,7 +10,8 @@ import { contactInfo, whatsappUrl } from "@/lib/contact-info";
 import { StandardPageContent } from "@content/types";
 
 const IconMap: Record<string, React.ElementType> = {
-  Phone,
+  Phone: WhatsAppIcon,
+  WhatsApp: WhatsAppIcon,
   Mail,
   Clock,
   Address: MapPin,
@@ -59,7 +60,8 @@ export function ContactForm({ contact }: ContactFormProps) {
             
             <div className="space-y-4">
               {contactInfoSection?.items?.map((item, index) => {
-                const iconName = item.label === "Phone" ? "Phone" : item.label === "Email" ? "Mail" : item.label === "Address" ? "Address" : "Clock";
+                const isPhoneOrWhatsApp = item.label === "Phone" || item.label === "WhatsApp";
+                const iconName = isPhoneOrWhatsApp ? "WhatsApp" : item.label === "Email" ? "Mail" : item.label === "Address" ? "Address" : "Clock";
                 const Icon = IconMap[iconName] || Mail;
                 return (
                   <div key={index} className="lift flex items-start bg-[#FAF9F5] p-5 rounded-2xl border border-[#E4E2DA] transition-all hover:border-[#167c70]/40 hover:bg-white hover:shadow-xs">
@@ -68,8 +70,15 @@ export function ContactForm({ contact }: ContactFormProps) {
                     </div>
                     <div>
                       <h3 className="text-xs font-bold uppercase tracking-wider text-[#167c70] mb-1">{item.label}</h3>
-                      {item.label === "Phone" ? (
-                        <a href={`tel:${contactInfo.phoneE164}`} className="text-base sm:text-lg font-bold text-[#0F2A26] hover:text-[#167c70] transition-colors">{item.value}</a>
+                      {isPhoneOrWhatsApp ? (
+                        <a
+                          href={whatsappUrl("Hi Hulm, I have a question about Hulm POS.")}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-base sm:text-lg font-bold text-[#0F2A26] hover:text-[#167c70] transition-colors"
+                        >
+                          {item.value}
+                        </a>
                       ) : item.label === "Email" ? (
                         <a href={`mailto:${contactInfo.email}`} className="text-base sm:text-lg font-bold text-[#0F2A26] hover:text-[#167c70] transition-colors">{item.value}</a>
                       ) : (

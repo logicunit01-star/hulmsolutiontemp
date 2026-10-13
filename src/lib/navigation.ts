@@ -51,7 +51,6 @@ export const footerNav = [
 ];
 
 export const socialLinks = [
-  { title: "Facebook", href: "https://www.facebook.com/Hulmsolutions" },
   { title: "LinkedIn", href: "https://www.linkedin.com/company/hulm-solutions/" },
-  { title: "Instagram", href: "https://www.instagram.com/hulmsolutions1101/" },
+  { title: "Instagram", href: "https://www.instagram.com/hulmsolutions" },
 ];

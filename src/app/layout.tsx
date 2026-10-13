@@ -101,9 +101,8 @@ const organizationSchema = {
     { "@type": "ContactPoint", contactType: "sales", telephone: contactInfo.phoneDisplay, email: contactInfo.email, areaServed: ["PK", "SA", "AE", "QA", "US"], availableLanguage: ["en"] },
   ],
   sameAs: [
-    "https://www.facebook.com/Hulmsolutions",
     "https://www.linkedin.com/company/hulm-solutions/",
-    "https://www.instagram.com/hulmsolutions1101/",
+    "https://www.instagram.com/hulmsolutions",
     "https://www.youtube.com/@Hulmsolutions",
   ],
 };

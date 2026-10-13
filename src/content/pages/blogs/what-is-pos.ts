@@ -5,192 +5,100 @@ export const whatIsPosBlog: SingleBlogData = {
   title: "What is POS System? What does POS mean & How to use POS System?",
   author: "Aamir Khan",
   authorSlug: "aamir-khan",
-  date: "December 18, 2024",
-  publishedTime: "2024-12-18T13:37:42+05:00",
-  modifiedTime: "2025-12-29T16:34:05+05:00",
+  date: "2024-12-18",
+  publishedTime: "2024-12-18T08:37:42+00:00",
+  modifiedTime: "2025-12-29T11:34:05+00:00",
   imageUrl: "/images/uploads/2024/12/what-is-pos.webp",
-  excerpt:
-    "Learn what a POS system is, what POS means, how point-of-sale hardware and software work, and how businesses use POS for sales, inventory and reporting.",
+  excerpt: "Learn what is POS system meaning & Point of sale definition. How does point of sale work? Discover systems to manage operations easily.",
   tocItems: [
-    { title: "What is POS?", href: "#what-is-pos" },
-    { title: "What is a POS system?", href: "#what-is-a-pos-system" },
-    { title: "What does POS stand for?", href: "#what-does-pos-stand-for" },
-    { title: "POS hardware and software", href: "#pos-hardware-and-software" },
-    { title: "How does a POS system work?", href: "#how-does-a-pos-system-work" },
-    { title: "Types of POS systems", href: "#types-of-pos-systems" },
-    { title: "How to use a POS", href: "#how-to-use-a-pos-system" },
-    { title: "POS system vs cash register", href: "#pos-system-vs-cash-register" },
-    { title: "How to choose the right POS", href: "#how-to-choose-a-pos-system" },
-    { title: "Frequently asked questions", href: "#frequently-asked-questions" },
+      {
+          "href": "#what-is-pos",
+          "title": "What is POS?"
+      },
+      {
+          "href": "#what-is-pos-system",
+          "title": "What is POS System?"
+      },
+      {
+          "href": "#what-does-pos-system-stand-for",
+          "title": "What Does POS System Stand For?"
+      },
+      {
+          "href": "#what-does-pos-mean",
+          "title": "What Does POS Mean?"
+      },
+      {
+          "href": "#hardware",
+          "title": "Hardware:"
+      },
+      {
+          "href": "#software",
+          "title": "Software:"
+      },
+      {
+          "href": "#what-is-pos-software-used-for",
+          "title": "What is POS software used for?"
+      },
+      {
+          "href": "#why-is-point-of-sale-important",
+          "title": "Why Is Point of Sale Important?"
+      },
+      {
+          "href": "#how-many-types-of-point-of-sale-software",
+          "title": "How Many Types of Point of Sale Software?"
+      },
+      {
+          "href": "#industry-specific-pos-systems",
+          "title": "Industry-Specific POS Systems"
+      },
+      {
+          "href": "#how-does-point-of-sale-work",
+          "title": "How Does Point of Sale Work"
+      },
+      {
+          "href": "#how-to-use-a-pos-system",
+          "title": "How to Use a POS System"
+      },
+      {
+          "href": "#benefits-of-a-point-of-sale-system",
+          "title": "Benefits of a Point of Sale System"
+      },
+      {
+          "href": "#pos-system-vs-traditional-cash-register",
+          "title": "POS System vs Traditional Cash Register"
+      },
+      {
+          "href": "#point-of-sale-features",
+          "title": "Point of Sale Features"
+      },
+      {
+          "href": "#common-pain-points-with-pos-systems",
+          "title": "Common Pain Points with POS Systems"
+      },
+      {
+          "href": "#how-to-choose-the-right-pos-system-for-your-business",
+          "title": "How to Choose the Right POS System for Your Business"
+      },
+      {
+          "href": "#future-trends-in-pos-technology",
+          "title": "Future Trends in POS Technology"
+      },
+      {
+          "href": "#how-to-set-up-a-point-of-sale-system",
+          "title": "How to set up a Point of Sale System?"
+      },
+      {
+          "href": "#conclusion",
+          "title": "Conclusion"
+      },
+      {
+          "href": "#frequently-asked-questions",
+          "title": "Frequently Asked Questions"
+      },
+      {
+          "href": "#upgrade-your-business-with-smarter-pos",
+          "title": "Upgrade Your Business with Smarter POS"
+      }
   ],
-  faq: [
-    {
-      question: "What does POS stand for?",
-      answer: "POS stands for Point of Sale, the place and process where a customer completes a purchase from a business.",
-    },
-    {
-      question: "What is a POS system?",
-      answer: "It combines software and compatible hardware to record sales, accept payments, issue receipts and manage information such as products, stock and customers.",
-    },
-    {
-      question: "What is POS software used for?",
-      answer: "Businesses use POS software to create sales, calculate totals and taxes, record payments, update inventory, store customer information and produce sales reports.",
-    },
-    {
-      question: "What hardware can a POS system use?",
-      answer: "A POS setup may use a computer, tablet or phone together with a barcode scanner, receipt printer, cash drawer and payment terminal. Required hardware depends on the business and software.",
-    },
-    {
-      question: "Can a POS system work for more than one branch?",
-      answer: "A multi-branch setup can combine sales and stock information from several locations, but the available controls and limits depend on the selected provider and plan.",
-    },
-    {
-      question: "Is a POS system the same as a cash register?",
-      answer: "No. A cash register mainly records payments and stores cash. A modern POS can also connect sales with inventory, customer records, purchasing, user permissions and reporting.",
-    },
-  ],
-  contentHtml: `
-    <p><strong>Point of sale definition:</strong> A point of sale, or POS, is the place and process where a customer completes a purchase. A POS system uses software and compatible hardware to calculate the sale, record payment, issue a receipt and retain transaction data.</p>
-
-    <h2 id="what-is-pos">What is POS?</h2>
-    <p>The basic POS meaning is point of sale. The term can describe a physical checkout counter, a mobile checkout device or an online sales screen. In each case, the POS is where a business records what was sold, how much the customer paid and when the transaction occurred.</p>
-    <p>A POS is not limited to card payments. Depending on the business and system, the checkout may record cash, bank-card, wallet, bank-transfer or other supported payment methods.</p>
-
-    <figure><img src="/images/uploads/2024/12/hulmsolutions-blog-what-is-point-of-sale-1.webp" alt="What is point of sale (POS) at a retail checkout" width="750" height="500" loading="lazy" decoding="async" /></figure>
-
-    <h2 id="what-is-a-pos-system">What is a POS system?</h2>
-    <p>A POS system is the combination of software, devices and business rules used to complete and record sales. Modern POS software can connect checkout activity with product information, inventory, customer records, purchasing and reporting.</p>
-    <p>For example, when a retailer sells one item, the system can record the payment and reduce the available stock for that product. The same transaction can then appear in daily sales reports without being entered again in a separate spreadsheet.</p>
-
-    <figure><img src="/images/uploads/2024/12/what-is-pointofsale-blog.webp" alt="POS system screen recording a sale, stock and receipt" width="826" height="620" loading="lazy" decoding="async" /></figure>
-
-    <h2 id="what-does-pos-stand-for">What does POS stand for?</h2>
-    <p>POS stands for <strong>Point of Sale</strong>. “Point” refers to the place or step where the sale is completed. “Sale” refers to the transaction between the customer and business. Depending on context, the POS meaning can therefore cover a location, a device or the software running the checkout.</p>
-    <ul>
-      <li><strong>In a retail store:</strong> the POS may be a counter with a computer, scanner, printer and cash drawer.</li>
-      <li><strong>In a restaurant:</strong> the POS may record counter orders, table orders and kitchen tickets.</li>
-      <li><strong>On a mobile device:</strong> the POS may run on a phone or tablet used by staff.</li>
-      <li><strong>Online:</strong> the point of sale may be the checkout stage of an ecommerce transaction.</li>
-    </ul>
-
-    <h2 id="pos-hardware-and-software">What hardware and software does a POS use?</h2>
-    <p>POS software controls the sale and stores its data. POS hardware gives staff and customers a way to interact with that software. A business does not necessarily need every device listed below.</p>
-
-    <h3>Common POS hardware</h3>
-    <ul>
-      <li><strong>POS terminal:</strong> a desktop computer, touchscreen, tablet or phone running the checkout.</li>
-      <li><strong>Barcode scanner:</strong> reads product codes to add items to a sale.</li>
-      <li><strong>Receipt printer:</strong> produces a paper record when printed receipts are required.</li>
-      <li><strong>Cash drawer:</strong> stores and organises cash received at checkout.</li>
-      <li><strong>Payment terminal:</strong> handles supported card or digital-payment transactions through the relevant payment provider.</li>
-    </ul>
-
-    <h3>Common POS software functions</h3>
-    <ul>
-      <li>Create sales and calculate line totals, discounts and applicable taxes.</li>
-      <li>Record payment methods and issue receipts or invoices.</li>
-      <li>Maintain a product catalogue with prices, variants and stock information.</li>
-      <li>Connect sales with inventory movements.</li>
-      <li>Store customer records when the customer provides the required information.</li>
-      <li>Provide sales, product, user and branch reports.</li>
-    </ul>
-
-    <figure><img src="/images/uploads/2024/12/tab-1024x704.png" alt="POS hardware: tablet terminal, scanner, receipt printer and cash drawer" width="1024" height="704" loading="lazy" decoding="async" /></figure>
-
-    <h2 id="what-is-pos-software-used-for">What is POS software used for?</h2>
-    <p>Businesses use POS software to create accurate transaction records and keep the work around each sale connected. The exact feature set varies by provider and plan.</p>
-    <p>A small store may use POS software for billing, products, stock and daily reports. A growing business may also need customer management, purchase orders, supplier records, user permissions and multi-branch reporting.</p>
-
-    <h2 id="how-does-a-pos-system-work">How does a POS system work?</h2>
-    <ol>
-      <li><strong>The product or service is selected.</strong> Staff scan a barcode, search the catalogue or choose an item from the screen.</li>
-      <li><strong>The POS calculates the sale.</strong> The system applies quantities, prices, approved discounts and configured tax rules.</li>
-      <li><strong>The payment method is recorded.</strong> The customer pays using one of the methods supported by the business.</li>
-      <li><strong>The transaction is completed.</strong> The POS stores the sale and issues the available receipt or invoice.</li>
-      <li><strong>Connected records are updated.</strong> Stock, customer history and reports may update from the same transaction.</li>
-    </ol>
-
-    <figure><img src="/images/uploads/2024/12/How-Does-Point-of-Sale-Work-1024x597.webp" alt="How a point of sale system works from item selection to receipt" width="1024" height="597" loading="lazy" decoding="async" /></figure>
-
-    <h2 id="types-of-pos-systems">What are the main types of POS systems?</h2>
-    <h3>Traditional or on-premise POS</h3>
-    <p>An on-premise POS normally runs on equipment located at the business. The business may control more of the local setup, while updates, backups and remote access depend on the chosen system.</p>
-
-    <h3>Cloud POS</h3>
-    <p>A cloud POS stores and synchronises business data through hosted services. Authorised users can usually access the system from supported devices, subject to the provider's controls and internet requirements.</p>
-
-    <h3>Mobile POS</h3>
-    <p>A mobile POS runs on a phone or tablet. It can suit small counters, sales teams, pop-up locations and businesses that need to move the checkout closer to the customer.</p>
-
-    <h3>Self-service POS</h3>
-    <p>A self-service POS lets customers select items or services and move through part of the checkout without a staff member operating every step. Restaurants, cinemas and larger retailers commonly use this format.</p>
-
-    <figure><img src="/images/uploads/2024/12/Types-of-Point-of-Sale-Software-1024x597.webp" alt="Types of point of sale software: on-premise, cloud, mobile and self-service POS" width="1024" height="597" loading="lazy" decoding="async" /></figure>
-
-    <h2 id="industry-specific-pos">How does POS software differ by industry?</h2>
-    <p>Industry-specific POS software keeps the checkout familiar while adding workflows needed by a particular business type.</p>
-    <ul>
-      <li><a href="/industries/retail-store">Retail POS</a> may focus on barcodes, product variants, exchanges and branch stock.</li>
-      <li><a href="/industries/restaurant-pos">Restaurant POS</a> may focus on menus, order types, kitchen tickets and bill handling.</li>
-      <li><a href="/industries/pharmacy-store">Pharmacy POS</a> may need batch, expiry, pack and unit records alongside billing.</li>
-      <li><a href="/industries/bakery-pos-system">Bakery POS</a> may combine counter sales, advance orders and product availability.</li>
-      <li><a href="/industries/salon-pos">Salon POS</a> may connect service billing, appointments, customer history and retail stock.</li>
-    </ul>
-
-    <h2 id="how-to-use-a-pos-system">How do you use a POS?</h2>
-    <ol>
-      <li>Sign in with the user account and permissions assigned by the business.</li>
-      <li>Start the shift or open the register when the chosen workflow requires it.</li>
-      <li>Add products or services to the order.</li>
-      <li>Confirm quantities, prices, customer information and approved discounts.</li>
-      <li>Select and record the payment method.</li>
-      <li>Complete the transaction and provide the receipt or invoice.</li>
-      <li>Review end-of-shift totals and resolve any difference according to company procedure.</li>
-    </ol>
-    <p>Before using a POS with customers, staff should practise creating a sale, correcting an item, applying a permitted discount, processing a return and locating the daily report.</p>
-
-    <figure><img src="/images/uploads/2024/12/How-to-Use-a-POS-System-1024x597.webp" alt="How to use a POS system step by step" width="1024" height="597" loading="lazy" decoding="async" /></figure>
-
-    <h2 id="benefits-of-a-pos-system">What are the benefits of using POS?</h2>
-    <ul>
-      <li><strong>Consistent billing:</strong> configured prices and calculation rules reduce avoidable manual entry.</li>
-      <li><strong>Connected stock records:</strong> completed sales can update inventory without a second entry.</li>
-      <li><strong>Faster reporting:</strong> owners can review recorded sales by product, user, period or branch.</li>
-      <li><strong>Customer history:</strong> authorised teams can keep customer activity connected to transactions.</li>
-      <li><strong>Controlled access:</strong> user permissions can limit who can change prices, apply discounts or view reports.</li>
-      <li><strong>Multi-location visibility:</strong> suitable plans can provide a combined view across branches.</li>
-    </ul>
-
-    <h2 id="pos-system-vs-cash-register">POS system vs traditional cash register</h2>
-    <div class="wp-block-table"><table><thead><tr><th>Capability</th><th>Traditional cash register</th><th>Modern POS system</th></tr></thead><tbody><tr><td>Record a payment</td><td>Yes</td><td>Yes</td></tr><tr><td>Product catalogue</td><td>Limited or unavailable</td><td>Typically available</td></tr><tr><td>Inventory connection</td><td>Usually manual</td><td>Can update from sales</td></tr><tr><td>Customer records</td><td>Usually unavailable</td><td>Available in supported plans</td></tr><tr><td>Business reports</td><td>Basic totals</td><td>Product, sales, user and branch views</td></tr><tr><td>Remote access</td><td>Usually unavailable</td><td>Available with cloud systems</td></tr></tbody></table></div>
-
-    <h2 id="how-to-choose-a-pos-system">How do you choose the right POS?</h2>
-    <p>Choose a system by matching it to the transactions, products, staff and locations the business actually manages. A longer feature list is not automatically a better fit.</p>
-    <ul>
-      <li><strong>Business workflow:</strong> confirm that the checkout supports your products, services, returns and order types.</li>
-      <li><strong>Total cost:</strong> compare subscription, setup, user, branch, hardware, integration and payment-processing costs.</li>
-      <li><strong>Devices:</strong> verify which computers, scanners, printers and payment terminals are supported.</li>
-      <li><strong>Connectivity:</strong> ask what happens when the internet connection is slow or unavailable.</li>
-      <li><strong>Local requirements:</strong> confirm tax and invoicing obligations with the relevant authority and ask the provider how its integration works.</li>
-      <li><strong>Support and training:</strong> test the support channel and let staff try common tasks before committing.</li>
-      <li><strong>Growth:</strong> check user, branch and data-export options before the business needs them.</li>
-    </ul>
-
-    <h2 id="frequently-asked-questions">Frequently asked questions about POS systems</h2>
-    <h3>What does POS stand for?</h3>
-    <p>POS stands for Point of Sale, the place and process where a customer completes a purchase from a business.</p>
-    <h3>What is a POS system?</h3>
-    <p>It combines software and compatible hardware to record sales, accept payments, issue receipts and manage information such as products, stock and customers.</p>
-    <h3>What is POS software used for?</h3>
-    <p>Businesses use POS software to create sales, calculate totals and taxes, record payments, update inventory, store customer information and produce sales reports.</p>
-    <h3>What hardware can a POS system use?</h3>
-    <p>A POS setup may use a computer, tablet or phone together with a barcode scanner, receipt printer, cash drawer and payment terminal. Required hardware depends on the business and software.</p>
-    <h3>Can a POS system work for more than one branch?</h3>
-    <p>A multi-branch setup can combine sales and stock information from several locations, but available controls and limits depend on the selected provider and plan.</p>
-    <h3>Is a POS system the same as a cash register?</h3>
-    <p>No. A cash register mainly records payments and stores cash. A modern POS can also connect sales with inventory, customer records, purchasing, user permissions and reporting.</p>
-
-    <h2 id="next-step">See how Hulm POS connects sales and operations</h2>
-    <p>Hulm POS connects checkout, inventory, products, customers, purchasing and reporting for supported business workflows. Review the <a href="/features">POS features</a>, compare <a href="/pricing">Hulm POS pricing</a>, or <a href="/contact">book a product demonstration</a> based on your industry and branch requirements.</p>
-  `,
+  contentHtml: "<blockquote class=\"wp-block-quote has-text-align-left is-style-default is-layout-flow wp-block-quote-is-layout-flow\">\n<p class=\"wp-block-paragraph\"><strong>Point of sale Definition:<br></strong><br>A POS (Point of Sale) is the place where a customer completes a purchase, using hardware and software that process payments and record sales.</p>\n</blockquote>\n\n\n\n<figure class=\"wp-block-image size-full\"><a href=\"https://app.hulmsolutions.com/\"><img fetchpriority=\"high\" fetchpriority=\"high\" decoding=\"async\" width=\"750\" height=\"500\" src=\"/images/uploads/2024/12/hulmsolutions-blog-what-is-point-of-sale-1.webp\" alt=\"\" class=\"wp-image-5094\" srcset=\"/images/uploads/2024/12/hulmsolutions-blog-what-is-point-of-sale-1.webp 750w, /images/uploads/2024/12/hulmsolutions-blog-what-is-point-of-sale-1-300x200.webp 300w\" sizes=\"(max-width: 750px) 100vw, 750px\" /></a></figure>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"what-is-pos\">What is POS?</h2>\n\n\n\n<p class=\"wp-block-paragraph\">A POS (Point of Sale) is where customers pay for goods or services. It combines hardware like card readers and cash drawers with software that processes sales, issues receipts, and records transactions.</p>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"what-is-pos-system\"><strong>What is POS System?</strong></h2>\n\n\n\n<p class=\"wp-block-paragraph\">A Point of Sale (POS) system is the technology businesses use to complete sales and manage day-to-day operations. Beyond processing payments, modern POS platforms include tools for <a href=\"https://hulmsolutions.com/inventory-management/\"><span style=\"text-decoration:underline;color:blue;\">inventory management</span></a>, <a href=\"https://hulmsolutions.com/order-management/\"><span style=\"text-decoration:underline;color:blue;\">order management</span></a>, <a href=\"https://hulmsolutions.com/vendors-management/\"><span style=\"text-decoration:underline;color:blue;\">vendor management</span></a>, <a href=\"https://hulmsolutions.com/customer-management/\"><span style=\"text-decoration:underline;color:blue;\">CRM</span></a>, <a href=\"https://hulmsolutions.com/purchase-orders/\"><span style=\"text-decoration:underline;color:blue;\">purchase orders</span></a>, and <a href=\"https://hulmsolutions.com/reporting-module/\"><span style=\"text-decoration:underline;color:blue;\">reporting modules</span></a>, giving business owners one place to control and analyze their entire workflow. This makes POS not just a checkout tool, but a complete business management system.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Modern POS solutions come in many forms, checkout counters, mobile apps, or online systems—making it easy for businesses to sell anywhere. Whether in <a href=\"https://hulmsolutions.com/industries/restaurant-pos/\"><span style=\"text-decoration:underline;color:blue;\">restaurants</span></a>, <a href=\"https://hulmsolutions.com/industries/retail-store/\"><span style=\"text-decoration:underline;color:blue;\">retail stores</span></a>, <a href=\"https://hulmsolutions.com/industries/pharmacy-store/\"><span style=\"text-decoration:underline;color:blue;\">pharmacies</span></a>, <a href=\"https://hulmsolutions.com/industries/clothing-store/\"><span style=\"text-decoration:underline;color:blue;\">clothing shops</span></a> and <a href=\"https://hulmsolutions.com/industries/jewellery-shop/\"><span style=\"text-decoration:underline;color:blue;\">jewellery outlets</span></a>, a POS system helps streamline transactions, improve customer experiences, and keep operations organized.</p>\n\n\n\n<div class=\"wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-f85ca395 wp-block-buttons-is-layout-flex\" style=\"border-style:none;border-width:0px;border-radius:0px\">\n<div class=\"wp-block-button has-custom-width wp-block-button__width-100 is-style-fill\"><a class=\"wp-block-button__link wp-element-button\" href=\"https://wa.me/923391119259\" target=\"_blank\" rel=\"noreferrer noopener\">Get Free POS Demo Now!</a></div>\n</div>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"what-does-pos-system-stand-for\">What Does POS System Stand For?</h2>\n\n\n\n<p class=\"wp-block-paragraph\">POS stands for Point of Sale. It’s the place where a customer pays for goods or services, and the system that makes it possible. A POS combines hardware (like card readers and cash drawers) with software that processes payments, records sales, issues receipts, and tracks essential business data.</p>\n\n\n\n<h3 class=\"wp-block-heading\"><strong>Key Takeaways of a POS System</strong></h3>\n\n\n\n<ul class=\"wp-block-list\">\n<li>Point of sale in a business is a way to process payments and consummate the purchase in person or via the Internet.&nbsp;</li>\n\n\n\n<li>They usually generate receipts electronically or on paper.&nbsp;</li>\n\n\n\n<li>Point-of-sale software keeps track of inventory management, pricing, and customer information for the marketing analysis side street.</li>\n</ul>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"what-does-pos-mean\">What Does POS Mean?</h2>\n\n\n\n<p class=\"wp-block-paragraph\">POS (Point of Sale) is the place and system where a <a href=\"https://hulmsolutions.com/blog/what-is-point-of-sale-transaction/\"><span style=\"text-decoration:underline;color:blue;\">transaction</span></a> happens between a customer and a business. While it once meant only the checkout counter, today a POS system combines hardware and software to process payments, track inventory, manage customer relationships, and provide sales insights—making it a central tool for running businesses efficiently and improving customer <a href=\"https://hulmsolutions.com/blog/what-is-pos-experience-12-tips-to-satisfy-your-customers/\"><span style=\"text-decoration:underline;color:blue;\">experience</span></a>.</p>\n\n\n\n<h3 class=\"wp-block-heading\"><strong>Key Components of a POS System</strong></h3>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"hardware\">Hardware:</h2>\n\n\n\n<figure class=\"wp-block-image size-full\"><img decoding=\"async\" width=\"826\" height=\"620\" src=\"/images/uploads/2024/12/what-is-pointofsale-blog.webp\" alt=\"\" class=\"wp-image-5108\" srcset=\"/images/uploads/2024/12/what-is-pointofsale-blog.webp 826w, /images/uploads/2024/12/what-is-pointofsale-blog-300x225.webp 300w, /images/uploads/2024/12/what-is-pointofsale-blog-768x576.webp 768w\" sizes=\"(max-width: 826px) 100vw, 826px\" /></figure>\n\n\n\n<p class=\"has-text-align-center wp-block-paragraph\">HulmSolutions POS Hardware</p>\n\n\n\n<ul class=\"wp-block-list\">\n<li>Point-of-sale Terminal: The computer or device where the transactions are processed.</li>\n\n\n\n<li>Card Reader: For accepting credit and debit card payments.</li>\n\n\n\n<li>Barcode Scanner: Speeds up checkout by scanning product codes.</li>\n\n\n\n<li>Receipt Printer: Provides printed proof of purchase.</li>\n\n\n\n<li>Cash Drawer: Safely stores cash payments.</li>\n</ul>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"software\">Software:</h2>\n\n\n\n<figure class=\"wp-block-image size-large\"><img decoding=\"async\" width=\"1024\" height=\"704\" src=\"/images/uploads/2024/12/tab-1024x704.png\" alt=\"\" class=\"wp-image-5110\" srcset=\"/images/uploads/2024/12/tab-1024x704.png 1024w, /images/uploads/2024/12/tab-300x206.png 300w, /images/uploads/2024/12/tab-768x528.png 768w, /images/uploads/2024/12/tab.png 1210w\" sizes=\"(max-width: 1024px) 100vw, 1024px\" /></figure>\n\n\n\n<p class=\"has-text-align-center wp-block-paragraph\">HulmSolutions Point of Sale (Dashboard)</p>\n\n\n\n<ul class=\"wp-block-list\">\n<li>Handles payments, generates receipts and tracks sales data.</li>\n\n\n\n<li>Monitors stock levels in real time and automates restocking alerts.</li>\n\n\n\n<li>Generates sales reports and customer insights.</li>\n\n\n\n<li>Integrates with other business tools like accounting software.</li>\n\n\n\n<li>Accepts multiple payment methods, including cash, cards and digital wallets.</li>\n</ul>\n\n\n\n<details class=\"wp-block-details is-layout-flow wp-block-details-is-layout-flow\"><summary><strong>POS Market Growth &amp; Future Trends</strong></summary>\n<p class=\"wp-block-paragraph\">The global POS (Point-of-Sale) market is growing fast, expected to reach <strong>$110+ billion by 2032</strong> (<a href=\"https://www.fortunebusinessinsights.com/point-of-sale-pos-market-106336\">Fortune Business Insights</a>). Businesses are choosing POS systems to speed up sales, manage inventory, and accept mobile or contactless payments, helping improve customer service. Studies show POS can boost sales by <strong>up to 46%</strong> in some industries (<a href=\"https://hoteltechreport.com/news/pos-statistics\">HotelTechReport</a>). Top companies like Square and Lightspeed process <strong>billions in payments</strong> each year (<a href=\"https://en.wikipedia.org/wiki/Square_(financial_services)\">Square</a>, <a href=\"https://en.wikipedia.org/wiki/Lightspeed_Commerce\">Lightspeed</a>). Governments also support digital payments for better tax tracking (<a href=\"https://www.sba.gov\">U.S. SBA</a>, <a href=\"https://www.commerce.gov/news\">Commerce.gov</a>). A modern POS isn’t just helpful—it’s now essential for business growth.</p>\n</details>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"what-is-pos-software-used-for\">What is POS software used for?</h2>\n\n\n\n<p class=\"wp-block-paragraph\">POS software processes sales, updates stock, captures customer details, applies promotions, and generates reports that help owners make faster, data-driven decisions.</p>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"why-is-point-of-sale-important\">Why Is Point of Sale Important?</h2>\n\n\n\n<p class=\"wp-block-paragraph\">The point-of-sale system is the core of retail and service-based businesses, managing sales, inventory, customer data, and&nbsp;<a href=\"https://hulmsolutions.com/reporting-module/\" target=\"_blank\">reporting</a>. It is much more sophisticated than traditional cash registers, using modern technology to operate quickly and accurately, and interact nonstop with customers.</p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img loading=\"lazy\" loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"597\" src=\"/images/uploads/2024/12/Types-of-Point-of-Sale-Software-1024x597.webp\" alt=\"\" class=\"wp-image-7671\" style=\"aspect-ratio:16/9;object-fit:cover\" srcset=\"/images/uploads/2024/12/Types-of-Point-of-Sale-Software-1024x597.webp 1024w, /images/uploads/2024/12/Types-of-Point-of-Sale-Software-300x175.webp 300w, /images/uploads/2024/12/Types-of-Point-of-Sale-Software-768x448.webp 768w, /images/uploads/2024/12/Types-of-Point-of-Sale-Software.webp 1200w\" sizes=\"(max-width: 1024px) 100vw, 1024px\" /></figure>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"how-many-types-of-point-of-sale-software\">How Many Types of Point of Sale Software?</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Not all point-of-sale systems are created equal. Depending on your business needs, you can choose from various Point of Sale software types, each offering unique features.</p>\n\n\n\n<h3 class=\"wp-block-heading\"><strong>Traditional POS Systems</strong></h3>\n\n\n\n<p class=\"wp-block-paragraph\">Traditional point-of-sale systems essentially describe the type of terminal where individual touchpoints are fixed in-store. These systems are reliable and secure but are not as flexible as modern solutions.</p>\n\n\n\n<h3 class=\"wp-block-heading\"><strong>Cloud-Based POS Systems</strong></h3>\n\n\n\n<p class=\"wp-block-paragraph\"><strong><a href=\"https://hulmsolutions.com/blog/cloud-pos-software-for-retail-stores/\">Cloud based POS systems</a></strong> collect data online, and with an internet connection, you can access it from any of the device. They&#8217;re affordable yet scalable and put your best foot forward for multi-site business establishments.</p>\n\n\n\n<h3 class=\"wp-block-heading\"><strong>Mobile POS (mPOS)</strong></h3>\n\n\n\n<p class=\"wp-block-paragraph\">Portable Systems that run on a smartphone or tablet are ideal for small businesses, food trucks, or events. They allow transactions to be processed at the site.</p>\n\n\n\n<h3 class=\"wp-block-heading\"><strong>Self-Service Kiosks</strong></h3>\n\n\n\n<p class=\"wp-block-paragraph\">These kinds of systems enable customers to do the transaction themselves and generally are found in many fast-food and retail stores. Reducing wait times along the way enhances the overall level of customer experience.</p>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"industry-specific-pos-systems\">Industry-Specific POS Systems</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Some Point of Sale software is tailored for specific industries:</p>\n\n\n\n<ul class=\"wp-block-list\">\n<li>Pos system for retail shop</li>\n\n\n\n<li>Pos systems for restaurants</li>\n\n\n\n<li>Pos system for hotels</li>\n\n\n\n<li>Pos systems for food trucks</li>\n\n\n\n<li>Pos systems for liquor stores</li>\n\n\n\n<li>Pos system for cafes</li>\n\n\n\n<li>Pos system for schools​</li>\n\n\n\n<li>Pos system for pharmacy and medical store</li>\n\n\n\n<li>Pos system for salon</li>\n\n\n\n<li>Pos system for hospital</li>\n\n\n\n<li>Pos systems for supermarkets</li>\n\n\n\n<li>Pos systems for bars</li>\n</ul>\n\n\n\n<figure class=\"wp-block-image size-large\"><img loading=\"lazy\" loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"597\" src=\"/images/uploads/2024/12/How-Does-Point-of-Sale-Work-1024x597.webp\" alt=\"\" class=\"wp-image-7680\" style=\"aspect-ratio:16/9;object-fit:cover\" srcset=\"/images/uploads/2024/12/How-Does-Point-of-Sale-Work-1024x597.webp 1024w, /images/uploads/2024/12/How-Does-Point-of-Sale-Work-300x175.webp 300w, /images/uploads/2024/12/How-Does-Point-of-Sale-Work-768x448.webp 768w, /images/uploads/2024/12/How-Does-Point-of-Sale-Work.webp 1200w\" sizes=\"(max-width: 1024px) 100vw, 1024px\" /></figure>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"how-does-point-of-sale-work\">How Does Point of Sale Work</h2>\n\n\n\n<p class=\"wp-block-paragraph\">A POS system streamlines business operations by handling payments, sales, inventory, and reporting. Here’s how it works step by step:</p>\n\n\n\n<ol class=\"wp-block-list\">\n<li><strong>Set Up Hardware</strong> – Connect barcode scanners, card readers, cash drawers, and receipt printers with a stable internet connection.</li>\n\n\n\n<li><strong>Configure Software</strong> – Add products with prices, taxes, and stock details. Set up payment methods and employee access.</li>\n\n\n\n<li><strong>Process Transactions</strong> – Scan items, apply discounts, accept payments (cash, card, or mobile wallet), and issue receipts.</li>\n\n\n\n<li><strong>Track &amp; Report</strong> – Use real-time analytics for sales, inventory, and customer behavior to make smarter business decisions.</li>\n\n\n\n<li><strong>Train Staff</strong> – Ensure employees know how to operate the POS efficiently for smooth operations.</li>\n</ol>\n\n\n\n<p class=\"wp-block-paragraph\">Modern POS systems go beyond checkout—they help restaurants, retail stores, pharmacies, bakeries, jewelry shops, and furniture outlets manage operations and deliver better customer experiences.</p>\n\n\n\n<figure class=\"wp-block-image size-large\"><img loading=\"lazy\" loading=\"lazy\" decoding=\"async\" width=\"1024\" height=\"597\" src=\"/images/uploads/2024/12/How-to-Use-a-POS-System-1024x597.webp\" alt=\"\" class=\"wp-image-7681\" style=\"aspect-ratio:16/9;object-fit:cover\" srcset=\"/images/uploads/2024/12/How-to-Use-a-POS-System-1024x597.webp 1024w, /images/uploads/2024/12/How-to-Use-a-POS-System-300x175.webp 300w, /images/uploads/2024/12/How-to-Use-a-POS-System-768x448.webp 768w, /images/uploads/2024/12/How-to-Use-a-POS-System.webp 1200w\" sizes=\"(max-width: 1024px) 100vw, 1024px\" /></figure>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"how-to-use-a-pos-system\">How to Use a POS System</h2>\n\n\n\n<p class=\"wp-block-paragraph\">A POS (Point of Sale) system makes daily operations faster and more accurate. From checkout to reporting, here’s how to use it step by step:</p>\n\n\n\n<ol class=\"wp-block-list\">\n<li><strong>Log In &amp; Start Shift</strong> – Employees sign in with credentials and, if required, open the cash drawer to begin sales tracking.</li>\n\n\n\n<li><strong>Add Items to the Order</strong> – Scan barcodes, search by name, or select services/products directly from the catalog.</li>\n\n\n\n<li><strong>Apply Discounts &amp; Promotions</strong> – Add coupons or special offers to maintain pricing consistency.</li>\n\n\n\n<li><strong>Choose Payment Method</strong> – Accept cash, cards, mobile wallets, or split payments through contactless options.</li>\n\n\n\n<li><strong>Issue Receipt</strong> – Print, email, or SMS the receipt; digital receipts help reduce paper use and grow customer databases.</li>\n\n\n\n<li><strong>Auto-Update Inventory</strong> – Stock adjusts in real time after every sale, preventing overselling and easing reorders.</li>\n\n\n\n<li><strong>Capture Customer Details</strong> – Save contact info for loyalty programs, marketing, and personalized offers.</li>\n\n\n\n<li><strong>Review Reports &amp; Analytics</strong> – Access real-time dashboards for sales trends, employee performance, and customer insights.</li>\n</ol>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"benefits-of-a-point-of-sale-system\">Benefits of a Point of Sale System</h2>\n\n\n\n<ul class=\"wp-block-list\">\n<li><strong>Better Transaction Accuracy:</strong> Decrease human error, thus ensuring price and payment correctness.</li>\n\n\n\n<li><strong>Real-Time Inventory:</strong> It enables automatic monitoring of inventory levels to prevent stockouts and overstocking.</li>\n\n\n\n<li><strong>Quicker Checkouts:</strong> It hastens checkout, which minimizes the hours customers have to spend in queues and, as a result, increases their satisfaction.</li>\n\n\n\n<li><strong>In-depth Reporting and Analysis:</strong> Comprehensive reports are generated concerning sales, customers, and performance for informed decisions.</li>\n\n\n\n<li><strong>Better Customer Experience:</strong> It leads to personalized services, loyalty programs and faster transactions.</li>\n\n\n\n<li><strong>Multi-Payment Mode:</strong> It accepts payment in a variety of means, including credit/debit cards, mobile wallets, or contactless payments.</li>\n\n\n\n<li><strong>Seamless Access to Other Domains of Business Tools:</strong> This makes integration with the accounting, e-commerce applications and also <a href=\"https://hulmsolutions.com/customer-management/\">CRM</a> systems.</li>\n\n\n\n<li><strong>Employee Management:</strong> Improved accountability with an integrated tracking of employee sales, attendance and access rights.</li>\n\n\n\n<li><strong>Security and Data Protection:</strong> Secure and encrypted access protocols ensure the protection of customer and transaction data.</li>\n\n\n\n<li><strong>Flexibility:</strong> It adapts easily to the growth of a business and can hence be used at many locations with newer integrations.</li>\n</ul>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"pos-system-vs-traditional-cash-register\">POS System vs Traditional Cash Register</h2>\n\n\n\n<figure class=\"wp-block-table\"><table class=\"has-fixed-layout\"><thead><tr><th>Feature</th><th>Traditional Cash Register</th><th>Modern POS System</th></tr></thead><tbody><tr><td>Inventory tracking</td><td>Manual</td><td>Automated real-time</td></tr><tr><td>Reporting &amp; Analytics</td><td>Very limited</td><td>Detailed, custom reports</td></tr><tr><td>Multi-location management</td><td>Hard or no</td><td>Multiple, including mobile/local wallets / online</td></tr><tr><td>Payment methods</td><td>Cash / basic card</td><td>Easy with a cloud-based system</td></tr><tr><td>Upfront &amp; maintenance cost</td><td>Hardware + minimal software</td><td>Multiple including mobile/local wallets / online</td></tr></tbody></table></figure>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"point-of-sale-features\">Point of Sale Features</h2>\n\n\n\n<ul class=\"wp-block-list\">\n<li><a href=\"https://hulmsolutions.com/inventory-management/\">Inventory Management</a></li>\n\n\n\n<li><a href=\"https://hulmsolutions.com/purchase-orders/\">Purchase Orders</a></li>\n\n\n\n<li>Payment Processing</li>\n\n\n\n<li>Employee Management</li>\n\n\n\n<li><a href=\"https://hulmsolutions.com/customer-management/\">CRM</a></li>\n\n\n\n<li><a href=\"https://hulmsolutions.com/reporting-module/\">Sales Tracking &amp; Reporting</a></li>\n\n\n\n<li><a href=\"https://hulmsolutions.com/vendors-management/\">Vendors Management</a></li>\n\n\n\n<li>Billing Management</li>\n</ul>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"common-pain-points-with-pos-systems\">Common Pain Points with POS Systems</h2>\n\n\n\n<ul class=\"wp-block-list\">\n<li>Hardware failure/maintenance issues.</li>\n\n\n\n<li>Hidden fees or high transaction charges.</li>\n\n\n\n<li>Poor internet is leading to downtime or data syncing issues.</li>\n\n\n\n<li>Complicated setup or hard-to-use software.</li>\n\n\n\n<li>Limited local support or customer service.</li>\n\n\n\n<li>Lack of customization for local business practices.</li>\n</ul>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"how-to-choose-the-right-pos-system-for-your-business\">How to Choose the Right POS System for Your Business</h2>\n\n\n\n<ol class=\"wp-block-list\">\n<li><strong>Match the Features to Your Business Type</strong><br>Retail vs restaurant vs service requires different tools (menus, tables, barcode vs recipe costing, etc.).</li>\n\n\n\n<li><strong>Consider Costs (Total Cost of Ownership)</strong><br>Upfront hardware, monthly fees, transaction fees, maintenance, support.</li>\n\n\n\n<li><strong>Support for Local Payments &amp; Regulations</strong><br>In Pakistan for example: local banks, mobile wallets, import duties, and taxes.</li>\n\n\n\n<li><strong>Reliability &amp; Offline Functionality</strong><br>What happens if internet is down? Does your POS still capture sales and sync later?</li>\n\n\n\n<li><strong>Ease of Use &amp; Training</strong><br>Intuitive interface, clear onboarding, and local language support if needed.</li>\n\n\n\n<li><strong>Scalability &amp; Integration</strong><br>Ability to add more locations, integrate with accounting/e-commerce tools.</li>\n\n\n\n<li><strong>Security &amp; Compliance</strong><br>Data encryption, secure card handling, and compliance with PCI standards.</li>\n</ol>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"future-trends-in-pos-technology\">Future Trends in POS Technology</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Continuous evolution in technology keeps on making POS systems more intelligent and versatile. The future of POS, what do you expect?</p>\n\n\n\n<ul class=\"wp-block-list\">\n<li>AI Insights: Deeper analytics and predictive modeling of customer behavior, inventory optimization.</li>\n\n\n\n<li>Contactless Payments: Proliferate digital wallets and QR code payments.</li>\n\n\n\n<li>IoT integration: Smart shelves and RFID tags for automatically updating inventories.</li>\n\n\n\n<li>Increasing mobile solutions: More micro businesses are adopting mPOS systems.</li>\n</ul>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"how-to-set-up-a-point-of-sale-system\">How to set up a Point of Sale System?</h2>\n\n\n\n<p class=\"wp-block-paragraph\">Setting up a POS system involves three key steps:</p>\n\n\n\n<ul class=\"wp-block-list\">\n<li>Connect the hardware—barcode scanner, card reader, and printer—to the terminal.</li>\n\n\n\n<li>Configure the software by uploading your product catalog, pricing, and tax rules, and enabling payment options like cash, cards, or wallets.</li>\n\n\n\n<li>Test sample transactions and train staff. This ensures accurate sales tracking, faster checkouts, and reliable reporting for long-term business efficiency.</li>\n</ul>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"conclusion\">Conclusion</h2>\n\n\n\n<p class=\"wp-block-paragraph\">The POS system meaning has grown far beyond a simple cash register. A <a href=\"https://hulmsolutions.com/blog/best-pos-system-for-retail/\"><span style=\"text-decoration:underline;color:blue;\">POS (Point of Sale)</span></a> is where a sale happens, payments are processed, and receipts are issued. But when people search <em>“what is POS,” “what is a POS system,” or “POS definition”</em>, they’re really asking about today’s advanced tools. Modern POS software combines hardware and digital features to manage sales, inventory, vendor relationships, CRM, <a href=\"https://hulmsolutions.com/blog/what-is-a-pos-purchase/\"><span style=\"text-decoration:underline;color:blue;\">purchase</span></a> orders, and reporting. In short, the POS system is not just about transactions—it’s a central hub that helps businesses across retail, restaurants, pharmacies, <a href=\"https://hulmsolutions.com/industries/bakery-pos-system/\"><span style=\"text-decoration:underline;color:blue;\">bakeries</span></a>, and <a href=\"https://hulmsolutions.com/industries/clothing-store/\"><span style=\"text-decoration:underline;color:blue;\">boutiques</span></a> run smoothly, serve customers better, and grow faster.</p>\n\n\n\n<p class=\"wp-block-paragraph\">To learn more about Point of Sale <a href=\"https://en.wikipedia.org/wiki/Point_of_sale\">click here</a>!</p>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"frequently-asked-questions\">Frequently Asked Questions</h2>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Q1. What Payment Methods Do POS Systems Support?</strong><br><strong>Ans.</strong>&nbsp;Point of Sale systems support cash, credit/debit cards, mobile payments, and contactless payment methods.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Q2. What Types of Businesses Use point-of-sale systems?</strong><br><strong>Ans.</strong>&nbsp;POS systems are used by retail stores, restaurants, hotels, salons, and other businesses that handle transactions.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Q3. How Can Consumers Report Point of Sale Fraud?</strong><br><strong>Ans.</strong> Consumers can report point-of-sale fraud to the Federal Trade Commission (FTC) via its Consumer Sentinel Network.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Q4. What Are the Key Features of a Modern point-of-sale system?</strong><br><strong>Ans.</strong> Modern POS systems include payment processing, inventory tracking, sales reporting, and customer data management.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Q5. Why Are Point of Sale Systems Important for Businesses?</strong><br><strong>Ans.</strong> POS systems streamline operations, reduce errors, track sales, and improve customer service.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Q6. How Do Retailers Prevent POS Fraud?</strong><br><strong>Ans.</strong> Retailers use PIN verification for debit cards, CVV codes for online payments, and secure payment technologies to prevent fraud.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Q7. How Secure Are POS Transactions?</strong><br><strong>Ans.</strong> Point of Sale transactions are secured through encryption, tokenization, EMV chip technology, and regular software updates.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Q8. What Is a Cloud-Based POS System?</strong><br><strong>Ans.</strong> A cloud-based Point of Sale system stores data online, allowing businesses to access it from any device with internet connectivity.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Q9. How Does Point of Sale Systems Improve Inventory?</strong><br><strong>Ans.</strong> Point of Sale systems track real-time inventory levels, reduce stockouts, and help businesses plan restocking efficiently.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Q10. What Was the First Point of Sale System?</strong><br><strong>Ans.</strong> The first Point of Sale system was the cash register, invented in 1879 by James Ritty. It was later sold to National Cash Register (NCR), which popularized its use.</p>\n\n\n\n<p class=\"wp-block-paragraph\">For More Information About Point of Sale <strong><a href=\"https://hulmsolutions.com/blogs/\">Click Here!</a></strong></p>\n\n\n\n<div class=\"wp-block-columns has-ast-global-color-6-background-color has-background is-layout-flex wp-container-core-columns-is-layout-8d5f8702 wp-block-columns-is-layout-flex\" style=\"padding-top:50px;padding-right:30px;padding-bottom:50px;padding-left:30px\">\n<div class=\"wp-block-column is-vertically-aligned-center is-layout-flow wp-container-core-column-is-layout-a7dce961 wp-block-column-is-layout-flow\" style=\"flex-basis:30%\">\n<h2 class=\"wp-block-heading\" style=\"font-size:25px\" id=\"upgrade-your-business-with-smarter-pos\">Upgrade Your Business with Smarter POS</h2>\n</div>\n\n\n\n<div class=\"wp-block-column is-vertically-aligned-center is-layout-flow wp-container-core-column-is-layout-b3df97a0 wp-block-column-is-layout-flow\" style=\"border-style:none;border-width:0px;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0\">\n<h6 class=\"wp-block-heading has-text-align-left\" style=\"font-size:17px\">At Hulm Solutions POS, we deliver powerful point-of-sale systems that simplify sales, inventory, and customer management. Ready to grow your business? </h6>\n\n\n\n<div class=\"wp-block-buttons is-content-justification-left is-layout-flex wp-container-core-buttons-is-layout-abc8bc60 wp-block-buttons-is-layout-flex\" style=\"padding-top:10px;padding-bottom:0rem\">\n<div class=\"wp-block-button\"><a class=\"wp-block-button__link has-small-font-size has-custom-font-size wp-element-button\" href=\"https://app.hulmsolutions.com/Register\" style=\"padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--20)\">Get started our POS software today.</a></div>\n</div>\n</div>\n</div>\n\n\n\n<p class=\"wp-block-paragraph\"></p>",
 };

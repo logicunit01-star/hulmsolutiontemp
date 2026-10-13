@@ -61,6 +61,12 @@ export function Header() {
             <a href="https://app.hulmsolutions.com/" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-[#475467] transition-colors hover:text-[#0F2A26]">
               Sign in
             </a>
+            <Link
+              href="/contact/"
+              className="inline-flex h-10 items-center rounded-lg border border-zinc-300 px-4 text-[14px] font-semibold text-[#0F2A26] transition-colors hover:border-[#0F2A26]"
+            >
+              Book a demo
+            </Link>
             <a
               href="https://app.hulmsolutions.com/Register"
               target="_blank"

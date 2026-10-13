@@ -55,9 +55,8 @@ const companyLinks = [
 
 const socialLinks = [
   { title: "LinkedIn", href: "https://www.linkedin.com/company/hulm-solutions/" },
-  { title: "Instagram", href: "https://www.instagram.com/hulmsolutions1101/" },
+  { title: "Instagram", href: "https://www.instagram.com/hulmsolutions" },
   { title: "YouTube", href: "https://www.youtube.com/@Hulmsolutions" },
-  { title: "Facebook", href: "https://www.facebook.com/Hulmsolutions" },
 ]
 
 function FooterLinkGroup({ title, links }: { title: string, links: Array<{ title: string, href: string, external?: boolean }> }) {

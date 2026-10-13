@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   ClipboardList,
   ExternalLink,
+  Play,
   ShieldCheck,
   ShoppingCart,
   Smartphone,
@@ -20,7 +21,7 @@ import {
   Zap,
 } from "lucide-react";
 
-import { FaqDetails, faqPageSchema } from "@/components/seo/faq-details";
+import { FaqDetails } from "@/components/seo/faq-details";
 import { BenefitsSection } from "@/components/home/BenefitsSection";
 import { DashboardCarousel } from "@/components/home/DashboardCarousel";
 import { GoogleReviewsSection } from "@/components/home/GoogleReviewsSection";
@@ -94,7 +95,69 @@ const pageSchema = {
       publisher: { "@id": `${siteUrl}/#organization` },
       offers: { "@type": "Offer", url: `${siteUrl}/pricing/`, priceCurrency: "PKR", price: "2500", availability: "https://schema.org/InStock" },
     },
-    faqPageSchema(homeContent.faq.items, `${siteUrl}/#faq`),
+  ],
+};
+
+const homepageFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is a POS system and key features?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A POS system is a combination of hardware and software that allows businesses to complete sales transactions, manage inventory, and track customer data. Inventory management. Sales reporting. Multi-payment options. CRM tools. Employee management",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is a POS System Secure?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, with PCI compliance, encryption, 2FA, and regular updates, POS systems ensure secure payment processing.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I integrate my POS with other systems?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, many POS systems can integrate with accounting software, e-commerce platforms, and inventory management systems for seamless operations.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How Does a POS System Benefit My Business?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, It speeds up checkouts, tracks inventory, automates tasks, provides reports, and improves customer satisfaction.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Cloud vs. Traditional POS: Which is Better?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Cloud POS offers remote access, scalability, and lower upfront costs, while traditional systems suit limited internet setups.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is customer support available for the POS system?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, we offer dedicated customer support to assist you with any questions or issues you may encounter while using the POS system.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What Hardware Do I Need?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Essentials include a POS terminal, barcode scanner, receipt printer, cash drawer, and card reader.",
+      },
+    },
   ],
 };
 function renderFormattedDescription(text: string) {
@@ -157,6 +220,12 @@ export default function HomePage() {
           __html: JSON.stringify(pageSchema).replace(/</g, "\\u003c"),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(homepageFaqSchema).replace(/</g, "\\u003c"),
+        }}
+      />
       <section className="relative overflow-hidden border-b border-zinc-200/70 bg-white pt-12 pb-14 sm:pt-16 sm:pb-16 lg:pt-20 lg:pb-24">
         <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
         <Container className="relative grid items-center gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-14">
@@ -197,12 +266,26 @@ export default function HomePage() {
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
-                <Link href={homeContent.hero.secondaryCta.href}>
-                  {homeContent.hero.secondaryCta.label}
-                </Link>
+                <a
+                  href={homeContent.hero.secondaryCta.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2"
+                >
+                  <Play className="h-4 w-4 fill-current text-[#167c70]" />
+                  <span>{homeContent.hero.secondaryCta.label}</span>
+                </a>
               </Button>
             </div>
-            <p className="hidden sm:block mt-3 sm:mt-4 text-xs sm:text-sm text-zinc-500">{homeContent.hero.offer}</p>
+
+            <div className="mt-4 sm:mt-5 inline-block rounded-xl border border-zinc-200/90 bg-white px-4 py-2.5 sm:px-5 sm:py-3 shadow-xs">
+              <p className="text-sm sm:text-[15px] font-semibold text-[#FF6A00]">
+                Start 14 Days Free Trail
+              </p>
+              <p className="mt-0.5 text-xs sm:text-[13px] text-zinc-700">
+                No credit card required &middot; PKR 2,500/month &middot; No hidden fees
+              </p>
+            </div>
             <ul className="hidden md:flex mt-6 flex-col gap-3 text-sm font-medium text-zinc-600 sm:flex-row sm:flex-wrap sm:gap-x-6">
               {homeContent.hero.proof.map((item) => (
                 <li key={item} className="flex items-center gap-2">
@@ -490,9 +573,15 @@ export default function HomePage() {
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-white/35 bg-transparent text-white hover:bg-white/10 hover:text-white w-full sm:w-auto">
-                  <Link href={homeContent.finalCta.secondaryCta.href}>
-                    {homeContent.finalCta.secondaryCta.label}
-                  </Link>
+                  <a
+                    href={homeContent.finalCta.secondaryCta.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2"
+                  >
+                    <Play className="h-4 w-4 fill-current text-[#7AE582]" />
+                    <span>{homeContent.finalCta.secondaryCta.label}</span>
+                  </a>
                 </Button>
               </div>
             </div>

@@ -270,7 +270,7 @@ export function BlogDetail() {
                     <p className="text-sm text-zinc-600 leading-relaxed mb-3">
                       Hosted online, accessible from any device, updated automatically. Best for retailers who want real-time access across locations without maintaining local servers. Most retail POS systems for small businesses are cloud-based because they’re affordable to start and easy to scale.
                     </p>
-                    <Link href="/blog/cloud-pos-software-for-retail-stores" className="text-xs font-bold text-[#167c70] hover:underline">
+                    <Link href="/blog/cloud-pos-software-for-retail-stores" className="text-xs font-bold text-[#0067ff] hover:text-[#0052cc] hover:underline">
                       Learn about Cloud POS Software →
                     </Link>
                   </div>
@@ -439,7 +439,7 @@ export function BlogDetail() {
                   The best retail POS system isn’t the one with the most features on a marketing page. It’s the one that fits your store’s size, market, and compliance requirements without adding operational overhead. For Pakistani and Gulf retailers specifically, that means a system with native FBR or ZATCA compliance, multi-store support, and local customer service.
                 </p>
                 <p className="text-xs text-zinc-500 italic">
-                  Further reading: <Link href="/blog/what-is-point-of-sale-transaction" className="text-[#167c70] hover:underline font-medium">What is POS Transaction</Link>, <Link href="/blog/pos-reconciliation" className="text-[#167c70] hover:underline font-medium">POS Reconciliation</Link>, and <Link href="/blog/what-is-a-pos-purchase" className="text-[#167c70] hover:underline font-medium">POS Purchase</Link>.
+                  Further reading: <Link href="/blog/what-is-point-of-sale-transaction" className="text-[#0067ff] hover:text-[#0052cc] hover:underline font-medium">What is POS Transaction</Link>, <Link href="/blog/pos-reconciliation" className="text-[#0067ff] hover:text-[#0052cc] hover:underline font-medium">POS Reconciliation</Link>, and <Link href="/blog/what-is-a-pos-purchase" className="text-[#0067ff] hover:text-[#0052cc] hover:underline font-medium">POS Purchase</Link>.
                 </p>
               </section>
 

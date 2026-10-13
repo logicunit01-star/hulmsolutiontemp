@@ -134,7 +134,7 @@ export default function InsightsPage() {
                       </div>
                       <span className="font-medium text-zinc-700">{insight.author}</span>
                     </div>
-                    <Link href={`/blog/${insight.slug}/`} className="inline-flex items-center text-[#167c70] font-semibold hover:text-[#105f56] transition-colors">
+                    <Link href={`/blog/${insight.slug}/`} className="inline-flex items-center text-[#0067ff] font-semibold hover:text-[#0052cc] transition-colors">
                       Read Article <ArrowRight className="w-3.5 h-3.5 ml-1 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>

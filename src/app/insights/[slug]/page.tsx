@@ -236,14 +236,14 @@ export default async function SingleInsightPage({ params }: Props) {
                     AK
                   </div>
                   <span>Written by</span>
-                  <Link href={author.url} rel="author" className="font-semibold text-zinc-900 hover:text-[#167c70] transition-colors">
+                  <Link href={author.url} rel="author" className="font-semibold text-zinc-900 hover:text-[#0067ff] transition-colors">
                     {authorName}
                   </Link>
                   {reviewer && (
                     <>
                       <span aria-hidden="true">·</span>
                       <span>Reviewed by</span>
-                      <Link href={reviewer.url} className="font-semibold text-zinc-900 hover:text-[#167c70] transition-colors">
+                      <Link href={reviewer.url} className="font-semibold text-zinc-900 hover:text-[#0067ff] transition-colors">
                         {reviewer.name}
                       </Link>
                     </>
@@ -265,13 +265,6 @@ export default async function SingleInsightPage({ params }: Props) {
                   <span>{readTime}</span>
                 </div>
               </div>
-
-              {/* Featured Image */}
-              {post.imageUrl && (
-                <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-[#E4E2DA] shadow-sm mb-8 bg-zinc-50">
-                  <img src={post.imageUrl} alt={post.title} className="w-full h-full object-cover" />
-                </div>
-              )}
 
               {/* Mobile Table of Contents */}
               {hasToc && (
@@ -313,25 +306,25 @@ export default async function SingleInsightPage({ params }: Props) {
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-1">Written by</p>
                     <p className="text-base font-bold text-[#0F2A26]">
-                      <Link href={author.url} rel="author" className="hover:text-[#167c70] transition-colors">{author.name}</Link>
+                      <Link href={author.url} rel="author" className="hover:text-[#0067ff] transition-colors">{author.name}</Link>
                       {author.title && <span className="font-normal text-zinc-500"> · {author.title}</span>}
                     </p>
                     <p className="text-sm text-zinc-600 leading-relaxed mt-2 font-normal">
                       {author.kind === "Person" ? PRIMARY_AUTHOR.shortBio : EDITORIAL_TEAM.description}
                     </p>
                     {author.kind === "Person" && (
-                      <a href={PRIMARY_AUTHOR.linkedin} target="_blank" rel="noopener noreferrer" className="inline-block text-xs font-semibold text-[#167c70] hover:text-[#105f56] mt-3">LinkedIn profile</a>
+                      <a href={PRIMARY_AUTHOR.linkedin} target="_blank" rel="noopener noreferrer" className="inline-block text-xs font-semibold text-[#0067ff] hover:text-[#0052cc] underline underline-offset-2 mt-3">LinkedIn profile</a>
                     )}
                   </div>
                 </div>
                 {reviewer && (
                   <div className="border-t border-[#E4E2DA] pt-4 text-sm text-zinc-600 leading-relaxed font-normal">
                     <span className="font-bold text-[#0F2A26]">Reviewed by{" "}
-                      <Link href={reviewer.url} className="hover:text-[#167c70] transition-colors">{reviewer.name}</Link>
+                      <Link href={reviewer.url} className="hover:text-[#0067ff] transition-colors">{reviewer.name}</Link>
                     </span>
                     {reviewedTime && <> on <time dateTime={reviewedTime}>{fmtDate(reviewedTime)}</time></>}.{" "}
                     Every Hulm article is checked for accuracy against the current product and applicable tax rules.{" "}
-                    <Link href={EDITORIAL_TEAM.url} className="font-semibold text-[#167c70] hover:text-[#105f56]">Read our editorial policy</Link>.
+                    <Link href={EDITORIAL_TEAM.url} className="font-semibold text-[#0067ff] hover:text-[#0052cc] underline underline-offset-2">Read our editorial policy</Link>.
                   </div>
                 )}
               </aside>
@@ -357,12 +350,12 @@ export default async function SingleInsightPage({ params }: Props) {
                     <Link
                       key={idx}
                       href={`/blog/${rPost.slug}/`}
-                      className="lift p-5 rounded-[16px] border border-[#E4E2DA] hover:border-[#167c70] transition-all flex flex-col justify-between group bg-white shadow-xs"
+                      className="lift p-5 rounded-[16px] border border-[#E4E2DA] hover:border-[#0067ff] transition-all flex flex-col justify-between group bg-white shadow-xs"
                     >
-                      <h4 className="text-xs sm:text-sm font-bold text-zinc-800 group-hover:text-[#167c70] transition-colors mb-3 line-clamp-2 leading-snug">
+                      <h4 className="text-xs sm:text-sm font-bold text-zinc-800 group-hover:text-[#0067ff] transition-colors mb-3 line-clamp-2 leading-snug">
                         {rPost.title}
                       </h4>
-                      <span className="text-[11px] font-semibold text-[#167c70] inline-flex items-center gap-1">
+                      <span className="text-[11px] font-semibold text-[#0067ff] group-hover:text-[#0052cc] inline-flex items-center gap-1">
                         Read article <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                       </span>
                     </Link>

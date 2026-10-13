@@ -1,0 +1,28 @@
+User-agent: *
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/uploads/wpo/wpo-plugins-tables-list.json
+Allow: /wp-admin/admin-ajax.php
+Allow: /
+
+Sitemap: https://hulmsolutions.com/sitemap_index.xml
+
+# AI crawler access
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Optional crawler block
+User-agent: Bytespider
+Disallow: /

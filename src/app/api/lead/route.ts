@@ -65,23 +65,33 @@ export async function POST(request: Request) {
   const deliveries: Promise<boolean>[] = [];
 
   // HubSpot Forms API (submits lead directly into HubSpot Form)
-  const hsPortalId = process.env.HUBSPOT_PORTAL_ID;
-  const hsFormId = process.env.HUBSPOT_FORM_ID;
+  const hsPortalId = process.env.HUBSPOT_PORTAL_ID || "246175508";
+  const hsFormId = process.env.HUBSPOT_FORM_ID || "4234935b-eb0f-4a72-abbf-44b97b05ef89";
   if (hsPortalId && hsFormId) {
     const cookieHeader = request.headers.get("cookie") || "";
     const hutkMatch = cookieHeader.match(/hubspotutk=([^;]+)/);
     const hutk = hutkMatch ? hutkMatch[1] : undefined;
 
+    // Split full name into firstname and lastname matching HubSpot contact properties
+    const nameParts = lead.name.trim().split(/\s+/);
+    const firstname = nameParts[0] || lead.name;
+    const lastname = nameParts.slice(1).join(" ");
+
+    // Include business name and industry in message so details appear directly in HubSpot
+    const extraDetails = [
+      lead.businessName ? `Business: ${lead.businessName}` : "",
+      lead.industry ? `Industry: ${lead.industry}` : "",
+    ].filter(Boolean).join(" | ");
+
+    const finalMessage = [lead.message, extraDetails ? `(${extraDetails})` : ""].filter(Boolean).join("\n\n");
+
     const fields = [
-      { name: "firstname", value: lead.name },
-      { name: "name", value: lead.name },
       { name: "email", value: lead.email },
+      { name: "firstname", value: firstname },
+      ...(lastname ? [{ name: "lastname", value: lastname }] : []),
       { name: "phone", value: lead.phone },
-      { name: "mobilephone", value: lead.phone },
-      { name: "company", value: lead.businessName },
-      { name: "businessName", value: lead.businessName },
-      { name: "industry", value: lead.industry },
-      { name: "message", value: lead.message },
+      { name: "message", value: finalMessage },
+      ...(lead.businessName ? [{ name: "company", value: lead.businessName }] : []),
     ].filter((f) => f.value);
 
     const hsHeaders: Record<string, string> = {
@@ -107,8 +117,16 @@ export async function POST(request: Request) {
           }),
         }
       )
-        .then((r) => r.ok)
-        .catch(() => false)
+        .then(async (r) => {
+          if (!r.ok) {
+            console.error("HubSpot submit error:", r.status, await r.text());
+          }
+          return r.ok;
+        })
+        .catch((err) => {
+          console.error("HubSpot submit network error:", err);
+          return false;
+        })
     );
   }
 

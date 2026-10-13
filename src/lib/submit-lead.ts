@@ -13,7 +13,7 @@ export type LeadPayload = {
 };
 
 /** POSTs a lead to /api/lead. Resolves to true when at least one delivery channel accepted it. */
-export async function submitLead(payload: LeadPayload, timeoutMs = 6000): Promise<boolean> {
+export async function submitLead(payload: LeadPayload, timeoutMs = 12000): Promise<boolean> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {

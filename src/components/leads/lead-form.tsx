@@ -3,12 +3,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowRight, Loader2 } from "lucide-react";
+import { ArrowRight, ChevronDown, Loader2 } from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
 
 import { Button } from "@/components/ui/button";
 import { whatsappUrl } from "@/lib/contact-info";
 import { industryOptions, submitLead, type LeadPayload } from "@/lib/submit-lead";
+import { COUNTRY_CODES, DEFAULT_COUNTRY, formatPhoneWithCountryCode } from "@/lib/country-codes";
 
 const inputClass =
   "w-full h-11 px-4 rounded-xl border border-gray-200 bg-white text-sm text-[#0F2A26] placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-[#167c70] focus:border-transparent transition-all shadow-xs";
@@ -31,15 +32,21 @@ export function LeadForm({
   const router = useRouter();
   const [status, setStatus] = useState<"idle" | "sending" | "failed">("idle");
   const [fallback, setFallback] = useState("");
+  const [countryIso, setCountryIso] = useState(DEFAULT_COUNTRY.iso);
+
+  const selectedCountry = COUNTRY_CODES.find((c) => c.iso === countryIso) || DEFAULT_COUNTRY;
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
+    const rawPhone = String(form.get("phone") || "");
+    const fullPhone = formatPhoneWithCountryCode(rawPhone, selectedCountry.dial_code);
+
     const payload: LeadPayload = {
       source,
       plan,
       name: String(form.get("name") || ""),
-      phone: String(form.get("phone") || ""),
+      phone: fullPhone,
       email: String(form.get("email") || ""),
       businessName: String(form.get("businessName") || ""),
       industry: String(form.get("industry") || ""),
@@ -54,7 +61,7 @@ export function LeadForm({
     }
     setFallback(
       whatsappUrl(
-        `Hi Hulm, I'd like ${source === "demo" ? "to book a demo" : "some help"}.\nName: ${payload.name}\nBusiness: ${payload.businessName}\nPhone: ${payload.phone}\nIndustry: ${payload.industry}\n${payload.message}`,
+        `Hi Hulm, I'd like ${source === "demo" ? "to book a demo" : "some help"}.\nName: ${payload.name}\nBusiness: ${payload.businessName}\nPhone: ${payload.phone}\nEmail: ${payload.email}\nIndustry: ${payload.industry}\n${payload.message}`,
       ),
     );
     setStatus("failed");
@@ -79,20 +86,50 @@ export function LeadForm({
           <label htmlFor={`${source}-phone`} className="text-xs font-semibold text-zinc-700">
             Phone / WhatsApp <span className="text-rose-600">*</span>
           </label>
-          <input
-            id={`${source}-phone`}
-            name="phone"
-            type="tel"
-            required
-            autoComplete="tel"
-            pattern="^\+?[\d\s()\-]{9,20}$"
-            className={inputClass}
-            placeholder="+92 300 1234567"
-          />
+          <div className="flex h-11 w-full rounded-xl border border-gray-200 bg-white shadow-xs focus-within:ring-2 focus-within:ring-[#167c70] focus-within:border-transparent transition-all overflow-hidden">
+            <div className="relative flex items-center shrink-0 border-r border-gray-200 bg-zinc-50/70 hover:bg-zinc-100/70 transition-colors px-2.5 sm:px-3 cursor-pointer">
+              <span className="text-xs sm:text-sm font-medium text-[#0F2A26] flex items-center gap-1.5 pointer-events-none select-none">
+                <span className="text-base leading-none">{selectedCountry.flag}</span>
+                <span>{selectedCountry.dial_code}</span>
+                <ChevronDown className="w-3.5 h-3.5 text-zinc-400" />
+              </span>
+              <select
+                aria-label="Country Code"
+                value={countryIso}
+                onChange={(e) => setCountryIso(e.target.value)}
+                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer text-sm"
+              >
+                {COUNTRY_CODES.map((c) => (
+                  <option key={c.iso} value={c.iso}>
+                    {c.flag} {c.dial_code} — {c.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <input
+              id={`${source}-phone`}
+              name="phone"
+              type="tel"
+              required
+              autoComplete="tel"
+              className="h-full w-full px-3.5 bg-transparent text-sm text-[#0F2A26] placeholder:text-zinc-400 focus:outline-none"
+              placeholder={selectedCountry.placeholder}
+            />
+          </div>
         </div>
         <div className="space-y-1.5">
-          <label htmlFor={`${source}-email`} className="text-xs font-semibold text-zinc-700">Email</label>
-          <input id={`${source}-email`} name="email" type="email" autoComplete="email" className={inputClass} placeholder="name@business.com" />
+          <label htmlFor={`${source}-email`} className="text-xs font-semibold text-zinc-700">
+            Email <span className="text-rose-600">*</span>
+          </label>
+          <input
+            id={`${source}-email`}
+            name="email"
+            type="email"
+            required
+            autoComplete="email"
+            className={inputClass}
+            placeholder="name@business.com"
+          />
         </div>
       </div>
       <div className="space-y-1.5">

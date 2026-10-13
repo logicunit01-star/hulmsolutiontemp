@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { contactInfo } from "@/lib/contact-info";
 import { submitLead } from "@/lib/submit-lead";
 import { decorateSignupUrl, track } from "@/lib/track";
+import { COUNTRY_CODES, DEFAULT_COUNTRY, formatPhoneWithCountryCode } from "@/lib/country-codes";
 
 interface FinalCtaFormProps {
   formHeading?: string;
@@ -25,6 +26,9 @@ export function FinalCtaForm({
     industry: "",
   });
 
+  const [countryIso, setCountryIso] = useState(DEFAULT_COUNTRY.iso);
+  const selectedCountry = COUNTRY_CODES.find((c) => c.iso === countryIso) || DEFAULT_COUNTRY;
+
   const [sending, setSending] = useState(false);
   const [honeypot, setHoneypot] = useState("");
 
@@ -34,12 +38,13 @@ export function FinalCtaForm({
     e.preventDefault();
     if (sending) return;
     setSending(true);
+    const finalPhone = formatPhoneWithCountryCode(formData.phone, selectedCountry.dial_code);
     await submitLead(
       {
         source: "final_cta",
         name: formData.name,
         businessName: formData.businessName,
-        phone: formData.phone,
+        phone: finalPhone,
         email: formData.email,
         industry: formData.industry,
         company_website: honeypot,
@@ -50,7 +55,7 @@ export function FinalCtaForm({
     window.location.href = decorateSignupUrl(contactInfo.signupUrl, {
       name: formData.name,
       business: formData.businessName,
-      phone: formData.phone,
+      phone: finalPhone,
       email: formData.email,
       industry: formData.industry,
     });
@@ -108,15 +113,36 @@ export function FinalCtaForm({
             <label htmlFor="fcta-phone" className="block text-xs font-semibold text-zinc-700 mb-1">
               Phone Number <span className="text-rose-500">*</span>
             </label>
-            <input
-              type="tel"
-              required
-              id="fcta-phone"
-              placeholder="0300 1234567"
-              value={formData.phone}
-              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full h-11 sm:h-12 px-3.5 rounded-xl bg-zinc-50 border border-zinc-200 text-sm text-zinc-900 placeholder:text-zinc-400 focus:bg-white focus:border-[#167c70] focus:ring-3 focus:ring-[#167c70]/15 outline-none transition-all"
-            />
+            <div className="flex h-11 sm:h-12 w-full rounded-xl bg-zinc-50 border border-zinc-200 focus-within:bg-white focus-within:border-[#167c70] focus-within:ring-3 focus-within:ring-[#167c70]/15 transition-all overflow-hidden">
+              <div className="relative flex items-center shrink-0 border-r border-zinc-200 bg-zinc-100/60 hover:bg-zinc-200/60 transition-colors px-2.5 sm:px-3 cursor-pointer">
+                <span className="text-xs sm:text-sm font-medium text-zinc-900 flex items-center gap-1.5 pointer-events-none select-none">
+                  <span className="text-base leading-none">{selectedCountry.flag}</span>
+                  <span>{selectedCountry.dial_code}</span>
+                  <ChevronDown className="w-3.5 h-3.5 text-zinc-400" />
+                </span>
+                <select
+                  aria-label="Country Code"
+                  value={countryIso}
+                  onChange={(e) => setCountryIso(e.target.value)}
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer text-sm"
+                >
+                  {COUNTRY_CODES.map((c) => (
+                    <option key={c.iso} value={c.iso}>
+                      {c.flag} {c.dial_code} — {c.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <input
+                type="tel"
+                required
+                id="fcta-phone"
+                placeholder={selectedCountry.placeholder}
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                className="h-full w-full px-3.5 bg-transparent text-sm text-zinc-900 placeholder:text-zinc-400 outline-none"
+              />
+            </div>
           </div>
           <div>
             <label htmlFor="fcta-email" className="block text-xs font-semibold text-zinc-700 mb-1">

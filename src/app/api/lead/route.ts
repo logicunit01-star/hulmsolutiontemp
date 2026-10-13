@@ -58,7 +58,7 @@ export async function POST(request: Request) {
   if (!lead.name || !/^\+?[\d\s()-]{9,20}$/.test(lead.phone)) {
     return NextResponse.json({ ok: false, error: "validation" }, { status: 422 });
   }
-  if (lead.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)) {
+  if (!lead.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)) {
     return NextResponse.json({ ok: false, error: "validation" }, { status: 422 });
   }
 

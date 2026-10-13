@@ -61,9 +61,6 @@ export function CityLandingPage({ page }: { page: CityPage }) {
                 Start 14-Day Free Trial <ExternalLink className="ml-2 h-4 w-4" aria-hidden="true" />
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-full border-[#E4E2DA] hover:bg-[#F7F6F2] h-12 px-6 text-sm font-semibold">
-              <Link href="/book-a-demo/">Book a free demo</Link>
-            </Button>
           </div>
         </Container>
       </section>

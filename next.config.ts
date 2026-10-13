@@ -85,6 +85,11 @@ const nextConfig: NextConfig = {
         destination: '/author/',
         permanent: true,
       },
+      {
+        source: '/book-a-demo',
+        destination: '/contact/',
+        permanent: true,
+      },
     ];
   },
   async headers() {

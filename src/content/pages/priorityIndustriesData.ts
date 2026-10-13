@@ -3,8 +3,8 @@ import type { IndustryData } from "./industriesData";
 const trialCta = {
   primaryCtaText: "Start 14-Day Free Trial",
   primaryCtaLink: "https://app.hulmsolutions.com/Register",
-  secondaryCtaText: "Book a Free Demo",
-  secondaryCtaLink: "/book-a-demo/",
+  secondaryCtaText: "Contact Us",
+  secondaryCtaLink: "/contact/",
 };
 
 export const priorityIndustriesData: Record<string, IndustryData> = {

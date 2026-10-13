@@ -73,7 +73,7 @@ const faqItems: FaqDetailsItem[] = [
   {
     q: "Can I use the POS hardware I already have?",
     a: "Usually yes. Most standard receipt printers, barcode scanners and cash drawers already in Pakistani shops work with Hulm. Share the model numbers with the team if you are unsure and they will confirm before you start.",
-    link: { label: "Talk to the Hulm team", href: "/book-a-demo/" },
+    link: { label: "Talk to the Hulm team", href: "/contact/" },
   },
   {
     q: "Which receipt printer should I buy?",

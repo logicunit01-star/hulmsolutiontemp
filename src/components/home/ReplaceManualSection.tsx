@@ -162,9 +162,6 @@ export function ReplaceManualSection() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="w-full sm:w-auto border-zinc-300 hover:border-[#167c70]">
-                <Link href="/book-a-demo/">Book a Demo</Link>
-              </Button>
               <span className="text-xs text-zinc-500 sm:ml-2 text-center sm:text-left">
                 No credit card needed &bull; Instant setup
               </span>

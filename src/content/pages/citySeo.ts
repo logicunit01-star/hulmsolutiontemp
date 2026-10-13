@@ -35,7 +35,7 @@ export type CityPage = {
 const fbr = { label: "FBR integrated POS", href: "/fbr-integrated-pos-pakistan/" };
 const pricing = { label: "POS software price in Pakistan", href: "/pricing/" };
 const hardware = { label: "POS hardware", href: "/pos-hardware/" };
-const demo = { label: "Book a free demo", href: "/book-a-demo/" };
+const demo = { label: "Contact Us", href: "/contact/" };
 
 export const cityPages: Record<string, CityPage> = {
   karachi: {
@@ -92,7 +92,7 @@ export const cityPages: Record<string, CityPage> = {
     ],
     setupHeading: "How setup works in Karachi",
     setupSteps: [
-      { title: "Book a demo", text: "See Hulm with your own products and workflow, online or on WhatsApp." },
+      { title: "Talk to our team", text: "Discuss your products and workflow with our team, online or on WhatsApp." },
       { title: "Import products and stock", text: "Bring in your catalogue and opening stock from Excel or CSV." },
       { title: "Connect FBR and hardware", text: "FBR registration, receipt printers and barcode scanners are set up with you." },
       { title: "Train staff and go live", text: "Your counter team is trained and the Karachi team stays on WhatsApp and phone after go-live." },
@@ -130,7 +130,7 @@ export const cityPages: Record<string, CityPage> = {
       },
     ],
     ctaHeading: "Run your Karachi business on Hulm POS",
-    ctaSubheading: "Start a 14-day free trial, or book a demo with the Karachi team.",
+    ctaSubheading: "Start a 14-day free trial, or contact the Karachi team.",
   },
 
   lahore: {
@@ -182,7 +182,7 @@ export const cityPages: Record<string, CityPage> = {
     caseStudies: [],
     setupHeading: "How setup works for Lahore businesses",
     setupSteps: [
-      { title: "Book an online demo", text: "See Hulm with your own products and workflow on a video call or WhatsApp." },
+      { title: "Talk to our team", text: "Discuss your products and workflow with our team on a video call or WhatsApp." },
       { title: "Import products and stock", text: "Bring in your catalogue, variants and opening stock from Excel or CSV." },
       { title: "Connect FBR and hardware", text: "FBR registration, receipt printers and barcode scanners are set up with you remotely." },
       { title: "Train staff and go live", text: "Your counter team is trained online, with WhatsApp and phone help after go-live." },
@@ -215,7 +215,7 @@ export const cityPages: Record<string, CityPage> = {
       },
     ],
     ctaHeading: "Run your Lahore business on Hulm POS",
-    ctaSubheading: "Start a 14-day free trial, or book an online demo for your store or restaurant.",
+    ctaSubheading: "Start a 14-day free trial, or contact our team for your store or restaurant.",
   },
 
   islamabad: {
@@ -267,7 +267,7 @@ export const cityPages: Record<string, CityPage> = {
     caseStudies: [],
     setupHeading: "How setup works for Islamabad and Rawalpindi businesses",
     setupSteps: [
-      { title: "Book an online demo", text: "See Hulm with your own products and workflow on a video call or WhatsApp." },
+      { title: "Talk to our team", text: "Discuss your products and workflow with our team on a video call or WhatsApp." },
       { title: "Import products and stock", text: "Bring in your catalogue and opening stock from Excel or CSV." },
       { title: "Connect FBR and hardware", text: "FBR registration, receipt printers and barcode scanners are set up with you remotely." },
       { title: "Train staff and go live", text: "Your counter team is trained online, with WhatsApp and phone help after go-live." },
@@ -300,7 +300,7 @@ export const cityPages: Record<string, CityPage> = {
       },
     ],
     ctaHeading: "Run your Islamabad or Rawalpindi business on Hulm POS",
-    ctaSubheading: "Start a 14-day free trial, or book an online demo for your store or restaurant.",
+    ctaSubheading: "Start a 14-day free trial, or contact our team for your store or restaurant.",
   },
 };
 

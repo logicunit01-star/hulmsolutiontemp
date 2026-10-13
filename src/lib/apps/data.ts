@@ -112,8 +112,8 @@ export const appsData: Record<string, AppDetailData> = {
       subheadline: "Simplify how your business creates, tracks, and manages purchase orders. Automate approvals, reduce errors, and gain full control over suppliers.",
       primaryCtaText: "Start 14-Day Free Trial",
       primaryCtaLink: "https://app.hulmsolutions.com/Register",
-      secondaryCtaText: "Book a Free Demo",
-      secondaryCtaLink: "/book-a-demo/"
+      secondaryCtaText: "Contact Us",
+      secondaryCtaLink: "/contact/"
     },
     whatIs: {
       headline: "What is Purchase Order Management?",
@@ -270,8 +270,8 @@ export const appsData: Record<string, AppDetailData> = {
       subheadline: "Simplify supplier relationships, communication, and effective procurement workflows. Scale according to your precise business needs, from local suppliers to nationwide distribution.",
       primaryCtaText: "Start 14-Day Free Trial",
       primaryCtaLink: "https://app.hulmsolutions.com/Register",
-      secondaryCtaText: "Book a Free Demo",
-      secondaryCtaLink: "/book-a-demo/"
+      secondaryCtaText: "Contact Us",
+      secondaryCtaLink: "/contact/"
     },
     whatIs: {
       headline: "Vendor Management Connected to Purchasing and Stock",
@@ -398,8 +398,8 @@ export const appsData: Record<string, AppDetailData> = {
       subheadline: "Move past manual ledgers and WhatsApp groups. Hulm is the only cattle management software in Pakistan specifically engineered for livestock traders and dairy farmers, unifying animal profiles, feed inventory, and FBR-compliant billing in one place.",
       primaryCtaText: "Start 14-Day Free Trial",
       primaryCtaLink: "https://app.hulmsolutions.com/Register",
-      secondaryCtaText: "Book a Free Demo",
-      secondaryCtaLink: "/book-a-demo/"
+      secondaryCtaText: "Contact Us",
+      secondaryCtaLink: "/contact/"
     },
     whatIs: {
       headline: "Complex Farm Operations, Simplified on One Screen",
@@ -524,8 +524,8 @@ export const appsData: Record<string, AppDetailData> = {
       subheadline: "Drive sales, improve customer satisfaction, and boost productivity with Hulm CRM. Connect every counter sale with actionable customer profiles and loyalty incentives.",
       primaryCtaText: "Start 14-Day Free Trial",
       primaryCtaLink: "https://app.hulmsolutions.com/Register",
-      secondaryCtaText: "Book a Free Demo",
-      secondaryCtaLink: "/book-a-demo/"
+      secondaryCtaText: "Contact Us",
+      secondaryCtaLink: "/contact/"
     },
     whatIs: {
       headline: "Customer Records Connected to the Sale",
@@ -652,8 +652,8 @@ export const appsData: Record<string, AppDetailData> = {
       subheadline: "Orders getting messy and hard to track? Hulm's cloud-based order management system brings everything into one clear dashboard. Manage orders faster, eliminate fulfillment errors, and keep operations organized.",
       primaryCtaText: "Start 14-Day Free Trial",
       primaryCtaLink: "https://app.hulmsolutions.com/Register",
-      secondaryCtaText: "Book a Free Demo",
-      secondaryCtaLink: "/book-a-demo/"
+      secondaryCtaText: "Contact Us",
+      secondaryCtaLink: "/contact/"
     },
     whatIs: {
       headline: "Order Management Dashboard for Daily Fulfilment",
@@ -787,8 +787,8 @@ export const appsData: Record<string, AppDetailData> = {
       subheadline: "Manage fleet, warehouse, delivery, documents, and third-party logistics from a single, intelligent platform. Designed for businesses that need accuracy, visibility, and scalability without operational complexity.",
       primaryCtaText: "Start 14-Day Free Trial",
       primaryCtaLink: "https://app.hulmsolutions.com/Register",
-      secondaryCtaText: "Book a Free Demo",
-      secondaryCtaLink: "/book-a-demo/"
+      secondaryCtaText: "Contact Us",
+      secondaryCtaLink: "/contact/"
     },
     whatIs: {
       headline: "What Is Logistics Management Software?",
@@ -910,8 +910,8 @@ export const appsData: Record<string, AppDetailData> = {
       subheadline: "Track stock movement, review current quantities and configure reorder workflows around the way your business purchases and sells products.",
       primaryCtaText: "Start 14-Day Free Trial",
       primaryCtaLink: "https://app.hulmsolutions.com/Register",
-      secondaryCtaText: "Book a Free Demo",
-      secondaryCtaLink: "/book-a-demo/"
+      secondaryCtaText: "Contact Us",
+      secondaryCtaLink: "/contact/"
     },
     whatIs: {
       headline: "Smarter Inventory Management Software for Every Business",
@@ -1059,8 +1059,8 @@ export const appsData: Record<string, AppDetailData> = {
       subheadline: "Hulm's reporting module transforms raw transactional data into actionable insights that inspire performance, streamline operations, and optimize business strategies—all from one centralized, easy-to-use platform.",
       primaryCtaText: "Start 14-Day Free Trial",
       primaryCtaLink: "https://app.hulmsolutions.com/Register",
-      secondaryCtaText: "Book a Free Demo",
-      secondaryCtaLink: "/book-a-demo/"
+      secondaryCtaText: "Contact Us",
+      secondaryCtaLink: "/contact/"
     },
     whatIs: {
       headline: "Reporting Connected to Daily Operations",
@@ -1186,8 +1186,8 @@ export const appsData: Record<string, AppDetailData> = {
       subheadline: "The only POS module that turns your entire business inventory into a professional e-commerce store with one single click. No developers, no hosting headaches, just your products live and ready to sell.",
       primaryCtaText: "Start 14-Day Free Trial",
       primaryCtaLink: "https://app.hulmsolutions.com/Register",
-      secondaryCtaText: "Book a Free Demo",
-      secondaryCtaLink: "/book-a-demo/"
+      secondaryCtaText: "Contact Us",
+      secondaryCtaLink: "/contact/"
     },
     whatIs: {
       headline: "From POS to Ecommerce Store in Three Taps",
@@ -1317,8 +1317,8 @@ export const appsData: Record<string, AppDetailData> = {
       subheadline: "Use a mobile device for supported retail, restaurant and service workflows. Payment options, live reporting and inventory access depend on your configuration.",
       primaryCtaText: "Start 14-Day Free Trial",
       primaryCtaLink: "https://app.hulmsolutions.com/Register",
-      secondaryCtaText: "Book a Free Demo",
-      secondaryCtaLink: "/book-a-demo/"
+      secondaryCtaText: "Contact Us",
+      secondaryCtaLink: "/contact/"
     },
     whatIs: {
       headline: "What is a Mobile POS System?",

@@ -114,8 +114,8 @@ export const industriesData: Record<string, IndustryData> = {
       "description": "Stop worrying about missing stock, manual FBR reports, or dropped barcode scans. From supermarkets to boutique clothing stores, Hulm is built for the chaos of high-speed retail.",
       "primaryCtaText": "Start Free 14-Day Trial",
       "primaryCtaLink": "https://app.hulmsolutions.com/Register",
-      "secondaryCtaText": "Book a Live Demo",
-      "secondaryCtaLink": "/book-a-demo/"
+      "secondaryCtaText": "Contact Us",
+      "secondaryCtaLink": "/contact/"
     },
     "problems": {
       "heading": "Are These Problems Holding Your Store Back?",
@@ -215,8 +215,8 @@ export const industriesData: Record<string, IndustryData> = {
       "description": "Hulm is a cloud-based restaurant POS system built for the rush — digital floor plans, KOT routing, split bills, and FBR integration designed specifically for Pakistani restaurants.",
       "primaryCtaText": "Start Free 14-Day Trial",
       "primaryCtaLink": "https://app.hulmsolutions.com/Register",
-      "secondaryCtaText": "Book a Live Demo",
-      "secondaryCtaLink": "/book-a-demo/"
+      "secondaryCtaText": "Contact Us",
+      "secondaryCtaLink": "/contact/"
     },
     "problems": {
       "heading": "Why Generic Billing Software Puts Your Restaurant Behind",
@@ -318,8 +318,8 @@ export const industriesData: Record<string, IndustryData> = {
       "description": "Hulm is built for the precision a medical store demands. Automate batch tracking, expiry date alerts, generic salt substitutions, and FBR-compliant billing.",
       "primaryCtaText": "Start Free 14-Day Trial",
       "primaryCtaLink": "https://app.hulmsolutions.com/Register",
-      "secondaryCtaText": "Book a Live Demo",
-      "secondaryCtaLink": "/book-a-demo/"
+      "secondaryCtaText": "Contact Us",
+      "secondaryCtaLink": "/contact/"
     },
     "problems": {
       "heading": "Are These Problems Holding Your Pharmacy Back?",
@@ -407,8 +407,8 @@ export const industriesData: Record<string, IndustryData> = {
       "description": "Streamline sales, track inventory, and boost customer satisfaction with our Manufacturing Industry POS System—perfect for production units, warehouses, and factories.",
       "primaryCtaText": "Start Free 14-Day Trial",
       "primaryCtaLink": "https://app.hulmsolutions.com/Register",
-      "secondaryCtaText": "Book a Live Demo",
-      "secondaryCtaLink": "/book-a-demo/"
+      "secondaryCtaText": "Contact Us",
+      "secondaryCtaLink": "/contact/"
     },
     "overview": {
       "heading": "Hulm POS: The Ultimate Manufacturing Industry",
@@ -517,8 +517,8 @@ export const industriesData: Record<string, IndustryData> = {
       "description": "Furniture POS is a specialized point-of-sale system designed to streamline sales, manage inventory, and enhance customer service in furniture showrooms and stores.",
       "primaryCtaText": "Start Free 14-Day Trial",
       "primaryCtaLink": "https://app.hulmsolutions.com/Register",
-      "secondaryCtaText": "Book a Live Demo",
-      "secondaryCtaLink": "/book-a-demo/"
+      "secondaryCtaText": "Contact Us",
+      "secondaryCtaLink": "/contact/"
     },
     "overview": {
       "heading": "Hulm POS: Best POS System For Furniture Store",
@@ -619,8 +619,8 @@ export const industriesData: Record<string, IndustryData> = {
       "description": "Electronics POS is a specialized point-of-sale system designed to streamline sales, track serialized appliances, manage warranties, and optimize inventory for electric stores.",
       "primaryCtaText": "Start Free 14-Day Trial",
       "primaryCtaLink": "https://app.hulmsolutions.com/Register",
-      "secondaryCtaText": "Book a Live Demo",
-      "secondaryCtaLink": "/book-a-demo/"
+      "secondaryCtaText": "Contact Us",
+      "secondaryCtaLink": "/contact/"
     },
     "overview": {
       "heading": "Hulm POS: The Ultimate Electric Store POS System",
@@ -721,8 +721,8 @@ export const industriesData: Record<string, IndustryData> = {
       "description": "Clothing POS is an advanced point-of-sale solution designed to simplify size-color matrix inventory, speed up checkouts, print custom tags, and optimize sales for clothing and fashion stores.",
       "primaryCtaText": "Start Free 14-Day Trial",
       "primaryCtaLink": "https://app.hulmsolutions.com/Register",
-      "secondaryCtaText": "Book a Live Demo",
-      "secondaryCtaLink": "/book-a-demo/"
+      "secondaryCtaText": "Contact Us",
+      "secondaryCtaLink": "/contact/"
     },
     "overview": {
       "heading": "Hulm POS: The Ultimate Clothing Stores POS System",
@@ -823,8 +823,8 @@ export const industriesData: Record<string, IndustryData> = {
       "description": "Streamline sales, track inventory, and boost customer satisfaction with our Cafe POS System—perfect for fast-paced coffee shops and cafes.",
       "primaryCtaText": "Start Free 14-Day Trial",
       "primaryCtaLink": "https://app.hulmsolutions.com/Register",
-      "secondaryCtaText": "Book a Live Demo",
-      "secondaryCtaLink": "/book-a-demo/"
+      "secondaryCtaText": "Contact Us",
+      "secondaryCtaLink": "/contact/"
     },
     "overview": {
       "heading": "What is a Cafe Point of Sale System?",
@@ -939,8 +939,8 @@ export const industriesData: Record<string, IndustryData> = {
       "description": "Streamline sales, track inventory, and boost customer satisfaction with our Toys Store POS System—perfect for busy holiday seasons and growing your toy business effortlessly.",
       "primaryCtaText": "Start Free 14-Day Trial",
       "primaryCtaLink": "https://app.hulmsolutions.com/Register",
-      "secondaryCtaText": "Book a Live Demo",
-      "secondaryCtaLink": "/book-a-demo/"
+      "secondaryCtaText": "Contact Us",
+      "secondaryCtaLink": "/contact/"
     },
     "overview": {
       "heading": "Simplify Your Toy Store with Hulm POS",
@@ -1065,8 +1065,8 @@ export const industriesData: Record<string, IndustryData> = {
       "description": "Deliver speed, precision, and delightful experiences—from custom cake requests to morning rush-hour service with our specialized bakery point-of-sale software.",
       "primaryCtaText": "Start Free 14-Day Trial",
       "primaryCtaLink": "https://app.hulmsolutions.com/Register",
-      "secondaryCtaText": "Book a Live Demo",
-      "secondaryCtaLink": "/book-a-demo/"
+      "secondaryCtaText": "Contact Us",
+      "secondaryCtaLink": "/contact/"
     },
     "overview": {
       "heading": "Hulm Bakery POS Makes Your Business Sweeter",
@@ -1191,8 +1191,8 @@ export const industriesData: Record<string, IndustryData> = {
       "description": "Streamline sales, manage precious metals inventory, and delight customers with our Jewelry POS System—specifically tailored for jewelry stores and luxury boutiques.",
       "primaryCtaText": "Start Free 14-Day Trial",
       "primaryCtaLink": "https://app.hulmsolutions.com/Register",
-      "secondaryCtaText": "Book a Live Demo",
-      "secondaryCtaLink": "/book-a-demo/"
+      "secondaryCtaText": "Contact Us",
+      "secondaryCtaLink": "/contact/"
     },
     "overview": {
       "heading": "Why Jewelry Stores Need a Hulm POS System?",
@@ -1314,8 +1314,8 @@ export const industriesData: Record<string, IndustryData> = {
       "description": "Manage your entire salon or spa with our smart, easy-to-use salon POS system—online appointment scheduling, fast billing, automated stylist commissions, and retail product sales.",
       "primaryCtaText": "Start Free 14-Day Trial",
       "primaryCtaLink": "https://app.hulmsolutions.com/Register",
-      "secondaryCtaText": "Book a Live Demo",
-      "secondaryCtaLink": "/book-a-demo/"
+      "secondaryCtaText": "Contact Us",
+      "secondaryCtaLink": "/contact/"
     },
     "overview": {
       "heading": "Hulm Salon POS That Understands Your Business",

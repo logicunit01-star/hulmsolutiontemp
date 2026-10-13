@@ -291,9 +291,6 @@ export function MobileNav() {
                   </Link>
                 </Button>
               </div>
-              <Link href="/book-a-demo/" onClick={closeMenu} className="mt-3 block text-center text-xs font-semibold text-[#167c70] hover:underline">
-                Prefer a guided setup? Book a demo
-              </Link>
             </div>
           </div>
         </div>

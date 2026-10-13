@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, Mail, Clock, MapPin, CalendarCheck, Sparkles } from "lucide-react";
+import { Phone, Mail, Clock, MapPin, Sparkles } from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
@@ -80,7 +80,7 @@ export function ContactForm({ contact }: ContactFormProps) {
                 );
               })}
             </div>
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div>
               <a
                 href={whatsappUrl("Hi Hulm, I have a question about Hulm POS.")}
                 target="_blank"
@@ -89,12 +89,6 @@ export function ContactForm({ contact }: ContactFormProps) {
               >
                 <WhatsAppIcon size={18} className="h-4 w-4" /> Chat on WhatsApp
               </a>
-              <Link
-                href="/book-a-demo/"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#167c70]/40 bg-white px-5 py-3 text-sm font-semibold text-[#167c70] hover:bg-[#f2fbf9] shadow-xs transition-colors"
-              >
-                <CalendarCheck className="h-4 w-4" /> Book a free demo
-              </Link>
             </div>
             <p className="text-xs sm:text-sm text-zinc-500">
               New to Hulm? Read <Link href="/about/" className="font-semibold text-[#167c70] underline underline-offset-2">about Hulm Solutions</Link> or see{" "}

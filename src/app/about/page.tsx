@@ -55,8 +55,8 @@ export default function AboutPage() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button asChild size="lg" className="w-full sm:w-auto">
-                <Link href="/book-a-demo/">
-                  Book a Free Demo
+                <Link href="/contact/">
+                  Contact Us
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>

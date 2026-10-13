@@ -5,7 +5,7 @@ import { PAGE_CONTENT_UPDATED } from "@/content/content-dates";
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://hulmsolutions.com").replace(/\/$/, "");
 
 /** Pages that exist only on the new site (not in the WordPress snapshot). Add new routes here. */
-export const newSitePaths = ["/apps/", "/book-a-demo/", "/editorial-policy/", "/pos-hardware/", "/pos-software-karachi/", "/pos-software-lahore/", "/pos-software-islamabad/", "/cookie-policy/"];
+export const newSitePaths = ["/apps/", "/editorial-policy/", "/pos-hardware/", "/pos-software-karachi/", "/pos-software-lahore/", "/pos-software-islamabad/", "/cookie-policy/"];
 
 // Non-blog pages were rebuilt with the new site; blog posts keep their original modified date.
 const SITE_RELEASE_DATE = process.env.SITE_RELEASE_DATE || "2026-10-01";

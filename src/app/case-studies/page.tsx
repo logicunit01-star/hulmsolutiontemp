@@ -180,7 +180,7 @@ export default function CaseStudiesPage() {
               { label: "FBR integrated POS", href: "/fbr-integrated-pos-pakistan/" },
               { label: "POS pricing", href: "/pricing/" },
               { label: "About Hulm Solutions", href: "/about/" },
-              { label: "Book a free demo", href: "/book-a-demo/" },
+              { label: "Contact Us", href: "/contact/" },
             ]}
           />
         </Container>

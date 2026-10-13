@@ -39,7 +39,7 @@ export function corePages(): LinkItem[] {
     { title: "Integrations", path: "/integration/", note: desc("/integration/") },
     { title: "FBR integrated POS (Pakistan)", path: "/fbr-integrated-pos-pakistan/", note: desc("/fbr-integrated-pos-pakistan/") },
     { title: "ZATCA-compliant POS (Saudi Arabia)", path: "/zatca/", note: desc("/zatca/") },
-    { title: "Book a demo", path: "/book-a-demo/", note: "Book a free Hulm POS demo by form, WhatsApp or phone." },
+    { title: "Contact Us", path: "/contact/", note: "Contact the Hulm POS team by form, WhatsApp or phone." },
   ];
 }
 

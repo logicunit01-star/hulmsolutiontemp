@@ -10,6 +10,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${siteUrl}${route}`,
     lastModified: lastModified(route),
     changeFrequency: route === "/" ? ("weekly" as const) : ("monthly" as const),
-    priority: route === "/" ? 1 : ["/industries/", "/pricing/", "/features/", "/book-a-demo/"].includes(route) ? 0.9 : 0.7,
+    priority: route === "/" ? 1 : ["/industries/", "/pricing/", "/features/", "/contact/"].includes(route) ? 0.9 : 0.7,
   }));
 }

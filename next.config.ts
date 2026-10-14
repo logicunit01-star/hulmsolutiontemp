@@ -92,27 +92,7 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  async headers() {
-    return [
-      {
-        // Staging / preview hosts (*.netlify.app) must never be indexed. Production host is unaffected.
-        source: "/:path*",
-        has: [{ type: "host", value: ".*\\.netlify\\.app" }],
-        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
-      },
-      {
-        source: "/:path*",
-        headers: [
-          { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
-          { key: "Strict-Transport-Security", value: "max-age=31536000" },
-          { key: "X-Content-Type-Options", value: "nosniff" },
-          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-          { key: "X-Frame-Options", value: "SAMEORIGIN" },
-          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=()" },
-        ],
-      },
-    ];
-  },
+  // X-Robots-Tag was removed to allow the production site to be indexed normally.
   images: {
     remotePatterns: [
       {

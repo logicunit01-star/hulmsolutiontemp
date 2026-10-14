@@ -68,13 +68,15 @@ export const metadata: Metadata = {
   verification: {
     google: "u11VcMpy0A_fhTFKRCbkFBcZcETYqzydjWxiYT4BAXQ",
   },
+  // Google shows a favicon in search results only if it is square and at least 48x48.
   icons: {
     icon: [
-      { url: "/images/author/hulm-editorial-team.png" },
-      { url: "/images/author/hulm-editorial-team.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
-    shortcut: "/images/author/hulm-editorial-team.png",
-    apple: "/images/author/hulm-editorial-team.png",
+    shortcut: "/favicon.ico",
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
 };
 
@@ -84,7 +86,7 @@ const organizationSchema = {
   "@id": `${siteUrl}/#organization`,
   name: "Hulm Solutions",
   url: siteUrl,
-  logo: `${siteUrl}/images/logo/logo.png`,
+  logo: `${siteUrl}/images/logo/hulm-logo-600.png`,
   description:
     "Hulm Solutions builds Hulm POS, cloud-based POS and business management software with FBR integration in Pakistan and ZATCA / UAE e-invoicing readiness for Gulf businesses.",
   knowsAbout: ["POS software", "FBR integrated POS", "ZATCA e-invoicing", "Inventory management", "Restaurant POS", "Retail POS"],

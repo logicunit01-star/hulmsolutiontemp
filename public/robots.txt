@@ -1,28 +1,37 @@
+# robots.txt for https://hulmsolutions.com
+# Production site: everything public is crawlable. Staging hosts (*.netlify.app, *.vercel.app)
+# send an X-Robots-Tag: noindex header from next.config.ts instead of using this file.
+
 User-agent: *
+Allow: /
+Disallow: /api/
 Disallow: /wp-admin/
-Disallow: /wp-includes/
-Disallow: /wp-content/uploads/wpo/wpo-plugins-tables-list.json
-Allow: /wp-admin/admin-ajax.php
-Allow: /
 
-Sitemap: https://hulmsolutions.com/sitemap_index.xml
-
-# AI crawler access
-User-agent: GPTBot
-Allow: /
-
+# Search and AI assistants (allowed so Hulm can be found and cited)
+User-agent: Googlebot
+User-agent: Bingbot
 User-agent: Google-Extended
-Allow: /
-
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
 User-agent: ClaudeBot
-Allow: /
-
+User-agent: Claude-SearchBot
+User-agent: Claude-User
 User-agent: PerplexityBot
-Allow: /
-
+User-agent: Perplexity-User
+User-agent: Applebot
+User-agent: Applebot-Extended
 User-agent: CCBot
+User-agent: meta-externalagent
+User-agent: DuckAssistBot
 Allow: /
+Disallow: /api/
 
-# Optional crawler block
+# Aggressive scraper with no search value
 User-agent: Bytespider
 Disallow: /
+
+# LLM-readable summaries: https://hulmsolutions.com/llms.txt and https://hulmsolutions.com/llms-full.txt
+
+Sitemap: https://hulmsolutions.com/sitemap_index.xml
+Sitemap: https://hulmsolutions.com/sitemap.xml

@@ -8,7 +8,7 @@ export const industriesContent = {
     description:
       "Hulm POS systems cover the most common POS industries: retail stores, restaurants, cafes, pharmacies, salons and more. Start with one connected sales and inventory platform, then choose the industry workflow that matches your counters, products and customers.",
     primaryCta: { label: "Start 14-Day Free Trial", href: "https://app.hulmsolutions.com/Register" },
-    secondaryCta: { label: "Book a Free Demo", href: "/book-a-demo/" },
+    secondaryCta: { label: "Book a Free Demo", href: "/contact/" },
     proof: ["Sales and stock connected", "Multi-branch options", "FBR integration available"],
   },
   priority: {
@@ -99,6 +99,6 @@ export const industriesContent = {
     heading: "Show us how your team sells today",
     description: "We’ll help you identify the closest workflow, the right plan and the setup questions to resolve before rollout.",
     primaryCta: { label: "Start 14-Day Free Trial", href: "https://app.hulmsolutions.com/Register" },
-    secondaryCta: { label: "Book a Free Demo", href: "/book-a-demo/" },
+    secondaryCta: { label: "Book a Free Demo", href: "/contact/" },
   },
 } as const;

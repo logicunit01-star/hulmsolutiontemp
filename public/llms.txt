@@ -19,6 +19,8 @@ Primary use cases: retail POS, restaurant POS, pharmacy POS, cafe POS, bakery PO
 - [Integrations](https://hulmsolutions.com/integration/): Hulm POS integrations for ecommerce, Shopify, payment gateways, accounting, inventory, CRM, and business systems.
 - [About](https://hulmsolutions.com/about/): Information about Hulm Solutions, its mission, vision, and business software expertise.
 - [Contact](https://hulmsolutions.com/contact/): Contact Hulm Solutions for POS demos, support, business inquiries, and sales consultation.
+- [Product Overview](https://hulmsolutions.com/apps/): How Hulm POS connects billing, inventory, purchasing, customers, orders and reporting in one platform.
+- [POS Hardware](https://hulmsolutions.com/pos-hardware/): Hardware that works with Hulm POS: any PC, laptop or tablet with a browser, plus receipt printers, barcode scanners and cash drawers.
 
 ## Compliance Pages
 
@@ -31,6 +33,9 @@ Primary use cases: retail POS, restaurant POS, pharmacy POS, cafe POS, bakery PO
 - [POS Software in UAE](https://hulmsolutions.com/pos-software-uae/): Hulm POS software for UAE and Dubai businesses, including restaurant, retail, grocery, salon, and cloud POS use cases.
 - [POS Software in Qatar](https://hulmsolutions.com/pos-software-qatar/): Hulm POS system for Qatar businesses that need cloud POS, mobile POS, billing, inventory, and reporting.
 - [POS Software in Saudi Arabia](https://hulmsolutions.com/pos-software-ksa/): Hulm POS software for Saudi Arabia and KSA businesses, including retail POS, restaurant POS, cloud POS, and ZATCA-related workflows.
+- [POS Software in Karachi](https://hulmsolutions.com/pos-software-karachi/): FBR-integrated Hulm POS for Karachi retailers, restaurants and pharmacies.
+- [POS Software in Lahore](https://hulmsolutions.com/pos-software-lahore/): FBR-integrated Hulm POS for Lahore retailers, restaurants and clothing brands.
+- [POS Software in Islamabad & Rawalpindi](https://hulmsolutions.com/pos-software-islamabad/): FBR-integrated Hulm POS for Islamabad and Rawalpindi retailers, restaurants and pharmacies.
 
 ## Industry POS Pages
 
@@ -63,9 +68,11 @@ Primary use cases: retail POS, restaurant POS, pharmacy POS, cafe POS, bakery PO
 ## Case Studies
 
 - [POS Case Studies](https://hulmsolutions.com/pos-case-studies/): Hulm POS case study hub showing real business implementations and results.
-- [Real Tech System Case Study](https://hulmsolutions.com/pos-case-studies/implementing-pos-systems-for-real-tech-system/): Case study showing how Hulm POS helped Real Tech System streamline sales, inventory tracking, tax compliance, and retail operations.
+- [Real Tech System Case Study](https://hulmsolutions.com/pos-case-studies/real-tech-pos-system-karachi/): Case study showing how Hulm POS helped Real Tech System streamline sales, inventory tracking, tax compliance, and retail operations.
 - [Elate CC Medical Equipment Case Study](https://hulmsolutions.com/pos-case-studies/implementing-pos-systems-for-medical-euquipment-industry/): Case study showing Hulm POS implementation for Elate CC Pvt Ltd with invoicing, inventory, tax integration, and order management for medical equipment operations.
 - [The Laptop Store Case Study](https://hulmsolutions.com/pos-case-studies/implementing-a-pos-system-for-retail-the-laptop-store/): Case study showing how Hulm POS helped The Laptop Store improve retail transactions, inventory management, and tax compliance.
+- [Farhan Caterers Case Study](https://hulmsolutions.com/pos-case-studies/farhan-caterers-pos-karachi/): How a Karachi event caterer streamlined bookings and automated FBR tax filing with Hulm POS.
+- [Cupcake Queen Bakery Case Study](https://hulmsolutions.com/pos-case-studies/cupcake-queen-bakery-pos-qatar/): How a multi-branch Doha bakery unified custom orders and reduced stock waste with Hulm POS.
 
 ## Blog and Educational Resources
 
@@ -80,6 +87,10 @@ Primary use cases: retail POS, restaurant POS, pharmacy POS, cafe POS, bakery PO
 - [What Is a POS Transaction?](https://hulmsolutions.com/blog/what-is-point-of-sale-transaction/): Guide explaining POS transaction meaning, transaction types, and how point of sale transactions work.
 - [What Is a POS Purchase?](https://hulmsolutions.com/blog/what-is-a-pos-purchase/): Guide explaining POS purchase meaning, definition, and how POS purchases work.
 - [What Is POS Debit?](https://hulmsolutions.com/blog/what-is-pos-debit-meaning/): Guide explaining POS debit meaning, debit card POS transactions, and how POS debit appears in banking.
+- [What Is a POS Person?](https://hulmsolutions.com/blog/what-is-a-pos-person-meaning-and-responsibilities/): The role of a POS person in managing transactions, payments and customer service.
+- [What Is POS Experience?](https://hulmsolutions.com/blog/what-is-pos-experience-12-tips-to-satisfy-your-customers/): POS experience meaning and 12 tips to improve customer satisfaction at checkout.
+- [What Are POS Skills?](https://hulmsolutions.com/blog/what-is-pos-skills-understand-pos-skill-meaning/): POS skill meaning and the key skills needed in retail and customer service.
+- [Author: Hulm Editorial Team](https://hulmsolutions.com/author/): Who writes and reviews Hulm articles on POS software, FBR compliance and inventory.
 
 ## Legal and Discovery
 
@@ -87,3 +98,6 @@ Primary use cases: retail POS, restaurant POS, pharmacy POS, cafe POS, bakery PO
 - [Terms and Conditions](https://hulmsolutions.com/terms-and-conditions/): Hulm Solutions terms and conditions for website and service usage.
 - [XML Sitemap Index](https://hulmsolutions.com/sitemap_index.xml): Sitemap index for all indexable Hulm Solutions pages and posts.
 - [Robots.txt](https://hulmsolutions.com/robots.txt): Robots directives for search engines and AI crawlers.
+- [Cookie Policy](https://hulmsolutions.com/cookie-policy/): How the Hulm Solutions website uses cookies for analytics, marketing attribution and forms.
+- [Editorial Policy](https://hulmsolutions.com/editorial-policy/): How Hulm writes, fact-checks, reviews and corrects its POS, FBR and ZATCA guides.
+- [Full LLM Content](https://hulmsolutions.com/llms-full.txt): Full text of Hulm FAQs and articles for AI assistants.

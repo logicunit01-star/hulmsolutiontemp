@@ -90,9 +90,47 @@ const nextConfig: NextConfig = {
         destination: '/contact/',
         permanent: true,
       },
+      // Legacy WordPress archive / feed / sitemap URLs that may still be indexed or linked.
+      { source: '/category/:path*', destination: '/blogs/', permanent: true },
+      { source: '/tag/:path*', destination: '/blogs/', permanent: true },
+      { source: '/blogs/page/:n', destination: '/blogs/', permanent: true },
+      { source: '/page/:n', destination: '/blogs/', permanent: true },
+      { source: '/comments/feed', destination: '/feed/', permanent: true },
+      { source: '/blog/:slug/feed', destination: '/blog/:slug/', permanent: true },
+      { source: '/blog/:slug/amp', destination: '/blog/:slug/', permanent: true },
+      { source: '/wp-sitemap.xml', destination: '/sitemap_index.xml', permanent: true },
+      { source: '/category-sitemap.xml', destination: '/sitemap_index.xml', permanent: true },
+      { source: '/author-sitemap.xml', destination: '/sitemap_index.xml', permanent: true },
+      { source: '/home', destination: '/', permanent: true },
+      {
+        source: '/pos-case-studies/implementing-pos-systems-for-real-tech-system',
+        destination: '/pos-case-studies/real-tech-pos-system-karachi/',
+        permanent: true,
+      },
     ];
   },
-  // X-Robots-Tag was removed to allow the production site to be indexed normally.
+  async headers() {
+    return [
+      {
+        // Staging / preview hosts only (*.netlify.app, *.vercel.app) are kept out of Google.
+        // The production domain (hulmsolutions.com) never matches this rule and is fully indexable.
+        source: "/:path*",
+        has: [{ type: "host", value: "(?:.*\\.)?(?:netlify\\.app|vercel\\.app)" }],
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+      {
+        // Security headers for every host. Do NOT add X-Robots-Tag here: it would de-index production.
+        source: "/:path*",
+        headers: [
+          { key: "Strict-Transport-Security", value: "max-age=31536000" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=()" },
+        ],
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

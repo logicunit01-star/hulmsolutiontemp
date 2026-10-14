@@ -8,7 +8,7 @@ export const pricingContent = {
     description:
       "Hulm POS software price in Pakistan starts at PKR 2,500 per month. Start with fast billing and inventory, then add users, branches and operational apps as your business grows.",
     primaryCta: { label: "Start 14-Day Free Trial", href: "https://app.hulmsolutions.com/Register" },
-    secondaryCta: { label: "Book a Pricing Demo", href: "/book-a-demo/" },
+    secondaryCta: { label: "Book a Pricing Demo", href: "/contact/" },
     proof: ["POS plans from PKR 2,500/month", "14-day trial", "No credit card required for trial"],
   },
   plans: [
@@ -78,7 +78,7 @@ export const pricingContent = {
         "Service-level agreement options",
         "Rollout planning with the Hulm team",
       ],
-      cta: { label: "Book a Demo", href: "/book-a-demo/?plan=enterprise" },
+      cta: { label: "Book a Demo", href: "/contact/?plan=enterprise" },
       highlighted: false,
     },
   ],
@@ -199,6 +199,6 @@ export const pricingContent = {
     description:
       "Start a 14-day trial or book a pricing walkthrough focused on your team size, locations and operational requirements.",
     primaryCta: { label: "Start 14-Day Free Trial", href: "https://app.hulmsolutions.com/Register" },
-    secondaryCta: { label: "Book a Pricing Demo", href: "/book-a-demo/" },
+    secondaryCta: { label: "Book a Pricing Demo", href: "/contact/" },
   },
 } as const;

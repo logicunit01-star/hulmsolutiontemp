@@ -11,7 +11,7 @@ export const featuresContent = {
     description:
       "Hulm POS software features connect billing, products, inventory, customers, staff permissions and sales reporting in one point of sale workflow for retail stores, restaurants and other growing businesses.",
     primaryCta: { label: "Start 14-Day Free Trial", href: "https://app.hulmsolutions.com/Register" },
-    secondaryCta: { label: "Book a Demo", href: "/book-a-demo/" },
+    secondaryCta: { label: "Book a Demo", href: "/contact/" },
   },
   core: {
     heading: "POS & billing features for daily sales",
@@ -90,7 +90,7 @@ export const featuresContent = {
       {
         q: "How long does it take to go live?",
         a: "Setup guidance is included. The timeline depends on your product list, branches and FBR registration, and the team shares a plan in the demo. Data migration and staff training are available as optional services.",
-        link: { label: "book a free demo", href: "/book-a-demo/" },
+        link: { label: "book a free demo", href: "/contact/" },
       },
       {
         q: "Can Hulm connect with other tools?",

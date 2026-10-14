@@ -59,7 +59,7 @@ export function productionMetadata(input: string): Metadata {
       title: page.openGraphTitle || page.title,
       description: page.openGraphDescription || page.description,
       url: page.path,
-      images: page.openGraphImage ? [{ url: page.openGraphImage }] : undefined,
+      images: [{ url: page.openGraphImage || "/images/uploads/2026/06/hero-image-hulm.webp" }],
       ...(isArticle
         ? {
             publishedTime: page.publishedTime || undefined,

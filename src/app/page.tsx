@@ -43,9 +43,15 @@ export const metadata: Metadata = {
   description: homeContent.seo.description,
   alternates: { canonical: "/", languages: REGIONAL_ALTERNATES, types: SITE_FEEDS },
   robots: {
-    index: false,
-    follow: false,
-    googleBot: { index: false, follow: false, noimageindex: true },
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   openGraph: {
     type: "website",

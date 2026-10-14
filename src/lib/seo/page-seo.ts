@@ -45,8 +45,8 @@ export function seoMetadata(route: string, opts: { ogImage?: string; ogAlt?: str
   const live = getProductionParityPage(path);
   if (!live) throw new Error(`seoMetadata: no live snapshot for ${path}`);
   const image = opts.ogImage || live.openGraphImage || DEFAULT_OG_IMAGE;
-  const indexable = false;
-  const followable = false;
+  const indexable = true;
+  const followable = true;
   return {
     title: { absolute: live.title },
     description: live.description,
@@ -55,9 +55,15 @@ export function seoMetadata(route: string, opts: { ogImage?: string; ogAlt?: str
     },
     alternates: REGIONAL_PATHS.has(path) ? { canonical: path, languages: REGIONAL_ALTERNATES, types: SITE_FEEDS } : { canonical: path, types: SITE_FEEDS },
     robots: {
-      index: false,
-      follow: false,
-      googleBot: { index: false, follow: false, noimageindex: true },
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
     openGraph: {
       type: opts.type || "website",
@@ -78,7 +84,17 @@ export function newPageMetadata({ path, title, description, ogImage = DEFAULT_OG
     title: { absolute: title },
     description,
     alternates: { canonical: path, types: SITE_FEEDS },
-    robots: { index: false, follow: false, googleBot: { index: false, follow: false, noimageindex: true } },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
     openGraph: { type: "website", siteName: "Hulm Solutions", locale: "en_PK", title, description, url: path, images: [{ url: ogImage, alt: title }] },
     twitter: { card: "summary_large_image", title, description, images: [ogImage] },
   };

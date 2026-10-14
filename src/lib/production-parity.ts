@@ -44,12 +44,14 @@ export function productionMetadata(input: string): Metadata {
     description: page.description,
     alternates: { canonical: page.path, types: SITE_FEEDS },
     robots: {
-      index: false,
-      follow: false,
+      index: true,
+      follow: true,
       googleBot: {
-        index: false,
-        follow: false,
-        noimageindex: true,
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
       },
     },
     openGraph: {

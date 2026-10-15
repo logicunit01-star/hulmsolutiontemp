@@ -19,22 +19,22 @@ import {
 import { FinalCta } from "@/components/home/final-cta";
 import { GoogleReviewsSection } from "@/components/home/GoogleReviewsSection";
 import { FaqDetails } from "@/components/seo/faq-details";
-import { ProductScreens } from "@/components/seo/product-screens";
+import { DashboardCarousel } from "@/components/home/DashboardCarousel";
+import { homeContent } from "@content/pages/home";
 import { LiteYouTube } from "@/components/seo/lite-youtube";
 import { HULM_DEMO_VIDEO } from "@content/data/videos";
-import { screensFor } from "@content/data/product-screens";
 import { JsonLd } from "@/components/seo/json-ld";
-import { LinkChips } from "@/components/seo/link-chips";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { featuresContent as c } from "@content/pages/features";
 import { pageJsonLd, seoMetadata, softwareNode } from "@/lib/seo/page-seo";
-import { linksExcept, productLinks } from "@/lib/seo/site-links";
+import { AddMoreAppsSection } from "@/components/features/AddMoreAppsSection";
 
 export const metadata = seoMetadata("/features/");
 
-const coreIcons = [ShoppingCart, Barcode, UserRound, Printer, Users, BarChart3];
+import { ComprehensiveFeaturesExplorer } from "@/components/features/ComprehensiveFeaturesExplorer";
+
 const tailoredIcons = [Store, UtensilsCrossed, Scissors];
 
 const schema = pageJsonLd({
@@ -58,7 +58,7 @@ export default function FeaturesPage() {
               <span>{c.hero.eyebrow}</span>
             </div>
             <h1 className="mb-5 text-3xl font-bold leading-[1.12] tracking-[-0.03em] text-[#0F2A26] sm:text-4xl lg:text-[44px]">
-              {c.hero.headline.replace(/grow faster$/, "")}
+              {c.hero.headline.replace(/\s*grow faster$/, "")}{" "}
               <span className="mark-lime">grow faster</span>
             </h1>
             <p className="mb-8 text-base leading-relaxed text-zinc-600 sm:text-lg">{c.hero.description}</p>
@@ -80,36 +80,30 @@ export default function FeaturesPage() {
         </Container>
       </Section>
 
-      <ProductScreens
-        screens={screensFor("/features/")}
-        heading="POS software features you can see before you buy"
-        description="Real screens from Hulm POS: checkout, stock and the one-login app workspace."
-        topic="POS features"
-      />
-
-      <Section data-reveal className="bg-[#F7F6F2] py-20 lg:py-24 border-y border-[#E4E2DA]">
+      <Section data-reveal className="py-14 sm:py-18 lg:py-20 bg-white">
         <Container>
-          <div className="mx-auto mb-12 max-w-3xl text-center">
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3 py-1 text-xs font-semibold text-[#167c70]">
-              <span>Core Modules</span>
-            </div>
-            <h2 className="text-2xl font-bold tracking-tight text-[#0F2A26] sm:text-3xl lg:text-4xl">{c.core.heading}</h2>
-            <p className="mt-3 text-base leading-relaxed text-zinc-600">{c.core.description}</p>
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-[#0F2A26] text-balance sm:text-3xl lg:text-[34px] lg:leading-[1.22]">
+              POS software features you can see before you buy
+            </h2>
+            <p className="mt-4 text-base leading-7 text-zinc-600 sm:text-lg">
+              Real screens from Hulm POS: checkout, stock and the one-login app workspace.
+            </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {c.core.items.map((feature, idx) => {
-              const Icon = coreIcons[idx];
-              return (
-                <div key={feature.title} className="lift rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-xs transition-all duration-300 hover:border-[#167c70]/40 hover:shadow-md">
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F7F6F2] text-[#167c70]">
-                    <Icon className="h-6 w-6" strokeWidth={2} />
-                  </div>
-                  <h3 className="mb-2 text-xl font-bold text-[#0F2A26]">{feature.title}</h3>
-                  <p className="text-sm leading-relaxed text-zinc-600">{feature.description}</p>
-                </div>
-              );
-            })}
+          <div className="mt-8 sm:mt-10">
+            <DashboardCarousel screens={homeContent.product.screens} />
           </div>
+        </Container>
+      </Section>
+
+      <Section data-reveal className="bg-[#F7F6F2] py-14 sm:py-18 lg:py-20 border-y border-[#E4E2DA]">
+        <Container>
+          <ComprehensiveFeaturesExplorer
+            eyebrow={c.core.eyebrow}
+            heading={c.core.heading}
+            description={c.core.description}
+            modules={c.core.items}
+          />
         </Container>
       </Section>
 
@@ -164,17 +158,14 @@ export default function FeaturesPage() {
         </Container>
       </Section>
 
-      <Section data-reveal className="bg-white py-16">
+      <Section data-reveal className="bg-white py-10 sm:py-12 lg:py-14 border-t border-[#E4E2DA]">
         <Container>
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-2xl font-semibold tracking-tight text-[#0F2A26] sm:text-3xl">{c.apps.heading}</h2>
-            <p className="mt-4 text-base leading-relaxed text-zinc-600">{c.apps.description}</p>
-            <LinkChips items={linksExcept(productLinks, "/features/")} centered className="mt-6" />
-            <Link href={c.apps.pricingLink.href} className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-[#167c70] hover:text-[#125f57]">
-              {c.apps.pricingLink.label}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
+          <AddMoreAppsSection
+            heading={c.apps.heading}
+            description={c.apps.description}
+            pricingLabel={c.apps.pricingLink.label}
+            pricingHref={c.apps.pricingLink.href}
+          />
         </Container>
       </Section>
 

@@ -7,6 +7,7 @@ import { REGIONAL_LOCATIONS } from "@/lib/countries/data"
 
 const productLinks = [
   { title: "Product overview", href: "/apps/" },
+  { title: "Features", href: "/features/" },
   { title: "POS & Billing", href: "/features/" },
   { title: "Mobile POS", href: "/mobile-pos/" },
   { title: "Inventory Management", href: "/inventory-management/" },

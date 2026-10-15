@@ -32,6 +32,7 @@ export const footerNav = [
   {
     title: "Product",
     links: [
+      { title: "Features", href: "/features" },
       { title: "POS & Billing", href: "/features" },
       { title: "Inventory Management", href: "/inventory-management" },
       { title: "Purchase Orders", href: "/purchase-orders" },

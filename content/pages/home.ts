@@ -28,7 +28,7 @@ export const homeContent = {
     description:
       "Sell faster, keep stock accurate and manage every branch from one connected point of sale system built for growing businesses in Pakistan, from a single shop to a multi-branch chain.",
     primaryCta: { label: "Start 14-Day Free Trial", href: "https://app.hulmsolutions.com/Register" },
-    secondaryCta: { label: "Watch a Demo", href: "https://www.youtube.com/watch?v=Fd6X_TPX9EA" },
+    secondaryCta: { label: "Watch a Demo", href: "https://www.youtube.com/watch?v=NNwtC-uayeY" },
     proof: ["FBR integration available", "Multi-branch ready", "Works on your existing devices"],
     offer: "From PKR 2,500/month · No credit card required",
   },
@@ -274,6 +274,6 @@ export const homeContent = {
     description:
       "Try Hulm Point of Sale for 14 days, or speak with our team in Pakistan about your branches, inventory and FBR requirements.",
     primaryCta: { label: "Start 14-Day Free Trial", href: "https://app.hulmsolutions.com/Register" },
-    secondaryCta: { label: "Watch a Demo", href: "https://www.youtube.com/watch?v=Fd6X_TPX9EA" },
+    secondaryCta: { label: "Watch a Demo", href: "https://www.youtube.com/watch?v=NNwtC-uayeY" },
   },
 } as const;

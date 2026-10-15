@@ -7,22 +7,150 @@
 export const featuresContent = {
   hero: {
     eyebrow: "Core POS",
-    headline: "Complete POS System Features for Modern Businesses",
+    headline: "Complete POS Software Features for Modern Businesses",
     description:
       "Hulm POS software features connect billing, products, inventory, customers, staff permissions and sales reporting in one point of sale workflow for retail stores, restaurants and other growing businesses.",
     primaryCta: { label: "Start 14-Day Free Trial", href: "https://app.hulmsolutions.com/Register" },
     secondaryCta: { label: "Book a Demo", href: "/contact/" },
   },
   core: {
-    heading: "POS & billing features for daily sales",
-    description: "The POS system features your counter uses every day, from the first scan to the daily close.",
+    eyebrow: "Core Modules",
+    heading: "Comprehensive Hulm POS Software Features",
+    description:
+      "Hulm POS brings essential point of sale software features together in one easy-to-use platform. Manage sales, products, customers, and inventory while keeping your daily business operations organized. Whether you run a retail shop, grocery store, mart, pharmacy, or another business, Hulm POS helps simplify checkout and gives you better control over your business records.",
     items: [
-      { title: "Clear checkout workflow", description: "Select products, confirm quantities and record each completed sale through one focused billing screen." },
-      { title: "Barcode and product search", description: "Find configured products by barcode or catalogue search and add the correct item to the sale." },
-      { title: "Customer records", description: "Connect captured customer information and purchase history to the sales experience." },
-      { title: "Works with your hardware", description: "Connect the receipt printers, barcode scanners, cash drawers and label printers you already use; standard POS hardware integrates easily." },
-      { title: "Staff roles and permissions", description: "Configure cashier, manager and administrator access around the responsibilities of your team." },
-      { title: "Sales and shift reporting", description: "Review recorded sales, user activity and the information required for your daily close process." },
+      {
+        id: "smart-pos-dashboard",
+        title: "Smart POS Dashboard",
+        description:
+          "Manage daily sales from one easy-to-use screen. Find products quickly, handle sales, and check your cash at the start and end of the day.",
+        capabilities: [
+          { title: "Clear Checkout Workflow", description: "Select products, confirm quantities, and complete each sale through one simple billing screen." },
+          { title: "Barcode Scanning", description: "Scan a product's barcode to add it to a sale quickly." },
+          { title: "Product Search", description: "Find products by name or barcode." },
+          { title: "Category Filters", description: "Filter products by category to find the right item faster." },
+          { title: "Hold Sales", description: "Put a sale on hold and complete it later when the customer is ready." },
+          { title: "Open & Close Shifts", description: "Record the cash in your drawer at the start and end of the day." },
+          { title: "Cash Difference Check", description: "Identify cash shortages or extra money to spot differences (e.g. sales of Rs. 1,000 vs Rs. 980 in drawer) and investigate." },
+        ],
+      },
+      {
+        id: "sales-history",
+        title: "Sales History Management",
+        description:
+          "Keep a record of your sales and easily find previous transactions whenever you need them.",
+        capabilities: [
+          { title: "Search by Order ID", description: "Find a specific sale using its order ID." },
+          { title: "Today's Sales", description: "Check the sales recorded for the current day." },
+          { title: "Complete Sales History", description: "View your previous sales records." },
+          { title: "Process Returns", description: "Record returned items and automatically add the returned stock back to inventory." },
+          { title: "Reprint Receipts", description: "Print a customer's receipt again when needed." },
+          { title: "View Order Details", description: "Check details of a sale including date, time, payment method, status, and customer information." },
+        ],
+      },
+      {
+        id: "customer-management",
+        title: "Customer Management",
+        description:
+          "Keep customer information organized in one place instead of searching through registers or notebooks.",
+        capabilities: [
+          { title: "Add Customers", description: "Create records for new customers." },
+          { title: "Edit Customer Details", description: "Update existing customer information when needed." },
+          { title: "Search Customers", description: "Find customers by name, ID, or email." },
+          { title: "Filter Customer Records", description: "Filter customer information to find the records you need quickly." },
+        ],
+      },
+      {
+        id: "product-management",
+        title: "Product Management",
+        description:
+          "Manage your shop's products from one place and keep product information organized and up to date.",
+        capabilities: [
+          { title: "Add Products", description: "Enter new products into your system." },
+          { title: "Search Products", description: "Find products quickly by searching their records." },
+          { title: "Edit Products", description: "Update existing product details when information changes." },
+          { title: "View All Products", description: "See your complete product list in one dashboard." },
+          { title: "Manage Active Products", description: "View products currently marked as active." },
+          { title: "Manage Draft Products", description: "View products saved as drafts." },
+          { title: "Filter Product Records", description: "Filter products to find the items you need." },
+        ],
+      },
+      {
+        id: "category-management",
+        title: "Category Management",
+        description:
+          "Organize your products into categories such as groceries, drinks, clothing, or accessories to make them easier to manage.",
+        capabilities: [
+          { title: "Create Categories", description: "Add product categories manually." },
+          { title: "Search Categories", description: "Find a category quickly." },
+          { title: "Filter by Category ID", description: "Find categories using their ID." },
+          { title: "Filter by Category Name", description: "Find categories by name." },
+        ],
+      },
+      {
+        id: "inventory-management",
+        title: "Inventory Management",
+        description:
+          "Keep track of your stock, check inventory value, and review product stock records without relying only on manual registers.",
+        capabilities: [
+          { title: "Add Stock", description: "Increase a product's stock quantity when new stock arrives." },
+          { title: "Set Product Quantities", description: "Enter or update the recorded quantity of a product directly." },
+          { title: "Monitor Stock Levels", description: "Check which products have low stock or are out of stock." },
+          { title: "View Inventory Value", description: "See the total recorded value of your inventory." },
+          { title: "Review Inventory History", description: "Check product inventory records to review stock changes over time." },
+        ],
+      },
+      {
+        id: "low-stock-alerts",
+        title: "Low-Stock Alerts",
+        description:
+          "Find products that need attention so you can plan restocking and reduce the risk of running out of popular items.",
+        capabilities: [
+          { title: "View All Inventory Alerts", description: "See your stock alerts in one place." },
+          { title: "Low-Stock Products", description: "Identify products that are running low." },
+          { title: "Critical-Stock Products", description: "Find products with critically low stock that need urgent attention." },
+          { title: "Out-of-Stock Products", description: "Identify products with no stock remaining." },
+          { title: "Search Products", description: "Find specific products in your stock alerts." },
+        ],
+      },
+      {
+        id: "data-import-export",
+        title: "Data Import & Export",
+        description:
+          "Save time when managing your business records. Import multiple records using prepared files or export your data when you need it.",
+        capabilities: [
+          { title: "Product Import & Export", description: "Upload product records or download your product data." },
+          { title: "Category Import & Export", description: "Upload product categories or download your category records." },
+          { title: "Customer Import & Export", description: "Upload customer records or download your customer data." },
+          { title: "Download Templates", description: "Get ready-made templates to prepare your data in the required format." },
+          { title: "Upload Files", description: "Upload your prepared data files." },
+          { title: "Validate File Formats", description: "Check whether an uploaded file has the required format before importing the data." },
+        ],
+      },
+      {
+        id: "hardware-compatibility",
+        title: "Hardware Compatibility",
+        description:
+          "Connect the hardware you use in your shop to make daily billing and checkout easier.",
+        capabilities: [
+          { title: "Receipt Printers", description: "Print customer receipts after sales." },
+          { title: "Barcode Scanners", description: "Scan product barcodes for faster checkout." },
+          { title: "Cash Drawers", description: "Use a connected cash drawer to manage cash payments." },
+          { title: "Label Printers", description: "Print product labels using compatible label printers." },
+        ],
+      },
+      {
+        id: "staff-roles",
+        title: "Staff Roles & Permissions",
+        description:
+          "Control what your staff can access in Hulm POS by assigning roles and permissions according to their responsibilities.",
+        capabilities: [
+          { title: "Cashier Access", description: "Give cashiers access to the features they need for daily billing." },
+          { title: "Manager Access", description: "Set permissions for staff responsible for managing shop operations." },
+          { title: "Administrator Access", description: "Manage access for users responsible for system administration." },
+          { title: "Role-Based Permissions", description: "Control which features and functions each staff member can access." },
+        ],
+      },
     ],
   },
   tailored: {

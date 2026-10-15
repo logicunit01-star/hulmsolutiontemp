@@ -67,6 +67,9 @@ export const metadata: Metadata = {
   manifest: "/manifest.webmanifest",
   verification: {
     google: "u11VcMpy0A_fhTFKRCbkFBcZcETYqzydjWxiYT4BAXQ",
+    other: {
+      "msvalidate.01": "558F3E9D1726A2C3C8992A4B7EBB32A5",
+    },
   },
   // Google shows a favicon in search results only if it is square and at least 48x48.
   icons: {

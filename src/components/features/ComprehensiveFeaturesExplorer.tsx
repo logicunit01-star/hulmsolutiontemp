@@ -13,7 +13,6 @@ import {
   Printer,
   ShieldCheck,
   Check,
-  RotateCw,
   Sparkles,
   ChevronLeft,
   ChevronRight,
@@ -52,8 +51,8 @@ const moduleIcons: Record<string, React.ComponentType<{ className?: string }>> =
 };
 
 const shortLabels: Record<string, string> = {
-  "smart-pos-dashboard": "Dashboard",
-  "sales-history": "Sales History",
+  "smart-pos-dashboard": "POS",
+  "sales-history": "Sales",
   "customer-management": "Customers",
   "product-management": "Products",
   "category-management": "Categories",
@@ -70,19 +69,10 @@ export function ComprehensiveFeaturesExplorer({
   description,
   modules,
 }: ComprehensiveFeaturesExplorerProps) {
-  const [flippedCards, setFlippedCards] = useState<Record<number, boolean>>({});
   const [activeMobileIndex, setActiveMobileIndex] = useState(0);
-
   const carouselRef = useRef<HTMLDivElement>(null);
   const pillsRef = useRef<HTMLDivElement>(null);
   const isFirstRender = useRef(true);
-
-  const toggleCard = (index: number) => {
-    setFlippedCards((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
-  };
 
   const scrollToCard = (index: number) => {
     if (index < 0 || index >= modules.length) return;
@@ -126,6 +116,7 @@ export function ComprehensiveFeaturesExplorer({
       isFirstRender.current = false;
       return;
     }
+
     if (pillsRef.current) {
       const container = pillsRef.current;
       const activePill = container.children[activeMobileIndex] as HTMLElement | undefined;
@@ -136,7 +127,7 @@ export function ComprehensiveFeaturesExplorer({
           container.scrollLeft +
           (pillRect.left - containerRect.left) -
           container.clientWidth / 2 +
-          activePill.clientWidth / 2;
+          pillRect.width / 2;
         container.scrollTo({
           left: Math.max(0, targetScrollLeft),
           behavior: "smooth",
@@ -145,180 +136,132 @@ export function ComprehensiveFeaturesExplorer({
     }
   }, [activeMobileIndex]);
 
-  const renderCard = (module: ModuleItem, idx: number) => {
+  const renderCard = (module: ModuleItem, idx: number, isDesktop = false) => {
     const Icon = moduleIcons[module.id] || LayoutDashboard;
-    const isFlipped = !!flippedCards[idx];
     const num = String(idx + 1).padStart(2, "0");
 
     return (
-      <div
+      <article
         key={module.id}
-        onClick={() => toggleCard(idx)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            toggleCard(idx);
-          }
-        }}
-        tabIndex={0}
-        role="button"
-        aria-label={`${module.title}. Click or tap to flip and view capabilities.`}
-        className={`group perspective-1000 relative h-[290px] sm:h-[300px] w-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#167c70] rounded-2xl select-none ${
-          isFlipped ? "is-flipped" : ""
+        className={`group lift flex flex-col justify-between rounded-2xl border border-[#E4E2DA] bg-white p-6 sm:p-7 shadow-xs hover:border-[#167c70]/40 hover:shadow-md transition-all duration-300 h-full w-full ${
+          isDesktop && idx === 9 ? "lg:col-start-2" : ""
         }`}
       >
-        <div className="card-flip-inner relative h-full w-full">
-          {/* FRONT FACE */}
-          <div className="backface-hidden absolute inset-0 flex h-full w-full flex-col justify-between rounded-2xl border border-[#E4E2DA] bg-white p-5 shadow-xs transition-all duration-300 group-hover:border-[#167c70]/40 group-hover:shadow-md">
-            {/* Top: Icon + Number Badge */}
-            <div className="flex items-start justify-between gap-2.5">
-              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#167c70]/10 text-[#167c70] transition-colors duration-300 group-hover:bg-[#167c70] group-hover:text-white">
-                <Icon className="h-5 w-5" />
-              </div>
-              <span className="font-mono text-xs font-bold text-[#167c70] bg-[#167c70]/8 px-2.5 py-0.5 rounded-full border border-[#167c70]/15 shrink-0">
-                {num}
-              </span>
+        <div>
+          {/* Top: Signature Icon + Module Number */}
+          <div className="flex items-center justify-between">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F7F6F2] text-[#167c70] transition-colors duration-300 group-hover:bg-[#167c70] group-hover:text-white">
+              <Icon className="h-6 w-6" />
             </div>
-
-            {/* Middle: Title & Summary */}
-            <div className="my-auto py-2">
-              <h3 className="text-[15px] sm:text-[16px] font-bold text-[#0F2A26] leading-snug group-hover:text-[#167c70] transition-colors duration-300">
-                {module.title}
-              </h3>
-              <p className="mt-2 text-xs text-zinc-600 leading-relaxed line-clamp-3">
-                {module.description}
-              </p>
-            </div>
-
-            {/* Bottom: Flip Hint */}
-            <div className="pt-2.5 border-t border-zinc-100 flex items-center justify-between text-[11px] font-medium text-zinc-400">
-              <span className="text-[#167c70] font-semibold flex items-center gap-1">
-                <Sparkles className="h-3 w-3 text-[#25A18E]" />
-                {module.capabilities.length} Features
-              </span>
-              <span className="inline-flex items-center gap-1 text-zinc-400 group-hover:text-[#167c70] transition-colors">
-                <span className="hidden sm:inline">Hover to flip</span>
-                <span className="sm:hidden">Tap to flip</span>
-                <RotateCw className="h-3 w-3 group-hover:rotate-180 transition-transform duration-500" />
-              </span>
-            </div>
+            <span className="font-mono text-xs font-semibold text-[#167c70] bg-[#167c70]/8 px-2.5 py-0.5 rounded-full border border-[#167c70]/15">
+              {num}
+            </span>
           </div>
 
-          {/* BACK FACE */}
-          <div className="backface-hidden card-face-back absolute inset-0 flex h-full w-full flex-col justify-between rounded-2xl border border-[#167c70]/50 bg-gradient-to-br from-[#0F2A26] via-[#10302B] to-[#143B35] text-white p-4.5 shadow-xl">
-            {/* Top: Title + Number */}
-            <div className="flex items-center justify-between gap-2 pb-2 border-b border-white/10 shrink-0">
-              <div className="flex items-center gap-1.5 min-w-0">
-                <Icon className="h-4 w-4 text-[#7AE582] shrink-0" />
-                <h4 className="text-[13px] font-bold text-white truncate leading-tight">
-                  {module.title}
-                </h4>
-              </div>
-              <span className="font-mono text-[10px] font-bold text-[#7AE582] bg-[#7AE582]/15 px-1.5 py-0.5 rounded border border-[#7AE582]/30 shrink-0">
-                {num}
-              </span>
-            </div>
+          {/* Module Title & Overview Description */}
+          <h3 className="mt-4 text-lg font-bold text-[#0F2A26] leading-snug group-hover:text-[#167c70] transition-colors duration-300">
+            {module.title}
+          </h3>
+          <p className="mt-2 text-xs sm:text-sm text-zinc-600 leading-relaxed">
+            {module.description}
+          </p>
 
-            {/* Middle: Capabilities List with clean scroll */}
-            <div className="my-auto py-2 space-y-2 overflow-y-auto max-h-[185px] scrollbar-none pr-1">
-              {module.capabilities.map((cap) => (
-                <div key={cap.title} className="flex items-start gap-1.5 text-[11.5px] leading-snug">
-                  <div className="h-3.5 w-3.5 rounded-full bg-[#7AE582]/20 flex items-center justify-center shrink-0 mt-0.5">
-                    <Check className="h-2.5 w-2.5 text-[#7AE582] stroke-[3]" />
-                  </div>
-                  <div className="text-zinc-200">
-                    <strong className="text-white font-semibold">{cap.title}:</strong>{" "}
-                    <span className="text-zinc-300">{cap.description}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
+          {/* Divider */}
+          <div className="my-4 border-t border-[#E4E2DA]/70" />
 
-            {/* Bottom: Flip Back Hint */}
-            <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[10.5px] text-zinc-400 shrink-0">
-              <span className="text-[#7AE582]/80 font-medium">Hulm POS</span>
-              <span className="inline-flex items-center gap-1 text-zinc-300 group-hover:text-white transition-colors">
-                <span>Flip back</span>
-                <RotateCw className="h-2.5 w-2.5 rotate-180" />
-              </span>
-            </div>
-          </div>
+          {/* All Capabilities Displayed Directly on Front */}
+          <ul className="space-y-1.5">
+            {module.capabilities.map((cap) => (
+              <li
+                key={cap.title}
+                className="group/item flex items-start gap-2.5 rounded-lg px-2 py-1 -mx-2 text-xs leading-snug transition-colors duration-150 hover:bg-[#F7F6F2]"
+              >
+                <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#167c70]/12 text-[#167c70] transition-colors duration-200 group-hover/item:bg-[#167c70] group-hover/item:text-white">
+                  <Check className="h-2.5 w-2.5 stroke-[3]" />
+                </span>
+                <span className="text-zinc-700">
+                  <strong className="font-bold text-[#0F2A26] transition-colors group-hover/item:text-[#167c70]">
+                    {cap.title}:
+                  </strong>{" "}
+                  <span className="text-zinc-600 font-normal">{cap.description}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
+      </article>
     );
   };
 
   return (
     <div className="w-full">
       {/* Section Header */}
-      <div className="mx-auto max-w-3xl text-center mb-8 sm:mb-10">
-        <div className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3 py-1 mb-2.5 text-xs font-semibold text-[#167c70]">
+      <div className="mx-auto max-w-3xl text-center mb-8 sm:mb-10 lg:mb-12">
+        <div className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3 py-1 mb-3 text-xs font-semibold text-[#167c70]">
           <Sparkles className="h-3.5 w-3.5 text-[#25A18E]" />
           <span>{eyebrow}</span>
         </div>
-        <h2 className="text-2xl font-bold tracking-tight text-[#0F2A26] text-balance sm:text-3xl lg:text-[34px] lg:leading-[1.22]">
+        <h2 className="text-2xl font-bold tracking-tight text-[#0F2A26] sm:text-3xl lg:text-4xl text-balance">
           {heading}
         </h2>
         <p className="mt-3 text-sm sm:text-base leading-relaxed text-zinc-600 max-w-2xl mx-auto">
           {description}
         </p>
-        <p className="mt-2 text-xs text-zinc-500 font-medium hidden sm:block">
-          Hover over any card to flip and explore detailed capabilities
-        </p>
       </div>
 
-      {/* MOBILE & TABLET: Horizontal Swipe Carousel with Pill Jump */}
+      {/* MOBILE & TABLET SLIDER (< 1024px) */}
       <div className="lg:hidden">
-        {/* Module Pills Selector */}
+        {/* Module Quick-Jump Pills */}
         <div
           ref={pillsRef}
           className="flex items-center gap-1.5 overflow-x-auto pb-3 pt-1 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0"
         >
-          {modules.map((m, idx) => {
+          {modules.map((module, idx) => {
             const isActive = activeMobileIndex === idx;
-            const short = shortLabels[m.id] || m.title;
+            const num = String(idx + 1).padStart(2, "0");
+            const label = shortLabels[module.id] || module.title.split(" ")[0];
             return (
               <button
-                key={m.id}
+                key={module.id}
                 type="button"
                 onClick={() => scrollToCard(idx)}
-                className={`shrink-0 rounded-full px-3 py-1.5 text-xs font-semibold transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
+                className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold whitespace-nowrap transition-all duration-200 shrink-0 ${
                   isActive
                     ? "bg-[#167c70] text-white shadow-xs"
-                    : "bg-white text-zinc-600 border border-[#E4E2DA] hover:bg-zinc-50"
+                    : "bg-white text-zinc-600 border border-[#E4E2DA] hover:border-[#167c70]/40"
                 }`}
               >
                 <span
-                  className={`font-mono text-[10px] ${
+                  className={`font-mono text-[11px] ${
                     isActive ? "text-[#7AE582]" : "text-[#167c70]"
                   }`}
                 >
-                  {String(idx + 1).padStart(2, "0")}
+                  {num}
                 </span>
-                <span>{short}</span>
+                <span>{label}</span>
               </button>
             );
           })}
         </div>
 
-        {/* Swipeable Track */}
+        {/* Swipeable Track with Snap */}
         <div
           ref={carouselRef}
           onScroll={handleScroll}
-          className="flex gap-4 overflow-x-auto pb-3 pt-1 snap-x snap-mandatory scrollbar-none scroll-smooth px-4 -mx-4 sm:px-0 sm:mx-0"
+          className="flex gap-4 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scrollbar-none scroll-smooth px-4 -mx-4 sm:px-0 sm:mx-0"
         >
           {modules.map((module, idx) => (
             <div
               key={module.id}
-              className="w-[85vw] max-w-[340px] sm:w-[320px] shrink-0 snap-center"
+              className="w-[86vw] max-w-[340px] sm:w-[340px] shrink-0 snap-center flex"
             >
-              {renderCard(module, idx)}
+              {renderCard(module, idx, false)}
             </div>
           ))}
         </div>
 
         {/* Mobile Navigation Controls */}
-        <div className="mt-3 flex items-center justify-between px-1">
+        <div className="mt-2 flex items-center justify-between px-1">
           <button
             type="button"
             onClick={() => scrollToCard(activeMobileIndex - 1)}
@@ -330,13 +273,14 @@ export function ComprehensiveFeaturesExplorer({
           </button>
 
           <div className="flex flex-col items-center gap-1.5">
+            {/* Pagination Dots */}
             <div className="flex items-center gap-1">
               {modules.map((_, idx) => (
                 <button
                   key={idx}
                   type="button"
                   onClick={() => scrollToCard(idx)}
-                  aria-label={`Go to feature ${idx + 1}`}
+                  aria-label={`Go to module ${idx + 1}`}
                   className={`h-1.5 rounded-full transition-all duration-300 ${
                     activeMobileIndex === idx
                       ? "w-5 bg-[#167c70]"
@@ -346,7 +290,7 @@ export function ComprehensiveFeaturesExplorer({
               ))}
             </div>
             <span className="text-[11px] font-medium text-zinc-500">
-              {activeMobileIndex + 1} of {modules.length} • Tap card to view details
+              {activeMobileIndex + 1} of {modules.length} • Swipe to explore
             </span>
           </div>
 
@@ -362,26 +306,9 @@ export function ComprehensiveFeaturesExplorer({
         </div>
       </div>
 
-      {/* DESKTOP: 2x5 Grid (1024px and up) */}
-      <div className="hidden lg:grid lg:grid-cols-5 lg:gap-4">
-        {modules.map((module, idx) => renderCard(module, idx))}
-      </div>
-
-      {/* Accessible listing for SEO crawlers & screen readers */}
-      <div className="sr-only">
-        {modules.map((m) => (
-          <section key={m.id}>
-            <h3>{m.title}</h3>
-            <p>{m.description}</p>
-            <ul>
-              {m.capabilities.map((c) => (
-                <li key={c.title}>
-                  <strong>{c.title}:</strong> {c.description}
-                </li>
-              ))}
-            </ul>
-          </section>
-        ))}
+      {/* DESKTOP 3-3-3-1 GRID (>= 1024px) */}
+      <div className="hidden lg:grid lg:grid-cols-3 lg:gap-6">
+        {modules.map((module, idx) => renderCard(module, idx, true))}
       </div>
     </div>
   );

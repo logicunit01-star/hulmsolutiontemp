@@ -28,7 +28,9 @@ import { newPageMetadata, pageJsonLd } from "@/lib/seo/page-seo";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
+import { DashboardCarousel } from "@/components/home/DashboardCarousel";
 import { productContent } from "@content/pages/product";
+import { homeContent } from "@content/pages/home";
 
 export const metadata: Metadata = newPageMetadata({
   path: "/apps/",
@@ -183,26 +185,11 @@ export default function ProductPage() {
         </Container>
       </Section>
 
-      <Section data-reveal>
+      <Section data-reveal className="py-14 sm:py-18 lg:py-20">
         <Container>
-          <SectionIntro {...productContent.workspace} />
-          <div className="mt-12 grid gap-7 lg:grid-cols-3">
-            {productContent.workspace.screens.map((screen, index) => (
-              <article key={screen.title} className={index === 0 ? "lg:col-span-2 lg:row-span-2" : ""}>
-                <div className="overflow-hidden rounded-2xl border border-[#E4E2DA] bg-[#edf7f5] p-2 shadow-sm">
-                  <Image
-                    src={screen.image}
-                    alt={`Hulm POS screen: ${screen.title}`}
-                    width={1197}
-                    height={688}
-                    sizes={index === 0 ? "(min-width: 1024px) 66vw, 100vw" : "(min-width: 1024px) 33vw, 100vw"}
-                    className="h-auto w-full rounded-2xl"
-                  />
-                </div>
-                <h3 className="mt-5 text-xl font-bold text-[#0F2A26]">{screen.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-zinc-600">{screen.description}</p>
-              </article>
-            ))}
+          <SectionIntro {...productContent.workspace} centered />
+          <div className="mt-8 sm:mt-10">
+            <DashboardCarousel screens={homeContent.product.screens} />
           </div>
         </Container>
       </Section>

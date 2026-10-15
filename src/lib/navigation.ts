@@ -32,12 +32,21 @@ export const footerNav = [
   {
     title: "Product",
     links: [
-      { title: "Features", href: "/features" },
       { title: "POS & Billing", href: "/features" },
       { title: "Inventory Management", href: "/inventory-management" },
       { title: "Purchase Orders", href: "/purchase-orders" },
       { title: "Vendor Management", href: "/vendors-management" },
       { title: "Mobile POS", href: "/mobile-pos/" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { title: "Features", href: "/features" },
+      { title: "FBR Integrated", href: "/fbr-integrated-pos-pakistan/" },
+      { title: "Pricing", href: "/pricing" },
+      { title: "Case Studies", href: "/pos-case-studies" },
+      { title: "Blog", href: "/blogs" },
     ],
   },
   {

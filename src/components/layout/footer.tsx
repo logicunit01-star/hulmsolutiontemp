@@ -7,7 +7,6 @@ import { REGIONAL_LOCATIONS } from "@/lib/countries/data"
 
 const productLinks = [
   { title: "Product overview", href: "/apps/" },
-  { title: "Features", href: "/features/" },
   { title: "POS & Billing", href: "/features/" },
   { title: "Mobile POS", href: "/mobile-pos/" },
   { title: "Inventory Management", href: "/inventory-management/" },
@@ -37,6 +36,7 @@ const industryLinks = [
 ]
 
 const resourceLinks = [
+  { title: "Features", href: "/features/" },
   { title: "FBR integrated", href: "/fbr-integrated-pos-pakistan/" },
   { title: "ZATCA e-invoicing", href: "/zatca/" },
   { title: "Pricing", href: "/pricing/" },

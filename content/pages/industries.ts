@@ -18,32 +18,32 @@ export const industriesContent = {
       "Each setup starts with the same Hulm POS foundation and brings the most relevant daily workflows forward for your team.",
     items: [
       {
-        name: "Retail store POS system", slug: "retail-store", image: "/images/industries/retail.jpg",
+        name: "Retail store POS system", slug: "retail-store", image: "/images/industries/retail.jpg", tag: "Retail & Marts",
         description: "Keep checkout, product stock and customer records connected across one or more locations.",
         highlights: ["Barcode-ready selling", "Branch-level stock visibility", "Customer purchase history"],
       },
       {
-        name: "Restaurant POS system", slug: "restaurant-pos", image: "/images/industries/restaurant.jpg",
+        name: "Restaurant POS system", slug: "restaurant-pos", image: "/images/industries/restaurant.jpg", tag: "Dining & Takeaway",
         description: "Coordinate counter and table orders with a clearer flow from order entry to fulfilment.",
         highlights: ["Order and table workflows", "Menu item management", "Sales and stock reporting"],
       },
       {
-        name: "Pharmacy POS system", slug: "pharmacy-store", image: "/images/industries/pharmacy.jpg",
+        name: "Pharmacy POS system", slug: "pharmacy-store", image: "/images/industries/pharmacy.jpg", tag: "Pharma & Healthcare",
         description: "Sell quickly while keeping closer visibility over product stock, batches and expiry dates.",
         highlights: ["Product and batch records", "Expiry visibility", "Fast counter billing"],
       },
       {
-        name: "Bakery POS system", slug: "bakery-pos-system", image: "/images/industries/bakery.jpg",
+        name: "Bakery POS system", slug: "bakery-pos-system", image: "/images/industries/bakery.jpg", tag: "Bakery & Sweets",
         description: "Bring counter sales, product availability and made-to-order work into one practical view.",
         highlights: ["Counter sales", "Batch and expiry visibility", "Advance order tracking"],
       },
       {
-        name: "Salon & spa POS system", slug: "salon-pos", image: "/images/industries/salon.jpg",
+        name: "Salon & spa POS system", slug: "salon-pos", image: "/images/industries/salon.jpg", tag: "Salons & Spas",
         description: "Connect appointments, service billing, retail products and customer history for the front desk.",
         highlights: ["Appointment workflows", "Service and product billing", "Customer records"],
       },
       {
-        name: "Clothing store POS system", slug: "clothing-store", image: "/images/industries/clothing.jpg",
+        name: "Clothing store POS system", slug: "clothing-store", image: "/images/industries/clothing.jpg", tag: "Apparel & Fashion",
         description: "Manage size and colour variants while making sales, exchanges and stock checks easier.",
         highlights: ["Size and colour variants", "Exchanges and returns", "Stock by location"],
       },

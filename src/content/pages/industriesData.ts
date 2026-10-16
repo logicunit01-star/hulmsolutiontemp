@@ -10,6 +10,8 @@ export interface ProblemSolution {
   problem: string;
   solution: string;
   solutionTitle: string;
+  image?: string;
+  imageAlt?: string;
 }
 
 export interface FeatureItem {

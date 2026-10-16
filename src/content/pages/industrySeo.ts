@@ -27,31 +27,36 @@ const fbrLink = { label: "FBR integrated POS", href: "/fbr-integrated-pos-pakist
 
 export const industrySeo: Record<string, IndustrySeo> = {
   "retail-store": {
-    primaryKeyword: "retail POS system",
+    primaryKeyword: "retail POS software",
     schemaName: "Hulm Retail POS",
-    h1: "Retail POS system that keeps checkout and stock in the same view",
+    h1: "Retail POS Software to Solve Your Shop's Billing and Stock Problems",
     intro:
-      "Hulm retail POS software connects counter sales with products, purchasing, customer records and branch-level inventory, so your team can serve customers without losing sight of stock.",
+      "Tired of billing mistakes, missing stock, and wasting time searching for products or old receipts? HulmPOS retail POS software brings billing, inventory, purchasing, customer records, and branch management into one easy-to-use system.\n\nWhether you run a kiryana store, grocery shop, cosmetics shop, or retail outlet in Pakistan, HulmPOS helps you speed up sales, track stock, and manage your business with confidence.",
     h2: {
-      features: "Retail POS features that drive sales",
-      fbr: "FBR integration built into your retail POS",
+      overview: "A practical retail workflow from receiving to checkout",
+      problems: "Common Retail Shop Problems—and How HulmPOS Helps",
+      features: "What You Get with HulmPOS Retail POS",
       who: "Retail stores this POS system supports",
+      benefits: "Why Consider HulmPOS for Your Retail Store?",
+      fbr: "Connect retail invoicing with an FBR-ready rollout",
     },
-    faqHeading: "Retail POS system FAQs",
+    faqHeading: "Frequently Asked Questions",
     faqs: [
       {
-        q: "What is the best POS system for retail stores?",
-        a: "The best POS systems for retail stores combine barcode billing, variant inventory, purchasing, customer records and branch reporting in one place. Hulm retail POS covers all of these, starting at PKR 2,500 per month.",
-        link: { label: "best POS system for retail", href: "/blog/best-pos-system-for-retail/" },
+        q: "What is retail POS software?",
+        a: "Retail POS software helps shops record sales, process customer billing, manage product information and monitor inventory through a point of sale system.",
       },
       {
-        q: "How can a retail POS help my business grow?",
-        a: "It shows what sells, what is low and which branch performs best, so you reorder on time, reduce stock-outs and serve customers faster at the counter.",
+        q: "Is HulmPOS suitable for a small retail shop?",
+        a: "HulmPOS offers core retail features such as product search, billing, stock monitoring, sales history and staff permissions. Compare these capabilities with your shop's requirements before choosing a plan.",
       },
       {
-        q: "Will I always know what's in stock?",
-        a: "Yes. Every sale, return and received purchase updates inventory, and stock can be reviewed by configured branch.",
-        link: { label: "inventory management", href: "/inventory-management/" },
+        q: "Can HulmPOS alert me when stock is low?",
+        a: "Yes. HulmPOS supports low-stock, critical-stock and out-of-stock alerts.",
+      },
+      {
+        q: "What should I check when choosing the best retail POS system?",
+        a: "Compare billing, stock management, transaction history, hardware compatibility, staff permissions, pricing and any additional features you require.",
       },
     ],
     blog: { label: "Cloud POS software for retail stores", href: "/blog/cloud-pos-software-for-retail-stores/" },

@@ -3,20 +3,38 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   AlertCircle,
+  ArrowDown,
+  ArrowLeft,
   ArrowRight,
+  ArrowUp,
+  Barcode,
+  BellRing,
+  Boxes,
   Check,
   CheckCircle2,
   ChevronRight,
   ExternalLink,
+  FileSpreadsheet,
+  LayoutDashboard,
   Lightbulb,
+  Printer,
+  Receipt,
+  RefreshCw,
+  ScanLine,
   ShieldCheck,
   Sparkles,
+  Tags,
+  Users,
+  Utensils,
+  UtensilsCrossed,
 } from "lucide-react";
 
 import { FaqDetails, type FaqDetailsItem } from "@/components/seo/faq-details";
 import { ProductScreens } from "@/components/seo/product-screens";
-import { CaseStudyCard } from "@/components/seo/case-study-card";
 import { screensFor } from "@content/data/product-screens";
+import { DashboardCarousel } from "@/components/home/DashboardCarousel";
+import { CaseStudyCard } from "@/components/seo/case-study-card";
+import { homeContent } from "@content/pages/home";
 import { JsonLd } from "@/components/seo/json-ld";
 import { cityLinks } from "@/content/pages/citySeo";
 import { LinkChips } from "@/components/seo/link-chips";
@@ -28,6 +46,60 @@ import { priorityIndustriesData } from "@/content/pages/priorityIndustriesData";
 import { industrySeo } from "@/content/pages/industrySeo";
 import { pageJsonLd, seoMetadata, softwareNode } from "@/lib/seo/page-seo";
 import { industryLinks, linksExcept } from "@/lib/seo/site-links";
+
+function getFeatureIcon(title: string) {
+  const t = title.toLowerCase();
+  if (t.includes("dashboard") || t.includes("pos")) return LayoutDashboard;
+  if (t.includes("sales") || t.includes("order") || t.includes("history") || t.includes("bill") || t.includes("receipt")) return Receipt;
+  if (t.includes("customer")) return Users;
+  if (t.includes("product") || t.includes("category") || t.includes("variant") || t.includes("menu")) return Tags;
+  if (t.includes("inventory") || t.includes("stock") || t.includes("ingredient")) return Boxes;
+  if (t.includes("alert") || t.includes("low-stock")) return BellRing;
+  if (t.includes("import") || t.includes("export") || t.includes("file")) return FileSpreadsheet;
+  if (t.includes("hardware") || t.includes("printer") || t.includes("scanner")) return Printer;
+  if (t.includes("staff") || t.includes("permission") || t.includes("access") || t.includes("user")) return ShieldCheck;
+  if (t.includes("ticket") || t.includes("kitchen")) return UtensilsCrossed;
+  if (t.includes("table")) return Utensils;
+  return Sparkles;
+}
+
+function getFeatureTag(title: string) {
+  const t = title.toLowerCase();
+  if (t.includes("dashboard")) return "COUNTER POS";
+  if (t.includes("sales") || t.includes("history")) return "AUDIT TRAIL";
+  if (t.includes("customer")) return "CRM & RECORDS";
+  if (t.includes("product") || t.includes("category")) return "CATALOGUE";
+  if (t.includes("inventory")) return "STOCK CONTROL";
+  if (t.includes("alert")) return "AUTOMATED";
+  if (t.includes("import")) return "CSV / EXCEL";
+  if (t.includes("hardware")) return "PLUG & PLAY";
+  if (t.includes("staff")) return "ACCESS CONTROL";
+  return "FEATURE";
+}
+
+function parseProblemText(problem: string) {
+  if (problem.includes(": ")) {
+    const parts = problem.split(": ");
+    if (parts.length >= 3) {
+      return {
+        badge: parts[0].trim(),
+        title: parts[1].trim(),
+        desc: parts.slice(2).join(": ").trim(),
+      };
+    } else if (parts.length === 2) {
+      return {
+        badge: undefined,
+        title: parts[0].trim(),
+        desc: parts[1].trim(),
+      };
+    }
+  }
+  return {
+    badge: undefined,
+    title: problem,
+    desc: "",
+  };
+}
 
 type Props = { params: Promise<{ industry: string }> };
 
@@ -135,7 +207,29 @@ export default async function IndustrySubpage({ params }: Props) {
                 <span>{data.hero.badge}</span>
               </div>
               <h1 className="mt-6 max-w-4xl text-4xl font-bold leading-[1.08] tracking-[-0.035em] text-[#0F2A26] sm:text-5xl lg:text-[3.7rem]">{seo?.h1 ?? data.hero.headline}</h1>
-              <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-zinc-600">{seo?.intro ?? data.hero.description}</p>
+              <div className="mt-6 max-w-2xl space-y-3.5 text-base sm:text-lg leading-relaxed text-zinc-600">
+                {(seo?.intro ?? data.hero.description).split("\n\n").map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </div>
+              
+              {data.slug === "retail-store" && (
+                <div className="mt-6 flex flex-wrap items-center gap-2 pt-1 text-xs font-semibold text-[#0F2A26]">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[#E4E2DA] bg-[#FAF9F5] px-3 py-1">
+                    <Barcode className="h-3.5 w-3.5 text-[#167c70]" /> Barcode Billing
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[#E4E2DA] bg-[#FAF9F5] px-3 py-1">
+                    <Boxes className="h-3.5 w-3.5 text-[#167c70]" /> Low-Stock Alerts
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[#E4E2DA] bg-[#FAF9F5] px-3 py-1">
+                    <Receipt className="h-3.5 w-3.5 text-[#167c70]" /> Instant Returns & Receipts
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[#E4E2DA] bg-[#FAF9F5] px-3 py-1">
+                    <ShieldCheck className="h-3.5 w-3.5 text-[#167c70]" /> Shift & Cash Tracking
+                  </span>
+                </div>
+              )}
+
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button asChild size="lg" className="rounded-full bg-[#0F2A26] hover:bg-[#167c70] text-white shadow-sm px-7 h-12 text-sm font-semibold">
                   <Link href={data.hero.primaryCtaLink} target={data.hero.primaryCtaLink.startsWith("http") ? "_blank" : undefined} rel={data.hero.primaryCtaLink.startsWith("http") ? "noreferrer" : undefined}>
@@ -155,9 +249,27 @@ export default async function IndustrySubpage({ params }: Props) {
               />
               <div className="relative min-h-80 overflow-hidden rounded-2xl border border-[#E4E2DA] bg-white shadow-xl sm:min-h-[430px]">
                 <Image src={data.image} alt={`${data.name} POS system by Hulm`} fill priority sizes="(max-width: 1024px) 100vw, 42vw" className="object-cover" />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0F2A26]/90 via-[#0F2A26]/30 to-transparent p-7 pt-24 text-white">
-                  <p className="text-sm font-semibold text-[#7AE582]">Connected workflow</p>
-                  <p className="mt-2 max-w-md text-lg font-semibold">Sales, stock and daily activity in one operating view.</p>
+                
+                {/* Floating Status Pill */}
+                <div className="absolute top-4 right-4 z-20 flex items-center gap-2 rounded-full border border-white/30 bg-white/95 px-3.5 py-1.5 shadow-lg backdrop-blur-md">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span className="text-xs font-bold text-[#0F2A26]">Live Inventory & Barcode Ready</span>
+                </div>
+
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0F2A26]/95 via-[#0F2A26]/50 to-transparent p-6 pt-20 text-white">
+                  <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-[#7AE582]">Connected Retail Workflow</p>
+                      <p className="mt-1 text-base sm:text-lg font-bold leading-snug">Billing, stock & customer records in one view</p>
+                    </div>
+                    <div className="inline-flex items-center gap-1.5 self-start sm:self-auto rounded-lg bg-white/10 px-3 py-1.5 border border-white/10 text-xs backdrop-blur-xs font-medium">
+                      <Barcode className="h-3.5 w-3.5 text-[#7AE582]" />
+                      <span>0.8s Scan Checkout</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -165,67 +277,262 @@ export default async function IndustrySubpage({ params }: Props) {
         </Container>
       </section>
 
-      <ProductScreens
-        screens={screensFor(route)}
-        heading={`What the ${seo?.primaryKeyword ?? `${data.name} POS system`} looks like in Hulm`}
-        description="Real screens from Hulm POS. Your setup is configured around your products, branches and team."
-        topic={`${data.name} POS`}
-      />
-
-      {data.overview ? (
-        <Section data-reveal>
-          <Container className="grid items-start gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-            <SectionIntro eyebrow="Workflow overview" heading={h2.overview ?? data.overview.heading} description={data.overview.description} />
-            <div className="grid gap-4 sm:grid-cols-2">
-              {data.overview.points.map((point) => (
-                <div key={point} className="flex items-start gap-3 rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] p-5 text-sm font-semibold leading-6 text-[#0F2A26]">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#167c70]" />
-                  {point}
-                </div>
-              ))}
+      {data.slug === "restaurant-pos" ? (
+        <ProductScreens
+          screens={screensFor(route)}
+          heading={`What the ${seo?.primaryKeyword ?? `${data.name} POS system`} looks like in Hulm`}
+          description="Real screens from Hulm POS. Your setup is configured around your products, branches and team."
+          topic={`${data.name} POS`}
+        />
+      ) : (
+        <Section data-reveal className="border-b border-gray-100 bg-white py-14 sm:py-18 lg:py-20">
+          <Container>
+            <div className="mx-auto mb-8 sm:mb-10 max-w-3xl text-center">
+              <h2 className="text-2xl font-bold tracking-tight text-[#0F2A26] sm:text-3xl lg:text-[34px] lg:leading-[1.22] text-balance">
+                What the {seo?.primaryKeyword ?? `${data.name} POS system`} looks like in Hulm
+              </h2>
+              <p className="mt-4 text-base leading-7 text-zinc-600 sm:text-lg">
+                Real screens from Hulm POS. Your setup is configured around your products, branches and team.
+              </p>
+            </div>
+            <div className="mt-8 sm:mt-10">
+              <DashboardCarousel screens={homeContent.product.screens} />
             </div>
           </Container>
         </Section>
-      ) : null}
+      )}
 
       {data.problems?.items.length ? (
         <Section data-reveal className="bg-[#F7F6F2] border-y border-[#E4E2DA]">
           <Container>
             <SectionIntro eyebrow="Operational friction" heading={h2.problems ?? data.problems.heading} centered />
-            <div className="mt-12 grid gap-6 lg:grid-cols-3">
-              {data.problems.items.map((item) => (
-                <article key={item.solutionTitle} className="lift rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-sm">
-                  <div className="flex items-start gap-3 text-sm leading-6 text-zinc-600">
-                    <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-[#c96f4e]" />
-                    <p>{item.problem}</p>
-                  </div>
-                  <div className="my-6 h-px bg-[#E4E2DA]" />
-                  <div className="flex items-start gap-3">
-                    <Lightbulb className="mt-0.5 h-5 w-5 shrink-0 text-[#167c70]" />
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {data.problems.items.map((item, index) => {
+                const parsed = parseProblemText(item.problem);
+                return (
+                  <article key={item.solutionTitle} className="lift group flex flex-col justify-between rounded-2xl border border-[#E4E2DA] bg-white p-6 shadow-sm transition hover:border-[#167c70]/40">
                     <div>
-                      <h3 className="font-bold text-[#0F2A26]">{item.solutionTitle}</h3>
-                      <p className="mt-2 text-sm leading-6 text-zinc-600">{item.solution}</p>
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="inline-flex items-center gap-1.5 rounded-full border border-rose-200 bg-rose-50 px-2.5 py-0.5 text-[11px] font-bold text-rose-700">
+                          <AlertCircle className="h-3 w-3" /> {parsed.badge ?? `Problem ${String(index + 1).padStart(2, "0")}`}
+                        </span>
+                        <span className="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">Retail Bottleneck</span>
+                      </div>
+
+                      {item.image ? (
+                        <div className="relative mb-4 h-32 sm:h-36 w-full overflow-hidden rounded-xl border border-[#E4E2DA] bg-[#FAF9F5] shadow-xs">
+                          <Image
+                            src={item.image}
+                            alt={item.imageAlt || parsed.title}
+                            fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            className="object-cover object-center transition duration-300 group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" />
+                          <span className="absolute bottom-2 left-2.5 rounded-md bg-black/65 backdrop-blur-xs px-2 py-0.5 text-[10px] font-semibold text-white">
+                            {item.imageAlt || parsed.title}
+                          </span>
+                        </div>
+                      ) : null}
+
+                      <div className="rounded-xl bg-zinc-50/70 border border-zinc-100 p-3.5 mb-5">
+                        <h3 className="text-sm font-bold text-zinc-900 leading-snug">{parsed.title}</h3>
+                        {parsed.desc ? <p className="mt-1.5 text-xs leading-relaxed text-zinc-600">{parsed.desc}</p> : null}
+                      </div>
                     </div>
-                  </div>
-                </article>
-              ))}
+
+                    <div className="rounded-xl border border-[#167c70]/20 bg-[#167c70]/[0.03] p-4 mt-auto">
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-[#167c70] mb-2">
+                        <CheckCircle2 className="h-4 w-4 text-[#167c70] shrink-0" />
+                        <span>The HulmPOS Solution</span>
+                      </div>
+                      <h4 className="text-sm font-bold text-[#0F2A26]">{item.solutionTitle}</h4>
+                      <p className="mt-1.5 text-xs leading-relaxed text-zinc-600">{item.solution}</p>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </Container>
         </Section>
       ) : null}
 
       {data.features?.items.length ? (
-        <Section data-reveal>
+        <Section data-reveal className="bg-white">
           <Container>
-            <SectionIntro eyebrow="Capabilities" heading={h2.features ?? data.features.heading} description="The final configuration depends on your plan, processes, devices and rollout scope." centered />
+            <SectionIntro eyebrow="Capabilities" heading={h2.features ?? data.features.heading} description="The practical tools built into HulmPOS to manage everyday retail sales more efficiently." centered />
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {data.features.items.map((feature, index) => (
-                <article key={feature.title} className="lift rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-sm">
-                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-[#FAF9F5] border border-[#E4E2DA] text-sm font-bold text-[#167c70]">{String(index + 1).padStart(2, "0")}</div>
-                  <h3 className="mt-6 text-xl font-bold text-[#0F2A26]">{feature.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-zinc-600">{feature.description}</p>
-                </article>
-              ))}
+              {data.features.items.map((feature) => {
+                const Icon = getFeatureIcon(feature.title);
+                const tag = getFeatureTag(feature.title);
+                return (
+                  <article key={feature.title} className="lift group relative rounded-2xl border border-[#E4E2DA] bg-white p-6 shadow-sm transition hover:border-[#167c70]/40">
+                    <div className="flex items-center justify-between">
+                      <div className="grid h-11 w-11 place-items-center rounded-xl bg-[#FAF9F5] border border-[#E4E2DA] text-[#167c70] transition group-hover:bg-[#167c70] group-hover:text-white">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <span className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md bg-zinc-100 text-zinc-600 group-hover:bg-[#167c70]/10 group-hover:text-[#167c70] transition">
+                        {feature.badge ?? tag}
+                      </span>
+                    </div>
+                    <h3 className="mt-5 text-lg font-bold text-[#0F2A26] group-hover:text-[#167c70] transition-colors">{feature.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-zinc-600">{feature.description}</p>
+                  </article>
+                );
+              })}
+            </div>
+          </Container>
+        </Section>
+      ) : null}
+
+      {data.overview ? (
+        <Section data-reveal className="bg-[#FAF9F5] border-y border-[#E4E2DA]">
+          <Container>
+            <div className="grid items-start gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+              <div>
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">
+                  {data.slug === "retail-store" ? "Retail Life Cycle" : "Workflow overview"}
+                </span>
+                <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl lg:text-5xl">
+                  {h2.overview ?? data.overview.heading}
+                </h2>
+                {data.overview.description ? (
+                  <p className="mt-4 text-base leading-7 text-zinc-600 sm:text-lg">
+                    {data.overview.description}
+                  </p>
+                ) : null}
+
+                {data.slug === "retail-store" && (
+                  <div className="mt-6 flex items-center gap-2.5 rounded-xl border border-[#167c70]/20 bg-[#167c70]/5 px-4 py-3 text-xs font-semibold text-[#167c70]">
+                    <RefreshCw className="h-4 w-4 shrink-0 text-[#167c70] animate-[spin_8s_linear_infinite]" />
+                    <span>Continuous operating loop: automated sync from checkout to shift close</span>
+                  </div>
+                )}
+              </div>
+
+              {data.slug === "retail-store" ? (
+                <div className="relative">
+                  {/* Cyclical 2x2 Grid */}
+                  <div className="grid gap-4 sm:gap-5 sm:grid-cols-2 relative">
+                    {/* Stage 01: Top-Left */}
+                    <div className="relative flex flex-col justify-between rounded-2xl border-2 border-[#167c70]/25 bg-white p-5 shadow-xs transition hover:border-[#167c70] hover:shadow-md">
+                      <div>
+                        <div className="flex items-center justify-between">
+                          <span className="inline-flex items-center gap-1.5 rounded-full border border-[#167c70]/25 bg-[#167c70]/10 px-2.5 py-0.5 text-[11px] font-bold text-[#167c70]">
+                            STAGE 01
+                          </span>
+                          <div className="grid h-8 w-8 place-items-center rounded-lg bg-[#FAF9F5] border border-[#E4E2DA] text-[#167c70]">
+                            <Barcode className="h-4 w-4" />
+                          </div>
+                        </div>
+                        <h3 className="mt-3 text-sm font-bold text-[#0F2A26]">Product Search & Barcode Billing</h3>
+                        <p className="mt-1 text-xs text-zinc-600 leading-relaxed">
+                          Product search & supported barcode scanning at checkout
+                        </p>
+                      </div>
+                      <div className="mt-4 flex items-center justify-between border-t border-zinc-100 pt-2.5 text-[11px] font-semibold text-[#167c70]">
+                        <span>Real-time stock deduction</span>
+                        <div className="flex items-center gap-1">
+                          <span className="text-[10px] text-zinc-400">Flow</span>
+                          <ArrowRight className="h-3.5 w-3.5 text-[#167c70]" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Stage 02: Top-Right */}
+                    <div className="relative flex flex-col justify-between rounded-2xl border-2 border-[#167c70]/25 bg-white p-5 shadow-xs transition hover:border-[#167c70] hover:shadow-md">
+                      <div>
+                        <div className="flex items-center justify-between">
+                          <span className="inline-flex items-center gap-1.5 rounded-full border border-[#167c70]/25 bg-[#167c70]/10 px-2.5 py-0.5 text-[11px] font-bold text-[#167c70]">
+                            STAGE 02
+                          </span>
+                          <div className="grid h-8 w-8 place-items-center rounded-lg bg-[#FAF9F5] border border-[#E4E2DA] text-[#167c70]">
+                            <Boxes className="h-4 w-4" />
+                          </div>
+                        </div>
+                        <h3 className="mt-3 text-sm font-bold text-[#0F2A26]">Inventory & Stock Alerts</h3>
+                        <p className="mt-1 text-xs text-zinc-600 leading-relaxed">
+                          Inventory monitoring with low, critical and out-of-stock alerts
+                        </p>
+                      </div>
+                      <div className="mt-4 flex items-center justify-between border-t border-zinc-100 pt-2.5 text-[11px] font-semibold text-[#167c70]">
+                        <span>Logs transaction history</span>
+                        <div className="flex items-center gap-1">
+                          <span className="text-[10px] text-zinc-400">Flow</span>
+                          <ArrowDown className="h-3.5 w-3.5 text-[#167c70]" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Stage 04: Bottom-Left (order-4 on mobile, order-3 on desktop so it sits bottom-left) */}
+                    <div className="relative flex flex-col justify-between rounded-2xl border-2 border-[#167c70]/25 bg-white p-5 shadow-xs transition hover:border-[#167c70] hover:shadow-md order-4 sm:order-3">
+                      <div>
+                        <div className="flex items-center justify-between">
+                          <span className="inline-flex items-center gap-1.5 rounded-full border border-[#167c70]/25 bg-[#167c70]/10 px-2.5 py-0.5 text-[11px] font-bold text-[#167c70]">
+                            STAGE 04
+                          </span>
+                          <div className="grid h-8 w-8 place-items-center rounded-lg bg-[#FAF9F5] border border-[#E4E2DA] text-[#167c70]">
+                            <ShieldCheck className="h-4 w-4" />
+                          </div>
+                        </div>
+                        <h3 className="mt-3 text-sm font-bold text-[#0F2A26]">Shift & Cash Balancing</h3>
+                        <p className="mt-1 text-xs text-zinc-600 leading-relaxed">
+                          Shift opening, closing and daily cash drawer reconciliation
+                        </p>
+                      </div>
+                      <div className="mt-4 flex items-center justify-between border-t border-zinc-100 pt-2.5 text-[11px] font-semibold text-[#167c70]">
+                        <span>Loops into next shift</span>
+                        <div className="flex items-center gap-1">
+                          <span className="text-[10px] text-zinc-400">Cycle</span>
+                          <ArrowUp className="h-3.5 w-3.5 text-[#167c70]" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Stage 03: Bottom-Right (order-3 on mobile, order-4 on desktop so it sits bottom-right) */}
+                    <div className="relative flex flex-col justify-between rounded-2xl border-2 border-[#167c70]/25 bg-white p-5 shadow-xs transition hover:border-[#167c70] hover:shadow-md order-3 sm:order-4">
+                      <div>
+                        <div className="flex items-center justify-between">
+                          <span className="inline-flex items-center gap-1.5 rounded-full border border-[#167c70]/25 bg-[#167c70]/10 px-2.5 py-0.5 text-[11px] font-bold text-[#167c70]">
+                            STAGE 03
+                          </span>
+                          <div className="grid h-8 w-8 place-items-center rounded-lg bg-[#FAF9F5] border border-[#E4E2DA] text-[#167c70]">
+                            <Receipt className="h-4 w-4" />
+                          </div>
+                        </div>
+                        <h3 className="mt-3 text-sm font-bold text-[#0F2A26]">Sales, Returns & Receipts</h3>
+                        <p className="mt-1 text-xs text-zinc-600 leading-relaxed">
+                          Instant sales order search, returns and receipt reprinting
+                        </p>
+                      </div>
+                      <div className="mt-4 flex items-center justify-between border-t border-zinc-100 pt-2.5 text-[11px] font-semibold text-[#167c70]">
+                        <span>Drawer cash balancing</span>
+                        <div className="flex items-center gap-1">
+                          <span className="text-[10px] text-zinc-400">Flow</span>
+                          <ArrowLeft className="h-3.5 w-3.5 text-[#167c70]" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Central Life Cycle Badge */}
+                  <div className="hidden sm:flex absolute inset-0 m-auto h-16 w-16 flex-col items-center justify-center rounded-full border-2 border-dashed border-[#167c70]/50 bg-white shadow-xl pointer-events-none z-10 p-1">
+                    <div className="flex h-full w-full flex-col items-center justify-center rounded-full bg-[#0F2A26] text-white">
+                      <RefreshCw className="h-4 w-4 text-[#7AE582] animate-[spin_10s_linear_infinite]" />
+                      <span className="text-[7px] font-bold tracking-widest text-[#7AE582] mt-0.5">LOOP</span>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {data.overview.points.map((point) => (
+                    <div key={point} className="flex items-start gap-3 rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] p-5 text-sm font-semibold leading-6 text-[#0F2A26]">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#167c70]" />
+                      {point}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </Container>
         </Section>
@@ -283,21 +590,55 @@ export default async function IndustrySubpage({ params }: Props) {
         <Section data-reveal className="bg-[#F7F6F2] border-t border-[#E4E2DA]">
           <Container className="grid gap-6 lg:grid-cols-2">
             {data.whoCanBenefit?.items.length ? (
-              <article className="lift rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-sm sm:p-9">
-                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">Who it can support</span>
-                <h2 className="mt-3 text-2xl font-bold text-[#0F2A26]">{h2.who ?? data.whoCanBenefit.heading}</h2>
-                <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {data.whoCanBenefit.items.map((item) => <li key={item} className="flex items-start gap-2 text-sm leading-6 text-zinc-700"><Check className="mt-1 h-4 w-4 shrink-0 text-[#167c70]" />{item}</li>)}
-                </ul>
+              <article className="lift rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-sm sm:p-9 flex flex-col justify-between">
+                <div>
+                  <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">Who it can support</span>
+                  <h2 className="mt-3 text-2xl font-bold text-[#0F2A26]">{h2.who ?? data.whoCanBenefit.heading}</h2>
+                  <p className="mt-3 text-sm text-zinc-600 leading-relaxed">
+                    Designed for everyday retail operations across general stores, grocery shops, cosmetics, accessories and specialized retail.
+                  </p>
+                  <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+                    {data.whoCanBenefit.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5 text-sm font-medium leading-6 text-zinc-700">
+                        <Check className="mt-1 h-4 w-4 shrink-0 text-[#167c70]" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="mt-8 pt-5 border-t border-[#E4E2DA] flex items-center justify-between text-xs text-zinc-500">
+                  <span>Customizable catalogue & checkout</span>
+                  <Link href="/contact/" className="font-semibold text-[#167c70] hover:underline flex items-center gap-1">
+                    Ask about your store type <ArrowRight className="h-3 w-3" />
+                  </Link>
+                </div>
               </article>
             ) : null}
             {data.benefits?.items.length ? (
-              <article className="lift rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-sm sm:p-9">
-                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">Expected outcomes</span>
-                <h2 className="mt-3 text-2xl font-bold text-[#0F2A26]">{h2.benefits ?? data.benefits.heading}</h2>
-                <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {data.benefits.items.map((item) => <li key={item} className="flex items-start gap-2 text-sm leading-6 text-zinc-700"><Check className="mt-1 h-4 w-4 shrink-0 text-[#167c70]" />{item}</li>)}
-                </ul>
+              <article className="lift rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-sm sm:p-9 flex flex-col justify-between">
+                <div>
+                  <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">Key Evaluation Pillars</span>
+                  <h2 className="mt-3 text-2xl font-bold text-[#0F2A26]">{h2.benefits ?? data.benefits.heading}</h2>
+                  <p className="mt-3 text-sm text-zinc-600 leading-relaxed">
+                    When comparing retail point of sale software for small businesses, look beyond the billing screen:
+                  </p>
+                  <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+                    {data.benefits.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5 text-sm font-medium leading-6 text-zinc-700">
+                        <Check className="mt-1 h-4 w-4 shrink-0 text-[#167c70]" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="mt-8 pt-5 border-t border-[#E4E2DA] rounded-xl bg-[#FAF9F5] p-3 text-xs text-zinc-600 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <span>Confirm pricing, hardware specs and specialist features:</span>
+                  <div className="flex items-center gap-3 font-semibold text-[#167c70]">
+                    <Link href="/pricing/" className="hover:underline">Pricing</Link>
+                    <span>•</span>
+                    <Link href="/contact/" className="hover:underline">Request Demo</Link>
+                  </div>
+                </div>
               </article>
             ) : null}
           </Container>

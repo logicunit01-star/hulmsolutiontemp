@@ -107,28 +107,78 @@ export default function IndustriesPage() {
         </Container>
       </section>
 
-      <Section data-reveal>
+      <Section data-reveal className="bg-[#FAF9F5] py-16 sm:py-20 lg:py-24 border-y border-[#E4E2DA]">
         <Container>
-          <SectionIntro {...industriesContent.priority} centered />
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          <div className="mx-auto max-w-3xl text-center mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3.5 py-1 text-xs font-semibold text-[#167c70] tracking-wide mb-3">
+              <Sparkles className="h-3.5 w-3.5 text-[#167c70]" />
+              <span>{industriesContent.priority.eyebrow}</span>
+            </div>
+            <h2 className="text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl lg:text-5xl text-balance">
+              {industriesContent.priority.heading}
+            </h2>
+            <p className="mt-4 text-base sm:text-lg leading-relaxed text-zinc-600 max-w-2xl mx-auto">
+              {industriesContent.priority.description}
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {industriesContent.priority.items.map((industry) => (
-              <article key={industry.slug} className="lift group overflow-hidden rounded-2xl border border-[#E4E2DA] bg-white shadow-sm transition hover:border-[#167c70]">
-                <div className="grid h-full sm:grid-cols-[0.8fr_1.2fr]">
-                  <div className="relative min-h-56 sm:min-h-full">
-                    <Image src={industry.image} alt={`${industry.name} system by Hulm`} fill sizes="(max-width: 640px) 100vw, (max-width: 1280px) 40vw, 28vw" className="object-cover transition duration-500 group-hover:scale-105" />
+              <article
+                key={industry.slug}
+                className="group lift flex flex-col justify-between overflow-hidden rounded-2xl border border-[#E4E2DA] bg-white shadow-xs transition-all duration-300 hover:border-[#167c70]/50 hover:shadow-xl"
+              >
+                <div>
+                  {/* Panoramic Top Image */}
+                  <div className="relative h-52 sm:h-56 w-full overflow-hidden bg-zinc-100">
+                    <Image
+                      src={industry.image}
+                      alt={`${industry.name} system by Hulm`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80" />
+                    {"tag" in industry && (
+                      <span className="absolute top-3.5 left-3.5 inline-flex items-center rounded-full bg-[#0F2A26]/85 backdrop-blur-md px-3 py-1 text-xs font-semibold text-white border border-white/20 shadow-xs">
+                        {String(industry.tag)}
+                      </span>
+                    )}
                   </div>
-                  <div className="flex flex-col p-6 sm:p-7">
-                    <h3 className="text-2xl font-bold text-[#0F2A26]">{industry.name}</h3>
-                    <p className="mt-3 text-sm leading-6 text-zinc-600">{industry.description}</p>
-                    <ul className="mt-5 space-y-2.5">
+
+                  {/* Card Body */}
+                  <div className="p-6 sm:p-7">
+                    <h3 className="text-xl font-bold text-[#0F2A26] group-hover:text-[#167c70] transition-colors leading-snug">
+                      {industry.name}
+                    </h3>
+                    <p className="mt-2.5 text-sm leading-relaxed text-zinc-600">
+                      {industry.description}
+                    </p>
+
+                    {/* Highlights Checklist */}
+                    <div className="my-5 border-t border-zinc-100" />
+                    <ul className="space-y-2.5">
                       {industry.highlights.map((highlight) => (
-                        <li key={highlight} className="flex items-start gap-2 text-sm font-medium text-zinc-700"><Check className="mt-0.5 h-4 w-4 shrink-0 text-[#167c70]" />{highlight}</li>
+                        <li key={highlight} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-700">
+                          <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#167c70]/12 text-[#167c70]">
+                            <Check className="h-2.5 w-2.5 stroke-[3]" />
+                          </span>
+                          <span className="font-medium text-zinc-700">{highlight}</span>
+                        </li>
                       ))}
                     </ul>
-                    <Link href={`/industries/${industry.slug}/`} className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#167c70] hover:text-[#105f56]">
-                      Explore {industry.name}<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
                   </div>
+                </div>
+
+                {/* Card Footer Action */}
+                <div className="px-6 pb-6 sm:px-7 sm:pb-7 pt-0">
+                  <Link
+                    href={`/industries/${industry.slug}/`}
+                    className="inline-flex w-full items-center justify-between rounded-xl bg-[#F7F6F2] px-4 py-3 text-sm font-bold text-[#167c70] transition-all duration-200 group-hover:bg-[#167c70] group-hover:text-white"
+                  >
+                    <span>Explore {industry.name.replace(/ POS system$/, "")}</span>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
                 </div>
               </article>
             ))}

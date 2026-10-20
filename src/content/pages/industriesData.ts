@@ -35,6 +35,15 @@ export interface FbrPoint {
   description: string;
 }
 
+export interface LifecycleStage {
+  stage: string;
+  title: string;
+  description: string;
+  footerText?: string;
+  flowText?: string;
+  iconName?: string;
+}
+
 export interface IndustryData {
   slug: string;
   name: string;
@@ -52,11 +61,13 @@ export interface IndustryData {
     primaryCtaLink: string;
     secondaryCtaText: string;
     secondaryCtaLink: string;
+    pills?: Array<{ label: string; icon?: string }>;
   };
   overview?: {
     heading: string;
     description: string;
     points: string[];
+    stages?: LifecycleStage[];
   };
   problems?: {
     heading: string;
@@ -73,6 +84,7 @@ export interface IndustryData {
   };
   benefits?: {
     heading: string;
+    description?: string;
     items: string[];
   };
   useCases?: {

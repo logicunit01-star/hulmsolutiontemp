@@ -63,6 +63,21 @@ function getFeatureIcon(title: string) {
   return Sparkles;
 }
 
+function getDynamicIcon(name?: string, fallback = Sparkles) {
+  if (!name) return fallback;
+  const n = name.toLowerCase();
+  if (n.includes("barcode") || n.includes("scan")) return Barcode;
+  if (n.includes("box") || n.includes("inventor") || n.includes("stock") || n.includes("warehous") || n.includes("ingredient") || n.includes("cable")) return Boxes;
+  if (n.includes("receipt") || n.includes("order") || n.includes("return") || n.includes("bill") || n.includes("deposit")) return Receipt;
+  if (n.includes("shield") || n.includes("cash") || n.includes("shift") || n.includes("warrant") || n.includes("reconcil") || n.includes("secur")) return ShieldCheck;
+  if (n.includes("printer") || n.includes("ticket") || n.includes("hardware")) return Printer;
+  if (n.includes("tag") || n.includes("variant") || n.includes("size") || n.includes("style")) return Tags;
+  if (n.includes("sheet") || n.includes("file") || n.includes("suppli") || n.includes("purchas") || n.includes("deliver")) return FileSpreadsheet;
+  if (n.includes("utensil") || n.includes("drink") || n.includes("modifier") || n.includes("recipe")) return UtensilsCrossed;
+  if (n.includes("user") || n.includes("customer")) return Users;
+  return fallback;
+}
+
 function getFeatureTag(title: string) {
   const t = title.toLowerCase();
   if (t.includes("dashboard")) return "COUNTER POS";
@@ -106,11 +121,17 @@ type Props = { params: Promise<{ industry: string }> };
 const allIndustriesData = { ...industriesData, ...priorityIndustriesData };
 const priorityIndustrySlugs = [
   "retail-store",
+  "electric-store",
+  "bakery-pos-system",
+  "cafe",
+  "clothing-store",
+  "furniture-store",
   "restaurant-pos",
   "pharmacy-store",
-  "bakery-pos-system",
   "salon-pos",
-  "clothing-store",
+  "jewellery-shop",
+  "toys-store",
+  "manufacturing-industries",
 ];
 
 export async function generateStaticParams() {
@@ -213,20 +234,21 @@ export default async function IndustrySubpage({ params }: Props) {
                 ))}
               </div>
               
-              {data.slug === "retail-store" && (
+              {((data.hero.pills && data.hero.pills.length > 0) || data.slug === "retail-store") && (
                 <div className="mt-6 flex flex-wrap items-center gap-2 pt-1 text-xs font-semibold text-[#0F2A26]">
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[#E4E2DA] bg-[#FAF9F5] px-3 py-1">
-                    <Barcode className="h-3.5 w-3.5 text-[#167c70]" /> Barcode Billing
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[#E4E2DA] bg-[#FAF9F5] px-3 py-1">
-                    <Boxes className="h-3.5 w-3.5 text-[#167c70]" /> Low-Stock Alerts
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[#E4E2DA] bg-[#FAF9F5] px-3 py-1">
-                    <Receipt className="h-3.5 w-3.5 text-[#167c70]" /> Instant Returns & Receipts
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[#E4E2DA] bg-[#FAF9F5] px-3 py-1">
-                    <ShieldCheck className="h-3.5 w-3.5 text-[#167c70]" /> Shift & Cash Tracking
-                  </span>
+                  {(data.hero.pills ?? [
+                    { label: "Barcode Billing", icon: "Barcode" },
+                    { label: "Low-Stock Alerts", icon: "Boxes" },
+                    { label: "Instant Returns & Receipts", icon: "Receipt" },
+                    { label: "Shift & Cash Tracking", icon: "ShieldCheck" },
+                  ]).map((pill) => {
+                    const Icon = getDynamicIcon(pill.icon || pill.label, Barcode);
+                    return (
+                      <span key={pill.label} className="inline-flex items-center gap-1.5 rounded-full border border-[#E4E2DA] bg-[#FAF9F5] px-3 py-1">
+                        <Icon className="h-3.5 w-3.5 text-[#167c70]" /> {pill.label}
+                      </span>
+                    );
+                  })}
                 </div>
               )}
 
@@ -262,12 +284,12 @@ export default async function IndustrySubpage({ params }: Props) {
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0F2A26]/95 via-[#0F2A26]/50 to-transparent p-6 pt-20 text-white">
                   <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-[#7AE582]">Connected Retail Workflow</p>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-[#7AE582]">Connected {data.name} Workflow</p>
                       <p className="mt-1 text-base sm:text-lg font-bold leading-snug">Billing, stock & customer records in one view</p>
                     </div>
                     <div className="inline-flex items-center gap-1.5 self-start sm:self-auto rounded-lg bg-white/10 px-3 py-1.5 border border-white/10 text-xs backdrop-blur-xs font-medium">
                       <Barcode className="h-3.5 w-3.5 text-[#7AE582]" />
-                      <span>0.8s Scan Checkout</span>
+                      <span>0.8s Fast Billing</span>
                     </div>
                   </div>
                 </div>
@@ -316,7 +338,7 @@ export default async function IndustrySubpage({ params }: Props) {
                         <span className="inline-flex items-center gap-1.5 rounded-full border border-rose-200 bg-rose-50 px-2.5 py-0.5 text-[11px] font-bold text-rose-700">
                           <AlertCircle className="h-3 w-3" /> {parsed.badge ?? `Problem ${String(index + 1).padStart(2, "0")}`}
                         </span>
-                        <span className="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">Retail Bottleneck</span>
+                        <span className="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">{data.name} Bottleneck</span>
                       </div>
 
                       {item.image ? (
@@ -360,7 +382,7 @@ export default async function IndustrySubpage({ params }: Props) {
       {data.features?.items.length ? (
         <Section data-reveal className="bg-white">
           <Container>
-            <SectionIntro eyebrow="Capabilities" heading={h2.features ?? data.features.heading} description="The practical tools built into HulmPOS to manage everyday retail sales more efficiently." centered />
+            <SectionIntro eyebrow="Capabilities" heading={h2.features ?? data.features.heading} description={`The practical tools built into HulmPOS to manage everyday ${data.name.toLowerCase()} operations more efficiently.`} centered />
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {data.features.items.map((feature) => {
                 const Icon = getFeatureIcon(feature.title);
@@ -391,7 +413,7 @@ export default async function IndustrySubpage({ params }: Props) {
             <div className="grid items-start gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
               <div>
                 <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">
-                  {data.slug === "retail-store" ? "Retail Life Cycle" : "Workflow overview"}
+                  {data.name} Life Cycle
                 </span>
                 <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl lg:text-5xl">
                   {h2.overview ?? data.overview.heading}
@@ -402,117 +424,131 @@ export default async function IndustrySubpage({ params }: Props) {
                   </p>
                 ) : null}
 
-                {data.slug === "retail-store" && (
-                  <div className="mt-6 flex items-center gap-2.5 rounded-xl border border-[#167c70]/20 bg-[#167c70]/5 px-4 py-3 text-xs font-semibold text-[#167c70]">
-                    <RefreshCw className="h-4 w-4 shrink-0 text-[#167c70] animate-[spin_8s_linear_infinite]" />
-                    <span>Continuous operating loop: automated sync from checkout to shift close</span>
-                  </div>
-                )}
+                <div className="mt-6 flex items-center gap-2.5 rounded-xl border border-[#167c70]/20 bg-[#167c70]/5 px-4 py-3 text-xs font-semibold text-[#167c70]">
+                  <RefreshCw className="h-4 w-4 shrink-0 text-[#167c70] animate-[spin_8s_linear_infinite]" />
+                  <span>Continuous operating loop: automated sync from checkout to shift close</span>
+                </div>
               </div>
 
-              {data.slug === "retail-store" ? (
+              {data.overview.stages && data.overview.stages.length === 4 ? (
                 <div className="relative">
                   {/* Cyclical 2x2 Grid */}
                   <div className="grid gap-4 sm:gap-5 sm:grid-cols-2 relative">
                     {/* Stage 01: Top-Left */}
-                    <div className="relative flex flex-col justify-between rounded-2xl border-2 border-[#167c70]/25 bg-white p-5 shadow-xs transition hover:border-[#167c70] hover:shadow-md">
-                      <div>
-                        <div className="flex items-center justify-between">
-                          <span className="inline-flex items-center gap-1.5 rounded-full border border-[#167c70]/25 bg-[#167c70]/10 px-2.5 py-0.5 text-[11px] font-bold text-[#167c70]">
-                            STAGE 01
-                          </span>
-                          <div className="grid h-8 w-8 place-items-center rounded-lg bg-[#FAF9F5] border border-[#E4E2DA] text-[#167c70]">
-                            <Barcode className="h-4 w-4" />
+                    {(() => {
+                      const s = data.overview.stages[0];
+                      const Icon = getDynamicIcon(s.iconName || s.title, Barcode);
+                      return (
+                        <div className="relative flex flex-col justify-between rounded-2xl border-2 border-[#167c70]/25 bg-white p-5 shadow-xs transition hover:border-[#167c70] hover:shadow-md">
+                          <div>
+                            <div className="flex items-center justify-between">
+                              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#167c70]/25 bg-[#167c70]/10 px-2.5 py-0.5 text-[11px] font-bold text-[#167c70]">
+                                {s.stage || "STAGE 01"}
+                              </span>
+                              <div className="grid h-8 w-8 place-items-center rounded-lg bg-[#FAF9F5] border border-[#E4E2DA] text-[#167c70]">
+                                <Icon className="h-4 w-4" />
+                              </div>
+                            </div>
+                            <h3 className="mt-3 text-sm font-bold text-[#0F2A26]">{s.title}</h3>
+                            <p className="mt-1 text-xs text-zinc-600 leading-relaxed">{s.description}</p>
+                          </div>
+                          <div className="mt-4 flex items-center justify-between border-t border-zinc-100 pt-2.5 text-[11px] font-semibold text-[#167c70]">
+                            <span>{s.footerText || "Real-time stock deduction"}</span>
+                            <div className="flex items-center gap-1">
+                              <span className="text-[10px] text-zinc-400">{s.flowText || "Flow"}</span>
+                              <ArrowRight className="h-3.5 w-3.5 text-[#167c70]" />
+                            </div>
                           </div>
                         </div>
-                        <h3 className="mt-3 text-sm font-bold text-[#0F2A26]">Product Search & Barcode Billing</h3>
-                        <p className="mt-1 text-xs text-zinc-600 leading-relaxed">
-                          Product search & supported barcode scanning at checkout
-                        </p>
-                      </div>
-                      <div className="mt-4 flex items-center justify-between border-t border-zinc-100 pt-2.5 text-[11px] font-semibold text-[#167c70]">
-                        <span>Real-time stock deduction</span>
-                        <div className="flex items-center gap-1">
-                          <span className="text-[10px] text-zinc-400">Flow</span>
-                          <ArrowRight className="h-3.5 w-3.5 text-[#167c70]" />
-                        </div>
-                      </div>
-                    </div>
+                      );
+                    })()}
 
                     {/* Stage 02: Top-Right */}
-                    <div className="relative flex flex-col justify-between rounded-2xl border-2 border-[#167c70]/25 bg-white p-5 shadow-xs transition hover:border-[#167c70] hover:shadow-md">
-                      <div>
-                        <div className="flex items-center justify-between">
-                          <span className="inline-flex items-center gap-1.5 rounded-full border border-[#167c70]/25 bg-[#167c70]/10 px-2.5 py-0.5 text-[11px] font-bold text-[#167c70]">
-                            STAGE 02
-                          </span>
-                          <div className="grid h-8 w-8 place-items-center rounded-lg bg-[#FAF9F5] border border-[#E4E2DA] text-[#167c70]">
-                            <Boxes className="h-4 w-4" />
+                    {(() => {
+                      const s = data.overview.stages[1];
+                      const Icon = getDynamicIcon(s.iconName || s.title, Boxes);
+                      return (
+                        <div className="relative flex flex-col justify-between rounded-2xl border-2 border-[#167c70]/25 bg-white p-5 shadow-xs transition hover:border-[#167c70] hover:shadow-md">
+                          <div>
+                            <div className="flex items-center justify-between">
+                              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#167c70]/25 bg-[#167c70]/10 px-2.5 py-0.5 text-[11px] font-bold text-[#167c70]">
+                                {s.stage || "STAGE 02"}
+                              </span>
+                              <div className="grid h-8 w-8 place-items-center rounded-lg bg-[#FAF9F5] border border-[#E4E2DA] text-[#167c70]">
+                                <Icon className="h-4 w-4" />
+                              </div>
+                            </div>
+                            <h3 className="mt-3 text-sm font-bold text-[#0F2A26]">{s.title}</h3>
+                            <p className="mt-1 text-xs text-zinc-600 leading-relaxed">{s.description}</p>
+                          </div>
+                          <div className="mt-4 flex items-center justify-between border-t border-zinc-100 pt-2.5 text-[11px] font-semibold text-[#167c70]">
+                            <span>{s.footerText || "Logs transaction history"}</span>
+                            <div className="flex items-center gap-1">
+                              <span className="text-[10px] text-zinc-400">{s.flowText || "Flow"}</span>
+                              <ArrowDown className="h-3.5 w-3.5 text-[#167c70]" />
+                            </div>
                           </div>
                         </div>
-                        <h3 className="mt-3 text-sm font-bold text-[#0F2A26]">Inventory & Stock Alerts</h3>
-                        <p className="mt-1 text-xs text-zinc-600 leading-relaxed">
-                          Inventory monitoring with low, critical and out-of-stock alerts
-                        </p>
-                      </div>
-                      <div className="mt-4 flex items-center justify-between border-t border-zinc-100 pt-2.5 text-[11px] font-semibold text-[#167c70]">
-                        <span>Logs transaction history</span>
-                        <div className="flex items-center gap-1">
-                          <span className="text-[10px] text-zinc-400">Flow</span>
-                          <ArrowDown className="h-3.5 w-3.5 text-[#167c70]" />
-                        </div>
-                      </div>
-                    </div>
+                      );
+                    })()}
 
                     {/* Stage 04: Bottom-Left (order-4 on mobile, order-3 on desktop so it sits bottom-left) */}
-                    <div className="relative flex flex-col justify-between rounded-2xl border-2 border-[#167c70]/25 bg-white p-5 shadow-xs transition hover:border-[#167c70] hover:shadow-md order-4 sm:order-3">
-                      <div>
-                        <div className="flex items-center justify-between">
-                          <span className="inline-flex items-center gap-1.5 rounded-full border border-[#167c70]/25 bg-[#167c70]/10 px-2.5 py-0.5 text-[11px] font-bold text-[#167c70]">
-                            STAGE 04
-                          </span>
-                          <div className="grid h-8 w-8 place-items-center rounded-lg bg-[#FAF9F5] border border-[#E4E2DA] text-[#167c70]">
-                            <ShieldCheck className="h-4 w-4" />
+                    {(() => {
+                      const s = data.overview.stages[3];
+                      const Icon = getDynamicIcon(s.iconName || s.title, ShieldCheck);
+                      return (
+                        <div className="relative flex flex-col justify-between rounded-2xl border-2 border-[#167c70]/25 bg-white p-5 shadow-xs transition hover:border-[#167c70] hover:shadow-md order-4 sm:order-3">
+                          <div>
+                            <div className="flex items-center justify-between">
+                              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#167c70]/25 bg-[#167c70]/10 px-2.5 py-0.5 text-[11px] font-bold text-[#167c70]">
+                                {s.stage || "STAGE 04"}
+                              </span>
+                              <div className="grid h-8 w-8 place-items-center rounded-lg bg-[#FAF9F5] border border-[#E4E2DA] text-[#167c70]">
+                                <Icon className="h-4 w-4" />
+                              </div>
+                            </div>
+                            <h3 className="mt-3 text-sm font-bold text-[#0F2A26]">{s.title}</h3>
+                            <p className="mt-1 text-xs text-zinc-600 leading-relaxed">{s.description}</p>
+                          </div>
+                          <div className="mt-4 flex items-center justify-between border-t border-zinc-100 pt-2.5 text-[11px] font-semibold text-[#167c70]">
+                            <span>{s.footerText || "Loops into next shift"}</span>
+                            <div className="flex items-center gap-1">
+                              <span className="text-[10px] text-zinc-400">{s.flowText || "Cycle"}</span>
+                              <ArrowUp className="h-3.5 w-3.5 text-[#167c70]" />
+                            </div>
                           </div>
                         </div>
-                        <h3 className="mt-3 text-sm font-bold text-[#0F2A26]">Shift & Cash Balancing</h3>
-                        <p className="mt-1 text-xs text-zinc-600 leading-relaxed">
-                          Shift opening, closing and daily cash drawer reconciliation
-                        </p>
-                      </div>
-                      <div className="mt-4 flex items-center justify-between border-t border-zinc-100 pt-2.5 text-[11px] font-semibold text-[#167c70]">
-                        <span>Loops into next shift</span>
-                        <div className="flex items-center gap-1">
-                          <span className="text-[10px] text-zinc-400">Cycle</span>
-                          <ArrowUp className="h-3.5 w-3.5 text-[#167c70]" />
-                        </div>
-                      </div>
-                    </div>
+                      );
+                    })()}
 
                     {/* Stage 03: Bottom-Right (order-3 on mobile, order-4 on desktop so it sits bottom-right) */}
-                    <div className="relative flex flex-col justify-between rounded-2xl border-2 border-[#167c70]/25 bg-white p-5 shadow-xs transition hover:border-[#167c70] hover:shadow-md order-3 sm:order-4">
-                      <div>
-                        <div className="flex items-center justify-between">
-                          <span className="inline-flex items-center gap-1.5 rounded-full border border-[#167c70]/25 bg-[#167c70]/10 px-2.5 py-0.5 text-[11px] font-bold text-[#167c70]">
-                            STAGE 03
-                          </span>
-                          <div className="grid h-8 w-8 place-items-center rounded-lg bg-[#FAF9F5] border border-[#E4E2DA] text-[#167c70]">
-                            <Receipt className="h-4 w-4" />
+                    {(() => {
+                      const s = data.overview.stages[2];
+                      const Icon = getDynamicIcon(s.iconName || s.title, Receipt);
+                      return (
+                        <div className="relative flex flex-col justify-between rounded-2xl border-2 border-[#167c70]/25 bg-white p-5 shadow-xs transition hover:border-[#167c70] hover:shadow-md order-3 sm:order-4">
+                          <div>
+                            <div className="flex items-center justify-between">
+                              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#167c70]/25 bg-[#167c70]/10 px-2.5 py-0.5 text-[11px] font-bold text-[#167c70]">
+                                {s.stage || "STAGE 03"}
+                              </span>
+                              <div className="grid h-8 w-8 place-items-center rounded-lg bg-[#FAF9F5] border border-[#E4E2DA] text-[#167c70]">
+                                <Icon className="h-4 w-4" />
+                              </div>
+                            </div>
+                            <h3 className="mt-3 text-sm font-bold text-[#0F2A26]">{s.title}</h3>
+                            <p className="mt-1 text-xs text-zinc-600 leading-relaxed">{s.description}</p>
+                          </div>
+                          <div className="mt-4 flex items-center justify-between border-t border-zinc-100 pt-2.5 text-[11px] font-semibold text-[#167c70]">
+                            <span>{s.footerText || "Drawer cash balancing"}</span>
+                            <div className="flex items-center gap-1">
+                              <span className="text-[10px] text-zinc-400">{s.flowText || "Flow"}</span>
+                              <ArrowLeft className="h-3.5 w-3.5 text-[#167c70]" />
+                            </div>
                           </div>
                         </div>
-                        <h3 className="mt-3 text-sm font-bold text-[#0F2A26]">Sales, Returns & Receipts</h3>
-                        <p className="mt-1 text-xs text-zinc-600 leading-relaxed">
-                          Instant sales order search, returns and receipt reprinting
-                        </p>
-                      </div>
-                      <div className="mt-4 flex items-center justify-between border-t border-zinc-100 pt-2.5 text-[11px] font-semibold text-[#167c70]">
-                        <span>Drawer cash balancing</span>
-                        <div className="flex items-center gap-1">
-                          <span className="text-[10px] text-zinc-400">Flow</span>
-                          <ArrowLeft className="h-3.5 w-3.5 text-[#167c70]" />
-                        </div>
-                      </div>
-                    </div>
+                      );
+                    })()}
                   </div>
 
                   {/* Central Life Cycle Badge */}
@@ -595,7 +631,7 @@ export default async function IndustrySubpage({ params }: Props) {
                   <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">Who it can support</span>
                   <h2 className="mt-3 text-2xl font-bold text-[#0F2A26]">{h2.who ?? data.whoCanBenefit.heading}</h2>
                   <p className="mt-3 text-sm text-zinc-600 leading-relaxed">
-                    Designed for everyday retail operations across general stores, grocery shops, cosmetics, accessories and specialized retail.
+                    {data.whoCanBenefit.description || `Designed for everyday ${data.name.toLowerCase()} operations across specialized and multi-location retail setups.`}
                   </p>
                   <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                     {data.whoCanBenefit.items.map((item) => (
@@ -620,7 +656,7 @@ export default async function IndustrySubpage({ params }: Props) {
                   <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">Key Evaluation Pillars</span>
                   <h2 className="mt-3 text-2xl font-bold text-[#0F2A26]">{h2.benefits ?? data.benefits.heading}</h2>
                   <p className="mt-3 text-sm text-zinc-600 leading-relaxed">
-                    When comparing retail point of sale software for small businesses, look beyond the billing screen:
+                    {data.benefits.description || `When comparing ${data.name.toLowerCase()} point of sale software for small businesses, look beyond the billing screen:`}
                   </p>
                   <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                     {data.benefits.items.map((item) => (

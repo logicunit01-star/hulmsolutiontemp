@@ -43,6 +43,7 @@ import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { industriesData } from "@/content/pages/industriesData";
 import { priorityIndustriesData } from "@/content/pages/priorityIndustriesData";
+import { IndustryFeatures } from "@/components/industries/industry-features";
 import { industrySeo } from "@/content/pages/industrySeo";
 import { pageJsonLd, seoMetadata, softwareNode } from "@/lib/seo/page-seo";
 import { industryLinks, linksExcept } from "@/lib/seo/site-links";
@@ -185,7 +186,7 @@ export default async function IndustrySubpage({ params }: Props) {
     ...data.faqs.map((f) => ({ q: f.question, a: f.answer })),
   ]
     .filter((item, index, list) => list.findIndex((x) => x.q.toLowerCase() === item.q.toLowerCase()) === index)
-    .slice(0, 8);
+    .slice(0, 16);
   const schema = pageJsonLd({
     route,
     crumbs: [
@@ -211,7 +212,7 @@ export default async function IndustrySubpage({ params }: Props) {
   return (
     <div className="relative overflow-hidden bg-white">
       <JsonLd data={schema} />
-      <section className="relative overflow-hidden border-b border-zinc-200/70 bg-white pt-10 pb-16 sm:pt-14 lg:pt-16 lg:pb-20">
+      <section className="relative overflow-hidden bg-white pt-10 pb-10 sm:pt-14 sm:pb-14 lg:pt-16 lg:pb-16">
         <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
         <Container className="relative z-10">
           <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-zinc-500">
@@ -233,24 +234,6 @@ export default async function IndustrySubpage({ params }: Props) {
                   <p key={i}>{para}</p>
                 ))}
               </div>
-              
-              {((data.hero.pills && data.hero.pills.length > 0) || data.slug === "retail-store") && (
-                <div className="mt-6 flex flex-wrap items-center gap-2 pt-1 text-xs font-semibold text-[#0F2A26]">
-                  {(data.hero.pills ?? [
-                    { label: "Barcode Billing", icon: "Barcode" },
-                    { label: "Low-Stock Alerts", icon: "Boxes" },
-                    { label: "Instant Returns & Receipts", icon: "Receipt" },
-                    { label: "Shift & Cash Tracking", icon: "ShieldCheck" },
-                  ]).map((pill) => {
-                    const Icon = getDynamicIcon(pill.icon || pill.label, Barcode);
-                    return (
-                      <span key={pill.label} className="inline-flex items-center gap-1.5 rounded-full border border-[#E4E2DA] bg-[#FAF9F5] px-3 py-1">
-                        <Icon className="h-3.5 w-3.5 text-[#167c70]" /> {pill.label}
-                      </span>
-                    );
-                  })}
-                </div>
-              )}
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button asChild size="lg" className="rounded-full bg-[#0F2A26] hover:bg-[#167c70] text-white shadow-sm px-7 h-12 text-sm font-semibold">
@@ -263,41 +246,133 @@ export default async function IndustrySubpage({ params }: Props) {
                   <Link href={data.hero.secondaryCtaLink}>{data.hero.secondaryCtaText}<ArrowRight className="ml-2 h-4 w-4" /></Link>
                 </Button>
               </div>
+              {data.hero.subtext ? (
+                <p className="mt-4 text-xs sm:text-sm text-zinc-500 font-medium leading-relaxed">
+                  {data.hero.subtext}
+                </p>
+              ) : null}
             </div>
             <div className="relative">
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#167c70]/15 via-[#7ae582]/10 to-transparent blur-2xl -z-10"
               />
-              <div className="relative min-h-80 overflow-hidden rounded-2xl border border-[#E4E2DA] bg-white shadow-xl sm:min-h-[430px]">
-                <Image src={data.image} alt={`${data.name} POS system by Hulm`} fill priority sizes="(max-width: 1024px) 100vw, 42vw" className="object-cover" />
+              <div className="relative min-h-80 overflow-hidden rounded-2xl border border-[#E4E2DA] bg-black shadow-xl sm:min-h-[430px]">
+                {data.video ? (
+                  <div className="relative w-full h-full min-h-80 sm:min-h-[430px] flex items-center justify-center bg-black">
+                    <video
+                      src={data.video}
+                      poster={data.image}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      controls
+                      className="w-full h-full min-h-80 sm:min-h-[430px] object-cover"
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                ) : (
+                  <Image src={data.image} alt={`${data.name} POS system by Hulm`} fill priority sizes="(max-width: 1024px) 100vw, 42vw" className="object-cover" />
+                )}
                 
                 {/* Floating Status Pill */}
-                <div className="absolute top-4 right-4 z-20 flex items-center gap-2 rounded-full border border-white/30 bg-white/95 px-3.5 py-1.5 shadow-lg backdrop-blur-md">
+                <div className="pointer-events-none absolute top-4 right-4 z-20 flex items-center gap-2 rounded-full border border-white/30 bg-white/95 px-3.5 py-1.5 shadow-lg backdrop-blur-md">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                   </span>
-                  <span className="text-xs font-bold text-[#0F2A26]">Live Inventory & Barcode Ready</span>
+                  <span className="text-xs font-bold text-[#0F2A26]">
+                    {data.video ? "Live Checkout Demo" : "Live Inventory & Barcode Ready"}
+                  </span>
                 </div>
 
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0F2A26]/95 via-[#0F2A26]/50 to-transparent p-6 pt-20 text-white">
-                  <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-[#7AE582]">Connected {data.name} Workflow</p>
-                      <p className="mt-1 text-base sm:text-lg font-bold leading-snug">Billing, stock & customer records in one view</p>
-                    </div>
-                    <div className="inline-flex items-center gap-1.5 self-start sm:self-auto rounded-lg bg-white/10 px-3 py-1.5 border border-white/10 text-xs backdrop-blur-xs font-medium">
-                      <Barcode className="h-3.5 w-3.5 text-[#7AE582]" />
-                      <span>0.8s Fast Billing</span>
+                {!data.video ? (
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0F2A26]/95 via-[#0F2A26]/50 to-transparent p-6 pt-20 text-white">
+                    <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-wider text-[#7AE582]">Connected {data.name} Workflow</p>
+                        <p className="mt-1 text-base sm:text-lg font-bold leading-snug">Billing, stock & customer records in one view</p>
+                      </div>
+                      <div className="inline-flex items-center gap-1.5 self-start sm:self-auto rounded-lg bg-white/10 px-3 py-1.5 border border-white/10 text-xs backdrop-blur-xs font-medium">
+                        <Barcode className="h-3.5 w-3.5 text-[#7AE582]" />
+                        <span>0.8s Fast Billing</span>
+                      </div>
                     </div>
                   </div>
-                </div>
+                ) : null}
               </div>
             </div>
           </div>
         </Container>
       </section>
+
+      {data.problems?.items.length ? (
+        <Section data-reveal className="bg-white pt-6 pb-16 sm:pt-8 sm:pb-20">
+          <Container>
+            <SectionIntro eyebrow="Operational friction" heading={h2.problems ?? data.problems.heading} description={data.problems.description} centered />
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {data.problems.items.map((item, index) => {
+                const parsed = parseProblemText(item.problem);
+                return (
+                  <article key={item.solutionTitle} className="lift group flex flex-col justify-between rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] p-6 shadow-xs transition hover:border-[#167c70]/40 hover:shadow-md">
+                    <div>
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="inline-flex items-center gap-1.5 rounded-full border border-rose-200 bg-rose-50 px-2.5 py-0.5 text-[11px] font-bold text-rose-700">
+                          <AlertCircle className="h-3 w-3" /> {parsed.badge ?? `Problem ${String(index + 1).padStart(2, "0")}`}
+                        </span>
+                        <span className="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">{data.name} Bottleneck</span>
+                      </div>
+
+                      {item.image ? (
+                        <div className="relative mb-4 h-32 sm:h-36 w-full overflow-hidden rounded-xl border border-[#E4E2DA] bg-white shadow-xs">
+                          <Image
+                            src={item.image}
+                            alt={item.imageAlt || parsed.title}
+                            fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            className="object-cover object-center transition duration-300 group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" />
+                          <span className="absolute bottom-2 left-2.5 rounded-md bg-black/65 backdrop-blur-xs px-2 py-0.5 text-[10px] font-semibold text-white">
+                            {item.imageAlt || parsed.title}
+                          </span>
+                        </div>
+                      ) : null}
+
+                      <div className="rounded-xl bg-white border border-[#E4E2DA] p-3.5 mb-5 shadow-xs">
+                        <h3 className="text-sm font-bold text-zinc-900 leading-snug">{parsed.title}</h3>
+                        {parsed.desc ? <p className="mt-1.5 text-xs leading-relaxed text-zinc-600">{parsed.desc}</p> : null}
+                      </div>
+                    </div>
+
+                    <div className="rounded-xl border border-[#167c70]/25 bg-white p-4 mt-auto shadow-xs">
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-[#167c70] mb-2">
+                        <CheckCircle2 className="h-4 w-4 text-[#167c70] shrink-0" />
+                        <span>The HulmPOS Solution</span>
+                      </div>
+                      <h4 className="text-sm font-bold text-[#0F2A26]">{item.solutionTitle}</h4>
+                      <p className="mt-1.5 text-xs leading-relaxed text-zinc-600">{item.solution}</p>
+                      {item.ctaText ? (
+                        <div className="mt-3.5 pt-3 border-t border-[#167c70]/15">
+                          <Link
+                            href={item.ctaLink || "#features"}
+                            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#167c70] hover:text-[#0F2A26] transition-colors"
+                          >
+                            <span>{item.ctaText}</span>
+                            <ArrowRight className="h-3.5 w-3.5" />
+                          </Link>
+                        </div>
+                      ) : null}
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </Container>
+        </Section>
+      ) : null}
 
       {data.slug === "restaurant-pos" ? (
         <ProductScreens
@@ -307,7 +382,7 @@ export default async function IndustrySubpage({ params }: Props) {
           topic={`${data.name} POS`}
         />
       ) : (
-        <Section data-reveal className="border-b border-gray-100 bg-white py-14 sm:py-18 lg:py-20">
+        <Section data-reveal className="border-y border-[#E4E2DA] bg-[#FAF9F5] py-14 sm:py-18 lg:py-20">
           <Container>
             <div className="mx-auto mb-8 sm:mb-10 max-w-3xl text-center">
               <h2 className="text-2xl font-bold tracking-tight text-[#0F2A26] sm:text-3xl lg:text-[34px] lg:leading-[1.22] text-balance">
@@ -324,85 +399,16 @@ export default async function IndustrySubpage({ params }: Props) {
         </Section>
       )}
 
-      {data.problems?.items.length ? (
-        <Section data-reveal className="bg-[#F7F6F2] border-y border-[#E4E2DA]">
-          <Container>
-            <SectionIntro eyebrow="Operational friction" heading={h2.problems ?? data.problems.heading} centered />
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {data.problems.items.map((item, index) => {
-                const parsed = parseProblemText(item.problem);
-                return (
-                  <article key={item.solutionTitle} className="lift group flex flex-col justify-between rounded-2xl border border-[#E4E2DA] bg-white p-6 shadow-sm transition hover:border-[#167c70]/40">
-                    <div>
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="inline-flex items-center gap-1.5 rounded-full border border-rose-200 bg-rose-50 px-2.5 py-0.5 text-[11px] font-bold text-rose-700">
-                          <AlertCircle className="h-3 w-3" /> {parsed.badge ?? `Problem ${String(index + 1).padStart(2, "0")}`}
-                        </span>
-                        <span className="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">{data.name} Bottleneck</span>
-                      </div>
-
-                      {item.image ? (
-                        <div className="relative mb-4 h-32 sm:h-36 w-full overflow-hidden rounded-xl border border-[#E4E2DA] bg-[#FAF9F5] shadow-xs">
-                          <Image
-                            src={item.image}
-                            alt={item.imageAlt || parsed.title}
-                            fill
-                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            className="object-cover object-center transition duration-300 group-hover:scale-105"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" />
-                          <span className="absolute bottom-2 left-2.5 rounded-md bg-black/65 backdrop-blur-xs px-2 py-0.5 text-[10px] font-semibold text-white">
-                            {item.imageAlt || parsed.title}
-                          </span>
-                        </div>
-                      ) : null}
-
-                      <div className="rounded-xl bg-zinc-50/70 border border-zinc-100 p-3.5 mb-5">
-                        <h3 className="text-sm font-bold text-zinc-900 leading-snug">{parsed.title}</h3>
-                        {parsed.desc ? <p className="mt-1.5 text-xs leading-relaxed text-zinc-600">{parsed.desc}</p> : null}
-                      </div>
-                    </div>
-
-                    <div className="rounded-xl border border-[#167c70]/20 bg-[#167c70]/[0.03] p-4 mt-auto">
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-[#167c70] mb-2">
-                        <CheckCircle2 className="h-4 w-4 text-[#167c70] shrink-0" />
-                        <span>The HulmPOS Solution</span>
-                      </div>
-                      <h4 className="text-sm font-bold text-[#0F2A26]">{item.solutionTitle}</h4>
-                      <p className="mt-1.5 text-xs leading-relaxed text-zinc-600">{item.solution}</p>
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
-          </Container>
-        </Section>
-      ) : null}
-
       {data.features?.items.length ? (
-        <Section data-reveal className="bg-white">
+        <Section data-reveal id="features" className="bg-white py-14 sm:py-18">
           <Container>
-            <SectionIntro eyebrow="Capabilities" heading={h2.features ?? data.features.heading} description={`The practical tools built into HulmPOS to manage everyday ${data.name.toLowerCase()} operations more efficiently.`} centered />
-            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {data.features.items.map((feature) => {
-                const Icon = getFeatureIcon(feature.title);
-                const tag = getFeatureTag(feature.title);
-                return (
-                  <article key={feature.title} className="lift group relative rounded-2xl border border-[#E4E2DA] bg-white p-6 shadow-sm transition hover:border-[#167c70]/40">
-                    <div className="flex items-center justify-between">
-                      <div className="grid h-11 w-11 place-items-center rounded-xl bg-[#FAF9F5] border border-[#E4E2DA] text-[#167c70] transition group-hover:bg-[#167c70] group-hover:text-white">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <span className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md bg-zinc-100 text-zinc-600 group-hover:bg-[#167c70]/10 group-hover:text-[#167c70] transition">
-                        {feature.badge ?? tag}
-                      </span>
-                    </div>
-                    <h3 className="mt-5 text-lg font-bold text-[#0F2A26] group-hover:text-[#167c70] transition-colors">{feature.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-zinc-600">{feature.description}</p>
-                  </article>
-                );
-              })}
-            </div>
+            <IndustryFeatures
+              heading={h2.features ?? data.features.heading}
+              introTitle={data.features.introTitle}
+              description={data.features.description}
+              industryName={data.name}
+              items={data.features.items}
+            />
           </Container>
         </Section>
       ) : null}
@@ -574,6 +580,109 @@ export default async function IndustrySubpage({ params }: Props) {
         </Section>
       ) : null}
 
+      {data.steps?.items.length ? (
+        <Section data-reveal className="bg-[#FAF9F5] border-y border-[#E4E2DA] py-14 sm:py-20">
+          <Container>
+            <div className="mx-auto max-w-3xl text-center mb-12">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/[0.06] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#167c70]">
+                <RefreshCw className="h-3.5 w-3.5 text-[#167c70] animate-[spin_8s_linear_infinite]" />
+                <span>Daily Retail Life Cycle</span>
+              </span>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl lg:text-5xl">
+                {data.steps.heading}
+              </h2>
+              {data.steps.description ? (
+                <p className="mt-3 text-sm sm:text-base leading-relaxed text-zinc-600 max-w-2xl mx-auto">
+                  {data.steps.description}
+                </p>
+              ) : null}
+            </div>
+
+            {/* Cyclical 4x2 Life Cycle Workflow Grid */}
+            <div className="grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {data.steps.items.map((step, idx) => {
+                const meta = [
+                  { icon: Tags, phase: "Catalogue Setup" },
+                  { icon: Sparkles, phase: "Morning Opening" },
+                  { icon: Barcode, phase: "Active Counter Billing" },
+                  { icon: Boxes, phase: "Inventory Monitoring" },
+                  { icon: Receipt, phase: "Customer Service" },
+                  { icon: ShieldCheck, phase: "Shift Reconciliation" },
+                  { icon: LayoutDashboard, phase: "Daily Performance" },
+                ][idx] || { icon: Sparkles, phase: "Shift Workflow" };
+
+                const StepIcon = meta.icon;
+
+                return (
+                  <div
+                    key={step.title}
+                    className="group relative flex flex-col justify-between rounded-2xl border-2 border-[#E4E2DA] bg-white p-5 shadow-xs transition hover:border-[#167c70] hover:shadow-md"
+                  >
+                    <div>
+                      {/* Top Header: Step Badge + Phase Icon */}
+                      <div className="flex items-center justify-between mb-3.5">
+                        <span className="inline-flex items-center rounded-md bg-[#167c70]/10 border border-[#167c70]/20 px-2.5 py-0.5 text-xs font-bold text-[#167c70]">
+                          {step.step || `Step ${idx + 1}`}
+                        </span>
+                        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#FAF9F5] border border-[#E4E2DA] text-[#167c70] group-hover:bg-[#167c70] group-hover:text-white transition-colors">
+                          <StepIcon className="h-4 w-4" />
+                        </div>
+                      </div>
+
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">
+                        {meta.phase}
+                      </span>
+                      <h3 className="mt-1 text-sm font-bold text-[#0F2A26] leading-snug group-hover:text-[#167c70] transition-colors">
+                        {step.title}
+                      </h3>
+                      <p className="mt-2 text-xs leading-relaxed text-zinc-600">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+
+              {/* 8th Card: Loop Back Into Next Shift to Complete the Life Cycle */}
+              <div className="relative flex flex-col justify-between rounded-2xl border-2 border-dashed border-[#167c70]/50 bg-gradient-to-br from-[#167c70]/[0.08] via-white to-[#167c70]/[0.03] p-5 shadow-xs">
+                <div>
+                  <div className="flex items-center justify-between mb-3.5">
+                    <span className="inline-flex items-center gap-1 rounded-md bg-emerald-100 border border-emerald-300 px-2 py-0.5 text-[11px] font-bold text-emerald-800">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                      CYCLE COMPLETE
+                    </span>
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#0F2A26] text-[#7AE582]">
+                      <RefreshCw className="h-4 w-4 animate-[spin_10s_linear_infinite]" />
+                    </div>
+                  </div>
+
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#167c70]">
+                    Next Day Shift Ready
+                  </span>
+                  <h3 className="mt-1 text-sm font-bold text-[#0F2A26] leading-snug">
+                    Loops into Tomorrow's Shift
+                  </h3>
+                  <p className="mt-2 text-xs leading-relaxed text-zinc-600">
+                    Shift drawer figures lock, stock levels sync, and opening balances carry over cleanly into tomorrow's Step 2.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {data.steps.ctaText ? (
+              <div className="mt-10 text-center">
+                <Button asChild size="lg" className="rounded-full bg-[#0F2A26] hover:bg-[#167c70] text-white font-semibold px-8 shadow-sm h-12">
+                  <Link href={data.steps.ctaLink || "/contact/"}>
+                    {data.steps.ctaText}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            ) : null}
+          </Container>
+        </Section>
+      ) : null}
+
       {data.useCases?.cases.length ? (
         <Section data-reveal className="bg-[#0F2A26] text-white">
           <Container>
@@ -583,7 +692,7 @@ export default async function IndustrySubpage({ params }: Props) {
                 <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">{h2.useCases ?? data.useCases.heading}</h2>
                 <p className="mt-4 text-base leading-7 text-white/70">Start with the operating model closest to yours, then adjust the details during implementation.</p>
               </div>
-              <div className="grid gap-5 sm:grid-cols-3">
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {data.useCases.cases.map((item) => (
                   <article key={item.title} className="rounded-2xl border border-white/10 bg-white/[0.06] p-6">
                     <h3 className="text-xl font-bold text-white">{item.title}</h3>
@@ -622,61 +731,138 @@ export default async function IndustrySubpage({ params }: Props) {
         </Section>
       ) : null}
 
-      {data.whoCanBenefit?.items.length || data.benefits?.items.length ? (
+      {data.whoCanBenefit?.items.length || data.benefits?.items.length || data.checklist?.items.length ? (
         <Section data-reveal className="bg-[#F7F6F2] border-t border-[#E4E2DA]">
           <Container className="grid gap-6 lg:grid-cols-2">
-            {data.whoCanBenefit?.items.length ? (
-              <article className="lift rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-sm sm:p-9 flex flex-col justify-between">
-                <div>
-                  <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">Who it can support</span>
-                  <h2 className="mt-3 text-2xl font-bold text-[#0F2A26]">{h2.who ?? data.whoCanBenefit.heading}</h2>
-                  <p className="mt-3 text-sm text-zinc-600 leading-relaxed">
-                    {data.whoCanBenefit.description || `Designed for everyday ${data.name.toLowerCase()} operations across specialized and multi-location retail setups.`}
-                  </p>
-                  <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                    {data.whoCanBenefit.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2.5 text-sm font-medium leading-6 text-zinc-700">
-                        <Check className="mt-1 h-4 w-4 shrink-0 text-[#167c70]" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="mt-8 pt-5 border-t border-[#E4E2DA] flex items-center justify-between text-xs text-zinc-500">
-                  <span>Customizable catalogue & checkout</span>
-                  <Link href="/contact/" className="font-semibold text-[#167c70] hover:underline flex items-center gap-1">
-                    Ask about your store type <ArrowRight className="h-3 w-3" />
-                  </Link>
-                </div>
-              </article>
-            ) : null}
-            {data.benefits?.items.length ? (
-              <article className="lift rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-sm sm:p-9 flex flex-col justify-between">
-                <div>
-                  <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">Key Evaluation Pillars</span>
-                  <h2 className="mt-3 text-2xl font-bold text-[#0F2A26]">{h2.benefits ?? data.benefits.heading}</h2>
-                  <p className="mt-3 text-sm text-zinc-600 leading-relaxed">
-                    {data.benefits.description || `When comparing ${data.name.toLowerCase()} point of sale software for small businesses, look beyond the billing screen:`}
-                  </p>
-                  <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                    {data.benefits.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2.5 text-sm font-medium leading-6 text-zinc-700">
-                        <Check className="mt-1 h-4 w-4 shrink-0 text-[#167c70]" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="mt-8 pt-5 border-t border-[#E4E2DA] rounded-xl bg-[#FAF9F5] p-3 text-xs text-zinc-600 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                  <span>Confirm pricing, hardware specs and specialist features:</span>
-                  <div className="flex items-center gap-3 font-semibold text-[#167c70]">
-                    <Link href="/pricing/" className="hover:underline">Pricing</Link>
-                    <span>•</span>
-                    <Link href="/contact/" className="hover:underline">Request Demo</Link>
+            {data.checklist?.items.length ? (
+              <>
+                {data.benefits?.items.length ? (
+                  <article className="lift rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-sm sm:p-9 flex flex-col justify-between">
+                    <div>
+                      <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">Operational Value</span>
+                      <h2 className="mt-3 text-2xl font-bold text-[#0F2A26]">{h2.benefits ?? data.benefits.heading}</h2>
+                      <p className="mt-3 text-sm text-zinc-600 leading-relaxed">
+                        {data.benefits.description}
+                      </p>
+                      <ul className="mt-6 space-y-3">
+                        {data.benefits.items.map((item) => {
+                          const hasColon = item.includes(": ");
+                          const prefix = hasColon ? item.split(": ")[0] : "";
+                          const rest = hasColon ? item.slice(prefix.length + 2) : item;
+                          return (
+                            <li key={item} className="flex items-start gap-2.5 text-sm leading-6 text-zinc-700">
+                              <Check className="mt-1 h-4 w-4 shrink-0 text-[#167c70]" />
+                              <span>
+                                {hasColon ? <strong className="text-[#0F2A26] font-semibold">{prefix}: </strong> : null}
+                                {rest}
+                              </span>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                      {data.benefits.closingNote ? (
+                        <p className="mt-5 rounded-xl bg-[#FAF9F5] p-3.5 text-xs text-zinc-600 leading-relaxed border border-[#E4E2DA]">
+                          {data.benefits.closingNote}
+                        </p>
+                      ) : null}
+                    </div>
+                    <div className="mt-8 pt-5 border-t border-[#E4E2DA] flex items-center justify-between text-xs text-zinc-500">
+                      <span>Practical tools for everyday store workflows</span>
+                      <Link href="/contact/" className="font-semibold text-[#167c70] hover:underline flex items-center gap-1">
+                        Book a Demo <ArrowRight className="h-3 w-3" />
+                      </Link>
+                    </div>
+                  </article>
+                ) : null}
+
+                <article className="lift rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-sm sm:p-9 flex flex-col justify-between">
+                  <div>
+                    <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">Buyer&apos;s Checklist</span>
+                    <h2 className="mt-3 text-2xl font-bold text-[#0F2A26]">{data.checklist.heading}</h2>
+                    <p className="mt-3 text-sm text-zinc-600 leading-relaxed">
+                      {data.checklist.description || "Before selecting a POS system for your shop, consider these questions:"}
+                    </p>
+                    <ul className="mt-6 space-y-2.5">
+                      {data.checklist.items.map((question, idx) => (
+                        <li key={idx} className="flex items-start gap-2.5 text-sm leading-6 text-zinc-700">
+                          <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[#167c70]" />
+                          <span>{question}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    {data.checklist.note ? (
+                      <p className="mt-5 rounded-xl bg-emerald-50/60 p-3.5 text-xs text-emerald-900 leading-relaxed border border-emerald-200/60">
+                        <strong className="font-semibold">Free Trial Advisory: </strong>
+                        {data.checklist.note}
+                      </p>
+                    ) : null}
                   </div>
-                </div>
-              </article>
-            ) : null}
+                  <div className="mt-8 pt-5 border-t border-[#E4E2DA] rounded-xl bg-[#FAF9F5] p-3 text-xs text-zinc-600 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <span>Test your actual workflow with no commitment:</span>
+                    <div className="flex items-center gap-3 font-semibold text-[#167c70]">
+                      <Link href="https://app.hulmsolutions.com/Register" target="_blank" rel="noreferrer" className="hover:underline flex items-center gap-1">
+                        14-Day Free Trial <ExternalLink className="h-3 w-3" />
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              </>
+            ) : (
+              <>
+                {data.whoCanBenefit?.items.length ? (
+                  <article className="lift rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-sm sm:p-9 flex flex-col justify-between">
+                    <div>
+                      <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">Who it can support</span>
+                      <h2 className="mt-3 text-2xl font-bold text-[#0F2A26]">{h2.who ?? data.whoCanBenefit.heading}</h2>
+                      <p className="mt-3 text-sm text-zinc-600 leading-relaxed">
+                        {data.whoCanBenefit.description || `Designed for everyday ${data.name.toLowerCase()} operations across specialized and multi-location retail setups.`}
+                      </p>
+                      <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+                        {data.whoCanBenefit.items.map((item) => (
+                          <li key={item} className="flex items-start gap-2.5 text-sm font-medium leading-6 text-zinc-700">
+                            <Check className="mt-1 h-4 w-4 shrink-0 text-[#167c70]" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="mt-8 pt-5 border-t border-[#E4E2DA] flex items-center justify-between text-xs text-zinc-500">
+                      <span>Customizable catalogue & checkout</span>
+                      <Link href="/contact/" className="font-semibold text-[#167c70] hover:underline flex items-center gap-1">
+                        Ask about your store type <ArrowRight className="h-3 w-3" />
+                      </Link>
+                    </div>
+                  </article>
+                ) : null}
+                {data.benefits?.items.length ? (
+                  <article className="lift rounded-2xl border border-[#E4E2DA] bg-white p-7 shadow-sm sm:p-9 flex flex-col justify-between">
+                    <div>
+                      <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">Key Evaluation Pillars</span>
+                      <h2 className="mt-3 text-2xl font-bold text-[#0F2A26]">{h2.benefits ?? data.benefits.heading}</h2>
+                      <p className="mt-3 text-sm text-zinc-600 leading-relaxed">
+                        {data.benefits.description || `When comparing ${data.name.toLowerCase()} point of sale software for small businesses, look beyond the billing screen:`}
+                      </p>
+                      <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+                        {data.benefits.items.map((item) => (
+                          <li key={item} className="flex items-start gap-2.5 text-sm font-medium leading-6 text-zinc-700">
+                            <Check className="mt-1 h-4 w-4 shrink-0 text-[#167c70]" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="mt-8 pt-5 border-t border-[#E4E2DA] rounded-xl bg-[#FAF9F5] p-3 text-xs text-zinc-600 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                      <span>Confirm pricing, hardware specs and specialist features:</span>
+                      <div className="flex items-center gap-3 font-semibold text-[#167c70]">
+                        <Link href="/pricing/" className="hover:underline">Pricing</Link>
+                        <span>•</span>
+                        <Link href="/contact/" className="hover:underline">Request Demo</Link>
+                      </div>
+                    </div>
+                  </article>
+                ) : null}
+              </>
+            )}
           </Container>
         </Section>
       ) : null}
@@ -731,6 +917,11 @@ export default async function IndustrySubpage({ params }: Props) {
                 <Button asChild size="lg" className="rounded-full bg-[#7AE582] text-[#0F2A26] hover:bg-[#8ef095] font-semibold shadow-sm"><Link href={data.finalCta.primaryCtaLink} target={data.finalCta.primaryCtaLink.startsWith("http") ? "_blank" : undefined} rel={data.finalCta.primaryCtaLink.startsWith("http") ? "noreferrer" : undefined}>{data.finalCta.primaryCtaText}<ExternalLink className="ml-2 h-4 w-4" /></Link></Button>
                 <Button asChild size="lg" variant="outline" className="rounded-full border-white/35 bg-transparent text-white hover:bg-white/10 hover:text-white"><Link href={data.finalCta.secondaryCtaLink}>{data.finalCta.secondaryCtaText}<ArrowRight className="ml-2 h-4 w-4" /></Link></Button>
               </div>
+              {data.finalCta.contactText ? (
+                <p className="mx-auto mt-6 max-w-2xl text-xs sm:text-sm text-white/60 leading-relaxed border-t border-white/10 pt-5">
+                  {data.finalCta.contactText}
+                </p>
+              ) : null}
             </div>
           </div>
         </Container>

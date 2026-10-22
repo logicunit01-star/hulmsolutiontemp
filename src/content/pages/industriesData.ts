@@ -12,12 +12,21 @@ export interface ProblemSolution {
   solutionTitle: string;
   image?: string;
   imageAlt?: string;
+  ctaText?: string;
+  ctaLink?: string;
 }
 
 export interface FeatureItem {
   title: string;
   description: string;
+  subtitle?: string;
+  bullets?: string[];
+  howItHelps?: string;
   badge?: string;
+  image?: string;
+  imageAlt?: string;
+  visualCaption?: string;
+  note?: string;
 }
 
 export interface StatItem {
@@ -44,11 +53,18 @@ export interface LifecycleStage {
   iconName?: string;
 }
 
+export interface StepItem {
+  step: string;
+  title: string;
+  description: string;
+}
+
 export interface IndustryData {
   slug: string;
   name: string;
   category: "Retail & Boutiques" | "Food & Beverage" | "Specialty & Luxury" | "Healthcare & Services";
   image: string;
+  video?: string;
   cardTitle: string;
   cardDesc: string;
   metaTitle: string;
@@ -62,6 +78,7 @@ export interface IndustryData {
     secondaryCtaText: string;
     secondaryCtaLink: string;
     pills?: Array<{ label: string; icon?: string }>;
+    subtext?: string;
   };
   overview?: {
     heading: string;
@@ -71,11 +88,21 @@ export interface IndustryData {
   };
   problems?: {
     heading: string;
+    description?: string;
     items: ProblemSolution[];
   };
   features?: {
     heading: string;
+    description?: string;
+    introTitle?: string;
     items: FeatureItem[];
+  };
+  steps?: {
+    heading: string;
+    description?: string;
+    items: StepItem[];
+    ctaText?: string;
+    ctaLink?: string;
   };
   whoCanBenefit?: {
     heading: string;
@@ -86,6 +113,13 @@ export interface IndustryData {
     heading: string;
     description?: string;
     items: string[];
+    closingNote?: string;
+  };
+  checklist?: {
+    heading: string;
+    description?: string;
+    items: string[];
+    note?: string;
   };
   useCases?: {
     heading: string;
@@ -109,6 +143,7 @@ export interface IndustryData {
     primaryCtaLink: string;
     secondaryCtaText: string;
     secondaryCtaLink: string;
+    contactText?: string;
   };
 }
 

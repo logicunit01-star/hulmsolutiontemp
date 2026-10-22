@@ -27,36 +27,64 @@ const fbrLink = { label: "FBR integrated POS", href: "/fbr-integrated-pos-pakist
 
 export const industrySeo: Record<string, IndustrySeo> = {
   "retail-store": {
-    primaryKeyword: "retail POS software",
+    primaryKeyword: "Retail POS Software",
     schemaName: "Hulm Retail POS",
-    h1: "Retail POS Software to Solve Your Shop's Billing and Stock Problems",
+    h1: "Retail POS Software For Shops to Solve Your Shop's Billing and Stock Problems",
     intro:
-      "Tired of billing mistakes, missing stock, and wasting time searching for products or old receipts? HulmPOS retail POS software brings billing, inventory, purchasing, customer records, and branch management into one easy-to-use system.\n\nWhether you run a kiryana store, grocery shop, cosmetics shop, or retail outlet in Pakistan, HulmPOS helps you speed up sales, track stock, and manage your business with confidence.",
+      "Running a retail shop shouldn’t mean struggling with billing, stock, and daily sales. HulmPOS is easy-to-use POS software for retail shops that helps you manage products, track sales, and keep stock organized in one place. Spend less time on manual records and more time growing your business.",
     h2: {
-      overview: "A practical retail workflow from receiving to checkout",
-      problems: "Common Retail Shop Problems—and How HulmPOS Helps",
-      features: "What You Get with HulmPOS Retail POS",
-      who: "Retail stores this POS system supports",
-      benefits: "Why Consider HulmPOS for Your Retail Store?",
+      overview: "How to Use HulmPOS in Your Daily Retail Operations",
+      problems: "Does This Happen in Your Shop?",
+      features: "10 HulmPOS Features to Help You Manage Your Retail Business",
+      who: "What Types of Retail Shops Can Use HulmPOS?",
+      benefits: "Why Consider HulmPOS for Your Retail Shop?",
       fbr: "Connect retail invoicing with an FBR-ready rollout",
     },
-    faqHeading: "Frequently Asked Questions",
+    faqHeading: "Frequently Asked Questions About Retail POS Software",
     faqs: [
       {
         q: "What is retail POS software?",
-        a: "Retail POS software helps shops record sales, process customer billing, manage product information and monitor inventory through a point of sale system.",
+        a: "Retail POS software helps a shop process customer sales and manage related business records. Depending on the system, it may include product search, barcode scanning, sales history, inventory tracking, customer management and staff access controls.",
       },
       {
-        q: "Is HulmPOS suitable for a small retail shop?",
-        a: "HulmPOS offers core retail features such as product search, billing, stock monitoring, sales history and staff permissions. Compare these capabilities with your shop's requirements before choosing a plan.",
+        q: "Which retail shops can use HulmPOS?",
+        a: "HulmPOS can be considered by kiryana stores, grocery shops, mini-marts, supermarkets and specialty retailers that need the supported billing, inventory and record-management features. Check your specific requirements before choosing the system.",
       },
       {
-        q: "Can HulmPOS alert me when stock is low?",
-        a: "Yes. HulmPOS supports low-stock, critical-stock and out-of-stock alerts.",
+        q: "Does HulmPOS support barcode billing?",
+        a: "HulmPOS supports barcode scanning and searching for products by barcode or name. Confirm that your barcode scanner and product setup are compatible with your intended workflow.",
       },
       {
-        q: "What should I check when choosing the best retail POS system?",
-        a: "Compare billing, stock management, transaction history, hardware compatibility, staff permissions, pricing and any additional features you require.",
+        q: "Can I track stock using HulmPOS?",
+        a: "Yes. HulmPOS supports stock quantity updates, inventory history, inventory value and alerts for low-stock, critical-stock and out-of-stock products.",
+      },
+      {
+        q: "Can I find an old sale or reprint a receipt?",
+        a: "Yes. You can search sales history by order ID, review available transaction details and reprint receipts.",
+      },
+      {
+        q: "What happens when I process a return?",
+        a: "HulmPOS supports sales returns, and returned items are automatically added back to inventory.",
+      },
+      {
+        q: "Can I transfer my products from another POS system to HulmPOS?",
+        a: "HulmPOS supports product data import and export, along with category and customer data import/export. Transfer depends on the records available from your current system and the file format supported by HulmPOS. Review the import templates and confirm compatibility before migrating.",
+      },
+      {
+        q: "Can I give different permissions to my staff?",
+        a: "HulmPOS supports cashier, manager and administrator roles, with access to supported features and functions based on assigned permissions.",
+      },
+      {
+        q: "Which hardware works with HulmPOS?",
+        a: "HulmPOS supports compatible receipt printers, barcode scanners, cash drawers and label printers. Compatibility depends on the device model and configuration, so confirm your hardware before purchasing it.",
+      },
+      {
+        q: "Can HulmPOS help me check cash differences at closing?",
+        a: "HulmPOS supports opening and closing shifts and recording cash amounts. You can check differences between recorded figures and the cash counted, then investigate discrepancies using the available records.",
+      },
+      {
+        q: "How can I try HulmPOS for my retail shop?",
+        a: "You can start the 14-day free trial or book a demo to explore the software and assess whether it fits your shop's workflow.",
       },
     ],
     blog: { label: "Cloud POS software for retail stores", href: "/blog/cloud-pos-software-for-retail-stores/" },

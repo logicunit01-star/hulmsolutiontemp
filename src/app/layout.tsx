@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Schibsted_Grotesk } from "next/font/google";
 import "./globals.css";
 import { RevealObserver } from "@/components/motion/reveal-observer";
@@ -26,6 +26,13 @@ const schibsted = Schibsted_Grotesk({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://hulmsolutions.com";
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-TMMQ565S";
 const hubspotPortalId = process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID || process.env.HUBSPOT_PORTAL_ID;
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#0F2A26",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -93,7 +100,6 @@ const organizationSchema = {
   description:
     "Hulm Solutions builds Hulm POS, cloud-based POS and business management software with FBR integration in Pakistan and ZATCA / UAE e-invoicing readiness for Gulf businesses.",
   knowsAbout: ["POS software", "FBR integrated POS", "ZATCA e-invoicing", "Inventory management", "Restaurant POS", "Retail POS"],
-  email: contactInfo.email,
   telephone: contactInfo.phoneDisplay,
   address: {
     "@type": "PostalAddress",
@@ -103,7 +109,7 @@ const organizationSchema = {
     addressCountry: contactInfo.address.addressCountry,
   },
   contactPoint: [
-    { "@type": "ContactPoint", contactType: "sales", telephone: contactInfo.phoneDisplay, email: contactInfo.email, areaServed: ["PK", "SA", "AE", "QA", "US"], availableLanguage: ["en"] },
+    { "@type": "ContactPoint", contactType: "sales", telephone: contactInfo.phoneDisplay, url: `${siteUrl}/contact/`, areaServed: ["PK", "SA", "AE", "QA", "US"], availableLanguage: ["en"] },
   ],
   sameAs: [
     "https://www.linkedin.com/company/hulm-solutions/",

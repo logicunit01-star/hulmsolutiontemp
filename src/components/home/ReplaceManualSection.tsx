@@ -44,7 +44,7 @@ function InfographicGraphic() {
       {/* Transparent Infographic Image */}
       <div className="relative w-full">
         <Image
-          src="/images/home/replace-manual-processes.png"
+          src="/images/home/replace-manual-processes.webp"
           alt="Replace manual cash register, Excel sheets, WhatsApp groups and paper notebooks with Hulm POS Software"
           width={1024}
           height={1536}

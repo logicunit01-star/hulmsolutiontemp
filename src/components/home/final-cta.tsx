@@ -29,11 +29,7 @@ export function FinalCta({
     <Section data-reveal className="py-20 lg:py-28 relative overflow-hidden bg-[#0F2A26]">
       {/* Subtle Background POS Equipment Pattern */}
       <div
-        className="absolute inset-0 opacity-[0.08] pointer-events-none bg-repeat bg-center"
-        style={{
-          backgroundImage: "url('/images/home/cta-bg-pattern.webp')",
-          backgroundSize: "600px",
-        }}
+        className="absolute inset-0 opacity-[0.08] pointer-events-none bg-repeat bg-center bg-[url('/images/home/cta-bg-pattern.webp')] bg-[length:600px]"
       />
 
       {/* Ambient Radial Lighting Glows */}

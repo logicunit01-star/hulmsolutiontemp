@@ -1,9 +1,11 @@
 import Link from "next/link"
 import { LogoLockup } from "@/components/layout/logo"
-import { ArrowRight, ArrowUpRight, Mail } from "lucide-react"
+import { ArrowRight, ArrowUpRight, Mail, MapPin, Phone } from "lucide-react"
 import { WhatsAppIcon } from "@/components/ui/whatsapp-icon"
 import { Container } from "@/components/ui/container"
 import { REGIONAL_LOCATIONS } from "@/lib/countries/data"
+import { contactInfo } from "@/lib/contact-info"
+import { EmailPrivacyLink } from "@/components/ui/email-privacy-link"
 
 const productLinks = [
   { title: "Product overview", href: "/apps/" },
@@ -99,15 +101,20 @@ export function Footer() {
               Cloud Point of Sale for growing businesses that need faster sales, accurate stock and clearer control across every location.
             </p>
 
-            <div className="mt-5 flex flex-col gap-2 text-sm">
-              <a href="https://wa.me/923391119259" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-slate-300 transition-colors hover:text-[#7ae582]">
+            <div className="mt-5 flex flex-col gap-2.5 text-sm not-italic">
+              <div className="flex items-start gap-2 text-slate-300">
+                <MapPin className="mt-1 h-4 w-4 shrink-0 text-[#25a18e]" aria-hidden="true" />
+                <span>{contactInfo.address.display}</span>
+              </div>
+              <a href={`tel:${contactInfo.phoneE164}`} className="inline-flex items-center gap-2 text-slate-300 transition-colors hover:text-[#7ae582]">
+                <Phone className="h-4 w-4 text-[#25a18e]" aria-hidden="true" />
+                {contactInfo.phoneDisplay}
+              </a>
+              <a href={`https://wa.me/${contactInfo.whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-slate-300 transition-colors hover:text-[#7ae582]">
                 <WhatsAppIcon size={16} className="h-4 w-4" aria-hidden="true" />
-                +92 339 111 9259
+                WhatsApp: {contactInfo.phoneDisplay}
               </a>
-              <a href="mailto:info@hulmsolutions.com" className="inline-flex items-center gap-2 text-slate-300 transition-colors hover:text-[#7ae582]">
-                <Mail className="h-4 w-4 text-[#25a18e]" aria-hidden="true" />
-                info@hulmsolutions.com
-              </a>
+              <EmailPrivacyLink />
             </div>
           </div>
 

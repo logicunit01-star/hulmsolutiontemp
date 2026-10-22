@@ -48,11 +48,9 @@ function MobileNavItem({ item, pathname, onClick }: { item: NavItem, pathname: s
             aria-label={`${isOpen ? "Hide" : "Show"} ${item.title} links`}
             aria-expanded={isOpen}
             aria-controls={submenuId}
-            style={{ backgroundColor: "transparent", color: "#71717a" }}
           >
             <ChevronDown
-              className={cn("h-4 w-4 transition-transform", isOpen && "rotate-180")}
-              style={{ width: 16, minWidth: 16, height: 16, color: "#71717a" }}
+              className={cn("h-4 w-4 text-zinc-500 transition-transform", isOpen && "rotate-180")}
             />
           </button>
         </div>
@@ -219,9 +217,8 @@ export function MobileNav() {
         aria-label="Open menu"
         aria-expanded={isOpen}
         aria-controls="mobile-navigation-drawer"
-        style={{ backgroundColor: "#fff", color: "#3f3f46" }}
       >
-        <Menu className="h-5 w-5" style={{ width: 20, minWidth: 20, height: 20, color: "#3f3f46" }} />
+        <Menu className="h-5 w-5 text-zinc-700" />
       </button>
 
       {isOpen && (

@@ -334,8 +334,7 @@ export function GoogleReviewsSection({
               {reviews.map((rev) => (
                 <div
                   key={rev.id}
-                  className="shrink-0 px-2 sm:px-2.5"
-                  style={{ width: `${100 / cardsPerPage}%` }}
+                  className="shrink-0 px-2 sm:px-2.5 w-full md:w-1/2"
                 >
                   <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-gray-200/80 hover:border-[#25a18e]/40 shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_24px_rgba(37,161,142,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full min-h-[220px]">
                     

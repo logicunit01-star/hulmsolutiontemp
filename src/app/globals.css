@@ -918,7 +918,7 @@
 }
 
 /* The mobile sticky CTA bar includes WhatsApp, so hide the floating button while it shows. */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
   html[data-sticky-cta="on"] .wa-float {
     opacity: 0;
     pointer-events: none;

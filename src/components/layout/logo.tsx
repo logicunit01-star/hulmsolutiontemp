@@ -1,28 +1,31 @@
 import React from "react"
 import Link from "next/link"
 
+const dimensionsByHeight: Record<number, { container: string; text: string; width: number }> = {
+  40: { container: "w-[126px] h-[40px]", text: "left-[30px] top-[31px] text-[9px]", width: 126 },
+  44: { container: "w-[138px] h-[44px]", text: "left-[33px] top-[34px] text-[9.5px]", width: 138 },
+  50: { container: "w-[157px] h-[50px]", text: "left-[38px] top-[38px] text-[10px]", width: 157 },
+}
+
 /**
  * Hulm lockup: the original vector mark + "Hulm" wordmark, with the tagline
  * "Making Every Sale Seamless" set as real text under the wordmark so it stays sharp and
- * readable at header size (the tagline baked into the old PNG was ~8px and blurry).
- * Geometry follows the original 214x68 artwork: the wordmark starts at x=50 and ends near y=48.
+ * readable across header, drawer, and footer.
  */
 export function LogoLockup({ height = 44, tone = "light" }: { height?: number; tone?: "light" | "dark" }) {
-  const scale = height / 68
-  const width = Math.round(214 * scale)
+  const dim = dimensionsByHeight[height] || dimensionsByHeight[44]
   return (
-    <span className="relative block shrink-0" style={{ width, height }}>
+    <span className={`relative block shrink-0 ${dim.container}`}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/images/logo/hulm-logo.svg" alt="" aria-hidden="true" width={width} height={height} className="block h-full w-auto" />
+      <img
+        src="/images/logo/hulm-logo.svg"
+        alt="Hulm POS - Making Every Sale Seamless"
+        width={dim.width}
+        height={height}
+        className="block h-full w-auto"
+      />
       <span
-        className={`absolute whitespace-nowrap font-semibold leading-none ${tone === "dark" ? "text-[#7AE582]" : "text-[#167C70]"}`}
-        style={{
-          left: Math.round(51 * scale),
-          top: Math.round(52 * scale),
-          fontSize: Math.max(9.5, Math.round(13.4 * scale * 10) / 10),
-          letterSpacing: "0.005em",
-          fontFamily: "var(--font-sans)",
-        }}
+        className={`absolute whitespace-nowrap font-semibold leading-none font-sans tracking-[0.005em] ${dim.text} ${tone === "dark" ? "text-[#7AE582]" : "text-[#167C70]"}`}
       >
         Making Every Sale Seamless
       </span>

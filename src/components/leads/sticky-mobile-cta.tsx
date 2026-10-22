@@ -12,11 +12,12 @@ import { contactInfo, whatsappUrl } from "@/lib/contact-info";
  */
 export function StickyMobileCta() {
   const pathname = usePathname() || "/";
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   useEffect(() => {
     const onScroll = () => {
+      const pastHero = window.scrollY > 480;
       const nearBottom = window.innerHeight + window.scrollY > document.body.scrollHeight - 700;
-      setShow(!nearBottom);
+      setShow(pastHero && !nearBottom);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -32,7 +33,7 @@ export function StickyMobileCta() {
   return (
     <div
       aria-hidden={!show}
-      className={`fixed inset-x-0 bottom-0 z-40 border-t border-[#E4E2DA] bg-white/95 px-4 py-3 backdrop-blur transition-transform duration-300 lg:hidden ${show ? "translate-y-0" : "translate-y-full"}`}
+      className={`fixed inset-x-0 bottom-0 z-40 border-t border-[#E4E2DA] bg-white/95 px-4 py-3 backdrop-blur transition-transform duration-300 md:hidden ${show ? "translate-y-0" : "translate-y-full"}`}
     >
       <div className="flex items-center gap-2">
         <a

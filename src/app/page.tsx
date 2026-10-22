@@ -34,6 +34,7 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { homeContent } from "@content/pages/home";
+import { contactInfo } from "@/lib/contact-info";
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://hulmsolutions.com").replace(/\/$/, "");
 
@@ -100,6 +101,46 @@ const pageSchema = {
       operatingSystem: "Web",
       publisher: { "@id": `${siteUrl}/#organization` },
       offers: { "@type": "Offer", url: `${siteUrl}/pricing/`, priceCurrency: "PKR", price: "2500", availability: "https://schema.org/InStock" },
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": `${siteUrl}/#localbusiness`,
+      name: "Hulm Solutions",
+      alternateName: "Hulm POS",
+      url: `${siteUrl}/`,
+      logo: `${siteUrl}/images/logo/hulm-logo.svg`,
+      image: `${siteUrl}/images/home/dashboard/hulm-pos-terminal.webp`,
+      description: homeContent.hero.description,
+      telephone: contactInfo.phoneE164,
+      priceRange: "PKR 2,500 - PKR 15,000",
+      currenciesAccepted: "PKR",
+      paymentAccepted: "Cash, Credit Card, Bank Transfer",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: contactInfo.address.streetAddress,
+        addressLocality: contactInfo.address.addressLocality,
+        addressRegion: contactInfo.address.addressRegion,
+        postalCode: "75290",
+        addressCountry: contactInfo.address.addressCountry,
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 24.918,
+        longitude: 67.135,
+      },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          opens: "09:00",
+          closes: "19:00",
+        },
+      ],
+      sameAs: [
+        "https://www.linkedin.com/company/hulm-solutions/",
+        "https://www.instagram.com/hulmsolutions",
+        "https://www.youtube.com/@Hulmsolutions",
+      ],
     },
   ],
 };

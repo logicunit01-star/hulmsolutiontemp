@@ -138,8 +138,7 @@ export function DashboardCarousel({ screens, slides }: DashboardCarouselProps) {
                     unoptimized
                     priority={idx === 0}
                     loading={idx === 0 ? "eager" : "lazy"}
-                    className="h-auto w-full object-contain select-none"
-                    style={{ imageRendering: "-webkit-optimize-contrast" }}
+                    className="h-auto w-full object-contain select-none [image-rendering:-webkit-optimize-contrast]"
                     draggable={false}
                   />
                 </div>

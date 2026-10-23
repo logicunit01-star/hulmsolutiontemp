@@ -17,6 +17,8 @@ export type IndustrySeo = {
   h1: string;
   intro?: string;
   h2?: Partial<Record<"overview" | "problems" | "features" | "useCases" | "fbr" | "who" | "benefits" | "legacy0" | "legacy1" | "legacy2", string>>;
+  screensHeading?: string;
+  screensDescription?: string;
   faqHeading: string;
   faqs: FaqDetailsItem[];
   blog?: { label: string; href: string };
@@ -29,13 +31,16 @@ export const industrySeo: Record<string, IndustrySeo> = {
   "retail-store": {
     primaryKeyword: "Retail POS Software",
     schemaName: "Hulm Retail POS",
-    h1: "Retail POS Software For Shops to Solve Your Shop's Billing and Stock Problems",
+    h1: "Retail POS Software in Pakistan to Solve Your Shop Billing and Stock Problems",
+    screensHeading: "Meet HulmPOS: A Practical POS System for Retail Shops",
+    screensDescription:
+      "HulmPOS brings essential retail tasks into one system. You can handle daily activities without relying entirely on scattered paperwork or spreadsheets. Instead of choosing software based only on a long feature list, see how it supports the work you actually do in your shop.",
     intro:
       "Running a retail shop shouldn’t mean struggling with billing, stock, and daily sales. HulmPOS is easy-to-use POS software for retail shops that helps you manage products, track sales, and keep stock organized in one place. Spend less time on manual records and more time growing your business.",
     h2: {
       overview: "How to Use HulmPOS in Your Daily Retail Operations",
       problems: "Does This Happen in Your Shop?",
-      features: "10 HulmPOS Features to Help You Manage Your Retail Business",
+      features: "HulmPOS Features to Help You Manage Your Retail Business",
       who: "What Types of Retail Shops Can Use HulmPOS?",
       benefits: "Why Consider HulmPOS for Your Retail Shop?",
       fbr: "Connect retail invoicing with an FBR-ready rollout",

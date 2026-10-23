@@ -44,7 +44,7 @@ export default function AboutPage() {
               <span>About Hulm Solutions</span>
             </div>
 
-            <h1 className="text-3xl font-bold leading-[1.12] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px]">
+            <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px]">
               Empowering businesses with seamless POS &{" "}
               <span className="mark-lime">better operations</span>
             </h1>

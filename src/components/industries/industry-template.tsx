@@ -36,7 +36,7 @@ export function IndustryTemplate({ industrySlug }: IndustryTemplateProps) {
               )}
               
               <div className="space-y-4">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#0F2A26] tracking-tight leading-tight">
+                <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px]">
                   {hero.headline}
                 </h1>
                 <p className="text-base sm:text-lg text-zinc-600 leading-relaxed max-w-lg">

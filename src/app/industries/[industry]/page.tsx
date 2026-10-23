@@ -17,6 +17,7 @@ import {
   FileSpreadsheet,
   LayoutDashboard,
   Lightbulb,
+  Play,
   Printer,
   Receipt,
   RefreshCw,
@@ -228,7 +229,7 @@ export default async function IndustrySubpage({ params }: Props) {
                 <Sparkles className="h-3.5 w-3.5 text-[#167c70]" />
                 <span>{data.hero.badge}</span>
               </div>
-              <h1 className="mt-6 max-w-4xl text-4xl font-bold leading-[1.08] tracking-[-0.035em] text-[#0F2A26] sm:text-5xl lg:text-[3.7rem]">{seo?.h1 ?? data.hero.headline}</h1>
+              <h1 className="mt-6 max-w-4xl text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px]">{seo?.h1 ?? data.hero.headline}</h1>
               <div className="mt-6 max-w-2xl space-y-3.5 text-base sm:text-lg leading-relaxed text-zinc-600">
                 {(seo?.intro ?? data.hero.description).split("\n\n").map((para, i) => (
                   <p key={i}>{para}</p>
@@ -374,30 +375,49 @@ export default async function IndustrySubpage({ params }: Props) {
         </Section>
       ) : null}
 
-      {data.slug === "restaurant-pos" ? (
-        <ProductScreens
-          screens={screensFor(route)}
-          heading={`What the ${seo?.primaryKeyword ?? `${data.name} POS system`} looks like in Hulm`}
-          description="Real screens from Hulm POS. Your setup is configured around your products, branches and team."
-          topic={`${data.name} POS`}
-        />
-      ) : (
-        <Section data-reveal className="border-y border-[#E4E2DA] bg-[#FAF9F5] py-14 sm:py-18 lg:py-20">
-          <Container>
-            <div className="mx-auto mb-8 sm:mb-10 max-w-3xl text-center">
-              <h2 className="text-2xl font-bold tracking-tight text-[#0F2A26] sm:text-3xl lg:text-[34px] lg:leading-[1.22] text-balance">
-                What the {seo?.primaryKeyword ?? `${data.name} POS system`} looks like in Hulm
-              </h2>
-              <p className="mt-4 text-base leading-7 text-zinc-600 sm:text-lg">
-                Real screens from Hulm POS. Your setup is configured around your products, branches and team.
-              </p>
-            </div>
-            <div className="mt-8 sm:mt-10">
-              <DashboardCarousel screens={homeContent.product.screens} />
-            </div>
-          </Container>
-        </Section>
-      )}
+      {(() => {
+        const screensHeading =
+          data.screensSection?.heading ??
+          seo?.screensHeading ??
+          `What the ${seo?.primaryKeyword ?? `${data.name} POS system`} looks like in Hulm`;
+        const screensDescription =
+          data.screensSection?.description ??
+          seo?.screensDescription ??
+          "Real screens from Hulm POS. Your setup is configured around your products, branches and team.";
+
+        return data.slug === "restaurant-pos" ? (
+          <ProductScreens
+            screens={screensFor(route)}
+            heading={screensHeading}
+            description={screensDescription}
+            topic={`${data.name} POS`}
+          />
+        ) : (
+          <Section data-reveal className="border-y border-[#E4E2DA] bg-[#FAF9F5] py-14 sm:py-18 lg:py-20">
+            <Container>
+              <div className="mx-auto mb-8 sm:mb-10 max-w-3xl text-center">
+                <h2 className="text-2xl font-bold tracking-tight text-[#0F2A26] sm:text-3xl lg:text-[34px] lg:leading-[1.22] text-balance">
+                  {screensHeading}
+                </h2>
+                {screensDescription.includes("\n\n") ? (
+                  <div className="mt-4 space-y-3 text-base leading-7 text-zinc-600 sm:text-lg">
+                    {screensDescription.split("\n\n").map((para, i) => (
+                      <p key={i}>{para}</p>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="mt-4 text-base leading-7 text-zinc-600 sm:text-lg">
+                    {screensDescription}
+                  </p>
+                )}
+              </div>
+              <div className="mt-8 sm:mt-10">
+                <DashboardCarousel screens={homeContent.product.screens} />
+              </div>
+            </Container>
+          </Section>
+        );
+      })()}
 
       {data.features?.items.length ? (
         <Section data-reveal id="features" className="bg-white py-14 sm:py-18">
@@ -868,6 +888,55 @@ export default async function IndustrySubpage({ params }: Props) {
       ) : null}
 
       <CaseStudyCard route={route} />
+
+      {data.demoVideo ? (
+        <Section data-reveal id="demo" className="border-t border-[#E4E2DA] bg-[#FAF9F5] py-14 sm:py-18 lg:py-20">
+          <Container>
+            <div className="mx-auto mb-8 sm:mb-10 max-w-3xl text-center">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/[0.06] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#167c70]">
+                <Play className="h-3 w-3 fill-[#167c70]" />
+                <span>{data.demoVideo.eyebrow || "Video Walkthrough"}</span>
+              </span>
+              <h2 className="mt-3 text-2xl font-bold tracking-tight text-[#0F2A26] sm:text-3xl lg:text-[34px] lg:leading-[1.22] text-balance">
+                {data.demoVideo.heading || "Watch a demo"}
+              </h2>
+              {data.demoVideo.description ? (
+                <p className="mt-3 text-base leading-7 text-zinc-600 sm:text-lg max-w-2xl mx-auto">
+                  {data.demoVideo.description}
+                </p>
+              ) : null}
+            </div>
+
+            <div className="mx-auto max-w-4xl">
+              <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-[#E4E2DA] bg-black shadow-[0_20px_50px_-15px_rgba(15,42,38,0.2)]">
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${data.demoVideo.youtubeId || "NNwtC-uayeY"}?rel=0`}
+                  title={`${data.demoVideo.heading || "Watch a demo"} - HulmPOS`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full border-0"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-3">
+              <Button asChild size="lg" className="rounded-full bg-[#0F2A26] hover:bg-[#167c70] text-white shadow-sm px-7 h-12 text-sm font-semibold">
+                <Link href={data.hero.primaryCtaLink} target={data.hero.primaryCtaLink.startsWith("http") ? "_blank" : undefined} rel={data.hero.primaryCtaLink.startsWith("http") ? "noreferrer" : undefined}>
+                  {data.hero.primaryCtaText}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="rounded-full border-[#E4E2DA] hover:bg-[#F7F6F2] h-12 px-6 text-sm font-semibold">
+                <Link href={data.hero.secondaryCtaLink}>
+                  {data.hero.secondaryCtaText}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </Container>
+        </Section>
+      ) : null}
 
       {faqItems.length ? (
         <Section data-reveal className="border-t border-[#E4E2DA]">

@@ -65,7 +65,7 @@ export default function IndustriesPage() {
                 <Sparkles className="h-3.5 w-3.5 text-[#167c70]" />
                 <span>{industriesContent.hero.eyebrow}</span>
               </div>
-              <h1 className="mt-6 max-w-3xl text-4xl font-bold leading-[1.08] tracking-[-0.035em] text-[#0F2A26] sm:text-5xl lg:text-[3.8rem]">
+              <h1 className="mt-6 max-w-3xl text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px]">
                 {industriesContent.hero.headline}
               </h1>
               <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-zinc-600">{industriesContent.hero.description}</p>

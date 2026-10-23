@@ -98,7 +98,7 @@ export default function PricingPage() {
             <Sparkles className="h-3.5 w-3.5 text-[#25A18E]" />
             <span>{pricingContent.hero.eyebrow}</span>
           </div>
-          <h1 className="mx-auto mt-6 max-w-4xl text-3xl font-bold leading-[1.12] tracking-[-0.035em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px]">
+          <h1 className="mx-auto mt-6 max-w-4xl text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px]">
             Simple, transparent pricing for{" "}
             <span className="mark-lime">every business</span>
           </h1>

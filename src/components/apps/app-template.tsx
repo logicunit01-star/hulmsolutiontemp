@@ -85,7 +85,7 @@ export function AppTemplate({ appSlug }: AppTemplateProps) {
                 <span>{hero.badge || `${data.name} Module`}</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] font-bold tracking-[-0.03em] text-[#0F2A26] mb-5 leading-[1.15]">
+              <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px] mb-5">
                 {hero.headline}
               </h1>
 

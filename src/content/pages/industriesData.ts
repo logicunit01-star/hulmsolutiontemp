@@ -80,6 +80,17 @@ export interface IndustryData {
     pills?: Array<{ label: string; icon?: string }>;
     subtext?: string;
   };
+  screensSection?: {
+    heading?: string;
+    description?: string;
+  };
+  demoVideo?: {
+    eyebrow?: string;
+    heading: string;
+    description?: string;
+    youtubeUrl: string;
+    youtubeId?: string;
+  };
   overview?: {
     heading: string;
     description: string;

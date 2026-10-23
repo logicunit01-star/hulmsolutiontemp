@@ -122,7 +122,7 @@ export default function PosHardwarePage() {
             <Sparkles className="h-3.5 w-3.5 text-[#167c70]" />
             <span>Works with standard hardware</span>
           </div>
-          <h1 className="mx-auto max-w-4xl text-4xl font-bold leading-[1.08] tracking-[-0.035em] text-[#0F2A26] sm:text-5xl lg:text-[3.6rem]">
+          <h1 className="mx-auto max-w-4xl text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px]">
             POS hardware that works with Hulm POS
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-zinc-600">

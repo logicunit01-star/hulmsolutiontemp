@@ -56,7 +56,7 @@ export default async function AuthorPage({ params }: AuthorProps) {
                 <div className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3.5 py-1 text-xs font-semibold text-[#167c70] tracking-wide mb-4">
                   Author Profile
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-[#0F2A26] mb-2">{PRIMARY_AUTHOR.name}</h1>
+                <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px] mb-2">{PRIMARY_AUTHOR.name}</h1>
                 <p className="text-base font-semibold text-[#167c70] mb-6">
                   {PRIMARY_AUTHOR.jobTitle}, {PRIMARY_AUTHOR.worksFor} · {PRIMARY_AUTHOR.location}
                 </p>
@@ -102,7 +102,7 @@ export default async function AuthorPage({ params }: AuthorProps) {
                 <div className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3.5 py-1 text-xs font-semibold text-[#167c70] tracking-wide mb-4">
                   Editorial Team
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-[#0F2A26] mb-4">
+                <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px] mb-4">
                   {authorName}
                 </h1>
                 <p className="text-lg text-zinc-600 leading-relaxed">

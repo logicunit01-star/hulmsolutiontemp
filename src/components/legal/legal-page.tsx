@@ -38,7 +38,7 @@ export function LegalPage({
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3.5 py-1 text-xs font-semibold text-[#167c70] tracking-wide">
             {eyebrow}
           </div>
-          <h1 className="text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl lg:text-5xl">
+          <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px]">
             {title}
           </h1>
           <p className="mt-3 text-sm font-medium text-zinc-500">Effective date: {effectiveDate}</p>

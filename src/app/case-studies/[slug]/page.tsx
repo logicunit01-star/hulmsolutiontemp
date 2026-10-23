@@ -116,7 +116,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-[-0.03em] text-[#0F2A26] mb-4 leading-tight">
+            <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px] mb-4">
               {h1}
             </h1>
             <p className="text-base sm:text-lg text-zinc-600 font-normal leading-relaxed">

@@ -29,7 +29,7 @@ export default function InsightsPage() {
               <Sparkles className="w-3.5 h-3.5 text-[#167c70]" />
               <span>Knowledge Hub</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0F2A26] mb-4 tracking-[-0.03em] leading-tight">
+            <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px] mb-4">
               Insights &amp; Resources
             </h1>
             <p className="text-base sm:text-lg text-zinc-600 max-w-2xl mx-auto leading-relaxed font-normal">

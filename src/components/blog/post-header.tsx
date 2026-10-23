@@ -28,7 +28,7 @@ export function PostHeader({ post }: PostHeaderProps) {
             ← Back to Blog
           </Link>
           
-          <h1 className="text-3xl md:text-5xl font-semibold text-[#0F2A26] leading-tight tracking-tight">
+          <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px]">
             {post.title}
           </h1>
           

@@ -40,7 +40,7 @@ function Content() {
     <section className="mx-auto flex min-h-[65vh] max-w-3xl flex-col items-center justify-center px-6 py-20 text-center">
       <CheckCircle2 className="h-12 w-12 text-[#167c70]" aria-hidden="true" />
       <p className="mt-4 text-sm font-semibold text-[#167c70]">{c.eyebrow}</p>
-      <h1 className="mt-4 text-4xl font-bold tracking-tight text-[#0F2A26] sm:text-5xl">{c.heading}</h1>
+      <h1 className="mt-4 text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px]">{c.heading}</h1>
       <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-600">{c.body}</p>
       <div className="mt-8 flex flex-wrap justify-center gap-3">
         {contactInfo.bookingUrl && type === "demo" ? (

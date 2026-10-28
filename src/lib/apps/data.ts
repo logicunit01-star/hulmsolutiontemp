@@ -395,7 +395,7 @@ export const appsData: Record<string, AppDetailData> = {
     hero: {
       badge: "PAKISTAN'S ONLY CATTLE SUITE",
       headline: "Best Cattle Management Software to Simplify Your Farm Operations",
-      subheadline: "Move past manual ledgers and WhatsApp groups. Hulm is the only cattle management software in Pakistan specifically engineered for livestock traders and dairy farmers, unifying animal profiles, feed inventory, and FBR-compliant billing in one place.",
+      subheadline: "Move past manual ledgers and WhatsApp groups. Hulm is the only cattle management software in Pakistan specifically engineered for livestock traders and dairy farmers, unifying animal profiles, feed inventory, and FBR-integrated billing in one place.",
       primaryCtaText: "Start 14-Day Free Trial",
       primaryCtaLink: "https://app.hulmsolutions.com/Register",
       secondaryCtaText: "Contact Us",
@@ -459,7 +459,7 @@ export const appsData: Record<string, AppDetailData> = {
           icon: Package
         },
         {
-          title: "FBR-Compliant B2B Invoicing",
+          title: "FBR-Integrated B2B Invoicing",
           description: "Generate compliant invoices with QR codes for high-value herd sales, institutional buyers, and slaughterhouses.",
           icon: FileText
         },
@@ -476,7 +476,7 @@ export const appsData: Record<string, AppDetailData> = {
       points: [
         "Generate exact, professional invoices for high-value B2B herd sales.",
         "Keep perfect digital records of every transaction for accounting and tax purposes.",
-        "Auto-generate FBR-compliant QR receipts when legally required.",
+        "Auto-generate FBR-integrated QR receipts when legally required.",
         "Track individual animal profit margins down to the last rupee of feed.",
         "Prevent feed pilferage with digital stock reconciliation."
       ]

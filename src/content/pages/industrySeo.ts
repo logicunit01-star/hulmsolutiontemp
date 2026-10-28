@@ -43,7 +43,7 @@ export const industrySeo: Record<string, IndustrySeo> = {
       features: "HulmPOS Features to Help You Manage Your Retail Business",
       who: "What Types of Retail Shops Can Use HulmPOS?",
       benefits: "Why Consider HulmPOS for Your Retail Shop?",
-      fbr: "Connect retail invoicing with an FBR-ready rollout",
+      fbr: "Connect retail invoicing with an FBR-integrated rollout",
     },
     faqHeading: "Frequently Asked Questions About Retail POS Software",
     faqs: [
@@ -109,7 +109,7 @@ export const industrySeo: Record<string, IndustrySeo> = {
     faqs: [
       {
         q: "What is the best restaurant POS system in Pakistan?",
-        a: "The best restaurant POS handles dine-in, takeaway and delivery orders, kitchen tickets, menu stock and FBR-compliant invoices. Hulm restaurant point of sale software does this in one cloud system with fast setup.",
+        a: "The best restaurant POS handles dine-in, takeaway and delivery orders, kitchen tickets, menu stock and FBR-integrated invoices. Hulm restaurant point of sale software does this in one cloud system with fast setup.",
       },
       {
         q: "How much does a restaurant POS system cost in Pakistan?",
@@ -356,7 +356,7 @@ export const industrySeo: Record<string, IndustrySeo> = {
       features: "Electrical Store POS Features for Daily Operations",
       who: "Who Is HulmPOS Suitable For?",
       benefits: "Why Consider HulmPOS for Your Electrical Store?",
-      fbr: "Connect electrical store invoicing with an FBR-ready rollout",
+      fbr: "Connect electrical store invoicing with an FBR-integrated rollout",
     },
     faqHeading: "Frequently Asked Questions",
     faqs: [
@@ -390,7 +390,7 @@ export const industrySeo: Record<string, IndustrySeo> = {
       features: "Furniture Store POS Features for Daily Operations",
       who: "Who Is HulmPOS Suitable For?",
       benefits: "Why Consider HulmPOS for Your Furniture Store?",
-      fbr: "Connect furniture showroom invoicing with an FBR-ready rollout",
+      fbr: "Connect furniture showroom invoicing with an FBR-integrated rollout",
     },
     faqHeading: "Frequently Asked Questions",
     faqs: [

@@ -17,7 +17,7 @@ import { homeContent } from "@content/pages/home";
 const problemMeta = [
   {
     icon: ReceiptText,
-    solutionTag: "Fast Billing & FBR Ready",
+    solutionTag: "Fast Billing & FBR integration",
     benefit: "Eliminates counter bottlenecks & manual calculation errors",
   },
   {
@@ -50,7 +50,7 @@ function InfographicGraphic() {
           height={1536}
           priority={false}
           className="h-auto w-full object-contain mx-auto drop-shadow-[0_15px_40px_rgba(15,42,38,0.08)] transition-transform duration-500 hover:scale-[1.01]"
-          sizes="(min-width: 1024px) 42vw, 100vw"
+          sizes="(min-width: 1024px) 42vw, (min-width: 640px) 448px, calc(100vw - 32px)"
         />
       </div>
     </div>

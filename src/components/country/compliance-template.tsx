@@ -295,7 +295,7 @@ export function ComplianceTemplate({ complianceKey }: ComplianceTemplateProps) {
       </Section>
 
       {/* 6. FINAL CTA */}
-      <FinalCta points={complianceKey === "zatca" ? ["Full access to all 10+ business modules", "ZATCA compliant POS setup support", "Onboarding support on WhatsApp and phone"] : ["Full access to all 10+ business modules", "FBR compliant POS invoicing available in Pakistan", "Onboarding support on WhatsApp and phone"]} />
+      <FinalCta points={complianceKey === "zatca" ? ["Full access to all 10+ business modules", "ZATCA compliant POS setup support", "Onboarding support on WhatsApp and phone"] : ["Full access to all 10+ business modules", "FBR-integrated POS invoicing available in Pakistan", "Onboarding support on WhatsApp and phone"]} />
     </div>
   );
 }

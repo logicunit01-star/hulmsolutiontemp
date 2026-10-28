@@ -27,7 +27,7 @@ export function ClientLogos({
                 height={logo.height}
                 sizes="120px"
                 loading="lazy"
-                className="h-auto max-h-12 w-auto max-w-[120px] object-contain opacity-75 grayscale transition hover:opacity-100 hover:grayscale-0"
+                className="h-auto max-h-12 w-auto max-w-[120px] object-contain transition duration-200 hover:scale-105"
               />
             </li>
           ))}

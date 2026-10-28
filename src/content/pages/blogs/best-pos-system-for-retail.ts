@@ -74,7 +74,7 @@ export const bestPosRetailBlog = {
   ],
 
   top10Table: [
-    { name: "HULM POS", bestFor: "Small–large retailers, Pakistan & Gulf", price: "Free Demo or Custom Pricing", strengths: "Affordable, cloud-based, FBR/ZATCA compliance, multi-store, local support" },
+    { name: "HULM POS", bestFor: "Small–large retailers, Pakistan & Gulf", price: "Free Demo or Custom Pricing", strengths: "Affordable, cloud-based, FBR/ZATCA invoicing support, multi-store, local support" },
     { name: "Square POS", bestFor: "Small businesses, US market", price: "Free Plan Available", strengths: "Simple setup, mobile-friendly" },
     { name: "Shopify POS", bestFor: "Retail + eCommerce", price: "$89/month", strengths: "Seamless integration with online stores" },
     { name: "Lightspeed POS", bestFor: "Multi-location Stores", price: "$69/month", strengths: "Advanced inventory and reporting" },
@@ -132,11 +132,11 @@ export const bestPosRetailBlog = {
     },
     {
       q: "9. Does HULM POS support Pakistan’s FBR invoicing requirement?",
-      a: "Yes. HULM POS has native FBR-integrated invoicing, making it compliant out of the box for Pakistani retailers — most global POS providers do not offer this."
+      a: "Yes. Hulm POS adds the FBR invoice number and QR code for eligible businesses. Our team confirms the setup with you."
     },
     {
       q: "10. How much does a retail POS system cost?",
-      a: "Pricing ranges from free (basic plans) to $89+/month for advanced retail-specific platforms. HULM POS offers custom pricing based on store size, request a free demo for an exact quote."
+      a: "Pricing ranges from free (basic plans) to $89+/month for advanced retail-specific platforms. HULM POS plans start at PKR 2,500/month (Starter), PKR 5,500 (Growth) and PKR 11,000 (Business)."
     }
   ],
 

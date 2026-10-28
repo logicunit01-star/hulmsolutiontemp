@@ -45,7 +45,7 @@ export const appsData: AppData[] = [
   {
     title: "Cattle Management",
     href: "/cattle-management-software",
-    description: "Digital animal profiles, feed inventory, and FBR-compliant billing explicitly engineered for dairy farmers and livestock traders.",
+    description: "Digital animal profiles, feed inventory, and FBR-integrated billing explicitly engineered for dairy farmers and livestock traders.",
     iconName: "Tractor"
   },
   {

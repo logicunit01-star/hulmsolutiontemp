@@ -37,7 +37,7 @@ const keyPoints = [
   "Advanced Security",
   "Comprehensive Features",
   "Cloud Accessibility",
-  "FBR-Compliant Invoicing",
+  "FBR-Integrated Invoicing",
   "Real-Time Insights",
   "Barcode Scanners",
   "Compatible with all Devices",
@@ -62,7 +62,7 @@ export function WhyChooseSection() {
               Why Choose Hulm POS System?
             </h2>
             <p className="text-sm sm:text-base text-zinc-600 leading-relaxed font-normal mb-5">
-              Hulm Solutions POS makes your business operations easy, efficient, and reliable at very competitive prices. As the <strong className="font-bold text-[#0F2A26]">Best POS Software In Pakistan</strong>, it offers simple yet powerful features and robust cloud architecture that adjust to every unique need of retail stores, restaurants, and growing businesses across Pakistan.
+              Hulm Solutions POS makes your business operations easy, efficient, and reliable at very competitive prices. Hulm POS offers simple yet powerful features and robust cloud architecture that adjust to every unique need of retail stores, restaurants, and growing businesses across Pakistan.
             </p>
 
             {/* Key Points For Choosing Hulm POS */}
@@ -91,7 +91,7 @@ export function WhyChooseSection() {
               <div className="relative overflow-hidden rounded-2xl border border-emerald-900/10 bg-white p-2 sm:p-3 shadow-[0_20px_50px_-15px_rgba(15,42,38,0.08)]">
                 <Image
                   src="/images/home/why-choose-hulm-pos.png"
-                  alt="Why Choose Hulm POS System - FBR compliant, cloud and offline, multi-location, barcode ready, real-time reports, 24/7 setup support"
+                  alt="Why choose Hulm POS: cloud-based, multi-location, barcode ready, real-time reports, setup support"
                   width={1224}
                   height={1285}
                   className="w-full h-auto object-contain rounded-xl mx-auto transition-transform duration-500 hover:scale-[1.01]"

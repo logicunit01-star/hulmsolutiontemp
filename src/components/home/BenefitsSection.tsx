@@ -121,7 +121,7 @@ export function BenefitsSection() {
                     <Check className="h-3 w-3 stroke-[3]" aria-hidden="true" />
                   </div>
                   <p className="text-xs sm:text-[13px] leading-snug text-zinc-700">
-                    <strong className="font-semibold text-[#0F2A26]">{item.bold}</strong>
+                    {item.bold}
                     {item.rest}
                   </p>
                 </div>
@@ -131,7 +131,7 @@ export function BenefitsSection() {
             {/* Bottom Action Strip */}
             <div className="mt-6 sm:mt-7 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 border-t border-zinc-100 pt-5">
               <a
-                href="https://dashboard.hulmsolutions.com/signup"
+                href="https://app.hulmsolutions.com/Register"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-track-location="benefits_section"

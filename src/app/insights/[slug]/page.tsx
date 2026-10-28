@@ -65,7 +65,7 @@ export default async function SingleInsightPage({ params }: Props) {
   const { published: publishedTime, modified: modifiedTime, reviewed: reviewedTime } = blogDates(slug, post);
   const fmtDate = (iso?: string) =>
     iso ? new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "Asia/Karachi" }) : "";
-  const dateStr = modifiedTime && modifiedTime !== publishedTime
+  const dateStr = modifiedTime
     ? `Updated ${fmtDate(modifiedTime)}`
     : fmtDate(publishedTime) || post.date || metaItem?.date || "";
   const hasToc = post.tocItems && post.tocItems.length > 0;

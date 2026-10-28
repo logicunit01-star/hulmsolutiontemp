@@ -44,13 +44,13 @@ export const homeContent = {
   },
   problems: {
     eyebrow: "One source of truth",
-    heading: "Replace Excel, WhatsApp and paper with Best POS Software in Pakistan",
+    heading: "Replace Excel, WhatsApp and paper notebooks with one cloud POS",
     description:
       "Hulm brings the information your team needs into one place, so every sale updates stock, customers and reports across the business.",
     items: [
       {
         title: "Slow, error-prone checkout",
-        description: "Give staff a clear sales flow and keep every transaction and FBR-compliant invoice recorded in one system.",
+        description: "Give staff a clear sales flow and keep every transaction and FBR-integrated invoice recorded in one system.",
       },
       {
         title: "Stock you cannot trust",
@@ -64,7 +64,7 @@ export const homeContent = {
   },
   outcomes: {
     eyebrow: "From counter to control room",
-    heading: "All-in-one Best POS software in Pakistan for sales, inventory and reporting",
+    heading: "All-in-one POS software for sales, inventory and reporting",
     description:
       "Start with the Point of Sale billing your team uses every day, then add inventory management, purchasing and reporting as your business grows.",
     items: [
@@ -110,9 +110,9 @@ export const homeContent = {
   },
   compliance: {
     eyebrow: "FBR integration support",
-    heading: "FBR-integrated POS with compliant invoicing at checkout",
+    heading: "FBR-integrated POS: invoice number and QR code at checkout",
     description:
-      "For businesses looking for the Best POS Software In Pakistan with FBR integration, Hulm supports the setup and connects eligible transactions to the invoicing workflow, so every sale can carry an FBR invoice number and QR code. Requirements vary by business, so our team confirms the right setup with you.",
+      "For businesses that need FBR integration, Hulm supports the setup and connects eligible transactions to the invoicing workflow, so every sale can carry an FBR invoice number and QR code. Requirements vary by business, so our team confirms the right setup with you.",
     bullets: [
       "Guidance during FBR setup",
       "Invoice and QR-code workflow support",
@@ -148,7 +148,7 @@ export const homeContent = {
     eyebrow: "See Hulm in action",
     heading: "An easy-to-use cloud POS dashboard",
     description:
-      "Give your team focused screens for selling, managing products and serving customers with the Best POS Software In Pakistan, while owners keep the wider view of every branch.",
+      "Give your team focused screens for selling, managing products and serving customers with Hulm POS, while owners keep the wider view of every branch.",
     screens: [
       {
         title: "Point of Sale & cashier checkout",
@@ -227,7 +227,7 @@ export const homeContent = {
   },
   faq: {
     eyebrow: "What to know before you start",
-    heading: "Best POS software in Pakistan: frequently asked questions",
+    heading: "POS software in Pakistan: frequently asked questions",
     items: [
       {
         q: "What is the best POS software in Pakistan?",
@@ -249,7 +249,7 @@ export const homeContent = {
       },
       {
         q: "Does Hulm support FBR integration?",
-        a: "Yes. Hulm supports FBR integration for eligible businesses in Pakistan and helps you set up FBR-compliant invoices with QR codes.",
+        a: "Yes. Hulm supports FBR integration for eligible businesses in Pakistan and helps you set up FBR-integrated invoices with QR codes.",
         link: { label: "FBR integrated Software", href: "/fbr-integrated-pos-pakistan/" },
       },
       {

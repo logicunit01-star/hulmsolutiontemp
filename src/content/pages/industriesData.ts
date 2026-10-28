@@ -216,7 +216,7 @@ export const industriesData: Record<string, IndustryData> = {
     },
     "fbr": {
       "heading": "FBR Integration Built-In",
-      "description": "Hulm supports FBR compliance and helps businesses register and generate compliant invoices with official digital verification.",
+      "description": "Hulm supports FBR integration and helps businesses register and generate integrated invoices with official digital verification.",
       "points": [
         {
           "title": "Correct tax applied across every product bracket",
@@ -300,7 +300,7 @@ export const industriesData: Record<string, IndustryData> = {
     },
     "overview": {
       "heading": "Powerful POS Dashboard with Easy to Use Interface",
-      "description": "Designed specifically for restaurants, cafes, and food chains in Pakistan. Take dine-in orders, process takeaways, manage deliveries, route tickets to kitchen printers, and stay FBR-compliant — all from one fast screen.",
+      "description": "Designed specifically for restaurants, cafes, and food chains in Pakistan. Take dine-in orders, process takeaways, manage deliveries, route tickets to kitchen printers, and stay FBR-integrated — all from one fast screen.",
       "points": [
         "Interactive visual table floor plans with live seating statuses",
         "Direct kitchen ticket (KOT) routing to grill, fryer, and beverage stations",
@@ -371,11 +371,11 @@ export const industriesData: Record<string, IndustryData> = {
     "cardTitle": "POS For Pharmacies",
     "cardDesc": "Discover how POS systems can help pharmacies manage prescriptions, customer data, and billing more efficiently.",
     "metaTitle": "Pharmacy Point of Sale (POS) Systems | Hulm Solutions",
-    "metaDescription": "Hulm is built for the precision a medical store demands. Automate batch tracking, expiry date alerts, generic salt substitutions, and FBR-compliant billing.",
+    "metaDescription": "Hulm is built for the precision a medical store demands. Automate batch tracking, expiry date alerts, generic salt substitutions, and FBR-integrated billing.",
     "hero": {
       "badge": "Healthcare & Pharmacy POS",
       "headline": "Pharmacy Point of Sale (POS) Systems",
-      "description": "Hulm is built for the precision a medical store demands. Automate batch tracking, expiry date alerts, generic salt substitutions, and FBR-compliant billing.",
+      "description": "Hulm is built for the precision a medical store demands. Automate batch tracking, expiry date alerts, generic salt substitutions, and FBR-integrated billing.",
       "primaryCtaText": "Start Free 14-Day Trial",
       "primaryCtaLink": "https://app.hulmsolutions.com/Register",
       "secondaryCtaText": "Contact Us",
@@ -530,7 +530,7 @@ export const industriesData: Record<string, IndustryData> = {
         },
         {
           "value": "100%",
-          "label": "Tax & FBR Compliant"
+          "label": "Tax & FBR Integration"
         },
         {
           "value": "+10",
@@ -587,7 +587,7 @@ export const industriesData: Record<string, IndustryData> = {
         "Multi-piece furniture set tracking and showroom-to-warehouse stock sync",
         "Custom woodwork orders, advance customer deposits, and milestone billing",
         "Scheduled delivery routing with dispatch manifests and driver assignment",
-        "FBR-compliant invoicing with automated provincial tax calculations"
+        "FBR-integrated invoicing with automated provincial tax calculations"
       ]
     },
     "features": {
@@ -734,7 +734,7 @@ export const industriesData: Record<string, IndustryData> = {
         },
         {
           "value": "100%",
-          "label": "FBR Tax Compliant"
+          "label": "FBR Tax Integration"
         },
         {
           "value": "+10",
@@ -944,7 +944,7 @@ export const industriesData: Record<string, IndustryData> = {
         },
         {
           "value": "100%",
-          "label": "FBR Tax Compliant"
+          "label": "FBR Tax Integration"
         },
         {
           "value": "+10",
@@ -1070,7 +1070,7 @@ export const industriesData: Record<string, IndustryData> = {
         },
         {
           "value": "100%",
-          "label": "FBR Tax Compliant"
+          "label": "FBR Tax Integration"
         },
         {
           "value": "+10",
@@ -1188,7 +1188,7 @@ export const industriesData: Record<string, IndustryData> = {
         },
         {
           "value": "100%",
-          "label": "FBR Tax Compliant"
+          "label": "FBR Tax Integration"
         },
         {
           "value": "+10",
@@ -1202,8 +1202,8 @@ export const industriesData: Record<string, IndustryData> = {
         "answer": "A system designed specifically for baked goods businesses. It handles recipe costing, production batches, shelf life, and sales, all in one place."
       },
       {
-        "question": "Is Hulm Bakery POS FBR compliant?",
-        "answer": "Yes, every invoice it generates meets FBR standards, and all sales and ingredient batches can be tracked for audit."
+        "question": "Is Hulm Bakery POS FBR-integrated?",
+        "answer": "Yes, every invoice it generates supports FBR integration requirements, and all sales and ingredient batches can be tracked for audit."
       },
       {
         "question": "Can it help reduce spoilage and waste?",
@@ -1285,7 +1285,7 @@ export const industriesData: Record<string, IndustryData> = {
         },
         {
           "title": "Security and Compliance",
-          "description": "Role-based cashier permissions, vault audit logs, and digital FBR-compliant invoicing for gold transactions."
+          "description": "Role-based cashier permissions, vault audit logs, and digital FBR-integrated invoicing for gold transactions."
         },
         {
           "title": "Dynamic Rate Calculations",
@@ -1446,7 +1446,7 @@ export const industriesData: Record<string, IndustryData> = {
         },
         {
           "value": "100%",
-          "label": "FBR Tax Compliant"
+          "label": "FBR Tax Integration"
         },
         {
           "value": "+10",

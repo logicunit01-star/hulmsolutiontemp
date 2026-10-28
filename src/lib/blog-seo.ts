@@ -48,7 +48,7 @@ const later = (a?: string, b?: string) => (!a ? b : !b ? a : new Date(a) >= new 
 export function blogDates(slug: string, post?: { publishedTime?: string; modifiedTime?: string }) {
   const live = liveArticleDates(`/blog/${slug}/`);
   const published = post?.publishedTime || live.published;
-  const modified = later(later(post?.modifiedTime, live.modified), BLOG_CONTENT_UPDATED[slug]) || published;
+  const modified = BLOG_CONTENT_UPDATED[slug] || post?.modifiedTime || live.modified || published;
   const reviewed = BLOG_LAST_REVIEWED[slug] || BLOG_LAST_REVIEWED_DEFAULT;
   return { published, modified, reviewed };
 }

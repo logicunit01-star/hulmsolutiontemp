@@ -114,7 +114,7 @@ export const caseStudiesData: CaseStudy[] = [
       },
       {
         question: "How does the automated FBR integration work?",
-        answer: "Hulm supports FBR compliance and helps businesses generate compliant invoices automatically. Once your business is registered with FBR (a process Hulm guides you through for free), every sale you process generates an FBR-compliant invoice with a QR code and records the transaction. You do not need to file invoices manually for day-to-day transactions."
+        answer: "Hulm supports FBR integration and helps businesses generate integrated invoices automatically. Once your business is registered with FBR (a process Hulm guides you through for free), every sale you process generates an FBR-compliant invoice with a QR code and records the transaction. You do not need to file invoices manually for day-to-day transactions."
       }
     ]
   },

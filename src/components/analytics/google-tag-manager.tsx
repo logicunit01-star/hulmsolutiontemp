@@ -4,52 +4,66 @@ import { useEffect } from "react";
 
 declare global {
   interface Window {
-    $: JQueryStatic;
-    jQuery: JQueryStatic;
     dataLayer: Array<Record<string, unknown>>;
   }
 }
 
 /**
- * Loads jQuery (some GTM tags may rely on `$`) and then the GTM container, once the page has
- * finished loading and the main thread is idle, so neither competes with the first render.
- * The dataLayer exists from the start, so events pushed earlier are still sent once GTM loads.
- * If no tag in the container uses jQuery, drop the import and load GTM directly.
+ * Loads the GTM container on first user interaction or when the browser is idle,
+ * preventing 300+ KiB of third-party JavaScript from competing with initial paint
+ * and blocking the main thread during LCP/FCP.
+ * The dataLayer exists from the start, so events pushed earlier are queued and
+ * processed once GTM loads.
  */
 export function GoogleTagManager({ id }: { id: string }) {
   useEffect(() => {
-    let disposed = false;
-    let script: HTMLScriptElement | undefined;
+    if (!id) return;
+    let loaded = false;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+
     window.dataLayer = window.dataLayer || [];
     const startedAt = Date.now();
 
-    const load = () => {
-      void import("jquery").then(({ default: jQuery }) => {
-        if (disposed) return;
-        window.$ = jQuery;
-        window.jQuery = jQuery;
-        window.dataLayer.push({ "gtm.start": startedAt, event: "gtm.js" });
+    const loadGTM = () => {
+      if (loaded) return;
+      loaded = true;
 
-        script = document.createElement("script");
-        script.id = "google-tag-manager";
-        script.async = true;
-        script.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(id)}`;
-        document.head.appendChild(script);
+      // Clean up event listeners and fallback timer
+      INTERACTION_EVENTS.forEach((e) => {
+        window.removeEventListener(e, loadGTM);
       });
+      if (timer) clearTimeout(timer);
+
+      window.dataLayer.push({ "gtm.start": startedAt, event: "gtm.js" });
+
+      const script = document.createElement("script");
+      script.id = "google-tag-manager";
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(id)}`;
+      document.head.appendChild(script);
     };
 
-    const whenIdle = () => {
-      if ("requestIdleCallback" in window) window.requestIdleCallback(load, { timeout: 2000 });
-      else setTimeout(load, 1);
-    };
+    const INTERACTION_EVENTS = ["scroll", "pointermove", "touchstart", "click", "keydown"] as const;
 
-    if (document.readyState === "complete") whenIdle();
-    else window.addEventListener("load", whenIdle, { once: true });
+    // Load immediately upon any user engagement
+    INTERACTION_EVENTS.forEach((e) => {
+      window.addEventListener(e, loadGTM, { passive: true, once: true });
+    });
+
+    // Fallback: load after delay or idle if no interaction occurs (ensures tracking works for passive viewers)
+    timer = setTimeout(() => {
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(loadGTM, { timeout: 1500 });
+      } else {
+        loadGTM();
+      }
+    }, 3500);
 
     return () => {
-      disposed = true;
-      window.removeEventListener("load", whenIdle);
-      script?.remove();
+      INTERACTION_EVENTS.forEach((e) => {
+        window.removeEventListener(e, loadGTM);
+      });
+      if (timer) clearTimeout(timer);
     };
   }, [id]);
 

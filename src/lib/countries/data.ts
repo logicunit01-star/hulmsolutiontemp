@@ -878,11 +878,11 @@ export const COMPLIANCE_DATA = {
       "pillarsHeading": "FBR POS integration in Pakistan: what the setup supports",
       "pillarsIntro": "Hulm's FBR integrated POS software connects eligible sales to the FBR workflow, so each receipt can carry an FBR invoice number and QR code. The final setup depends on your registration, credentials and validation before activation.",
       "stepsHeading": "How FBR POS invoicing works in four steps",
-      "stepsIntro": "Get FBR-compliant invoicing running without disrupting daily sales at the counter.",
+      "stepsIntro": "Get FBR-integrated invoicing running without disrupting daily sales at the counter.",
       "faqHeading": "FBR POS integration FAQs",
       "audience": {
         "heading": "Who should integrate FBR POS",
-        "text": "Tier-1 retailers and other businesses notified by FBR, from retail stores and restaurants to pharmacies, bakeries and ecommerce sellers, can run FBR-compliant invoices from the same POS system they use for sales and inventory.",
+        "text": "Tier-1 retailers and other businesses notified by FBR, from retail stores and restaurants to pharmacies, bakeries and ecommerce sellers, can run FBR-integrated invoices from the same POS system they use for sales and inventory.",
         "links": [
           { "label": "Retail store POS", "href": "/industries/retail-store/" },
           { "label": "Restaurant POS", "href": "/industries/restaurant-pos/" },

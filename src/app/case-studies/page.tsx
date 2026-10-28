@@ -53,7 +53,7 @@ export default function CaseStudiesPage() {
             POS case studies: real results from Hulm customers
           </h1>
           <p className="text-base sm:text-lg text-zinc-600 font-normal leading-relaxed max-w-2xl mx-auto">
-            Read real POS case studies from businesses using Hulm POS, from FBR-compliant retail and computer stores to medical equipment distribution, bakeries and event caterers.
+            Read real POS case studies from businesses using Hulm POS, from FBR-integrated retail and computer stores to medical equipment distribution, bakeries and event caterers.
           </p>
         </div>
       </section>

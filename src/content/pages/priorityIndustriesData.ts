@@ -361,7 +361,7 @@ export const priorityIndustriesData: Record<string, IndustryData> = {
       note: "HulmPOS offers a 14-day free trial, giving you an opportunity to explore the system. Test your actual workflow and confirm any specific requirements before committing.",
     },
     fbr: {
-      heading: "Connect retail invoicing with an FBR-ready rollout",
+      heading: "Connect retail invoicing with an FBR-integrated rollout",
       description: "FBR integration is available for eligible Pakistan deployments. Confirm plan inclusion, registration requirements and implementation scope with Hulm.",
       points: [
         { title: "Connected invoice flow", description: "Keep the configured FBR invoice process close to the retail transaction." },
@@ -510,12 +510,12 @@ export const priorityIndustriesData: Record<string, IndustryData> = {
         "Track inventory quantities across display shelves and backroom storage",
         "Maintain supplier purchase records to compare vendor prices over time",
         "Retrieve past transaction receipts quickly for warranty and service claims",
-        "Generate FBR-ready tax invoices with QR codes for Pakistan compliance",
+        "Generate FBR-integrated tax invoices with QR codes for Pakistan compliance",
         "Reconcile daily cash register shifts and monitor high-demand inventory",
       ],
     },
     fbr: {
-      heading: "Connect electrical store invoicing with an FBR-ready rollout",
+      heading: "Connect electrical store invoicing with an FBR-integrated rollout",
       description: "If you need FBR or provincial tax-invoice support, confirm eligibility and exact integration scope with Hulm based on your registration and location. Do not assume one integration covers every federal or provincial requirement.",
       points: [
         { title: "Connected invoice flow", description: "Keep the configured FBR invoice process close to the electrical counter sale." },
@@ -656,7 +656,7 @@ export const priorityIndustriesData: Record<string, IndustryData> = {
         "Keep critical baking ingredients like flour, dairy and sugar replenished",
         "Eliminate missed or incorrect custom cake designs and collection dates",
         "Support electronic weighing scales for bulk pastries and confectionery",
-        "Issue compliant FBR tax receipts with verified QR codes across Pakistan",
+        "Issue integrated FBR tax receipts with verified QR codes across Pakistan",
         "Control recipe costs, track wastage and optimize production planning",
       ],
     },
@@ -802,7 +802,7 @@ export const priorityIndustriesData: Record<string, IndustryData> = {
         "Prevent drink mistakes between the cashier and barista prep station",
         "Monitor costly coffee bean, milk and packaging inventory in real time",
         "Route drink tickets cleanly to thermal station printers or kitchen screens",
-        "Print FBR-compliant receipts with fiscal QR codes across Pakistan",
+        "Print FBR-integrated receipts with fiscal QR codes across Pakistan",
         "Reward loyal customers and track revenue trends across busy morning hours",
       ],
     },
@@ -917,7 +917,7 @@ export const priorityIndustriesData: Record<string, IndustryData> = {
         { title: "Customer records and loyalty", description: "Maintain shopper contact records and reward frequent repeat buyers." },
         { title: "Multi-branch reporting", description: "Check variant stock in other branches and track inter-store stock transfers." },
         { title: "Staff permissions", description: "Control cashier, supervisor and administrator permissions for discounts and voids." },
-        { title: "FBR invoices", description: "Issue FBR-compliant receipts with fiscal QR codes and automated sales tax." },
+        { title: "FBR invoices", description: "Issue FBR-integrated receipts with fiscal QR codes and automated sales tax." },
       ],
     },
     useCases: {
@@ -949,7 +949,7 @@ export const priorityIndustriesData: Record<string, IndustryData> = {
         "Print barcode price tags and hangtags directly from the POS system",
         "Manage customer returns and size exchanges in one connected step",
         "View stock across all retail outlets and transfer garments between branches",
-        "Generate FBR-compliant receipts with verified fiscal QR codes in Pakistan",
+        "Generate FBR-integrated receipts with verified fiscal QR codes in Pakistan",
         "Identify top-moving designs and discount slow-moving sizes before season end",
       ],
     },
@@ -1095,12 +1095,12 @@ export const priorityIndustriesData: Record<string, IndustryData> = {
         "Manage custom furniture orders, fabric choices and milestone customer deposits",
         "Coordinate delivery schedules, customer addresses and driver dispatches",
         "Maintain structured product specifications, wood finishes and bundle pricing",
-        "Issue FBR-compliant invoices with verified fiscal QR codes across Pakistan",
+        "Issue FBR-integrated invoices with verified fiscal QR codes across Pakistan",
         "Monitor multi-branch showrooms and remote warehouses from a single dashboard",
       ],
     },
     fbr: {
-      heading: "Connect furniture showroom invoicing with an FBR-ready rollout",
+      heading: "Connect furniture showroom invoicing with an FBR-integrated rollout",
       description: "If you need FBR or provincial tax-invoice support, confirm eligibility and exact integration scope with Hulm based on your registration and location. Do not assume one integration covers every federal or provincial requirement.",
       points: [
         { title: "Connected invoice flow", description: "Keep the configured FBR invoice process close to showroom transactions." },
@@ -1446,7 +1446,7 @@ export const priorityIndustriesData: Record<string, IndustryData> = {
         "Track professional back-bar and retail product inventory",
         "Reconcile cash and digital payments at every shift closing",
         "Review daily sales revenue and staff service performance",
-        "Issue tax-compliant FBR receipts for registered salon businesses",
+        "Issue tax-integrated FBR receipts for registered salon businesses",
       ],
     },
     fbr: {
@@ -1738,7 +1738,7 @@ export const priorityIndustriesData: Record<string, IndustryData> = {
         "Set consistent promotional discounts and bundle deals",
         "Maintain customer details for repeat visits and birthday gifting",
         "Monitor stock levels and transfers across multiple shop locations",
-        "Integrate with FBR-compliant invoicing for tax-registered stores",
+        "Integrate with FBR-integrated invoicing for tax-registered stores",
       ],
     },
     fbr: {
@@ -1884,7 +1884,7 @@ export const priorityIndustriesData: Record<string, IndustryData> = {
         "Monitor stock quantities across warehouse and depot locations",
         "Track customer purchase records and distributor credit balances",
         "Clear assessment of POS scope versus complete manufacturing ERP",
-        "FBR-ready sales invoice generation for registered production units",
+        "FBR-integrated sales invoice generation for registered production units",
       ],
     },
     fbr: {

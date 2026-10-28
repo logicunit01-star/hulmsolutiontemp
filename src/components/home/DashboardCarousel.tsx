@@ -135,9 +135,8 @@ export function DashboardCarousel({ screens, slides }: DashboardCarouselProps) {
                     alt={`Hulm POS screen: ${screen.title}`}
                     width={1024}
                     height={495}
-                    unoptimized
-                    priority={idx === 0}
-                    loading={idx === 0 ? "eager" : "lazy"}
+                    loading="lazy"
+                    sizes="(min-width: 1024px) 896px, 100vw"
                     className="h-auto w-full object-contain select-none [image-rendering:-webkit-optimize-contrast]"
                     draggable={false}
                   />

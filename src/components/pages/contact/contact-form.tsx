@@ -89,16 +89,6 @@ export function ContactForm({ contact }: ContactFormProps) {
                 );
               })}
             </div>
-            <div>
-              <a
-                href={whatsappUrl("Hi Hulm, I have a question about Hulm POS.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#167c70] px-5 py-3 text-sm font-semibold text-white hover:bg-[#125f57] shadow-xs transition-colors"
-              >
-                <WhatsAppIcon size={18} className="h-4 w-4" /> Chat on WhatsApp
-              </a>
-            </div>
             <p className="text-xs sm:text-sm text-zinc-500">
               New to Hulm? Read <Link href="/about/" className="font-semibold text-[#167c70] underline underline-offset-2">about Hulm Solutions</Link> or see{" "}
               <Link href="/pos-case-studies/" className="font-semibold text-[#167c70] underline underline-offset-2">customer stories</Link>.

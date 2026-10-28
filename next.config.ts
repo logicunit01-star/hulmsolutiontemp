@@ -98,9 +98,12 @@ const nextConfig: NextConfig = {
       { source: '/comments/feed', destination: '/feed/', permanent: true },
       { source: '/blog/:slug/feed', destination: '/blog/:slug/', permanent: true },
       { source: '/blog/:slug/amp', destination: '/blog/:slug/', permanent: true },
-      { source: '/wp-sitemap.xml', destination: '/sitemap_index.xml', permanent: true },
-      { source: '/category-sitemap.xml', destination: '/sitemap_index.xml', permanent: true },
-      { source: '/author-sitemap.xml', destination: '/sitemap_index.xml', permanent: true },
+      { source: '/sitemap_index.xml', destination: '/sitemap.xml', permanent: true },
+      { source: '/post-sitemap.xml', destination: '/sitemap.xml', permanent: true },
+      { source: '/page-sitemap.xml', destination: '/sitemap.xml', permanent: true },
+      { source: '/wp-sitemap.xml', destination: '/sitemap.xml', permanent: true },
+      { source: '/category-sitemap.xml', destination: '/sitemap.xml', permanent: true },
+      { source: '/author-sitemap.xml', destination: '/sitemap.xml', permanent: true },
       { source: '/home', destination: '/', permanent: true },
       {
         source: '/pos-case-studies/implementing-pos-systems-for-real-tech-system',
@@ -131,7 +134,12 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  experimental: {
+    optimizePackageImports: ['lucide-react'],
+  },
   images: {
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',

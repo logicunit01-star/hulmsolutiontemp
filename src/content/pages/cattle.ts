@@ -1,7 +1,7 @@
 export const cattleContent = {
   hero: {
     headline: "Best Cattle Management Software to Simplify Your Farm Operations",
-    description: "Move past manual ledgers and WhatsApp groups. Hulm is the only platform in Pakistan specifically engineered for livestock traders and dairy farmers, unifying animal profiles, feed inventory, and FBR-compliant billing in one place.",
+    description: "Move past manual ledgers and WhatsApp groups. Hulm is the only platform in Pakistan specifically engineered for livestock traders and dairy farmers, unifying animal profiles, feed inventory, and FBR-integrated billing in one place.",
     primaryCTA: "Request Free Demo",
     secondaryCTA: "Talk to sales"
   },
@@ -59,8 +59,8 @@ export const cattleContent = {
         description: "Keep perfect digital records of every transaction for tax purposes."
       },
       {
-        title: "FBR-compliant QR receipts, auto-generated",
-        description: "Auto-generate FBR-compliant QR receipts when legally required."
+        title: "FBR-integrated QR receipts, auto-generated",
+        description: "Auto-generate FBR-integrated QR receipts when legally required."
       }
     ]
   }

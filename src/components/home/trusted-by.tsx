@@ -5,42 +5,58 @@ const badges = [
     wrapClass: "wrap-pill",
     src: "/images/home/trusted/thesaasdir.svg",
     alt: "Featured on TheSaaSDir",
+    width: 182,
+    height: 46,
   },
   {
     wrapClass: "wrap-shield",
     src: "/images/home/trusted/top-trending.webp",
     alt: "Top Trending",
+    width: 170,
+    height: 194,
   },
   {
     wrapClass: "wrap-pill",
     src: "/images/home/trusted/codehype.svg",
     alt: "Featured on CodeHype",
+    width: 180,
+    height: 65,
   },
   {
     wrapClass: "wrap-rect",
-    src: "/images/home/trusted/saashub.png",
+    src: "/images/home/trusted/saashub.webp",
     alt: "HulmPOS Approved Badge",
+    width: 280,
+    height: 93,
   },
   {
     wrapClass: "wrap-shield",
     src: "/images/home/trusted/highly-recommended.webp",
     alt: "Highly Recommended",
+    width: 170,
+    height: 194,
   },
   {
     wrapClass: "wrap-pill",
     src: "/images/home/trusted/althunt.svg",
     alt: "Featured on AltHunt",
     href: "https://althunt.io/compare/hulm-pos-vs-loyverse",
+    width: 168,
+    height: 36,
   },
   {
     wrapClass: "wrap-shield",
-    src: "/images/home/trusted/goodfirms-partner.png",
+    src: "/images/home/trusted/goodfirms-partner.webp",
     alt: "GoodFirms Partner Badge",
+    width: 200,
+    height: 225,
   },
   {
     wrapClass: "wrap-text",
     src: "/images/home/trusted/trustpilot.webp",
     alt: "Trustpilot Rating",
+    width: 260,
+    height: 142,
   },
   {
     wrapClass: "wrap-pill",
@@ -48,11 +64,15 @@ const badges = [
     alt: "OpenHunts Club Member",
     title: "OpenHunts Club",
     href: "https://openhunts.com",
+    width: 486,
+    height: 105,
   },
   {
     wrapClass: "wrap-text",
-    src: "/images/home/trusted/product-hunt.png",
+    src: "/images/home/trusted/product-hunt.webp",
     alt: "Product Hunt",
+    width: 260,
+    height: 61,
   },
 ];
 
@@ -64,6 +84,8 @@ export function TrustedBy() {
         src={b.src}
         alt={b.alt}
         loading="lazy"
+        width={b.width}
+        height={b.height}
       />
     );
 

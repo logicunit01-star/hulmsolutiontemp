@@ -208,29 +208,11 @@ const homepageFaqSchema = {
   ],
 };
 function renderFormattedDescription(text: string) {
-  const parts = text.split(/(Best POS Software [Ii]n Pakistan)/g);
-  return parts.map((part, index) =>
-    /Best POS Software [Ii]n Pakistan/i.test(part) ? (
-      <strong key={index} className="font-bold text-[#0F2A26]">
-        {part}
-      </strong>
-    ) : (
-      part
-    )
-  );
+  return text;
 }
 
 function renderFormattedDescriptionDark(text: string) {
-  const parts = text.split(/(Best POS Software [Ii]n Pakistan)/g);
-  return parts.map((part, index) =>
-    /Best POS Software [Ii]n Pakistan/i.test(part) ? (
-      <strong key={index} className="font-bold text-white">
-        {part}
-      </strong>
-    ) : (
-      part
-    )
-  );
+  return text;
 }
 
 function SectionIntro({
@@ -299,7 +281,8 @@ export default function HomePage() {
                   width={1024}
                   height={498}
                   priority
-                  sizes="100vw"
+                  fetchPriority="high"
+                  sizes="(min-width: 1024px) 50vw, (max-width: 640px) calc(100vw - 32px), 640px"
                   className="h-auto w-full rounded-lg sm:rounded-xl object-contain select-none"
                 />
               </div>
@@ -327,7 +310,7 @@ export default function HomePage() {
 
             <div className="mt-4 sm:mt-5 inline-block rounded-xl border border-zinc-200/90 bg-white px-4 py-2.5 sm:px-5 sm:py-3 shadow-xs">
               <p className="text-sm sm:text-[15px] font-semibold text-[#FF6A00]">
-                Start 14 Days Free Trail
+                Start 14-Day Free Trial
               </p>
               <p className="mt-0.5 text-xs sm:text-[13px] text-zinc-700">
                 No credit card required &middot; PKR 2,500/month &middot; No hidden fees
@@ -355,7 +338,7 @@ export default function HomePage() {
                 alt="Hulm POS software point of sale terminal screen"
                 width={1024}
                 height={498}
-                priority
+                fetchPriority="high"
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="h-auto w-full rounded-xl object-contain"
               />

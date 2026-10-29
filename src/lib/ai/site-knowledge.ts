@@ -181,7 +181,7 @@ export function buildLlmsTxt(): string {
     "## Optional",
     ...companyPages().slice(4).map(line),
     `- [RSS feed](${url("/feed/")}): latest articles`,
-    `- [Sitemap](${url("/sitemap_index.xml")})`,
+    `- [Sitemap](${url("/sitemap.xml")})`,
     "",
   ].join("\n");
 }

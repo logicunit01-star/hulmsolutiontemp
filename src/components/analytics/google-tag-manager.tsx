@@ -14,10 +14,16 @@ declare global {
  * and blocking the main thread during LCP/FCP.
  * The dataLayer exists from the start, so events pushed earlier are queued and
  * processed once GTM loads.
+ * Does not load on localhost to avoid polluting GA4 Realtime.
  */
 export function GoogleTagManager({ id }: { id: string }) {
   useEffect(() => {
-    if (!id) return;
+    const isLocal =
+      typeof window !== "undefined" &&
+      (window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname.endsWith(".local"));
+    if (isLocal || !id) return;
     let loaded = false;
     let timer: ReturnType<typeof setTimeout> | undefined;
 
@@ -50,14 +56,14 @@ export function GoogleTagManager({ id }: { id: string }) {
       window.addEventListener(e, loadGTM, { passive: true, once: true });
     });
 
-    // Fallback: load after delay or idle if no interaction occurs (ensures tracking works for passive viewers)
-    timer = setTimeout(() => {
+    // Fallback: load after 4 seconds of idle so analytics are never lost
+    if (typeof window !== "undefined") {
       if ("requestIdleCallback" in window) {
-        window.requestIdleCallback(loadGTM, { timeout: 1500 });
+        (window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => void }).requestIdleCallback(loadGTM, { timeout: 4000 });
       } else {
-        loadGTM();
+        timer = setTimeout(loadGTM, 4000);
       }
-    }, 3500);
+    }
 
     return () => {
       INTERACTION_EVENTS.forEach((e) => {

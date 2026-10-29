@@ -117,7 +117,7 @@ export default async function SingleInsightPage({ params }: Props) {
         breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
         datePublished: publishedTime,
         dateModified: modifiedTime,
-        ...(reviewer ? { reviewedBy: { "@id": reviewer.schemaId }, lastReviewed: reviewedTime } : {}),
+        ...(reviewer ? { reviewedBy: { "@id": reviewer.schemaId } } : {}),
         ...(faqItems.length
           ? {
               mainEntity: faqItems.map((item) => ({
@@ -320,9 +320,8 @@ export default async function SingleInsightPage({ params }: Props) {
                 {reviewer && (
                   <div className="border-t border-[#E4E2DA] pt-4 text-sm text-zinc-600 leading-relaxed font-normal">
                     <span className="font-bold text-[#0F2A26]">Reviewed by{" "}
-                      <Link href={reviewer.url} className="hover:text-[#0067ff] transition-colors">{reviewer.name}</Link>
-                    </span>
-                    {reviewedTime && <> on <time dateTime={reviewedTime}>{fmtDate(reviewedTime)}</time></>}.{" "}
+                      <Link href={reviewer.url} className="hover:text-[#0067ff] transition-colors">{reviewer.name}</Link>.
+                    </span>{" "}
                     Every Hulm article is checked for accuracy against the current product and applicable tax rules.{" "}
                     <Link href={EDITORIAL_TEAM.url} className="font-semibold text-[#0067ff] hover:text-[#0052cc] underline underline-offset-2">Read our editorial policy</Link>.
                   </div>

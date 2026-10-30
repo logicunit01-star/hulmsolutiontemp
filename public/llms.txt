@@ -65,6 +65,7 @@ Primary use cases: retail POS, restaurant POS, pharmacy POS, cafe POS, bakery PO
 - [Cupcake Queen Bakery Case Study](https://hulmsolutions.com/pos-case-studies/cupcake-queen-bakery-pos-qatar/): How a multi-branch Doha bakery unified custom orders and reduced stock waste with Hulm POS.
 ## Blog and Educational Resources
 - [Hulm POS Blog](https://hulmsolutions.com/blogs/): Hulm Solutions blog with POS industry trends, business software insights, guides, and educational content.
+- [Switch POS Software Without Losing Data](https://hulmsolutions.com/blog/switch-pos-software-without-losing-data/): Practical migration checklist to switch POS software without losing product and customer data, with HulmPOS import tools.
 - [What Is a POS System?](https://hulmsolutions.com/blog/what-is-pos/): Guide explaining POS system meaning, point of sale definition, how POS systems work, and how businesses use POS software.
 - [Best POS System for Small Business in Pakistan](https://hulmsolutions.com/blog/best-point-of-sale-system-for-small-business-in-pakistan/): Guide to choosing a POS system for small businesses in Pakistan.
 - [Best Free POS Software](https://hulmsolutions.com/blog/best-free-pos-software-and-system/): Guide to free POS software, free POS systems, and Hulm POS for startups and SMEs.

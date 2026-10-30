@@ -27,6 +27,19 @@ export const insightsData: Insight[] = [
     content: ""
   },
   {
+    id: "switch-pos-software-without-losing-data",
+    title: "How to Switch POS Software Without Losing Your Product and Customer Data",
+    slug: "switch-pos-software-without-losing-data",
+    excerpt: "Switch POS software without losing product or customer data. Follow this practical migration checklist and see how HulmPOS helps simplify imports.",
+    category: "POS Migration",
+    date: "2026-10-30",
+    readTime: "7 min read",
+    author: "Aamir Khan",
+    authorSlug: "hulm-solutions-editorial-team",
+    imageUrl: "/images/uploads/2026/10/how-to-switch-pos-software-without-losing-data.png",
+    content: ""
+  },
+  {
     id: "1",
     title: "What is POS Debit Meaning & Debit Card POS Transaction?",
     slug: "what-is-pos-debit-meaning",

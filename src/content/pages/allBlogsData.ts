@@ -1,8 +1,10 @@
 import { whatIsPosBlog } from "@/content/pages/blogs/what-is-pos";
+import { switchPosSoftwareWithoutLosingDataBlog } from "@/content/pages/blogs/switch-pos-software-without-losing-data";
 
 export interface SingleBlogData {
   slug: string;
   title: string;
+  metaTitle?: string;
   author: string;
   authorSlug: string;
   date: string;
@@ -16,6 +18,7 @@ export interface SingleBlogData {
 }
 
 export const allBlogsData: Record<string, SingleBlogData> = {
+  "switch-pos-software-without-losing-data": switchPosSoftwareWithoutLosingDataBlog,
   "what-is-pos": whatIsPosBlog,
   "cloud-pos-software-for-retail-stores": {
     slug: "cloud-pos-software-for-retail-stores",

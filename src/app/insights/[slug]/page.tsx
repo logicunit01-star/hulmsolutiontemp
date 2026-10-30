@@ -27,12 +27,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return { title: "Not Found" };
 
   return {
-    title: slug === "what-is-pos" ? "What’s a POS system? What does POS mean & How to use POS" : `${post.title} - Hulm Insights`,
+    title: post.metaTitle || (slug === "what-is-pos" ? "What’s a POS system? What does POS mean & How to use POS" : `${post.title} - Hulm Insights`),
     description: post.excerpt || post.title,
     alternates: { canonical: `/blog/${slug}/`, types: SITE_FEEDS },
     openGraph: {
       type: "article",
-      title: post.title,
+      title: post.metaTitle || post.title,
       description: post.excerpt || post.title,
       url: `/blog/${slug}/`,
       images: post.imageUrl ? [{ url: post.imageUrl }] : undefined,

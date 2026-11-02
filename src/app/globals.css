@@ -361,35 +361,140 @@
     margin: 1.75rem 0;
   }
 
+  /* ==========================================================================
+     Responsive, High-Visibility, User-Friendly Blog Tables (Zero Double Scrollbars)
+     ========================================================================== */
+
   .blog-content figure.wp-block-table,
-  .blog-content .wp-block-table,
+  .blog-content .wp-block-table {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin: 2.25rem 0 !important;
+    border: 1px solid #E4E2DA !important;
+    border-radius: 0.875rem !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 10px rgba(15, 42, 38, 0.03) !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: #cfd5d2 transparent !important;
+  }
+
+  /* Sleek modern single horizontal scrollbar (only visible when table overflows viewport) */
+  .blog-content figure.wp-block-table::-webkit-scrollbar,
+  .blog-content .wp-block-table::-webkit-scrollbar {
+    height: 5px !important;
+  }
+
+  .blog-content figure.wp-block-table::-webkit-scrollbar-track,
+  .blog-content .wp-block-table::-webkit-scrollbar-track {
+    background: #FAF9F5 !important;
+    border-radius: 9999px !important;
+  }
+
+  .blog-content figure.wp-block-table::-webkit-scrollbar-thumb,
+  .blog-content .wp-block-table::-webkit-scrollbar-thumb {
+    background: #cfd5d2 !important;
+    border-radius: 9999px !important;
+  }
+
+  .blog-content figure.wp-block-table::-webkit-scrollbar-thumb:hover,
+  .blog-content .wp-block-table::-webkit-scrollbar-thumb:hover {
+    background: #167c70 !important;
+  }
+
+  /* Table element itself NEVER creates a scrollbar */
   .blog-content table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #e4e4e7;
-    border-radius: 0.75rem;
-    overflow: hidden;
+    display: table !important;
+    width: 100% !important;
+    border-collapse: collapse !important;
+    table-layout: auto !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  .blog-content table.has-fixed-layout {
+    table-layout: auto !important;
   }
 
   .blog-content th {
-    background-color: #f9fafb;
-    font-weight: 600;
-    color: #111827;
-    text-align: left;
-    padding: 0.875rem 1rem;
-    border-bottom: 1px solid #e4e4e7;
-    font-size: 0.875rem;
+    background-color: #FAF9F5 !important;
+    font-weight: 700 !important;
+    color: #0F2A26 !important;
+    text-align: left !important;
+    padding: 0.85rem 1rem !important;
+    border-bottom: 2px solid #E4E2DA !important;
+    font-size: 0.8125rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.025em !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
+    vertical-align: middle !important;
   }
 
   .blog-content td {
-    padding: 0.875rem 1rem;
-    border-bottom: 1px solid #f4f4f5;
-    color: #4b5563;
-    font-size: 0.875rem;
+    padding: 0.85rem 1rem !important;
+    border-bottom: 1px solid #f0f0f2 !important;
+    color: #4b5563 !important;
+    font-size: 0.875rem !important;
+    line-height: 1.55 !important;
+    vertical-align: top !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+  }
+
+  .blog-content tr:last-child td {
+    border-bottom: none !important;
   }
 
   .blog-content tr:hover td {
-    background-color: #fafafa;
+    background-color: #fbfbf9 !important;
+  }
+
+  /* Non-breaking badges and labels in tables */
+  .blog-content td strong {
+    color: #0F2A26 !important;
+    font-weight: 600 !important;
+  }
+
+  .blog-content td span {
+    display: inline-block !important;
+    white-space: nowrap !important;
+  }
+
+  /* Wide comparison tables (5+ columns): ensure comfortable layout on mobile without wrapping */
+  .blog-content figure.wp-block-table table.top-10-comparison-table,
+  .blog-content table:has(th:nth-child(5)) {
+    min-width: 820px !important;
+  }
+
+  .blog-content table:has(th:nth-child(5)) th:first-child,
+  .blog-content table:has(th:nth-child(5)) td:first-child {
+    min-width: 175px !important;
+    white-space: nowrap !important;
+  }
+
+  .blog-content table:has(th:nth-child(5)) th:nth-child(2),
+  .blog-content table:has(th:nth-child(5)) td:nth-child(2) {
+    min-width: 175px !important;
+  }
+
+  .blog-content table:has(th:nth-child(5)) th:nth-child(3),
+  .blog-content table:has(th:nth-child(5)) td:nth-child(3) {
+    min-width: 165px !important;
+  }
+
+  .blog-content table:has(th:nth-child(5)) th:nth-child(4),
+  .blog-content table:has(th:nth-child(5)) td:nth-child(4) {
+    min-width: 155px !important;
+  }
+
+  .blog-content table:has(th:nth-child(5)) th:nth-child(5),
+  .blog-content table:has(th:nth-child(5)) td:nth-child(5) {
+    min-width: 250px !important;
   }
 
   .blog-content img {
@@ -400,14 +505,59 @@
     height: auto;
   }
 
-  /* Clean up WordPress callout columns and buttons */
-  .blog-content .wp-block-columns.has-ast-global-color-6-background-color,
+  /* ==========================================================================
+     Minimal, Attractive & User-Friendly Blog CTA Cards & Buttons
+     ========================================================================== */
+
+  /* In-Article CTA Card Container (Fixes nested box-in-box double border glitch) */
+  .blog-content .wp-block-columns.has-ast-global-color-6-background-color {
+    background: linear-gradient(135deg, #FAF9F5 0%, #F0FDF9 100%) !important;
+    border: 1px solid #E4E2DA !important;
+    border-radius: 1.25rem !important;
+    padding: 2.5rem 2rem !important;
+    margin: 2.75rem 0 !important;
+    box-shadow: 0 4px 20px -2px rgba(15, 42, 38, 0.04) !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Reset inner columns inside the CTA card so they NEVER create a nested box */
+  .blog-content .wp-block-columns.has-ast-global-color-6-background-color .wp-block-column,
   .blog-content .wp-block-column.has-ast-global-color-6-background-color {
-    background: #f8fafc !important;
-    border: 1px solid #e2e8f0;
-    border-radius: 1rem;
-    padding: 1.5rem !important;
-    margin: 2rem 0;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Headings inside CTA Cards */
+  .blog-content .wp-block-columns.has-ast-global-color-6-background-color h2,
+  .blog-content .wp-block-columns.has-ast-global-color-6-background-color h3,
+  .blog-content .wp-block-columns.has-ast-global-color-6-background-color h4,
+  .blog-content .wp-block-columns.has-ast-global-color-6-background-color h6 {
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+    color: #0F2A26 !important;
+    margin: 0 0 0.5rem 0 !important;
+    letter-spacing: -0.015em !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+  }
+
+  /* Description paragraph inside CTA Cards */
+  .blog-content .wp-block-columns.has-ast-global-color-6-background-color p {
+    font-size: 0.9375rem !important;
+    line-height: 1.6 !important;
+    color: #52525B !important;
+    margin: 0 auto 1.5rem auto !important;
+    max-width: 560px !important;
+    text-align: center !important;
   }
 
   .blog-content .has-ast-global-color-4-background-color {
@@ -418,52 +568,83 @@
     color: #134e4a;
   }
 
+  /* CTA Button Row Container */
   .blog-content .wp-block-buttons {
-    display: flex;
-    justify-content: center;
-    margin: 1.25rem 0;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 2rem 0 !important;
+    padding: 0 !important;
+    gap: 0.75rem !important;
   }
 
-  .blog-content .wp-block-button__link {
-    background: #152825 !important;
+  /* Standalone & In-card Button Wrappers */
+  .blog-content .wp-block-button {
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  /* Stop buttons from stretching 100% full width */
+  .blog-content .wp-block-button.has-custom-width,
+  .blog-content .wp-block-button.wp-block-button__width,
+  .blog-content .wp-block-button.wp-block-button__width-100 {
+    width: auto !important;
+    max-width: 100% !important;
+  }
+
+  /* Sleek, Minimal, Attractive Brand Emerald Pill Buttons */
+  .blog-content .wp-block-button__link,
+  .blog-content a.wp-block-buttons-is-layout-flex,
+  .blog-content a.animated-pos-button,
+  .blog-content .wp-block-button a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    background: #167c70 !important;
     color: #ffffff !important;
-    padding: 0.65rem 1.5rem !important;
-    border-radius: 0.75rem !important;
-    font-size: 0.875rem !important;
+    font-size: 0.9375rem !important;
     font-weight: 600 !important;
-    display: inline-flex;
-    align-items: center;
+    letter-spacing: -0.01em !important;
+    padding: 0.75rem 1.85rem !important;
+    border-radius: 9999px !important;
+    border: 1px solid rgba(22, 124, 112, 0.25) !important;
+    box-shadow: 0 2px 10px rgba(22, 124, 112, 0.22) !important;
     text-decoration: none !important;
-    transition: all 0.2s ease;
+    text-align: center !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
+    width: auto !important;
+    max-width: min(100%, 560px) !important;
+    margin: 0.25rem auto !important;
+    cursor: pointer !important;
+    animation: none !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
-  .blog-content .wp-block-button__link:hover {
-    background: #25a18e !important;
+  .blog-content .wp-block-button__link:hover,
+  .blog-content a.wp-block-buttons-is-layout-flex:hover,
+  .blog-content a.animated-pos-button:hover,
+  .blog-content .wp-block-button a:hover {
+    background: #0F2A26 !important;
     color: #ffffff !important;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(37, 161, 142, 0.2);
-  }
-
-  .blog-content a.wp-block-buttons-is-layout-flex {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #ffffff !important;
-    background-color: #152825;
-    border-radius: 0.75rem;
+    border-color: #0F2A26 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 22px rgba(15, 42, 38, 0.26) !important;
     text-decoration: none !important;
-    margin: 1.5rem 0;
-    transition: all 0.2s ease;
   }
 
-  .blog-content a.wp-block-buttons-is-layout-flex:hover {
-    background-color: #25a18e;
-    color: #ffffff !important;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(37, 161, 142, 0.2);
+  .blog-content .wp-block-button__link:active,
+  .blog-content a.wp-block-buttons-is-layout-flex:active,
+  .blog-content a.animated-pos-button:active,
+  .blog-content .wp-block-button a:active {
+    transform: translateY(0) scale(0.98) !important;
+    box-shadow: 0 2px 6px rgba(15, 42, 38, 0.18) !important;
   }
 
   /* Premium FAQ Accordion Cards in Blog Content - Exact Match to Screenshot */
@@ -818,9 +999,9 @@
   }
 }
 .blog-content table {
-  display: block;
-  max-width: 100%;
-  overflow-x: auto;
+  display: table !important;
+  width: 100% !important;
+  overflow: visible !important;
 }
 .blog-content {
   overflow-wrap: anywhere;

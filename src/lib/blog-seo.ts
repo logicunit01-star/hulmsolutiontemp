@@ -127,6 +127,8 @@ export function prepareArticleHtml(html: string): string {
     html
       // drop the leftover SEO-vendor link (smr1.azadseo.pro) but keep its anchor text
       .replace(/<a\b[^>]*href="https?:\/\/[^"]*azadseo\.pro[^"]*"[^>]*>([\s\S]*?)<\/a>/gi, "$1")
+      // remove raw <style> blocks that authors pasted into the article
+      .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, "")
       // images: add alt text where missing/empty, lazy-load
       .replace(/<img\b([^>]*?)\/?>/gi, (tag, attrs: string) => {
         const src = attrs.match(/\ssrc="([^"]+)"/)?.[1] || "";

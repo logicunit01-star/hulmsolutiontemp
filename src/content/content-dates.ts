@@ -26,7 +26,7 @@ export const BLOG_CONTENT_UPDATED: Record<string, string> = {
   "what-is-a-pos-person-meaning-and-responsibilities": "2025-03-07T12:00:00+05:00",
   "what-is-pos-skills-understand-pos-skill-meaning": "2025-03-28T12:00:00+05:00",
   "what-is-a-pos-purchase": "2025-04-14T12:00:00+05:00",
-  "best-pos-system-for-retail": "2026-10-28T12:00:00+05:00",
+  "best-pos-system-for-retail": "2026-11-02T18:00:00+05:00",
   "what-is-pos-debit-meaning": "2025-07-24T12:00:00+05:00",
 };
 

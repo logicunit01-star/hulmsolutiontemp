@@ -40,8 +40,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const study = caseStudiesData.find((s) => s.slug === slug);
   if (!study) return { title: "Case Study Not Found - Hulm Solutions" };
-  // Live WordPress title + meta description (they carry the current rankings).
-  return seoMetadata(`/pos-case-studies/${study.slug}/`, { ogImage: study.image || undefined, type: "article" });
+  const route = `/pos-case-studies/${study.slug}/`;
+  const live = getProductionParityPage(route);
+  if (live) {
+    return seoMetadata(route, { ogImage: study.image || undefined, type: "article" });
+  }
+  return {
+    title: { absolute: study.metaTitle || study.title },
+    description: study.metaDescription || study.excerpt,
+    openGraph: {
+      title: study.metaTitle || study.title,
+      description: study.metaDescription || study.excerpt,
+      images: study.image ? [{ url: study.image }] : undefined,
+    },
+    alternates: { canonical: route },
+  };
 }
 
 /** Live H1 for each case study (keyword-bearing), used instead of the short card title. */

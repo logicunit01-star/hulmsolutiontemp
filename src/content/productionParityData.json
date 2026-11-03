@@ -1167,6 +1167,60 @@
       "schemas": [
         "{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/hulmsolutions.com\\/zatca\\/\",\"url\":\"https:\\/\\/hulmsolutions.com\\/zatca\\/\",\"name\":\"ZATCA-Compliant POS Software | E-Invoicing for KSA\",\"isPartOf\":{\"@id\":\"https:\\/\\/hulmsolutions.com\\/#website\"},\"primaryImageOfPage\":{\"@id\":\"https:\\/\\/hulmsolutions.com\\/zatca\\/#primaryimage\"},\"image\":{\"@id\":\"https:\\/\\/hulmsolutions.com\\/zatca\\/#primaryimage\"},\"thumbnailUrl\":\"\\/images\\/uploads\\/2024\\/12\\/contact-hulm-e1733839029157.png\",\"datePublished\":\"2026-03-05T09:55:34+00:00\",\"dateModified\":\"2026-07-08T15:13:03+00:00\",\"description\":\"Meet ZATCA Phase 1 & 2 requirements with Hulm's e-invoicing POS. QR codes, real-time reporting, and FATOORA integration for Saudi businesses.\",\"breadcrumb\":{\"@id\":\"https:\\/\\/hulmsolutions.com\\/zatca\\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/hulmsolutions.com\\/zatca\\/\"]}]},{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/hulmsolutions.com\\/zatca\\/#primaryimage\",\"url\":\"\\/images\\/uploads\\/2024\\/12\\/contact-hulm-e1733839029157.png\",\"contentUrl\":\"\\/images\\/uploads\\/2024\\/12\\/contact-hulm-e1733839029157.png\",\"width\":624,\"height\":494,\"caption\":\"contact-hulm\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/hulmsolutions.com\\/zatca\\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/hulmsolutions.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"zatca complaince\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/hulmsolutions.com\\/#website\",\"url\":\"https:\\/\\/hulmsolutions.com\\/\",\"name\":\"HULM\",\"description\":\"One Platform, Infinite Possibilities\",\"publisher\":{\"@id\":\"https:\\/\\/hulmsolutions.com\\/#organization\"},\"alternateName\":\"HULM\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/hulmsolutions.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Organization\",\"@id\":\"https:\\/\\/hulmsolutions.com\\/#organization\",\"name\":\"HULM\",\"url\":\"https:\\/\\/hulmsolutions.com\\/\",\"logo\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/hulmsolutions.com\\/#\\/schema\\/logo\\/image\\/\",\"url\":\"\\/images\\/uploads\\/2024\\/03\\/Hulmlogo.svg\",\"contentUrl\":\"\\/images\\/uploads\\/2024\\/03\\/Hulmlogo.svg\",\"width\":151,\"height\":58,\"caption\":\"HULM\"},\"image\":{\"@id\":\"https:\\/\\/hulmsolutions.com\\/#\\/schema\\/logo\\/image\\/\"}}]}"
       ]
+    },
+    "/pos-case-studies/khaas-pret-apparel-pos-lahore/": {
+      "path": "/pos-case-studies/khaas-pret-apparel-pos-lahore/",
+      "sourceUrl": "https://hulmsolutions.com/pos-case-studies/khaas-pret-apparel-pos-lahore/",
+      "finalUrl": "https://hulmsolutions.com/pos-case-studies/khaas-pret-apparel-pos-lahore/",
+      "title": "Khaas Pret & Apparel POS Case Study: Fashion Retail POS in Lahore",
+      "description": "How Khaas Pret & Apparel on MM Alam Road, Lahore streamlined size/color variant matrices, cut peak checkout queues by 3.5x, and automated FBR Tier-1 e-invoicing with Hulm POS.",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "canonical": "https://hulmsolutions.com/pos-case-studies/khaas-pret-apparel-pos-lahore/",
+      "openGraphTitle": "Khaas Pret & Apparel POS Case Study: Fashion Retail POS in Lahore",
+      "openGraphDescription": "How Khaas Pret & Apparel on MM Alam Road, Lahore streamlined size/color variant matrices, cut peak checkout queues by 3.5x, and automated FBR Tier-1 e-invoicing with Hulm POS.",
+      "openGraphImage": "/images/case-studies/khaas-apparel.webp",
+      "publishedTime": "",
+      "modifiedTime": "2026-11-03T12:00:00+00:00",
+      "bodyClass": "wp-singular page-template-default page",
+      "stylesheets": [],
+      "mainHtml": "<div class=\"ast-container\"><main id=\"main\" class=\"site-main\"><article><div class=\"entry-content\"><h1>Case Study: Fashion & Pret Retail POS for Khaas Pret & Apparel</h1><p>Khaas Pret & Apparel, a fast-growing fashion boutique on MM Alam Road, Lahore, replaced slow manual pricing and disconnected spreadsheets with Hulm POS to handle size/color matrices and instant FBR Tier-1 e-invoicing during peak rush hours.</p></div></article></main></div>",
+      "schemas": []
+    },
+    "/pos-case-studies/careplus-pharmacy-pos-islamabad/": {
+      "path": "/pos-case-studies/careplus-pharmacy-pos-islamabad/",
+      "sourceUrl": "https://hulmsolutions.com/pos-case-studies/careplus-pharmacy-pos-islamabad/",
+      "finalUrl": "https://hulmsolutions.com/pos-case-studies/careplus-pharmacy-pos-islamabad/",
+      "title": "CarePlus Pharmacy POS Case Study: Pharmacy Retail POS in Islamabad",
+      "description": "How CarePlus Pharmacy in Blue Area, Islamabad eliminated expired medicine losses by 45%, accelerated prescription checkout, and ensured FBR compliance using Hulm POS.",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "canonical": "https://hulmsolutions.com/pos-case-studies/careplus-pharmacy-pos-islamabad/",
+      "openGraphTitle": "CarePlus Pharmacy POS Case Study: Pharmacy Retail POS in Islamabad",
+      "openGraphDescription": "How CarePlus Pharmacy in Blue Area, Islamabad eliminated expired medicine losses by 45%, accelerated prescription checkout, and ensured FBR compliance using Hulm POS.",
+      "openGraphImage": "/images/case-studies/careplus-pharmacy.webp",
+      "publishedTime": "",
+      "modifiedTime": "2026-11-03T12:00:00+00:00",
+      "bodyClass": "wp-singular page-template-default page",
+      "stylesheets": [],
+      "mainHtml": "<div class=\"ast-container\"><main id=\"main\" class=\"site-main\"><article><div class=\"entry-content\"><h1>Case Study: Pharmacy & Healthcare POS for CarePlus Pharmacy</h1><p>CarePlus Pharmacy, a bustling pharmacy in Blue Area, Islamabad, implemented Hulm POS to track 6,500+ pharmaceutical SKUs with batch numbers and expiry dates, dual box/strip unit pricing, and instant FBR-compliant billing.</p></div></article></main></div>",
+      "schemas": []
+    },
+    "/pos-case-studies/metro-fresh-mart-pos-karachi/": {
+      "path": "/pos-case-studies/metro-fresh-mart-pos-karachi/",
+      "sourceUrl": "https://hulmsolutions.com/pos-case-studies/metro-fresh-mart-pos-karachi/",
+      "finalUrl": "https://hulmsolutions.com/pos-case-studies/metro-fresh-mart-pos-karachi/",
+      "title": "Metro Fresh Mart POS Case Study: Supermarket & Grocery POS in Karachi",
+      "description": "How Metro Fresh Mart in Gulshan-e-Iqbal, Karachi accelerated 4-lane checkout queues to 25s, integrated digital barcode weight scales, and eliminated cashier discrepancies with Hulm POS.",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "canonical": "https://hulmsolutions.com/pos-case-studies/metro-fresh-mart-pos-karachi/",
+      "openGraphTitle": "Metro Fresh Mart POS Case Study: Supermarket & Grocery POS in Karachi",
+      "openGraphDescription": "How Metro Fresh Mart in Gulshan-e-Iqbal, Karachi accelerated 4-lane checkout queues to 25s, integrated digital barcode weight scales, and eliminated cashier discrepancies with Hulm POS.",
+      "openGraphImage": "/images/case-studies/metro-fresh-mart.webp",
+      "publishedTime": "",
+      "modifiedTime": "2026-11-03T12:00:00+00:00",
+      "bodyClass": "wp-singular page-template-default page",
+      "stylesheets": [],
+      "mainHtml": "<div class=\"ast-container\"><main id=\"main\" class=\"site-main\"><article><div class=\"entry-content\"><h1>Case Study: Supermarket & Grocery POS for Metro Fresh Mart</h1><p>Metro Fresh Mart, a high-volume 4-lane supermarket in Gulshan-e-Iqbal, Karachi, deployed Hulm POS to synchronize 8,200+ FMCG SKUs, connect electronic digital weight scales, and eliminate evening checkout bottlenecks.</p></div></article></main></div>",
+      "schemas": []
     }
   }
 }

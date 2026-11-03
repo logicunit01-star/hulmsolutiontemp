@@ -434,5 +434,276 @@ export const caseStudiesData: CaseStudy[] = [
       }
     ]
   }
+,
+  {
+    "id": "khaas-pret-apparel",
+    "slug": "khaas-pret-apparel-pos-lahore",
+    "title": "Fashion & Pret Retail POS for Khaas Pret & Apparel",
+    "metaTitle": "Khaas Pret & Apparel POS Case Study: Fashion Retail POS in Lahore",
+    "metaDescription": "How Khaas Pret & Apparel on MM Alam Road, Lahore streamlined size/color variant matrices, cut peak checkout queues by 3.5x, and automated FBR Tier-1 e-invoicing with Hulm POS.",
+    "client": "Khaas Pret & Apparel",
+    "industry": "Apparel & Fashion Retail",
+    "location": "Lahore, Pakistan",
+    "businessSize": "Multi-Category Boutique & Outlets",
+    "image": "/images/case-studies/khaas-apparel.webp",
+    "excerpt": "Khaas Pret & Apparel, a fast-growing fashion boutique on MM Alam Road, Lahore, replaced slow manual pricing and disconnected spreadsheets with Hulm POS to handle size/color matrices and instant FBR Tier-1 e-invoicing during peak rush hours.",
+    "clientProfile": {
+      "name": "Khaas Pret & Apparel",
+      "type": "Boutique Pret & Fashion Retailer",
+      "location": "Lahore, Pakistan (MM Alam Road)",
+      "size": "Flagship Boutique + Mall Outlet (~4,500 active SKUs)",
+      "description": "Founded in Lahore's premier fashion district on MM Alam Road, Khaas Pret & Apparel offers ready-to-wear kurtas, luxury pret, unstitched collections, and embroidered festive wear. With footfall surging dramatically on weekends and before Eid, managing multi-tier size variants (XS to XXL) and dynamic promotional pricing across thousands of SKUs required a rock-solid, cloud-synced retail POS."
+    },
+    "challenge": "During Eid shopping rushes and seasonal launches, manual barcode lookups and spreadsheet records caused long billing delays, stockouts in popular sizes, and time-consuming manual FBR sales tax compilation.",
+    "challengePoints": [
+      "Variant matrix blindspots: Tracking individual garment sizes (XS to XXL), colorways, and fabric cuts on basic cash registers caused frequent stockout surprises where popular medium and small sizes sold out unrecorded.",
+      "Peak checkout congestion: During pre-Eid and festive rush hours, billing queues stretched across the sales floor as cashiers manually verified markdown discount percentages and hand-keyed unbarcoded items.",
+      "FBR Tier-1 regulatory overhead: Compiling paper sales slips for monthly sales tax filings took 3 full working days every month, with constant stress over non-compliance under FBR Tier-1 retail POS integration rules.",
+      "Inter-branch inventory blindspots: Stock movement between their MM Alam flagship boutique and Packages Mall outlet relied on nightly phone calls and WhatsApp messages, causing stock reconciliation errors."
+    ],
+    "solution": "Deployed Hulm POS with multi-attribute variant matrix barcodes, automated promotional discount rules, real-time multi-branch stock sync, and direct FBR PRAL Tier-1 API integration.",
+    "solutionPoints": [
+      "Single-screen matrix billing allowing cashiers to scan or tap garment styles, select size and color with one touch, and apply promotional discounts automatically.",
+      "Native FBR Tier-1 POS integration printing verifiable QR codes on every customer invoice within 1.5 seconds, directly linked to PRAL servers.",
+      "Real-time multi-outlet stock sync giving store managers instant visibility into stock levels across both MM Alam Road and Packages Mall locations.",
+      "Automated barcode tag generator creating custom hangtag labels with SKU, barcode, size, color, fabric, and MSRP directly from purchase receipts."
+    ],
+    "implementationSteps": [
+      {
+        "title": "Variant Architecture & SKU Cleanup",
+        "description": "Standardized ~4,500 clothing SKUs into clean parent-child matrix hierarchies (Style > Fabric > Color > Size) and batch-printed durable thermal hangtags."
+      },
+      {
+        "title": "FBR Tier-1 API Integration",
+        "description": "Configured secure cryptographic POS sandbox testing and live registration with the FBR/PRAL digital invoicing server for automatic tax transmission."
+      },
+      {
+        "title": "Multi-Branch Cloud Sync Setup",
+        "description": "Linked MM Alam Road flagship store and Packages Mall outlet databases to enable real-time inter-branch stock transfers and unified reporting."
+      },
+      {
+        "title": "Floor & Cashier Rush Training",
+        "description": "Conducted hands-on training for 8 floor staff and cashiers simulating high-traffic Eid rush scenarios with rapid barcode scanning and return exchanges."
+      }
+    ],
+    "results": [
+      {
+        "metric": "3.5x",
+        "description": "Faster checkout speed during peak Eid shopping rushes"
+      },
+      {
+        "metric": "100%",
+        "description": "Size & color variant stock accuracy across both outlets"
+      },
+      {
+        "metric": "Zero",
+        "description": "Manual FBR tax filing hours required at month-end"
+      },
+      {
+        "metric": "24/7",
+        "description": "Real-time visibility into top-selling styles and size run-outs"
+      }
+    ],
+    "quote": {
+      "text": "During Chand Raat, we used to have customers walk out because queues were so long. With Hulm POS, scanning a barcode and printing the FBR QR invoice takes less than five seconds. It has completely transformed our floor operations.",
+      "author": "Zainab Chaudhry",
+      "role": "Managing Director, Khaas Pret & Apparel"
+    },
+    "conclusion": "Khaas Pret & Apparel turned peak-season checkout congestion into a high-throughput competitive advantage. With matrix-aware variant tracking, instant FBR compliance, and cross-branch inventory sync, the brand is now expanding to Islamabad and Karachi with confidence.",
+    "faqs": [
+      {
+        "question": "Can Hulm POS handle matrix variants for apparel (sizes, colors, fabrics)?",
+        "answer": "Yes. Hulm POS features native parent-child SKU matrix support designed specifically for apparel and footwear retail. You can create a master style and automatically generate all size and color variants with unique barcodes in seconds."
+      },
+      {
+        "question": "Does Hulm POS print custom barcode hangtags for clothing?",
+        "answer": "Yes. Hulm POS includes a built-in barcode label designer compatible with standard thermal label printers (such as TSC, Zebra, and Xprinter), allowing you to print custom retail garment tags with brand logo, price, size, and barcode."
+      },
+      {
+        "question": "How does Hulm POS handle FBR Tier-1 integration for clothing retailers?",
+        "answer": "Hulm POS is fully certified and integrated with the Federal Board of Revenue (FBR) PRAL e-invoicing system. Every bill instantly receives a unique FBR invoice number and QR code printed on the receipt, transmitting transaction data in real time."
+      }
+    ]
+  },
+  {
+    "id": "careplus-pharmacy",
+    "slug": "careplus-pharmacy-pos-islamabad",
+    "title": "Pharmacy & Healthcare POS for CarePlus Pharmacy",
+    "metaTitle": "CarePlus Pharmacy POS Case Study: Pharmacy Retail POS in Islamabad",
+    "metaDescription": "How CarePlus Pharmacy in Blue Area, Islamabad eliminated expired medicine losses by 45%, accelerated prescription checkout, and ensured FBR compliance using Hulm POS.",
+    "client": "CarePlus Pharmacy & Chemist",
+    "industry": "Pharmacy & Healthcare Retail",
+    "location": "Islamabad, Pakistan",
+    "businessSize": "High-Volume Community Pharmacy",
+    "image": "/images/case-studies/careplus-pharmacy.webp",
+    "excerpt": "CarePlus Pharmacy, a bustling pharmacy in Blue Area, Islamabad, implemented Hulm POS to track 6,500+ pharmaceutical SKUs with batch numbers and expiry dates, dual box/strip unit pricing, and instant FBR-compliant billing.",
+    "clientProfile": {
+      "name": "CarePlus Pharmacy & Chemist",
+      "type": "Retail Community Pharmacy & Wellness Store",
+      "location": "Islamabad, Pakistan (Blue Area)",
+      "size": "Single-Location High-Footfall Counter (~6,500 active SKUs)",
+      "description": "Situated near major medical clinics and corporate towers in Blue Area, Islamabad, CarePlus Pharmacy operates an intensive retail dispensary handling prescription medications, specialized temperature-sensitive biologics, baby care, and general OTC health products. The store serves over 650 patients daily with high turnover across generic and branded pharmaceutical lines."
+    },
+    "challenge": "Untracked batch numbers caused expired medicine write-offs exceeding PKR 180,000 every quarter, while manual box-to-strip calculations slowed counter checkout during peak evening clinic hours.",
+    "challengePoints": [
+      "Expiry losses & regulatory liability: With thousands of pharmaceuticals on dispensary shelves, expired products were frequently discovered only during physical shelf checks or customer inquiries, causing write-offs and DRAP audit exposure.",
+      "Unit-of-measure dispensing friction: Selling medicines by both full box and loose blister strips created inventory count mismatches when dispensers entered partial sales into basic cash registers.",
+      "Evening clinic peak bottlenecks: When nearby specialist clinics finished consultations at 7 PM, patient footfall surged. Hand-typing medicine names or hunting through unindexed shelves created frustrating waits for patients.",
+      "Tax & documentation overhead: Documenting tax-exempt essential medicines versus taxable cosmetics and vitamins required dual manual accounting at month-end to satisfy FBR audits."
+    ],
+    "solution": "Deployed Hulm POS with pharmaceutical batch and expiry tracking (FEFO: First Expired, First Out), dual box-and-strip fractional unit pricing, fast salt/generic lookup, and direct FBR API invoicing.",
+    "solutionPoints": [
+      "Proactive 30/60/90-day near-expiry alerts notifying pharmacists to return soon-to-expire batches to distributors before manufacturer return credit deadlines.",
+      "Smart dual-unit pricing allowing cashiers to scan a box barcode and select '1 Strip' or 'Individual Tablets' with automated price division and fractional inventory deduction.",
+      "Generic/Salt search index enabling pharmacists to instantly recommend bioequivalent alternative brands when a prescribed brand is temporarily out of stock.",
+      "Instant FBR Tier-1 QR receipt printing with automatic exemption handling for exempt medical items according to Sixth Schedule sales tax regulations."
+    ],
+    "implementationSteps": [
+      {
+        "title": "Catalog Audit & Batch Onboarding",
+        "description": "Imported and cleaned 6,500+ pharmaceutical and OTC items with manufacturer names, dosage forms, batch numbers, and expiry dates into Hulm POS."
+      },
+      {
+        "title": "Fractional Unit & Barcode Setup",
+        "description": "Configured parent-child packaging ratios (Boxes, Blister Strips, Loose Ampoules) with automated price division and fractional inventory calculations."
+      },
+      {
+        "title": "Expiry Alert Thresholds & FBR Setup",
+        "description": "Established 30-60-90 day expiry return warning queues and linked the terminal to FBR PRAL tax servers with medical tax exemption rules."
+      },
+      {
+        "title": "Pharmacist & Dispenser Workflow Training",
+        "description": "Trained 6 registered pharmacists and sales dispensers on rapid salt-name searches, batch selection at POS, and customer prescription attachment."
+      }
+    ],
+    "results": [
+      {
+        "metric": "45%",
+        "description": "Reduction in expired medicine inventory losses within 90 days"
+      },
+      {
+        "metric": "< 2 Sec",
+        "description": "Average prescription scan-to-receipt generation time"
+      },
+      {
+        "metric": "99.8%",
+        "description": "Batch and expiry tracking accuracy across 6,500+ SKUs"
+      },
+      {
+        "metric": "Zero",
+        "description": "Manual tax filing discrepancies under FBR retail regulations"
+      }
+    ],
+    "quote": {
+      "text": "In pharmacy retail, selling an expired medicine is not just a financial loss—it's a patient safety hazard. Hulm POS alerts us 60 days before any medicine expires, allowing us to return it to the distributor for full credit. It paid for itself in the first two months.",
+      "author": "Dr. Tariq Mehmood",
+      "role": "Chief Pharmacist & Co-Owner, CarePlus Pharmacy"
+    },
+    "conclusion": "CarePlus Pharmacy established a gold-standard dispensary workflow combining clinical accuracy with retail checkout speed. By automating batch expiry control, fractional packaging sales, and FBR tax receipts, CarePlus reduced stock write-offs and earned patient trust across Islamabad.",
+    "faqs": [
+      {
+        "question": "Can Hulm POS track medicine batch numbers and expiry dates?",
+        "answer": "Yes. Hulm POS provides pharmaceutical batch number and expiration date tracking with FEFO (First Expired, First Out) dispensing recommendations, 30/60/90-day expiry notifications, and batch-wise sales histories."
+      },
+      {
+        "question": "Does Hulm POS support selling both full boxes and loose blister strips?",
+        "answer": "Yes. Hulm POS supports multi-level fractional packaging. You can define how many strips or units are in a box; the system automatically calculates the strip price and deducts the exact fractional quantity from stock when scanned."
+      },
+      {
+        "question": "How does Hulm POS handle sales tax on medicines under FBR rules?",
+        "answer": "Hulm POS automatically applies the appropriate sales tax rules according to FBR's Sixth Schedule, exempting non-taxable essential pharmaceuticals while properly taxing OTC cosmetics, supplements, and taxable medical devices."
+      }
+    ]
+  },
+  {
+    "id": "metro-fresh-mart",
+    "slug": "metro-fresh-mart-pos-karachi",
+    "title": "Supermarket & Grocery POS for Metro Fresh Mart",
+    "metaTitle": "Metro Fresh Mart POS Case Study: Supermarket & Grocery POS in Karachi",
+    "metaDescription": "How Metro Fresh Mart in Gulshan-e-Iqbal, Karachi accelerated 4-lane checkout queues to 25s, integrated digital barcode weight scales, and eliminated cashier discrepancies with Hulm POS.",
+    "client": "Metro Fresh Mart",
+    "industry": "Supermarket & Grocery Mart",
+    "location": "Karachi, Pakistan",
+    "businessSize": "4-Lane Neighborhood Supermarket",
+    "image": "/images/case-studies/metro-fresh-mart.webp",
+    "excerpt": "Metro Fresh Mart, a high-volume 4-lane supermarket in Gulshan-e-Iqbal, Karachi, deployed Hulm POS to synchronize 8,200+ FMCG SKUs, connect electronic digital weight scales, and eliminate evening checkout bottlenecks.",
+    "clientProfile": {
+      "name": "Metro Fresh Mart",
+      "type": "Multi-Lane Supermarket & Fresh Grocery",
+      "location": "Karachi, Pakistan (Gulshan-e-Iqbal)",
+      "size": "4 Checkout Lanes, 8,200+ SKUs, 1,200+ Daily Transactions",
+      "description": "Operating in a dense residential neighborhood in Gulshan-e-Iqbal, Karachi, Metro Fresh Mart offers fresh produce, butchery, dairy, imported packaged goods, and daily FMCG household staples. With four cashier lanes operating 16 hours a day and high peak traffic from 6 PM to 11 PM, rapid transaction clearance and strict cash control are vital to store margins."
+    },
+    "challenge": "Weighed produce required manual handwritten price slips, multi-lane checkout queues took over 3 minutes per customer, and shift-end cash drawer reconciliation caused nightly friction.",
+    "challengePoints": [
+      "Produce scale bottlenecks: Fresh vegetables, fruits, and loose lentils had to be weighed at a backroom counter and stickered manually; cashier re-keying led to barcode mismatches and long checkout lines.",
+      "Multi-lane peak congestion: During weekend grocery runs, checkout lines backed into shopping aisles. Cashiers took an average of 3.2 minutes per basket due to sluggish legacy local software.",
+      "Shift reconciliation errors: Reconciling cash, debit cards, and Raast digital payments across four lanes at shift changes took 45+ minutes per till, with frequent cash shortages.",
+      "FMCG stockouts on high-margin staples: Store managers lacked real-time reorder velocity data, causing sudden stockouts of high-demand items (cooking oil, tea, basmati rice) while slow-moving items gathered dust."
+    ],
+    "solution": "Deployed Hulm POS across 4 checkout lanes with embedded electronic barcode weight-scale support, automated blind cash drawer reconciliation, real-time supplier purchase reorders, and centralized FBR Tier-1 compliance.",
+    "solutionPoints": [
+      "Integrated digital weight-scale barcode parsing, allowing cashiers to scan standard EAN/UPC barcodes containing encoded item weight and price in a single pass.",
+      "High-speed offline-first checkout engine processing 30-item grocery baskets and printing thermal FBR QR receipts in under 25 seconds.",
+      "Blind shift-closing module requiring cashiers to count cash drawer contents without seeing system expected totals, completely eliminating unrecorded cash discrepancies.",
+      "Automated inventory reorder alerts calculated against daily sales velocity, triggering automated purchase orders to Karachi FMCG distributors before items stock out."
+    ],
+    "implementationSteps": [
+      {
+        "title": "Catalog Standardization & Barcode Mapping",
+        "description": "Consolidated 8,200+ FMCG barcodes, linked distributor supplier profiles, and configured price-embedded barcode formats for fresh produce scales."
+      },
+      {
+        "title": "Multi-Lane Hardware Deployment",
+        "description": "Installed 4 Hulm POS touch terminals paired with omnidirectional laser barcode scanners, electronic weighing scales, and high-speed thermal printers."
+      },
+      {
+        "title": "Central Office Dashboard & FBR Setup",
+        "description": "Configured back-office cloud inventory control, multi-terminal access permissions, and automated real-time FBR PRAL tax invoice connectivity."
+      },
+      {
+        "title": "Cashier Simulation & Speed Testing",
+        "description": "Trained 10 lane cashiers and floor managers with real transaction scenarios, barcode parsing drills, split payment acceptance (Cash + Card + Raast), and blind shift closing."
+      }
+    ],
+    "results": [
+      {
+        "metric": "25 Sec",
+        "description": "Average customer checkout time (down from over 3 minutes)"
+      },
+      {
+        "metric": "100%",
+        "description": "Scale-to-checkout weight accuracy with zero barcode mismatches"
+      },
+      {
+        "metric": "Zero",
+        "description": "Shift-end cash drawer discrepancies across all 4 checkout lanes"
+      },
+      {
+        "metric": "Real-Time",
+        "description": "Automated low-stock reorder triggers preventing grocery stockouts"
+      }
+    ],
+    "quote": {
+      "text": "In a supermarket with 4 lanes running continuously, a 30-second delay per customer destroys your evening business. Hulm POS cut our checkout time down to seconds, integrated directly with our produce scales, and our cash drawers balance down to the last rupee at every shift change.",
+      "author": "Kamran Hashmi",
+      "role": "Operations Manager, Metro Fresh Mart"
+    },
+    "conclusion": "Metro Fresh Mart transformed its 4-lane supermarket into a friction-free retail operation. With scale-integrated barcode scanning, rapid checkout speed, and automated cash drawer governance, the store expanded daily basket throughput while maintaining 100% FBR compliance.",
+    "faqs": [
+      {
+        "question": "Can Hulm POS connect to digital weighing scales for fruits and vegetables?",
+        "answer": "Yes. Hulm POS supports both direct RS-232/USB digital weighing scales at checkout and barcode-printing scales (such as Digi, CAS, and Bizerba) that embed weight and price in GS1/EAN barcodes for instant 1-scan billing."
+      },
+      {
+        "question": "Does Hulm POS continue working if the internet goes down in a grocery store?",
+        "answer": "Yes. Hulm POS features an offline-first architecture. If store internet disconnects, cashiers can continue scanning, weighing, billing, and printing receipts without interruption. All sales synchronize automatically to the cloud and FBR servers once connectivity resumes."
+      },
+      {
+        "question": "How does Hulm POS manage cash drawer reconciliation between cashier shifts?",
+        "answer": "Hulm POS includes a secure blind cash drawer close feature. Cashiers count physical cash, receipts, and card slips at shift end without seeing system totals. The system automatically reconciles the count against recorded sales, flagging discrepancies immediately for store management."
+      }
+    ]
+  }
 ];
 

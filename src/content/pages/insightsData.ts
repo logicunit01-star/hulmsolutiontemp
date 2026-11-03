@@ -17,7 +17,7 @@ export const insightsData: Insight[] = [
     id: "excel-vs-pos-software-for-retail-shops",
     title: "Excel vs POS Software for Retail Shops: When Is It Time to Upgrade?",
     slug: "excel-vs-pos-software-for-retail-shops",
-    excerpt: "Still managing your retail shop with Excel? Discover the critical differences between Excel and POS software, warning signs you have outgrown spreadsheets, costs, and migration steps.",
+    excerpt: "Still managing your retail shop with Excel? Discover the differences between Excel and POS software, warning signs, upgrade costs and when to switch.",
     category: "Retail Strategy",
     date: "2026-11-03",
     readTime: "9 min read",

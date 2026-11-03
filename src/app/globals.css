@@ -302,10 +302,10 @@
     color: #4b5563;
   }
 
-  .blog-content a:not(.wp-block-button__link):not(.wp-block-buttons-is-layout-flex),
-  .blog-content a:not(.wp-block-button__link):not(.wp-block-buttons-is-layout-flex) span,
-  .blog-content a:not(.wp-block-button__link):not(.wp-block-buttons-is-layout-flex) strong,
-  .blog-content a:not(.wp-block-button__link):not(.wp-block-buttons-is-layout-flex) em {
+  .blog-content a:not(.wp-block-button__link):not(.wp-block-buttons-is-layout-flex):not(.animated-pos-button):not(.wp-element-button):not(.blog-cta-btn):not(.blog-cta-outline):not([class*="rounded-full"]):not([class*="btn"]):not([class*="button"]):not(.wp-block-button a),
+  .blog-content a:not(.wp-block-button__link):not(.wp-block-buttons-is-layout-flex):not(.animated-pos-button):not(.wp-element-button):not(.blog-cta-btn):not(.blog-cta-outline):not([class*="rounded-full"]):not([class*="btn"]):not([class*="button"]):not(.wp-block-button a) span,
+  .blog-content a:not(.wp-block-button__link):not(.wp-block-buttons-is-layout-flex):not(.animated-pos-button):not(.wp-element-button):not(.blog-cta-btn):not(.blog-cta-outline):not([class*="rounded-full"]):not([class*="btn"]):not([class*="button"]):not(.wp-block-button a) strong,
+  .blog-content a:not(.wp-block-button__link):not(.wp-block-buttons-is-layout-flex):not(.animated-pos-button):not(.wp-element-button):not(.blog-cta-btn):not(.blog-cta-outline):not([class*="rounded-full"]):not([class*="btn"]):not([class*="button"]):not(.wp-block-button a) em {
     color: #0067ff !important;
     font-weight: 500;
     text-decoration: underline !important;
@@ -313,12 +313,72 @@
     transition: color 0.15s ease;
   }
 
-  .blog-content a:not(.wp-block-button__link):not(.wp-block-buttons-is-layout-flex):hover,
-  .blog-content a:not(.wp-block-button__link):not(.wp-block-buttons-is-layout-flex):hover span,
-  .blog-content a:not(.wp-block-button__link):not(.wp-block-buttons-is-layout-flex):hover strong,
-  .blog-content a:not(.wp-block-button__link):not(.wp-block-buttons-is-layout-flex):hover em {
+  .blog-content a:not(.wp-block-button__link):not(.wp-block-buttons-is-layout-flex):not(.animated-pos-button):not(.wp-element-button):not(.blog-cta-btn):not(.blog-cta-outline):not([class*="rounded-full"]):not([class*="btn"]):not([class*="button"]):not(.wp-block-button a):hover,
+  .blog-content a:not(.wp-block-button__link):not(.wp-block-buttons-is-layout-flex):not(.animated-pos-button):not(.wp-element-button):not(.blog-cta-btn):not(.blog-cta-outline):not([class*="rounded-full"]):not([class*="btn"]):not([class*="button"]):not(.wp-block-button a):hover span,
+  .blog-content a:not(.wp-block-button__link):not(.wp-block-buttons-is-layout-flex):not(.animated-pos-button):not(.wp-element-button):not(.blog-cta-btn):not(.blog-cta-outline):not([class*="rounded-full"]):not([class*="btn"]):not([class*="button"]):not(.wp-block-button a):hover strong,
+  .blog-content a:not(.wp-block-button__link):not(.wp-block-buttons-is-layout-flex):not(.animated-pos-button):not(.wp-element-button):not(.blog-cta-btn):not(.blog-cta-outline):not([class*="rounded-full"]):not([class*="btn"]):not([class*="button"]):not(.wp-block-button a):hover em {
     color: #0052cc !important;
     text-decoration: underline !important;
+  }
+
+  /* Explicit Brand Button styles inside blog content (NEVER blue or underlined) */
+  .blog-content a.blog-cta-btn,
+  .blog-content a.blog-cta-btn span,
+  .blog-content a.blog-cta-btn strong {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    background: #0F2A26 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 0.875rem !important;
+    padding: 0.625rem 1.35rem !important;
+    border-radius: 9999px !important;
+    border: 1px solid #0F2A26 !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: 0 2px 8px rgba(15, 42, 38, 0.18) !important;
+    line-height: 1.3 !important;
+  }
+  .blog-content a.blog-cta-btn:hover,
+  .blog-content a.blog-cta-btn:hover span,
+  .blog-content a.blog-cta-btn:hover strong {
+    background: #167c70 !important;
+    border-color: #167c70 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 14px rgba(22, 124, 112, 0.28) !important;
+  }
+
+  .blog-content a.blog-cta-outline,
+  .blog-content a.blog-cta-outline span,
+  .blog-content a.blog-cta-outline strong {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    background: #ffffff !important;
+    color: #167c70 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 0.875rem !important;
+    padding: 0.625rem 1.35rem !important;
+    border-radius: 9999px !important;
+    border: 1.5px solid #167c70 !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    line-height: 1.3 !important;
+  }
+  .blog-content a.blog-cta-outline:hover,
+  .blog-content a.blog-cta-outline:hover span,
+  .blog-content a.blog-cta-outline:hover strong {
+    background: #167c70 !important;
+    color: #ffffff !important;
+    border-color: #167c70 !important;
+    text-decoration: none !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(22, 124, 112, 0.22) !important;
   }
 
   .blog-content ul {

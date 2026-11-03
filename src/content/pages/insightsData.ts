@@ -14,6 +14,19 @@ export type Insight = {
 
 export const insightsData: Insight[] = [
   {
+    id: "excel-vs-pos-software-for-retail-shops",
+    title: "Excel vs POS Software for Retail Shops: When Is It Time to Upgrade?",
+    slug: "excel-vs-pos-software-for-retail-shops",
+    excerpt: "Still managing your retail shop with Excel? Discover the critical differences between Excel and POS software, warning signs you have outgrown spreadsheets, costs, and migration steps.",
+    category: "Retail Strategy",
+    date: "2026-11-03",
+    readTime: "9 min read",
+    author: "Aamir Khan",
+    authorSlug: "aamir-khan",
+    imageUrl: "/images/uploads/2026/11/excel-vs-pos-software-for-retail-shops.webp",
+    content: ""
+  },
+  {
     id: "0",
     title: "What is POS System? What does POS mean & How to use POS System?",
     slug: "what-is-pos",

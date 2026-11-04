@@ -90,8 +90,11 @@ export async function POST(request: Request) {
       { name: "firstname", value: firstname },
       ...(lastname ? [{ name: "lastname", value: lastname }] : []),
       { name: "phone", value: lead.phone },
+      { name: "mobilephone", value: lead.phone },
       { name: "message", value: finalMessage },
       ...(lead.businessName ? [{ name: "company", value: lead.businessName }] : []),
+      { name: "lifecyclestage", value: "lead" },
+      { name: "hs_lead_status", value: "NEW" },
     ].filter((f) => f.value);
 
     const hsHeaders: Record<string, string> = {
@@ -101,32 +104,48 @@ export async function POST(request: Request) {
       hsHeaders["Authorization"] = `Bearer ${process.env.HUBSPOT_ACCESS_TOKEN}`;
     }
 
+    const pageName =
+      lead.source === "demo"
+        ? "Book a Demo"
+        : lead.source === "final_cta"
+          ? "Free Trial Signup"
+          : "Contact";
+
+    const hsBody = JSON.stringify({
+      fields,
+      context: {
+        hutk,
+        pageUri: lead.page || "https://hulmsolutions.com/contact/",
+        pageName,
+      },
+    });
+
     deliveries.push(
-      fetch(
-        `https://api.hsforms.com/submissions/v3/integration/submit/${hsPortalId}/${hsFormId}`,
-        {
-          method: "POST",
-          headers: hsHeaders,
-          body: JSON.stringify({
-            fields,
-            context: {
-              hutk,
-              pageUri: lead.page || "https://hulmsolutions.com/contact/",
-              pageName: lead.source === "demo" ? "Book a Demo" : "Contact",
-            },
-          }),
-        }
-      )
-        .then(async (r) => {
-          if (!r.ok) {
-            console.error("HubSpot submit error:", r.status, await r.text());
+      (async () => {
+        // Portal 246175508 is hosted on HubSpot NA2 region; fall back to global hsforms if needed
+        const endpoints = [
+          `https://api-na2.hsforms.com/submissions/v3/integration/submit/${hsPortalId}/${hsFormId}`,
+          `https://api.hsforms.com/submissions/v3/integration/submit/${hsPortalId}/${hsFormId}`,
+        ];
+
+        for (const url of endpoints) {
+          try {
+            const r = await fetch(url, {
+              method: "POST",
+              headers: hsHeaders,
+              body: hsBody,
+              signal: AbortSignal.timeout(8000),
+            });
+            if (r.ok) {
+              return true;
+            }
+            console.error("HubSpot submit error:", url, r.status, await r.text());
+          } catch (err) {
+            console.error("HubSpot submit network error:", url, err);
           }
-          return r.ok;
-        })
-        .catch((err) => {
-          console.error("HubSpot submit network error:", err);
-          return false;
-        })
+        }
+        return false;
+      })()
     );
   }
 

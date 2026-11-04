@@ -144,7 +144,7 @@ export default function RootLayout({
             id="hs-script-loader"
             async
             defer
-            src={`//js.hs-scripts.com/${hubspotPortalId}.js`}
+            src={`//js-na2.hs-scripts.com/${hubspotPortalId}.js`}
           />
         )}
         <noscript>

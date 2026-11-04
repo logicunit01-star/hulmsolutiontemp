@@ -49,7 +49,7 @@ export function FinalCtaForm({
         industry: formData.industry,
         company_website: honeypot,
       },
-      3500,
+      8000,
     );
     track("trial_start_click", { location: "final_cta_form", industry: formData.industry });
     window.location.href = decorateSignupUrl(contactInfo.signupUrl, {

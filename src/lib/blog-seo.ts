@@ -57,6 +57,14 @@ export function extractFaq(html: string): FaqItem[] {
   const $ = cheerio.load(`<div id="__root">${html}</div>`, null, false);
   const items: FaqItem[] = [];
 
+  // 0) Standard <details> FAQ blocks
+  $("details").each((_, el) => {
+    const q = stripQuestionPrefix($(el).find("summary").first().text());
+    const a = stripAnswerPrefix($(el).find("div, p").not("summary *").first().text());
+    if (q && a) items.push({ question: q, answer: a });
+  });
+  if (items.length) return items;
+
   // 1) Yoast FAQ blocks
   $(".schema-faq-section").each((_, el) => {
     const q = stripQuestionPrefix($(el).find(".schema-faq-question").first().text());

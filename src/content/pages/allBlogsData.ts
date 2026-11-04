@@ -2,6 +2,7 @@ import { bestPosRetailBlog } from "@/content/pages/blogs/best-pos-system-for-ret
 import { whatIsPosBlog } from "@/content/pages/blogs/what-is-pos";
 import { switchPosSoftwareWithoutLosingDataBlog } from "@/content/pages/blogs/switch-pos-software-without-losing-data";
 import { excelVsPosRetailBlog } from "@/content/pages/blogs/excel-vs-pos-software-for-retail-shops";
+import { manageMultipleRetailBranchesBlog } from "@/content/pages/blogs/manage-multiple-retail-branches";
 
 export interface SingleBlogData {
   slug: string;
@@ -754,6 +755,11 @@ export const allBlogsData: Record<string, SingleBlogData> = {
   },
   "best-pos-system-for-retail": bestPosRetailBlog,
   "excel-vs-pos-software-for-retail-shops": excelVsPosRetailBlog,
+  "manage-multiple-retail-branches": manageMultipleRetailBranchesBlog,
+  "how-to-manage-multiple-retail-branches-without-separate-spreadsheets": {
+    ...manageMultipleRetailBranchesBlog,
+    slug: "how-to-manage-multiple-retail-branches-without-separate-spreadsheets",
+  },
   "best-point-of-sale-system-for-small-business-in-pakistan": {
     slug: "best-point-of-sale-system-for-small-business-in-pakistan",
     title: "Best Point of Sale (POS) System for Small Business in Pakistan",

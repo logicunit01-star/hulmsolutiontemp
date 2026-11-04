@@ -14,6 +14,19 @@ export type Insight = {
 
 export const insightsData: Insight[] = [
   {
+    id: "manage-multiple-retail-branches",
+    title: "How to Manage Multiple Retail Branches Without Separate Spreadsheets",
+    slug: "manage-multiple-retail-branches",
+    excerpt: "Managing multiple retail branches with Excel? Discover how to organize sales, inventory and branch operations with HulmPOS, starting at PKR 2,500/month.",
+    category: "Retail Operations",
+    date: "2026-11-04",
+    readTime: "8 min read",
+    author: "Aamir Khan",
+    authorSlug: "aamir-khan",
+    imageUrl: "/images/uploads/2026/11/how-to-manage-multiple-retail-branches-without-separate-spreadsheets.webp",
+    content: ""
+  },
+  {
     id: "excel-vs-pos-software-for-retail-shops",
     title: "Excel vs POS Software for Retail Shops: When Is It Time to Upgrade?",
     slug: "excel-vs-pos-software-for-retail-shops",

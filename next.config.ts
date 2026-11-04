@@ -19,7 +19,12 @@ const nextConfig: NextConfig = {
         destination: '/blog/:slug*/',
         permanent: true,
       },
-      {
+            {
+        source: '/blog/how-to-manage-multiple-retail-branches-without-separate-spreadsheets',
+        destination: '/blog/manage-multiple-retail-branches/',
+        permanent: true,
+      },
+{
         source: '/blog',
         destination: '/blogs/',
         permanent: true,

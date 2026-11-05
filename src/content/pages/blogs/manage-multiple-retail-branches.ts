@@ -747,53 +747,91 @@ export const manageMultipleRetailBranchesBlog: SingleBlogData = {
 
 <p class="wp-block-paragraph">HulmPOS can support different types of retail businesses.</p>
 
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 my-8">
-  <div class="rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] overflow-hidden flex flex-col justify-between shadow-xs">
-    <img src="/images/uploads/2026/11/supermarket_pos_checkout_lane_1793708153611.jpg" alt="Grocery and Supermarket POS in Pakistan" class="w-full h-40 object-cover border-b border-[#E4E2DA]" />
-    <div class="p-5">
-      <h4 class="font-bold text-[#0F2A26] mb-1.5 text-base">Grocery and Supermarkets</h4>
-      <p class="text-xs text-zinc-600 leading-relaxed">Manage product catalogues, checkout, stock, and daily sales.</p>
+<div class="industry-carousel-container my-8">
+  <div 
+    data-carousel="mobile" 
+    class="industry-carousel-track flex sm:grid gap-4 sm:gap-5 overflow-x-auto sm:overflow-visible pb-4 sm:pb-0 snap-x snap-mandatory scrollbar-none scroll-smooth -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid-cols-2 lg:grid-cols-3"
+  >
+    <div class="carousel-card snap-center shrink-0 w-[82vw] max-w-[290px] sm:w-auto sm:max-w-none rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] overflow-hidden flex flex-col justify-between shadow-xs">
+      <img src="/images/uploads/2026/11/supermarket_pos_checkout_lane_1793708153611.jpg" alt="Grocery and Supermarket POS in Pakistan" class="w-full h-40 object-cover border-b border-[#E4E2DA]" />
+      <div class="p-5 flex-1 flex flex-col justify-between">
+        <div>
+          <h4 class="font-bold text-[#0F2A26] mb-1.5 text-base">Grocery and Supermarkets</h4>
+          <p class="text-xs text-zinc-600 leading-relaxed mb-0">Manage product catalogues, checkout, stock, and daily sales.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-card snap-center shrink-0 w-[82vw] max-w-[290px] sm:w-auto sm:max-w-none rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] overflow-hidden flex flex-col justify-between shadow-xs">
+      <img src="/images/uploads/2026/11/retail_apparel_pos_case_study_v2_1793708108535.jpg" alt="Clothing Store POS system in Pakistan" class="w-full h-40 object-cover border-b border-[#E4E2DA]" />
+      <div class="p-5 flex-1 flex flex-col justify-between">
+        <div>
+          <h4 class="font-bold text-[#0F2A26] mb-1.5 text-base">Clothing Stores</h4>
+          <p class="text-xs text-zinc-600 leading-relaxed mb-0">Organize products, categories, sizes, colours, and inventory.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-card snap-center shrink-0 w-[82vw] max-w-[290px] sm:w-auto sm:max-w-none rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] overflow-hidden flex flex-col justify-between shadow-xs">
+      <img src="/images/uploads/2024/12/laptop-store-e1733745051312.jpg" alt="Electronics Store POS system in Pakistan" class="w-full h-40 object-cover border-b border-[#E4E2DA]" />
+      <div class="p-5 flex-1 flex flex-col justify-between">
+        <div>
+          <h4 class="font-bold text-[#0F2A26] mb-1.5 text-base">Electronics Stores</h4>
+          <p class="text-xs text-zinc-600 leading-relaxed mb-0">Maintain product information, sales records, and inventory.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-card snap-center shrink-0 w-[82vw] max-w-[290px] sm:w-auto sm:max-w-none rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] overflow-hidden flex flex-col justify-between shadow-xs">
+      <img src="/images/uploads/2026/11/pharmacy_pos_case_study_1793708086961.jpg" alt="Pharmacy POS system in Pakistan" class="w-full h-40 object-cover border-b border-[#E4E2DA]" />
+      <div class="p-5 flex-1 flex flex-col justify-between">
+        <div>
+          <h4 class="font-bold text-[#0F2A26] mb-1.5 text-base">Pharmacies</h4>
+          <p class="text-xs text-zinc-600 leading-relaxed mb-0">Organize product records, billing, and inventory workflows.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-card snap-center shrink-0 w-[82vw] max-w-[290px] sm:w-auto sm:max-w-none rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] overflow-hidden flex flex-col justify-between shadow-xs">
+      <img src="/images/uploads/2024/12/pos-for-bakery.jpg" alt="Bakery and Mini Market POS in Pakistan" class="w-full h-40 object-cover border-b border-[#E4E2DA]" />
+      <div class="p-5 flex-1 flex flex-col justify-between">
+        <div>
+          <h4 class="font-bold text-[#0F2A26] mb-1.5 text-base">Mini Markets</h4>
+          <p class="text-xs text-zinc-600 leading-relaxed mb-0">Simplify everyday billing and stock management.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-card snap-center shrink-0 w-[82vw] max-w-[290px] sm:w-auto sm:max-w-none rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] overflow-hidden flex flex-col justify-between shadow-xs">
+      <img src="/images/uploads/2024/12/Pos-for-Electric-Store.jpg" alt="General Retail and Electric Store POS in Pakistan" class="w-full h-40 object-cover border-b border-[#E4E2DA]" />
+      <div class="p-5 flex-1 flex flex-col justify-between">
+        <div>
+          <h4 class="font-bold text-[#0F2A26] mb-1.5 text-base">General Retail Stores</h4>
+          <p class="text-xs text-zinc-600 leading-relaxed mb-0">Bring daily sales, customer records, and inventory into one platform.</p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] overflow-hidden flex flex-col justify-between shadow-xs">
-    <img src="/images/uploads/2026/11/retail_apparel_pos_case_study_v2_1793708108535.jpg" alt="Clothing Store POS system in Pakistan" class="w-full h-40 object-cover border-b border-[#E4E2DA]" />
-    <div class="p-5">
-      <h4 class="font-bold text-[#0F2A26] mb-1.5 text-base">Clothing Stores</h4>
-      <p class="text-xs text-zinc-600 leading-relaxed">Organize products, categories, sizes, colours, and inventory.</p>
+  <!-- Mobile Swipe Navigation & Dots -->
+  <div class="carousel-nav-mobile flex sm:hidden items-center justify-between mt-3 px-1">
+    <button type="button" class="carousel-prev-btn h-8 w-8 rounded-full border border-[#E4E2DA] bg-white grid place-items-center text-zinc-600 hover:bg-zinc-50 transition-colors shadow-2xs cursor-pointer select-none" aria-label="Previous card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <div class="flex flex-col items-center gap-1.5">
+      <div class="carousel-dots flex items-center gap-1.5">
+        <span class="carousel-dot w-5 h-1.5 rounded-full bg-[#167c70] transition-all duration-200 cursor-pointer"></span>
+        <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-zinc-300 transition-all duration-200 cursor-pointer"></span>
+        <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-zinc-300 transition-all duration-200 cursor-pointer"></span>
+        <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-zinc-300 transition-all duration-200 cursor-pointer"></span>
+        <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-zinc-300 transition-all duration-200 cursor-pointer"></span>
+        <span class="carousel-dot w-1.5 h-1.5 rounded-full bg-zinc-300 transition-all duration-200 cursor-pointer"></span>
+      </div>
+      <span class="carousel-hint text-[11px] font-medium text-zinc-400">1 of 6 &bull; Swipe to explore</span>
     </div>
-  </div>
-
-  <div class="rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] overflow-hidden flex flex-col justify-between shadow-xs">
-    <img src="/images/uploads/2024/12/laptop-store-e1733745051312.jpg" alt="Electronics Store POS system in Pakistan" class="w-full h-40 object-cover border-b border-[#E4E2DA]" />
-    <div class="p-5">
-      <h4 class="font-bold text-[#0F2A26] mb-1.5 text-base">Electronics Stores</h4>
-      <p class="text-xs text-zinc-600 leading-relaxed">Maintain product information, sales records, and inventory.</p>
-    </div>
-  </div>
-
-  <div class="rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] overflow-hidden flex flex-col justify-between shadow-xs">
-    <img src="/images/uploads/2026/11/pharmacy_pos_case_study_1793708086961.jpg" alt="Pharmacy POS system in Pakistan" class="w-full h-40 object-cover border-b border-[#E4E2DA]" />
-    <div class="p-5">
-      <h4 class="font-bold text-[#0F2A26] mb-1.5 text-base">Pharmacies</h4>
-      <p class="text-xs text-zinc-600 leading-relaxed">Organize product records, billing, and inventory workflows.</p>
-    </div>
-  </div>
-
-  <div class="rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] overflow-hidden flex flex-col justify-between shadow-xs">
-    <img src="/images/uploads/2024/12/pos-for-bakery.jpg" alt="Bakery and Mini Market POS in Pakistan" class="w-full h-40 object-cover border-b border-[#E4E2DA]" />
-    <div class="p-5">
-      <h4 class="font-bold text-[#0F2A26] mb-1.5 text-base">Mini Markets</h4>
-      <p class="text-xs text-zinc-600 leading-relaxed">Simplify everyday billing and stock management.</p>
-    </div>
-  </div>
-
-  <div class="rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] overflow-hidden flex flex-col justify-between shadow-xs">
-    <img src="/images/uploads/2024/12/Pos-for-Electric-Store.jpg" alt="General Retail and Electric Store POS in Pakistan" class="w-full h-40 object-cover border-b border-[#E4E2DA]" />
-    <div class="p-5">
-      <h4 class="font-bold text-[#0F2A26] mb-1.5 text-base">General Retail Stores</h4>
-      <p class="text-xs text-zinc-600 leading-relaxed">Bring daily sales, customer records, and inventory into one platform.</p>
-    </div>
+    <button type="button" class="carousel-next-btn h-8 w-8 rounded-full border border-[#E4E2DA] bg-white grid place-items-center text-zinc-600 hover:bg-zinc-50 transition-colors shadow-2xs cursor-pointer select-none" aria-label="Next card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="m9 18 6-6-6-6"/></svg>
+    </button>
   </div>
 </div>
 

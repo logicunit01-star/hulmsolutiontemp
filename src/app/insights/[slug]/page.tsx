@@ -8,6 +8,7 @@ import { Calendar, Clock, User, ArrowLeft, ArrowRight, List, Sparkles } from "lu
 import { allBlogsData } from "@/content/pages/allBlogsData";
 import { insightsData } from "@/content/pages/insightsData";
 import { BlogFaqEnhancer } from "@/components/blog/blog-faq-enhancer";
+import { BlogCarouselEnhancer } from "@/components/blog/blog-carousel-enhancer";
 import { blogDates, extractFaq, prepareArticleHtml } from "@/lib/blog-seo";
 import { BLOG_BYLINE, EDITORIAL_TEAM, PRIMARY_AUTHOR, bylineEntity, bylineSchemaNodes } from "@/lib/authors";
 
@@ -296,6 +297,7 @@ export default async function SingleInsightPage({ params }: Props) {
                 dangerouslySetInnerHTML={{ __html: articleHtml }}
               />
               <BlogFaqEnhancer />
+              <BlogCarouselEnhancer />
 
               {/* Author + reviewer box (E-E-A-T) */}
               <aside aria-label="About the author and review" className="p-6 sm:p-7 rounded-[20px] border border-[#E4E2DA] bg-[#FAF9F5] mb-12 space-y-5">

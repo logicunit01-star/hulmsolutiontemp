@@ -90,12 +90,13 @@ export function WhyChooseSection() {
               />
               <div className="relative overflow-hidden rounded-2xl border border-emerald-900/10 bg-white p-2 sm:p-3 shadow-[0_20px_50px_-15px_rgba(15,42,38,0.08)]">
                 <Image
-                  src="/images/home/why-choose-hulm-pos.png"
+                  src="/images/home/why-choose-hulm-pos.webp"
                   alt="Why choose Hulm POS: cloud-based, multi-location, barcode ready, real-time reports, setup support"
                   width={1224}
                   height={1285}
                   className="w-full h-auto object-contain rounded-xl mx-auto transition-transform duration-500 hover:scale-[1.01]"
-                  sizes="(min-width: 1024px) 42vw, 100vw"
+                  loading="lazy"
+                  sizes="(min-width: 1024px) 480px, (min-width: 640px) 512px, calc(100vw - 32px)"
                 />
               </div>
             </div>

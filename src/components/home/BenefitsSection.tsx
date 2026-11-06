@@ -72,12 +72,13 @@ export function BenefitsSection() {
               {/* Styled glass container */}
               <div className="relative rounded-2xl border border-emerald-900/10 bg-white/90 p-4 shadow-[0_20px_50px_-15px_rgba(15,42,38,0.08)] backdrop-blur-xs sm:p-6">
                 <Image
-                  src="/images/home/hulm-section-4.png"
+                  src="/images/home/hulm-section-4.webp"
                   alt="Hulm POS integrated ecosystem and benefits overview"
                   width={610}
                   height={416}
                   className="mx-auto h-auto w-full object-contain drop-shadow-xs transition-transform duration-500 hover:scale-[1.02]"
-                  sizes="(min-width: 1024px) 42vw, 100vw"
+                  loading="lazy"
+                  sizes="(min-width: 1024px) 440px, (min-width: 640px) 448px, calc(100vw - 32px)"
                 />
 
                 {/* Floating micro-badge */}

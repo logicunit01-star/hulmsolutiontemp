@@ -349,6 +349,7 @@ export function GoogleReviewsSection({
                                 alt={`${rev.name} profile picture`}
                                 width={40}
                                 height={40}
+                                loading="lazy"
                                 className="w-full h-full object-cover"
                               />
                             </div>

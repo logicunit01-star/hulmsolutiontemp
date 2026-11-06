@@ -283,7 +283,7 @@ export default function HomePage() {
                 height={498}
                 priority
                 fetchPriority="high"
-                sizes="(min-width: 1024px) 50vw, (max-width: 640px) calc(100vw - 32px), 640px"
+                sizes="(min-width: 1280px) 590px, (min-width: 1024px) 50vw, (min-width: 640px) 576px, calc(100vw - 32px)"
                 className="h-auto w-full rounded-lg sm:rounded-xl object-contain select-none"
               />
             </div>
@@ -391,7 +391,8 @@ export default function HomePage() {
                   src={industry.image}
                   alt={`${industry.title} POS setup`}
                   fill
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  loading="lazy"
+                  sizes="(min-width: 1280px) 380px, (min-width: 1024px) 30vw, (min-width: 640px) 50vw, calc(100vw - 32px)"
                   className="object-cover transition duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F2A26]/95 via-[#0F2A26]/25 to-transparent" />

@@ -48,9 +48,9 @@ function InfographicGraphic() {
           alt="Replace manual cash register, Excel sheets, WhatsApp groups and paper notebooks with Hulm POS Software"
           width={1024}
           height={1536}
-          priority={false}
+          loading="lazy"
           className="h-auto w-full object-contain mx-auto drop-shadow-[0_15px_40px_rgba(15,42,38,0.08)] transition-transform duration-500 hover:scale-[1.01]"
-          sizes="(min-width: 1024px) 42vw, (min-width: 640px) 448px, calc(100vw - 32px)"
+          sizes="(min-width: 1024px) 440px, (min-width: 640px) 448px, calc(100vw - 32px)"
         />
       </div>
     </div>

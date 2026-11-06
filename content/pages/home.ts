@@ -126,12 +126,12 @@ export const homeContent = {
     description:
       "The same Point of Sale foundation, shaped for Pakistani retail stores, restaurants, pharmacies, bakeries, salons, clothing stores and more.",
     items: [
-      { title: "Retail stores", href: "/industries/retail-store/", image: "/images/industries/retail.jpg" },
-      { title: "Restaurants", href: "/industries/restaurant-pos/", image: "/images/industries/restaurant.jpg" },
-      { title: "Pharmacies", href: "/industries/pharmacy-store/", image: "/images/industries/pharmacy.jpg" },
-      { title: "Bakeries", href: "/industries/bakery-pos-system/", image: "/images/industries/bakery.jpg" },
-      { title: "Salons & spas", href: "/industries/salon-pos/", image: "/images/industries/salon.jpg" },
-      { title: "Clothing stores", href: "/industries/clothing-store/", image: "/images/industries/clothing.jpg" },
+      { title: "Retail stores", href: "/industries/retail-store/", image: "/images/industries/retail.webp" },
+      { title: "Restaurants", href: "/industries/restaurant-pos/", image: "/images/industries/restaurant.webp" },
+      { title: "Pharmacies", href: "/industries/pharmacy-store/", image: "/images/industries/pharmacy.webp" },
+      { title: "Bakeries", href: "/industries/bakery-pos-system/", image: "/images/industries/bakery.webp" },
+      { title: "Salons & spas", href: "/industries/salon-pos/", image: "/images/industries/salon.webp" },
+      { title: "Clothing stores", href: "/industries/clothing-store/", image: "/images/industries/clothing.webp" },
     ],
     moreHeading: "Also built for",
     more: [

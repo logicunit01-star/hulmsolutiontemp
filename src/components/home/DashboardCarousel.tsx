@@ -136,7 +136,7 @@ export function DashboardCarousel({ screens, slides }: DashboardCarouselProps) {
                     width={1024}
                     height={495}
                     loading="lazy"
-                    sizes="(min-width: 1024px) 896px, 100vw"
+                    sizes="(min-width: 1024px) 896px, (min-width: 640px) calc(100vw - 64px), calc(100vw - 32px)"
                     className="h-auto w-full object-contain select-none [image-rendering:-webkit-optimize-contrast]"
                     draggable={false}
                   />

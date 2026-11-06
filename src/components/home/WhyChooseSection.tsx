@@ -30,22 +30,17 @@ const workflowCards = [
   },
 ];
 
-const keyPoints = [
-  "User-Friendly Design",
-  "24/7 Support",
-  "Customizable Solutions",
-  "Advanced Security",
-  "Comprehensive Features",
-  "Cloud Accessibility",
-  "FBR-Integrated Invoicing",
-  "Real-Time Insights",
-  "Barcode Scanners",
+const proofPoints = [
+  "Start from PKR 2,500/month per user, no setup fee",
+  "Free 14-day trial, no credit card required",
+  "Local support via WhatsApp and phone",
+  "Free data import from Excel",
+  "Runs in any browser on PC, tablet, or phone",
+  "Use it in multiple locations",
   "Compatible with all Devices",
-  "Use it Multiple Locations",
-  "Record of clients",
-  "Cost-Effective",
-  "Scalable for Growth",
-  "Easy to understand Interface",
+  "FBR-Integrated Invoicing",
+  "Advanced Security",
+  "24/7 Support",
 ];
 
 export function WhyChooseSection() {
@@ -62,19 +57,19 @@ export function WhyChooseSection() {
               Why Choose Hulm POS System?
             </h2>
             <p className="text-sm sm:text-base text-zinc-600 leading-relaxed font-normal mb-5">
-              Hulm Solutions POS makes your business operations easy, efficient, and reliable at very competitive prices. Hulm POS offers simple yet powerful features and robust cloud architecture that adjust to every unique need of retail stores, restaurants, and growing businesses across Pakistan.
+              Transparent pricing, local onboarding, and modern cloud architecture built for single shops and multi-branch chains across Pakistan:
             </p>
 
-            {/* Key Points For Choosing Hulm POS */}
+            {/* 10 Proof-Backed Points For Choosing Hulm POS */}
             <div className="rounded-2xl border border-zinc-200/80 bg-white/80 p-4 sm:p-5 shadow-xs backdrop-blur-xs">
               <h3 className="mb-3.5 text-xs sm:text-sm font-bold tracking-wide uppercase text-[#167c70] flex items-center gap-2">
                 <span>Key Points For Choosing Hulm POS:</span>
               </h3>
-              <div className="grid grid-cols-1 min-[420px]:grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 gap-2 sm:gap-2.5">
-                {keyPoints.map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-xs sm:text-[13px] font-semibold text-[#0F2A26]">
-                    <CheckCircle2 className="w-4 h-4 text-[#167c70] shrink-0" aria-hidden="true" />
-                    <span>{item}</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+                {proofPoints.map((item) => (
+                  <div key={item} className="flex items-start gap-2 text-xs sm:text-[13px] font-semibold text-[#0F2A26]">
+                    <CheckCircle2 className="w-4 h-4 text-[#167c70] shrink-0 mt-0.5" aria-hidden="true" />
+                    <span className="leading-snug">{item}</span>
                   </div>
                 ))}
               </div>

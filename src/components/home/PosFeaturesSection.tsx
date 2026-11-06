@@ -11,9 +11,9 @@ import {
   BarChart3,
   ShieldCheck,
   Check,
-  Sparkles,
   ChevronLeft,
   ChevronRight,
+  ArrowRight,
 } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
@@ -27,6 +27,12 @@ interface JobGroup {
   icon: React.ComponentType<{ className?: string }>;
   features: string[];
   footerHighlight: string;
+  footerStatus: string;
+  microUi: {
+    leftLabel: string;
+    rightLabel: string;
+    isPulse?: boolean;
+  };
 }
 
 const jobGroups: JobGroup[] = [
@@ -35,8 +41,13 @@ const jobGroups: JobGroup[] = [
     job: "Sell",
     shortLabel: "Sell",
     badge: "Counter Checkout",
-    tagline: "Rapid cashier billing, barcoding & shift cash controls",
+    tagline: "High-speed barcode checkout, held tickets & shift cash drawer reconciliation.",
     icon: Receipt,
+    microUi: {
+      leftLabel: "Terminal 01 · Register A",
+      rightLabel: "PKR 2,450 · Paid",
+      isPulse: true,
+    },
     features: [
       "POS billing",
       "Held sales",
@@ -46,14 +57,20 @@ const jobGroups: JobGroup[] = [
       "Shifts and cash",
     ],
     footerHighlight: "6 counter tools",
+    footerStatus: "Live in Starter",
   },
   {
     number: "02",
     job: "Restaurant operations",
     shortLabel: "Restaurant",
-    badge: "Floor & Kitchen",
-    tagline: "Dine-in tables, kitchen board & recipe management",
+    badge: "F&B Floor & Kitchen",
+    tagline: "Dine-in floor plan, live kitchen display board & recipe cost tracking.",
     icon: UtensilsCrossed,
+    microUi: {
+      leftLabel: "Table 04 · 4 Guests",
+      rightLabel: "KDS: Cooking",
+      isPulse: false,
+    },
     features: [
       "Tables",
       "Kitchen board",
@@ -62,14 +79,20 @@ const jobGroups: JobGroup[] = [
       "Setup wizard",
     ],
     footerHighlight: "5 F&B modules",
+    footerStatus: "F&B Ready",
   },
   {
     number: "03",
     job: "Stock control",
     shortLabel: "Stock",
-    badge: "Inventory & Units",
-    tagline: "Multi-pack stock, reorder alerts & wastage audits",
+    badge: "Inventory & Warehouse",
+    tagline: "Real-time stock tracking, multi-pack units, reorder alerts & wastage audits.",
     icon: Boxes,
+    microUi: {
+      leftLabel: "SKU-8921 · Warehouse A",
+      rightLabel: "142 in stock · OK",
+      isPulse: false,
+    },
     features: [
       "Inventory",
       "Stock overview",
@@ -79,15 +102,21 @@ const jobGroups: JobGroup[] = [
       "Units of measure",
       "Packs",
     ],
-    footerHighlight: "7 stock controls",
+    footerHighlight: "7 inventory tools",
+    footerStatus: "Multi-Location",
   },
   {
     number: "04",
     job: "Buy",
     shortLabel: "Purchasing",
-    badge: "Procurement",
-    tagline: "Purchase orders, vendor GRN & price variance control",
+    badge: "Procurement & GRN",
+    tagline: "Supplier purchase orders, goods received verification & vendor cost control.",
     icon: ShoppingBag,
+    microUi: {
+      leftLabel: "PO #1042 → Al-Rehman",
+      rightLabel: "GRN Verified",
+      isPulse: false,
+    },
     features: [
       "Purchase orders",
       "Goods received (GRN)",
@@ -95,15 +124,21 @@ const jobGroups: JobGroup[] = [
       "Price variance",
       "Suppliers and vendor payments",
     ],
-    footerHighlight: "5 procurement tools",
+    footerHighlight: "5 purchasing tools",
+    footerStatus: "Vendor Ready",
   },
   {
     number: "05",
     job: "Credit and collections",
     shortLabel: "Credit",
     badge: "Ledgers & Khata",
-    tagline: "Customer & vendor balance tracking with recovery",
+    tagline: "Track customer & vendor balances with partial recovery & custom price lists.",
     icon: WalletCards,
+    microUi: {
+      leftLabel: "Customer: Tariq Traders",
+      rightLabel: "PKR 0 Due · Cleared",
+      isPulse: false,
+    },
     features: [
       "Customer ledger",
       "Payment recovery",
@@ -111,28 +146,40 @@ const jobGroups: JobGroup[] = [
       "Price lists",
     ],
     footerHighlight: "4 ledger tools",
+    footerStatus: "Khata Ready",
   },
   {
     number: "06",
     job: "Team",
     shortLabel: "Staff & Roles",
-    badge: "User Permissions",
-    tagline: "Granular staff roles, access limits & salesman tracking",
+    badge: "Roles & Permissions",
+    tagline: "Granular access levels, secure PIN access & commission tracking per salesman.",
     icon: Users,
+    microUi: {
+      leftLabel: "Cashier Shift #1 Active",
+      rightLabel: "Role: Salesman",
+      isPulse: true,
+    },
     features: [
       "Staff",
       "User roles",
       "Salesman performance",
     ],
     footerHighlight: "3 team controls",
+    footerStatus: "Multi-User",
   },
   {
     number: "07",
     job: "Reports",
     shortLabel: "Reports",
-    badge: "Intelligence",
-    tagline: "Real-time P&L, stock turnover & cash flow audits",
+    badge: "Business Intelligence",
+    tagline: "Live P&L analytics, customer sales summaries & multi-channel cash audits.",
     icon: BarChart3,
+    microUi: {
+      leftLabel: "Today's Sales vs Purchase",
+      rightLabel: "+32.4% Margin",
+      isPulse: false,
+    },
     features: [
       "Daily and monthly summary",
       "Product profit",
@@ -144,21 +191,28 @@ const jobGroups: JobGroup[] = [
       "Returns",
       "Purchase orders and payments",
     ],
-    footerHighlight: "9 analytics views",
+    footerHighlight: "9 analytics reports",
+    footerStatus: "Real-Time Data",
   },
   {
     number: "08",
     job: "Compliance and setup",
     shortLabel: "Compliance",
-    badge: "FBR & Setup",
-    tagline: "FBR fiscal QR invoice, print servers & Excel migration",
+    badge: "FBR & Hardware Setup",
+    tagline: "Digital FBR QR invoices, thermal print servers & one-click Excel data migration.",
     icon: ShieldCheck,
+    microUi: {
+      leftLabel: "FBR Fiscal POS #92014",
+      rightLabel: "QR Code Active",
+      isPulse: true,
+    },
     features: [
       "FBR-integrated invoice with QR code",
       "Printer server settings",
       "Excel import/export",
     ],
-    footerHighlight: "3 setup tools",
+    footerHighlight: "3 compliance tools",
+    footerStatus: "Tier-1 Certified",
   },
 ];
 
@@ -221,18 +275,38 @@ export function PosFeaturesSection() {
   const renderCard = (group: JobGroup) => {
     const Icon = group.icon;
     return (
-      <div className="group relative flex h-full flex-col justify-between rounded-2xl border border-zinc-200/90 bg-white p-5 sm:p-6 shadow-[0_4px_20px_-4px_rgba(15,42,38,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-[#167c70]/50 hover:shadow-[0_16px_36px_-12px_rgba(22,124,112,0.12)]">
+      <div className="group relative flex h-full flex-col justify-between rounded-2xl border border-zinc-200/90 bg-white p-5 sm:p-6 shadow-[0_2px_12px_-4px_rgba(15,42,38,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[#167c70]/60 hover:shadow-[0_20px_40px_-15px_rgba(22,124,112,0.18)]">
         {/* Top Accent Gradient Bar on Hover */}
         <div
           aria-hidden="true"
           className="absolute inset-x-0 top-0 h-1 rounded-t-2xl bg-gradient-to-r from-[#167c70] via-[#25A18E] to-[#7AE582] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         />
 
-        <div>
-          {/* Card Header */}
-          <div className="flex items-start justify-between gap-2 mb-3.5">
+        <div className="flex flex-col">
+          {/* Micro-UI Software Snippet */}
+          <div className="mb-4 flex items-center justify-between rounded-xl bg-[#0F2A26] px-3 py-2 text-white shadow-inner">
+            <div className="flex items-center gap-1.5 min-w-0">
+              {group.microUi.isPulse ? (
+                <span className="relative flex h-2 w-2 shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7AE582] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#7AE582]" />
+                </span>
+              ) : (
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#7AE582]" />
+              )}
+              <span className="truncate font-mono text-[11px] text-zinc-300">
+                {group.microUi.leftLabel}
+              </span>
+            </div>
+            <span className="shrink-0 rounded-md bg-white/10 px-1.5 py-0.5 font-mono text-[10px] font-semibold text-[#7AE582]">
+              {group.microUi.rightLabel}
+            </span>
+          </div>
+
+          {/* Card Header: Icon + Title + Number Badge */}
+          <div className="flex items-start justify-between gap-2 mb-2.5">
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#167c70]/10 to-[#7AE582]/15 text-[#167c70] transition-transform duration-300 group-hover:scale-105">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#167c70]/10 to-[#7AE582]/15 text-[#167c70] transition-transform duration-300 group-hover:scale-105">
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </div>
               <div className="min-w-0">
@@ -249,33 +323,31 @@ export function PosFeaturesSection() {
             </span>
           </div>
 
-          {/* Tagline / Subtitle */}
-          <p className="text-xs leading-relaxed text-zinc-500 mb-4 pb-3 border-b border-zinc-100">
+          {/* Operational Tagline */}
+          <p className="text-xs leading-relaxed text-zinc-500 mb-4">
             {group.tagline}
           </p>
 
-          {/* Features List */}
-          <ul className="space-y-2">
+          {/* Features Displayed as Modern Capability Chips */}
+          <div className="flex flex-wrap gap-1.5">
             {group.features.map((feature) => (
-              <li
+              <span
                 key={feature}
-                className="flex items-start gap-2.5 text-xs sm:text-[13px] text-zinc-700 leading-snug"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-200/80 bg-zinc-50/80 px-2.5 py-1 text-xs font-medium text-zinc-700 transition-colors group-hover:border-zinc-300 hover:border-[#167c70]/40 hover:bg-[#167c70]/5 hover:text-[#0F2A26]"
               >
-                <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#167c70]/10 text-[#167c70]">
-                  <Check className="h-2.5 w-2.5 stroke-[3]" aria-hidden="true" />
-                </span>
-                <span className="font-medium text-zinc-800">{feature}</span>
-              </li>
+                <Check className="h-3 w-3 shrink-0 text-[#167c70]" aria-hidden="true" />
+                <span>{feature}</span>
+              </span>
             ))}
-          </ul>
+          </div>
         </div>
 
         {/* Card Bottom Meta Bar (Anchors card height evenly) */}
         <div className="mt-5 pt-3.5 border-t border-zinc-100 flex items-center justify-between text-[11px]">
-          <span className="font-medium text-zinc-500">{group.footerHighlight}</span>
+          <span className="font-semibold text-zinc-500">{group.footerHighlight}</span>
           <span className="inline-flex items-center gap-1.5 font-semibold text-[#167c70]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#25A18E]" />
-            Included
+            {group.footerStatus}
           </span>
         </div>
       </div>
@@ -285,20 +357,23 @@ export function PosFeaturesSection() {
   return (
     <Section
       data-reveal
-      className="relative overflow-hidden border-t border-zinc-200/70 bg-[#FAF9F5] py-12 sm:py-16 lg:py-20"
+      className="relative overflow-hidden border-t border-zinc-200/70 bg-[#FAF9F5] py-14 sm:py-18 lg:py-24"
     >
       <Container>
         {/* Section Header */}
-        <div className="mx-auto max-w-3xl text-center mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3.5 py-1 mb-3 text-xs font-semibold text-[#167c70]">
-            <Sparkles className="h-3.5 w-3.5 text-[#25A18E]" />
-            <span>Complete Capability Matrix</span>
+        <div className="mx-auto max-w-3xl text-center mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-4 py-1.5 mb-4 text-xs font-semibold text-[#167c70]">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7AE582] opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#167c70]" />
+            </span>
+            <span>MODULAR POINT OF SALE ARCHITECTURE</span>
           </div>
-          <h2 className="text-2xl font-bold tracking-tight text-[#0F2A26] text-balance sm:text-3xl lg:text-[34px] lg:leading-[1.22]">
+          <h2 className="text-2xl font-bold tracking-tight text-[#0F2A26] text-balance sm:text-3xl lg:text-[38px] lg:leading-[1.2]">
             What&apos;s inside Hulm POS
           </h2>
-          <p className="mt-3 text-sm sm:text-base leading-relaxed text-zinc-600 max-w-2xl mx-auto">
-            A plain, connected breakdown of every operational tool built into Hulm POS &mdash; grouped by job and ready from day one.
+          <p className="mt-3.5 text-sm sm:text-base leading-relaxed text-zinc-600 max-w-2xl mx-auto">
+            8 purpose-built operational modules. Every feature QA-tested, connected into one database, and ready from day one with zero complex setup.
           </p>
         </div>
 
@@ -344,7 +419,7 @@ export function PosFeaturesSection() {
           {jobGroups.map((group) => (
             <div
               key={group.number}
-              className="w-[85vw] max-w-[340px] sm:w-[320px] lg:w-auto lg:max-w-none shrink-0 lg:shrink snap-center flex flex-col"
+              className="w-[86vw] max-w-[350px] sm:w-[330px] lg:w-auto lg:max-w-none shrink-0 lg:shrink snap-center flex flex-col"
             >
               {renderCard(group)}
             </div>
@@ -352,12 +427,12 @@ export function PosFeaturesSection() {
         </div>
 
         {/* MOBILE & TABLET: Bottom Navigation Controls */}
-        <div className="lg:hidden mt-3 flex items-center justify-between px-1">
+        <div className="lg:hidden mt-4 flex items-center justify-between px-1">
           <button
             type="button"
             onClick={() => scrollToCard(activeMobileIndex - 1)}
             disabled={activeMobileIndex === 0}
-            aria-label="Previous feature group"
+            aria-label="Previous feature module"
             className="h-9 w-9 rounded-full border border-zinc-200/90 bg-white grid place-items-center text-zinc-600 disabled:opacity-35 disabled:cursor-not-allowed hover:bg-zinc-50 transition-colors shadow-2xs"
           >
             <ChevronLeft className="h-4 w-4" />
@@ -371,7 +446,7 @@ export function PosFeaturesSection() {
                   key={idx}
                   type="button"
                   onClick={() => scrollToCard(idx)}
-                  aria-label={`Go to feature group ${idx + 1}`}
+                  aria-label={`Go to feature module ${idx + 1}`}
                   className={`h-1.5 rounded-full transition-all duration-300 ${
                     activeMobileIndex === idx
                       ? "w-6 bg-[#167c70]"
@@ -389,7 +464,7 @@ export function PosFeaturesSection() {
             type="button"
             onClick={() => scrollToCard(activeMobileIndex + 1)}
             disabled={activeMobileIndex === jobGroups.length - 1}
-            aria-label="Next feature group"
+            aria-label="Next feature module"
             className="h-9 w-9 rounded-full border border-zinc-200/90 bg-white grid place-items-center text-zinc-600 disabled:opacity-35 disabled:cursor-not-allowed hover:bg-zinc-50 transition-colors shadow-2xs"
           >
             <ChevronRight className="h-4 w-4" />

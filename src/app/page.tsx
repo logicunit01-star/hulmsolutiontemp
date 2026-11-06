@@ -257,8 +257,8 @@ export default function HomePage() {
       />
       <section className="relative overflow-hidden border-b border-zinc-200/70 bg-white pt-12 pb-14 sm:pt-16 sm:pb-16 lg:pt-20 lg:pb-24">
         <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
-        <Container className="relative grid items-center gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-14">
-          <div className="max-w-2xl lg:col-span-6">
+        <Container className="relative grid items-center gap-y-6 lg:gap-y-0 lg:grid-cols-12 lg:gap-12 xl:gap-14">
+          <div className="max-w-2xl lg:col-span-6 lg:col-start-1 lg:row-start-1">
             <p className="hidden md:block mb-5 text-sm font-semibold text-[#167c70]">{homeContent.hero.eyebrow}</p>
             <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px]">
               {homeContent.hero.headline.replace(/every branch$/, "")}
@@ -267,28 +267,30 @@ export default function HomePage() {
             <p className="mt-6 sm:mt-7 max-w-xl text-sm sm:text-base lg:text-lg leading-relaxed sm:leading-8 text-zinc-600">
               {homeContent.hero.description}
             </p>
+          </div>
 
-            {/* Mobile Showcase Image (Positioned directly after description on mobile) */}
-            <div className="block lg:hidden my-6">
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -inset-2 rounded-2xl bg-gradient-to-tr from-[#167c70]/12 via-[#7ae582]/8 to-transparent blur-xl -z-10"
+          {/* Unified Showcase Image (Rendered once, positioned after description on mobile & column 2 on desktop) */}
+          <div className="relative w-full max-w-xl mx-auto my-2 lg:my-0 lg:col-span-6 lg:col-start-7 lg:row-start-1 lg:row-span-2 lg:max-w-none">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-2 sm:-inset-4 rounded-2xl sm:rounded-3xl bg-gradient-to-tr from-[#167c70]/15 via-[#7ae582]/10 to-transparent blur-xl sm:blur-2xl -z-10"
+            />
+            <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-zinc-200/90 bg-white p-1 sm:p-2 shadow-[0_15px_35px_-10px_rgba(21,40,37,0.18)] lg:shadow-[0_25px_60px_-15px_rgba(21,40,37,0.22)]">
+              <Image
+                src="/images/home/hero-pos-terminal.webp"
+                alt="Hulm POS software point of sale terminal screen"
+                width={1024}
+                height={498}
+                priority
+                fetchPriority="high"
+                sizes="(min-width: 1024px) 50vw, (max-width: 640px) calc(100vw - 32px), 640px"
+                className="h-auto w-full rounded-lg sm:rounded-xl object-contain select-none"
               />
-              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-zinc-200/90 bg-white p-1 sm:p-1.5 shadow-[0_15px_35px_-10px_rgba(21,40,37,0.18)]">
-                <Image
-                  src="/images/home/hero-pos-terminal.webp"
-                  alt="Hulm POS software point of sale terminal screen"
-                  width={1024}
-                  height={498}
-                  priority
-                  fetchPriority="high"
-                  sizes="(min-width: 1024px) 50vw, (max-width: 640px) calc(100vw - 32px), 640px"
-                  className="h-auto w-full rounded-lg sm:rounded-xl object-contain select-none"
-                />
-              </div>
             </div>
+          </div>
 
-            <div className="mt-6 sm:mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="max-w-2xl lg:col-span-6 lg:col-start-1 lg:row-start-2">
+            <div className="mt-2 sm:mt-4 lg:mt-6 flex flex-col gap-3 sm:flex-row">
               <Button asChild size="lg" className="hidden sm:inline-flex w-full sm:w-auto">
                 <Link href={homeContent.hero.primaryCta.href} target="_blank" rel="noreferrer">
                   {homeContent.hero.primaryCta.label}
@@ -324,25 +326,6 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          <div className="hidden lg:block relative w-full max-w-xl mx-auto lg:col-span-6 lg:max-w-none">
-            {/* Soft ambient glow behind dashboard */}
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#167c70]/15 via-[#7ae582]/10 to-transparent blur-2xl -z-10"
-            />
-            <div className="relative overflow-hidden rounded-2xl border border-zinc-200/90 bg-white p-1 sm:p-2 shadow-[0_25px_60px_-15px_rgba(21,40,37,0.22)]">
-              <Image
-                src="/images/home/hero-pos-terminal.webp"
-                alt="Hulm POS software point of sale terminal screen"
-                width={1024}
-                height={498}
-                fetchPriority="high"
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="h-auto w-full rounded-xl object-contain"
-              />
-            </div>
           </div>
         </Container>
       </section>

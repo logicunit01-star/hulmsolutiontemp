@@ -205,16 +205,6 @@ export function DashboardCarousel({ screens, slides }: DashboardCarouselProps) {
           </div>
         </div>
       </div>
-
-      {/* Accessible listing for SEO crawlers and screen readers */}
-      <div className="sr-only">
-        {items.map((screen) => (
-          <article key={screen.title}>
-            <h4>{screen.title}</h4>
-            <p>{screen.description}</p>
-          </article>
-        ))}
-      </div>
     </div>
   );
 }

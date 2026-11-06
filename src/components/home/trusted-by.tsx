@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import { Container } from "@/components/ui/container";
 
 const badges = [
@@ -77,6 +80,30 @@ const badges = [
 ];
 
 export function TrustedBy() {
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    // Guard against duplicate cloning
+    if (track.querySelector("[data-cloned='true']")) return;
+
+    const children = Array.from(track.children);
+    children.forEach((child) => {
+      const clone = child.cloneNode(true) as HTMLElement;
+      clone.setAttribute("aria-hidden", "true");
+      clone.setAttribute("data-cloned", "true");
+      if (clone.tagName === "A") {
+        clone.setAttribute("tabindex", "-1");
+      }
+      clone.querySelectorAll("a, button, input").forEach((el) => {
+        el.setAttribute("tabindex", "-1");
+      });
+      track.appendChild(clone);
+    });
+  }, []);
+
   const renderItem = (b: (typeof badges)[number], key: string) => {
     const imgContent = (
       <img
@@ -140,11 +167,8 @@ export function TrustedBy() {
           className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-24 md:w-36 bg-gradient-to-l from-[#FAF9F5] to-transparent z-10"
         />
         <div className="certificate-slider !bg-transparent !py-2 sm:!py-3">
-          <div className="slider-track">
-            {/* First set of badges */}
-            {badges.map((b, i) => renderItem(b, `badge-1-${i}`))}
-            {/* Duplicate set for infinite loop */}
-            {badges.map((b, i) => renderItem(b, `badge-2-${i}`))}
+          <div ref={trackRef} className="slider-track">
+            {badges.map((b, i) => renderItem(b, `badge-${i}`))}
           </div>
         </div>
       </div>

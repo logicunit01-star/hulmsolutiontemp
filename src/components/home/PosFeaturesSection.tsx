@@ -335,7 +335,7 @@ export function PosFeaturesSection() {
           </p>
         </div>
 
-        {/* MOBILE & TABLET VIEW: Compact horizontal swipe slider (Eliminates vertical scrolling!) */}
+        {/* MOBILE & TABLET VIEW: Compact horizontal swipe pills (Eliminates vertical scrolling!) */}
         <div className="lg:hidden">
           {/* Module Pills Selector (One-tap direct jump) */}
           <div
@@ -367,72 +367,67 @@ export function PosFeaturesSection() {
               );
             })}
           </div>
-
-          {/* Swipeable Track with snap */}
-          <div
-            ref={carouselRef}
-            onScroll={handleScroll}
-            className="flex gap-3.5 overflow-x-auto pb-3 pt-1 snap-x snap-mandatory scrollbar-none scroll-smooth px-4 -mx-4 sm:px-0 sm:mx-0"
-          >
-            {features.map((feature, idx) => (
-              <div
-                key={feature.number}
-                className="w-[84vw] max-w-[330px] sm:w-[320px] shrink-0 snap-center"
-              >
-                {renderCard(feature, idx)}
-              </div>
-            ))}
-          </div>
-
-          {/* Mobile Bottom Navigation Bar */}
-          <div className="mt-3 flex items-center justify-between px-1">
-            <button
-              type="button"
-              onClick={() => scrollToCard(activeMobileIndex - 1)}
-              disabled={activeMobileIndex === 0}
-              aria-label="Previous feature module"
-              className="h-8 w-8 rounded-full border border-[#E4E2DA] bg-white grid place-items-center text-zinc-600 disabled:opacity-35 disabled:cursor-not-allowed hover:bg-zinc-50 transition-colors shadow-2xs"
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </button>
-
-            <div className="flex flex-col items-center gap-1.5">
-              {/* Pagination Dots */}
-              <div className="flex items-center gap-1">
-                {features.map((_, idx) => (
-                  <button
-                    key={idx}
-                    type="button"
-                    onClick={() => scrollToCard(idx)}
-                    aria-label={`Go to feature ${idx + 1}`}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      activeMobileIndex === idx
-                        ? "w-5 bg-[#167c70]"
-                        : "w-1.5 bg-zinc-300 hover:bg-zinc-400"
-                    }`}
-                  />
-                ))}
-              </div>
-              <span className="text-[11px] font-medium text-zinc-500">
-                {activeMobileIndex + 1} of {features.length} • Tap card to flip points
-              </span>
-            </div>
-
-            <button
-              type="button"
-              onClick={() => scrollToCard(activeMobileIndex + 1)}
-              disabled={activeMobileIndex === features.length - 1}
-              aria-label="Next feature module"
-              className="h-8 w-8 rounded-full border border-[#E4E2DA] bg-white grid place-items-center text-zinc-600 disabled:opacity-35 disabled:cursor-not-allowed hover:bg-zinc-50 transition-colors shadow-2xs"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </button>
-          </div>
         </div>
 
-        {/* DESKTOP VIEW: Full 4x2 Grid (1024px and up) */}
-        <div className="hidden lg:grid lg:grid-cols-4 lg:gap-4">
-          {features.map((feature, idx) => renderCard(feature, idx))}
+        {/* UNIFIED Feature Cards Track (Swipeable carousel on mobile/tablet, 4x2 grid on desktop - Rendered once) */}
+        <div
+          ref={carouselRef}
+          onScroll={handleScroll}
+          className="flex lg:grid gap-3.5 lg:gap-4 overflow-x-auto lg:overflow-visible pb-3 lg:pb-0 snap-x snap-mandatory scrollbar-none scroll-smooth px-4 -mx-4 sm:px-0 sm:mx-0 lg:grid-cols-4"
+        >
+          {features.map((feature, idx) => (
+            <div
+              key={feature.number}
+              className="w-[84vw] max-w-[330px] sm:w-[320px] lg:w-auto lg:max-w-none shrink-0 lg:shrink snap-center"
+            >
+              {renderCard(feature, idx)}
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile Bottom Navigation Bar */}
+        <div className="lg:hidden mt-3 flex items-center justify-between px-1">
+          <button
+            type="button"
+            onClick={() => scrollToCard(activeMobileIndex - 1)}
+            disabled={activeMobileIndex === 0}
+            aria-label="Previous feature module"
+            className="h-8 w-8 rounded-full border border-[#E4E2DA] bg-white grid place-items-center text-zinc-600 disabled:opacity-35 disabled:cursor-not-allowed hover:bg-zinc-50 transition-colors shadow-2xs"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+
+          <div className="flex flex-col items-center gap-1.5">
+            {/* Pagination Dots */}
+            <div className="flex items-center gap-1">
+              {features.map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => scrollToCard(idx)}
+                  aria-label={`Go to feature ${idx + 1}`}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    activeMobileIndex === idx
+                      ? "w-5 bg-[#167c70]"
+                      : "w-1.5 bg-zinc-300 hover:bg-zinc-400"
+                  }`}
+                />
+              ))}
+            </div>
+            <span className="text-[11px] font-medium text-zinc-500">
+              {activeMobileIndex + 1} of {features.length} • Tap card to flip points
+            </span>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => scrollToCard(activeMobileIndex + 1)}
+            disabled={activeMobileIndex === features.length - 1}
+            aria-label="Next feature module"
+            className="h-8 w-8 rounded-full border border-[#E4E2DA] bg-white grid place-items-center text-zinc-600 disabled:opacity-35 disabled:cursor-not-allowed hover:bg-zinc-50 transition-colors shadow-2xs"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
         </div>
       </Container>
     </Section>

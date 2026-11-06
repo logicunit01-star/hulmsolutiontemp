@@ -149,7 +149,7 @@ export function TrustedBy() {
             id="trusted-by"
             className="text-xl sm:text-2xl md:text-[26px] font-bold tracking-tight text-[#0F2A26]"
           >
-            Trusted By
+            Find Hulm POS on:
           </h2>
           <p className="text-xs sm:text-sm font-medium text-zinc-500">
             Featured across leading software review platforms & directories

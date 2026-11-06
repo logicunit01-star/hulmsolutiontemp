@@ -110,13 +110,13 @@ export const homeContent = {
   },
   compliance: {
     eyebrow: "FBR integration support",
-    heading: "FBR-integrated POS: invoice number and QR code at checkout",
+    heading: "What is an FBR-integrated POS?",
     description:
-      "For businesses that need FBR integration, Hulm supports the setup and connects eligible transactions to the invoicing workflow, so every sale can carry an FBR invoice number and QR code. Requirements vary by business, so our team confirms the right setup with you.",
+      "An FBR-integrated POS sends each sale to the Federal Board of Revenue in real time and prints an FBR invoice number and QR code on the receipt. Tier-1 retailers, certain restaurants and other businesses are required to use one. Hulm POS supports this integration and helps you complete setup.",
     bullets: [
-      "Guidance during FBR setup",
-      "Invoice and QR-code workflow support",
-      "Transaction records kept with your sales data",
+      "Who needs it? Every Pakistani retailer, restaurant, pharmacy, and business.",
+      "Provincial tax: SRB / PRA / KPRA / BRA.",
+      "How setup works: 1) Register your POS with FBR 2) Hulm connects your account 3) Your first invoice carries the FBR number and QR code.",
     ],
     cta: { label: "FBR-integrated Point of Sale Software", href: "/fbr-integrated-pos-pakistan/" },
   },

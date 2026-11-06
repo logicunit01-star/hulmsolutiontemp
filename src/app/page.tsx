@@ -345,12 +345,24 @@ export default function HomePage() {
               <h2 className="max-w-2xl text-xl sm:text-2xl font-bold tracking-tight text-white text-balance lg:text-[32px] lg:leading-[1.22]">{homeContent.compliance.heading}</h2>
               <p className="mt-4 sm:mt-5 max-w-2xl text-sm sm:text-base leading-relaxed text-white/75">{renderFormattedDescriptionDark(homeContent.compliance.description)}</p>
               <ul className="mt-6 sm:mt-7 space-y-2.5 sm:space-y-3">
-                {homeContent.compliance.bullets.map((bullet) => (
-                  <li key={bullet} className="flex items-center gap-2.5 sm:gap-3 text-sm font-medium text-white/90 sm:text-base">
-                    <CheckCircle2 className="h-4.5 w-4.5 sm:h-5 sm:w-5 shrink-0 text-[#7AE582]" />
-                    <span>{bullet}</span>
-                  </li>
-                ))}
+                {homeContent.compliance.bullets.map((bullet) => {
+                  const match = bullet.match(/^([^?:]+[?:])\s*(.*)$/);
+                  return (
+                    <li key={bullet} className="flex items-start gap-2.5 sm:gap-3 text-sm font-medium text-white/90 sm:text-base">
+                      <CheckCircle2 className="mt-0.5 sm:mt-1 h-4.5 w-4.5 sm:h-5 sm:w-5 shrink-0 text-[#7AE582]" />
+                      <span>
+                        {match ? (
+                          <>
+                            <strong className="text-white font-semibold">{match[1]}</strong>{" "}
+                            <span className="text-white/80">{match[2]}</span>
+                          </>
+                        ) : (
+                          bullet
+                        )}
+                      </span>
+                    </li>
+                  );
+                })}
               </ul>
               <Button asChild size="lg" className="mt-7 sm:mt-8 w-full sm:w-auto h-auto min-h-12 py-3 px-5 sm:px-8 bg-white text-[#0F2A26] hover:bg-[#F7F6F2] text-sm sm:text-base font-semibold whitespace-normal text-center">
                 <Link href={homeContent.compliance.cta.href} className="inline-flex items-center justify-center gap-2">

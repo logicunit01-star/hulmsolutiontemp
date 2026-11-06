@@ -310,14 +310,6 @@ export default function HomePage() {
               </Button>
             </div>
 
-            <div className="mt-4 sm:mt-5 inline-block rounded-xl border border-zinc-200/90 bg-white px-4 py-2.5 sm:px-5 sm:py-3 shadow-xs">
-              <p className="text-sm sm:text-[15px] font-semibold text-[#FF6A00]">
-                Start 14-Day Free Trial
-              </p>
-              <p className="mt-0.5 text-xs sm:text-[13px] text-zinc-700">
-                No credit card required &middot; PKR 2,500/month &middot; No hidden fees
-              </p>
-            </div>
             <ul className="hidden md:flex mt-6 flex-col gap-3 text-sm font-medium text-zinc-600 sm:flex-row sm:flex-wrap sm:gap-x-6">
               {homeContent.hero.proof.map((item) => (
                 <li key={item} className="flex items-center gap-2">

@@ -45,7 +45,7 @@ function InfographicGraphic() {
       <div className="relative w-full">
         <Image
           src="/images/home/replace-manual-processes.webp"
-          alt="Replace manual cash register, Excel sheets, WhatsApp groups and paper notebooks with Hulm POS Software"
+          alt="Infographic showing transition from manual paper registers to connected Hulm POS software"
           width={1024}
           height={1536}
           loading="lazy"
@@ -76,9 +76,9 @@ export function ReplaceManualSection() {
       />
 
       <Container>
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-14 xl:gap-16">
-          {/* Left Column: Heading, Description, Cards & CTA */}
-          <div className="lg:col-span-7">
+        <div className="grid grid-cols-1 items-center gap-y-6 lg:gap-y-0 lg:grid-cols-12 lg:gap-14 xl:gap-16">
+          {/* Top Left: Eyebrow, Heading, Description */}
+          <div className="lg:col-span-7 lg:col-start-1 lg:row-start-1">
             {/* Pill Eyebrow */}
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/8 px-3.5 py-1 text-xs font-semibold text-[#167c70]">
               <span className="text-[11px] font-bold uppercase tracking-wider text-[#167c70]/80">
@@ -96,14 +96,16 @@ export function ReplaceManualSection() {
             <p className="mt-4 text-base leading-relaxed text-zinc-600 sm:text-lg max-w-2xl">
               {description}
             </p>
+          </div>
 
-            {/* Mobile Graphic (visible on small/medium screens right below description) */}
-            <div className="my-8 lg:hidden">
-              <InfographicGraphic />
-            </div>
+          {/* Unified Infographic (Rendered ONCE: positioned below description on mobile, right column spanning rows 1-2 on desktop) */}
+          <div className="my-4 lg:my-0 lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:row-span-2 flex items-center justify-center">
+            <InfographicGraphic />
+          </div>
 
-            {/* Problem & Solution Cards Stack */}
-            <div className="mt-8 space-y-3.5">
+          {/* Bottom Left: Problem & Solution Cards Stack + Action Row */}
+          <div className="lg:col-span-7 lg:col-start-1 lg:row-start-2">
+            <div className="space-y-3.5">
               {items.map((item, index) => {
                 const meta = problemMeta[index];
                 const Icon = meta?.icon || ReceiptText;
@@ -163,11 +165,6 @@ export function ReplaceManualSection() {
                 No credit card needed &bull; Instant setup
               </span>
             </div>
-          </div>
-
-          {/* Right Column: Visual Infographic (Desktop & Tablet Landscape) */}
-          <div className="hidden lg:flex items-center justify-center lg:col-span-5">
-            <InfographicGraphic />
           </div>
         </div>
       </Container>

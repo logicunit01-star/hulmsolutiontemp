@@ -233,7 +233,7 @@ export function CountryTemplate({ countryKey }: CountryTemplateProps) {
                 <div className="relative overflow-hidden rounded-2xl border border-zinc-200/90 bg-white p-1 sm:p-2 shadow-[0_25px_60px_-15px_rgba(21,40,37,0.22)]">
                   <Image
                     src="/images/home/hero-pos-terminal.webp"
-                    alt={`Hulm POS software point of sale terminal in ${country}`}
+                    alt={`Hulm POS cloud cashier terminal deployed for retail businesses in ${country}`}
                     width={1024}
                     height={498}
                     priority

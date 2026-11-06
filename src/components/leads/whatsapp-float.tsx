@@ -28,7 +28,8 @@ export function WhatsAppFloat() {
     >
       <Image
         src="/whatsapp.png"
-        alt="WhatsApp"
+        alt=""
+        aria-hidden="true"
         width={56}
         height={56}
         className="h-14 w-14 object-contain"

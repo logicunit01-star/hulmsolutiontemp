@@ -278,7 +278,7 @@ export default function HomePage() {
             <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-zinc-200/90 bg-white p-1 sm:p-2 shadow-[0_15px_35px_-10px_rgba(21,40,37,0.18)] lg:shadow-[0_25px_60px_-15px_rgba(21,40,37,0.22)]">
               <Image
                 src="/images/home/hero-pos-terminal.webp"
-                alt="Hulm POS software point of sale terminal screen"
+                alt="Hulm POS cloud cashier terminal with barcode scanner and instant checkout interface"
                 width={1024}
                 height={498}
                 priority
@@ -389,7 +389,7 @@ export default function HomePage() {
               <Link key={industry.title} href={industry.href} className="group relative min-h-64 overflow-hidden rounded-2xl bg-[#0F2A26]">
                 <Image
                   src={industry.image}
-                  alt={`${industry.title} POS setup`}
+                  alt={industry.alt}
                   fill
                   loading="lazy"
                   sizes="(min-width: 1280px) 380px, (min-width: 1024px) 30vw, (min-width: 640px) 50vw, calc(100vw - 32px)"

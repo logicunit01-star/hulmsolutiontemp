@@ -346,7 +346,8 @@ export function GoogleReviewsSection({
                             <div className="w-10 h-10 rounded-full overflow-hidden border border-gray-200 bg-zinc-100">
                               <Image
                                 src={rev.avatar}
-                                alt={`${rev.name} profile picture`}
+                                alt=""
+                                aria-hidden="true"
                                 width={40}
                                 height={40}
                                 loading="lazy"

@@ -3,7 +3,7 @@ import Image from "next/image";
 export function WhatsAppIcon({
   className = "w-5 h-5",
   size = 24,
-  "aria-hidden": ariaHidden,
+  "aria-hidden": ariaHidden = true,
 }: {
   className?: string;
   size?: number;
@@ -12,7 +12,7 @@ export function WhatsAppIcon({
   return (
     <Image
       src="/whatsapp.png"
-      alt="WhatsApp"
+      alt=""
       width={size}
       height={size}
       aria-hidden={ariaHidden}

@@ -8,6 +8,7 @@ export interface DashboardScreen {
   readonly title?: string;
   readonly description?: string;
   readonly image: string;
+  readonly alt?: string;
   readonly badge?: string;
 }
 
@@ -20,6 +21,7 @@ interface NormalizedScreen {
   title: string;
   description: string;
   image: string;
+  alt?: string;
   badge?: string;
 }
 
@@ -28,6 +30,7 @@ export function DashboardCarousel({ screens, slides }: DashboardCarouselProps) {
     title: s.title || `Screen ${i + 1}`,
     description: s.description || "Real screens from the Hulm POS workspace.",
     image: s.image,
+    alt: s.alt,
     badge: s.badge,
   }));
 
@@ -132,7 +135,7 @@ export function DashboardCarousel({ screens, slides }: DashboardCarouselProps) {
                 <div className="relative w-full overflow-hidden bg-white">
                   <Image
                     src={screen.image}
-                    alt={`Hulm POS screen: ${screen.title}`}
+                    alt={screen.alt || screen.title}
                     width={1024}
                     height={495}
                     loading="lazy"

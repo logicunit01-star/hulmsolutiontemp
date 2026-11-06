@@ -73,7 +73,7 @@ export function BenefitsSection() {
               <div className="relative rounded-2xl border border-emerald-900/10 bg-white/90 p-4 shadow-[0_20px_50px_-15px_rgba(15,42,38,0.08)] backdrop-blur-xs sm:p-6">
                 <Image
                   src="/images/home/hulm-section-4.webp"
-                  alt="Hulm POS integrated ecosystem and benefits overview"
+                  alt="Hulm POS cloud architecture diagram connecting billing, inventory, and branch analytics"
                   width={610}
                   height={416}
                   className="mx-auto h-auto w-full object-contain drop-shadow-xs transition-transform duration-500 hover:scale-[1.02]"

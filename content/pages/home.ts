@@ -26,7 +26,7 @@ export const homeContent = {
     eyebrow: "Cloud Point of Sale for growing businesses",
     headline: "Best POS Software in Pakistan to run sales, stock and every branch",
     description:
-      "Sell faster, keep stock accurate and manage every branch from one connected point of sale system built for growing businesses in Pakistan, from a single shop to a multi-branch chain.",
+      "Hulm POS is cloud-based point of sale software in Pakistan with dedicated editions for restaurants, retail and pharmacies. Bill faster, track stock, manage customer and supplier ledgers, control purchasing and issue FBR-integrated invoices from one system. Plans start from PKR 2,500/month per user.",
     primaryCta: { label: "Start 14-Day Free Trial", href: "https://app.hulmsolutions.com/Register" },
     secondaryCta: { label: "Watch a Demo", href: "https://www.youtube.com/watch?v=NNwtC-uayeY" },
     proof: ["FBR integration available", "Multi-branch ready", "Works on your existing devices"],

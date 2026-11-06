@@ -259,8 +259,15 @@ export const homeContent = {
       "Hulm POS software price in Pakistan starts at PKR 2,500 per month. Compare what is included and choose the plan that fits your locations and team.",
     price: "PKR 2,500",
     cadence: "/ month",
-    note: "Starting plan",
-    bullets: ["14-day free trial", "Cloud access", "Support during setup", "No credit card required"],
+    note: "Starter",
+    bullets: [
+      "1 user · 1 branch",
+      "POS billing and cash management",
+      "Basic inventory management",
+      "Customer records and sales reports",
+      "FBR integration available",
+      "Email support",
+    ],
     cta: { label: "See pricing", href: "/pricing/" },
   },
   faq: {

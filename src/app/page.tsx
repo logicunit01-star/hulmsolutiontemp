@@ -515,13 +515,10 @@ export default function HomePage() {
 
             {/* Right Column: Premium High-Converting Pricing Card */}
             <div className="relative mt-7 sm:mt-8 lg:mt-0 overflow-hidden rounded-2xl border-2 border-[#167c70]/25 bg-gradient-to-b from-[#f8fbf9] via-white to-[#f4f9f6] p-5 sm:p-8 shadow-[0_20px_45px_-12px_rgba(22,124,112,0.12)]">
-              {/* Card Header & Badge */}
+              {/* Card Header */}
               <div className="flex items-center justify-between gap-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#167c70]">
+                <span className="inline-flex items-center rounded-md bg-[#167c70]/10 px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-[#167c70]">
                   {homeContent.pricing.note}
-                </span>
-                <span className="inline-flex items-center gap-1 rounded-full bg-[#167c70] px-2.5 py-0.5 text-[11px] font-semibold text-white shadow-xs">
-                  <Sparkles className="h-3 w-3" /> Most Popular
                 </span>
               </div>
 
@@ -536,17 +533,27 @@ export default function HomePage() {
               </div>
               <p className="mt-1 text-xs text-zinc-500">Billed monthly &bull; Cancel or change plans anytime</p>
 
-              {/* Bullets List */}
-              <ul className="mt-5 sm:mt-6 space-y-3 sm:space-y-3.5 border-t border-zinc-100 pt-5 sm:pt-6">
-                {homeContent.pricing.bullets.map((bullet) => (
-                  <li key={bullet} className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm font-medium text-zinc-700">
-                    <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#167c70]/10 text-[#167c70]">
-                      <Check className="h-3.5 w-3.5 stroke-[2.5]" aria-hidden="true" />
-                    </div>
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </ul>
+              {/* Small Table of Inclusions */}
+              <div className="mt-5 sm:mt-6 overflow-hidden rounded-xl border border-zinc-200/90 bg-white">
+                <table className="w-full text-left text-xs sm:text-[13px] border-collapse">
+                  <caption className="sr-only">Starter Plan Inclusions</caption>
+                  <tbody className="divide-y divide-zinc-100">
+                    {homeContent.pricing.bullets.map((feature) => (
+                      <tr key={feature} className="transition-colors hover:bg-zinc-50/60">
+                        <td className="py-2.5 px-3 sm:px-4 font-medium text-zinc-700">
+                          {feature}
+                        </td>
+                        <td className="py-2.5 px-3 sm:px-4 text-right">
+                          <span className="inline-flex items-center gap-1 font-semibold text-[#167c70]">
+                            <Check className="h-3.5 w-3.5 stroke-[2.5]" aria-hidden="true" />
+                            <span className="text-[11px] sm:text-xs">Included</span>
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
 
               {/* CTA Button */}
               <Button asChild size="lg" className="group mt-6 sm:mt-7 h-12 w-full justify-center rounded-xl bg-[#0F2A26] text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-[#167c70]">

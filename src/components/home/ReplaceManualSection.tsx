@@ -87,12 +87,9 @@ export function ReplaceManualSection() {
             </div>
 
             {/* Main Heading with Highlight */}
-            <h2
-              
-              className="text-2xl font-bold tracking-tight text-[#0F2A26] text-balance sm:text-3xl lg:text-[32px] lg:leading-[1.22]"
-            >
-              {heading.replace(/Best POS Software in Pakistan$/, "")}
-              <span className="text-[#167c70]">Best POS Software in Pakistan</span>
+            <h2 className="text-2xl font-bold tracking-tight text-[#0F2A26] text-balance sm:text-3xl lg:text-[32px] lg:leading-[1.22]">
+              {heading.replace(/one POS Software\.?$/, "")}
+              <span className="text-[#167c70]">one POS Software.</span>
             </h2>
 
             {/* Description */}

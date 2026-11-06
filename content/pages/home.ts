@@ -44,7 +44,7 @@ export const homeContent = {
   },
   problems: {
     eyebrow: "One source of truth",
-    heading: "Replace Excel, WhatsApp and paper notebooks with one cloud POS",
+    heading: "Replace Excel sheets, WhatsApp reports and paper notebooks with one POS Software.",
     description:
       "Hulm brings the information your team needs into one place, so every sale updates stock, customers and reports across the business.",
     items: [

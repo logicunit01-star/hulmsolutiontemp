@@ -33,9 +33,7 @@ const workflowCards = [
 const proofPoints = [
   "Start from PKR 2,500/month per user, no setup fee",
   "Free 14-day trial, no credit card required",
-  "Local support via WhatsApp and phone",
   "Free data import from Excel",
-  "Runs in any browser on PC, tablet, or phone",
   "Use it in multiple locations",
   "Run in any modern browser and on mobile",
   "FBR-Integrated Invoicing",

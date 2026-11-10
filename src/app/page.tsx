@@ -148,64 +148,14 @@ const pageSchema = {
 const homepageFaqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "What is a POS system and key features?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "A POS system is a combination of hardware and software that allows businesses to complete sales transactions, manage inventory, and track customer data. Inventory management. Sales reporting. Multi-payment options. CRM tools. Employee management",
-      },
+  mainEntity: homeContent.faq.items.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a,
     },
-    {
-      "@type": "Question",
-      name: "Is a POS System Secure?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, with PCI compliance, encryption, 2FA, and regular updates, POS systems ensure secure payment processing.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can I integrate my POS with other systems?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, many POS systems can integrate with accounting software, e-commerce platforms, and inventory management systems for seamless operations.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How Does a POS System Benefit My Business?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, It speeds up checkouts, tracks inventory, automates tasks, provides reports, and improves customer satisfaction.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Cloud vs. Traditional POS: Which is Better?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Cloud POS offers remote access, scalability, and lower upfront costs, while traditional systems suit limited internet setups.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Is customer support available for the POS system?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, we offer dedicated customer support to assist you with any questions or issues you may encounter while using the POS system.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What Hardware Do I Need?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Essentials include a POS terminal, barcode scanner, receipt printer, cash drawer, and card reader.",
-      },
-    },
-  ],
+  })),
 };
 function renderFormattedDescription(text: string) {
   return text;
@@ -390,7 +340,7 @@ export default function HomePage() {
           <SectionIntro {...homeContent.industries} centered />
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {homeContent.industries.items.map((industry) => (
-              <Link key={industry.title} href={industry.href} className="group relative min-h-64 overflow-hidden rounded-2xl bg-[#0F2A26]">
+              <Link key={industry.title} href={industry.href} className="group relative min-h-64 sm:min-h-72 overflow-hidden rounded-2xl bg-[#0F2A26]">
                 <Image
                   src={industry.image}
                   alt={industry.alt}
@@ -399,10 +349,17 @@ export default function HomePage() {
                   sizes="(min-width: 1280px) 380px, (min-width: 1024px) 30vw, (min-width: 640px) 50vw, calc(100vw - 32px)"
                   className="object-cover transition duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2A26]/95 via-[#0F2A26]/25 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-6 text-white">
-                  <h3 className="text-xl font-bold text-white">{industry.title}</h3>
-                  <span className="grid h-9 w-9 place-items-center rounded-full bg-white/15 transition group-hover:bg-[#7AE582] group-hover:text-[#0F2A26]">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2A26] via-[#0F2A26]/55 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-5 sm:p-6 text-white">
+                  <div className="pr-3">
+                    <h3 className="text-lg sm:text-xl font-bold text-white leading-snug">{industry.title}</h3>
+                    {"description" in industry && industry.description ? (
+                      <p className="mt-1 text-xs sm:text-[13px] text-white/85 leading-snug font-normal">
+                        {industry.description}
+                      </p>
+                    ) : null}
+                  </div>
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/15 transition group-hover:bg-[#7AE582] group-hover:text-[#0F2A26]">
                     <ArrowRight className="h-4 w-4" />
                   </span>
                 </div>
@@ -586,8 +543,14 @@ export default function HomePage() {
             <div className="relative mx-auto max-w-3xl">
               
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white text-balance lg:text-[36px] lg:leading-[1.2]">
-                {homeContent.finalCta.heading.replace(/better operation$/, "")}
-                <span className="mark-lime-dark">better operation</span>
+                {homeContent.finalCta.heading.includes("from one system.") ? (
+                  <>
+                    {homeContent.finalCta.heading.replace("from one system.", "")}
+                    <span className="mark-lime-dark">from one system.</span>
+                  </>
+                ) : (
+                  homeContent.finalCta.heading
+                )}
               </h2>
               <p className="mx-auto mt-4 sm:mt-5 max-w-2xl text-sm sm:text-base leading-relaxed text-white/70 sm:text-lg">{homeContent.finalCta.description}</p>
               <div className="mt-7 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row">

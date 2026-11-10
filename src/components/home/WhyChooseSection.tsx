@@ -37,10 +37,10 @@ const proofPoints = [
   "Free data import from Excel",
   "Runs in any browser on PC, tablet, or phone",
   "Use it in multiple locations",
-  "Compatible with all Devices",
+  "Run in any modern browser and on mobile",
   "FBR-Integrated Invoicing",
-  "Advanced Security",
-  "24/7 Support",
+  "Encrypted connection (HTTPS)",
+  "Support by WhatsApp",
 ];
 
 export function WhyChooseSection() {

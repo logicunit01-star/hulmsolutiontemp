@@ -23,7 +23,7 @@ const problemMeta = [
   {
     icon: PackageCheck,
     solutionTag: "Real-Time Stock Sync",
-    benefit: "Prevents stockouts, theft & costly over-purchasing",
+    benefit: "Shows low stock before you run out",
   },
   {
     icon: Building2,

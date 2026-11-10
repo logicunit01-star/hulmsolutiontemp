@@ -16,10 +16,9 @@
 
 export const homeContent = {
   seo: {
-    // Identical to the live WordPress title and meta description. Do not change.
     title: "POS | Best POS Software | Point of Sale Systems in Pakistan",
     description:
-      "Discover POS system for small business | best POS software & point of sale systems designed to simplify operations. Get all-in-one point of sale in Pakistan",
+      "Best POS software in Pakistan for shops, restaurants & pharmacies. FBR-integrated Point of sale system from PKR 2,500/month. Free 14-day trial.",
     ogImage: "/images/uploads/2026/06/hero-image-hulm.webp",
   },
   hero: {
@@ -64,7 +63,7 @@ export const homeContent = {
   },
   outcomes: {
     eyebrow: "From counter to control room",
-    heading: "All-in-one POS software for sales, inventory and reporting",
+    heading: "All-in-one POS and shop management software in Pakistan",
     description:
       "Start with the Point of Sale billing your team uses every day, then add inventory management, purchasing and reporting as your business grows.",
     items: [
@@ -114,7 +113,7 @@ export const homeContent = {
     description:
       "An FBR-integrated POS sends each sale to the Federal Board of Revenue in real time and prints an FBR invoice number and QR code on the receipt. Tier-1 retailers, certain restaurants and other businesses are required to use one. Hulm POS supports this integration and helps you complete setup.",
     bullets: [
-      "Who needs it? Every Pakistani retailer, restaurant, pharmacy, and business.",
+      "Who needs it? Depends on business type, size and province. Tier-1 retailers and certain restaurants and other businesses must integrate.",
       "Provincial tax: SRB / PRA / KPRA / BRA.",
       "How setup works: 1) Register your POS with FBR 2) Hulm connects your account 3) Your first invoice carries the FBR number and QR code.",
     ],
@@ -131,36 +130,42 @@ export const homeContent = {
         href: "/industries/retail-store/",
         image: "/images/industries/retail.webp",
         alt: "Hulm POS checkout counter setup in a modern retail apparel store",
+        description: "Barcode scanning, multi-branch stock, customer ledgers, supplier POs",
       },
       {
         title: "Restaurants",
         href: "/industries/restaurant-pos/",
         image: "/images/industries/restaurant.webp",
         alt: "Hulm POS dining order management and kitchen display setup",
+        description: "Dine-in & takeaway, KOT management, menu modifiers, table billing",
       },
       {
         title: "Pharmacies",
         href: "/industries/pharmacy-store/",
         image: "/images/industries/pharmacy.webp",
         alt: "Hulm POS pharmacy dispensing counter with medicine stock tracking",
+        description: "Counter billing, packs and units, distributor ledgers, GRN",
       },
       {
         title: "Bakeries",
         href: "/industries/bakery-pos-system/",
         image: "/images/industries/bakery.webp",
         alt: "Hulm POS fresh bakery checkout terminal with barcode scale integration",
+        description: "Fast counter sales, scale integration, batch expiry, advance orders",
       },
       {
         title: "Salons & spas",
         href: "/industries/salon-pos/",
         image: "/images/industries/salon.webp",
         alt: "Hulm POS appointment scheduling and billing terminal in a salon spa",
+        description: "Appointment booking, service billing, stylist commissions, client records",
       },
       {
         title: "Clothing stores",
         href: "/industries/clothing-store/",
         image: "/images/industries/clothing.webp",
         alt: "Hulm POS fashion boutique register showing size and color variant matrix",
+        description: "Size & color variants, barcode tag printing, instant exchanges, stock sync",
       },
     ],
     moreHeading: "Also built for",
@@ -276,7 +281,7 @@ export const homeContent = {
     items: [
       {
         q: "What is the best POS software in Pakistan?",
-        a: "The best POS software depends on how your business sells. Hulm POS is built for Pakistani businesses that want billing, FBR integration, inventory management, customer records, purchasing and multi-branch reporting in one cloud-based Point of Sale software, starting at PKR 2,500 per month.",
+        a: "The best POS software for a Pakistani business supports FBR invoicing, works with your hardware, tracks stock across branches, and fits your budget. Hulm POS does this from PKR 2,500/month.",
       },
       {
         q: "What does Hulm POS help me manage?",
@@ -284,8 +289,18 @@ export const homeContent = {
         link: { label: "what a POS system is and how it works", href: "/blog/what-is-pos/" },
       },
       {
+        q: "What is shop management software?",
+        a: "Shop management software is an all-in-one platform that combines retail POS billing, inventory tracking, customer ledgers, supplier purchase orders, and multi-branch sales reporting. Instead of juggling separate notebooks, spreadsheets, and messaging apps, store owners can run their entire shop from one unified dashboard.",
+        link: { label: "Explore features", href: "/features/" },
+      },
+      {
         q: "How much does POS software cost in Pakistan?",
         a: "Hulm POS starts at PKR 2,500 per month with a 14-day free trial and no setup fee. Higher plans add more users, branches and operational apps.",
+        link: { label: "Pricing plans", href: "/pricing/" },
+      },
+      {
+        q: "Is there free POS software in Pakistan?",
+        a: "Reliable, cloud-based POS software requires secure hosting, regular updates, and local support, so true business-grade POS is not completely free. However, Hulm POS offers a free 14-day trial with full access to all features and no credit card required, allowing you to test billing and stock management before subscribing from PKR 2,500/month.",
         link: { label: "Pricing plans", href: "/pricing/" },
       },
       {
@@ -298,14 +313,24 @@ export const homeContent = {
         link: { label: "FBR integrated Software", href: "/fbr-integrated-pos-pakistan/" },
       },
       {
+        q: "Does Hulm have a pharmacy edition?",
+        a: "Yes. Hulm POS features a dedicated edition for pharmacies and medical stores in Pakistan. It supports fast medicine barcode billing, batch number and expiry date tracking, low-stock alerts, supplier orders, and FBR-integrated fiscal receipts.",
+        link: { label: "Pharmacy POS system", href: "/industries/pharmacy-store/" },
+      },
+      {
         q: "Is Hulm a good POS system for small business?",
         a: "Yes. Small shops can start on one device with the Starter plan and add users, branches and apps later, without changing systems.",
         link: { label: "choosing a POS system for small business in Pakistan", href: "/blog/best-point-of-sale-system-for-small-business-in-pakistan/" },
       },
       {
-        q: "Do I need special POS hardware?",
-        a: "No. Hulm runs in the web browser on computers, tablets and phones, with no app to download, and integrates easily with standard receipt printers, barcode scanners and cash drawers.",
+        q: "Does Hulm have a mobile app?",
+        a: "Hulm does not require downloading an app from the App Store or Google Play. It is a cloud-based web application that runs directly in any modern browser on PCs, laptops, tablets, and smartphones (Android & iOS). Simply log in to start billing, managing inventory, or viewing sales reports from any device.",
         link: { label: "Mobile POS", href: "/mobile-pos/" },
+      },
+      {
+        q: "Which hardware works with Hulm?",
+        a: "Hulm works seamlessly with any standard POS hardware, including thermal receipt printers (USB, LAN, and Bluetooth), USB and wireless barcode scanners, cash drawers, and barcode label printers. Because Hulm is web-based, you can use your existing computers, tablets, or phones without purchasing expensive proprietary hardware.",
+        link: { label: "POS hardware guide", href: "/pos-hardware/" },
       },
       {
         q: "Is there a free trial?",
@@ -315,7 +340,7 @@ export const homeContent = {
   },
   finalCta: {
     eyebrow: "Ready when you are",
-    heading: "Put your next sale at the centre of a better operation",
+    heading: "Run billing, stock, and FBR invoices from one system.",
     description:
       "Try Hulm Point of Sale for 14 days, or speak with our team in Pakistan about your branches, inventory and FBR requirements.",
     primaryCta: { label: "Start 14-Day Free Trial", href: "https://app.hulmsolutions.com/Register" },

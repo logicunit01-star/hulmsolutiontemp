@@ -313,19 +313,9 @@ export const homeContent = {
         link: { label: "FBR integrated Software", href: "/fbr-integrated-pos-pakistan/" },
       },
       {
-        q: "Does Hulm have a pharmacy edition?",
-        a: "Yes. Hulm POS features a dedicated edition for pharmacies and medical stores in Pakistan. It supports fast medicine barcode billing, batch number and expiry date tracking, low-stock alerts, supplier orders, and FBR-integrated fiscal receipts.",
-        link: { label: "Pharmacy POS system", href: "/industries/pharmacy-store/" },
-      },
-      {
         q: "Is Hulm a good POS system for small business?",
         a: "Yes. Small shops can start on one device with the Starter plan and add users, branches and apps later, without changing systems.",
         link: { label: "choosing a POS system for small business in Pakistan", href: "/blog/best-point-of-sale-system-for-small-business-in-pakistan/" },
-      },
-      {
-        q: "Does Hulm have a mobile app?",
-        a: "Hulm does not require downloading an app from the App Store or Google Play. It is a cloud-based web application that runs directly in any modern browser on PCs, laptops, tablets, and smartphones (Android & iOS). Simply log in to start billing, managing inventory, or viewing sales reports from any device.",
-        link: { label: "Mobile POS", href: "/mobile-pos/" },
       },
       {
         q: "Which hardware works with Hulm?",

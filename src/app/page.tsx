@@ -208,7 +208,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden border-b border-zinc-200/70 bg-white pt-12 pb-14 sm:pt-16 sm:pb-16 lg:pt-20 lg:pb-24">
         <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
         <Container className="relative grid items-center gap-y-6 lg:gap-y-0 lg:grid-cols-12 lg:gap-12 xl:gap-14">
-          <div className="max-w-2xl lg:col-span-6 lg:col-start-1 lg:row-start-1">
+          <div className="max-w-2xl lg:col-span-6">
             <p className="hidden md:block mb-5 text-sm font-semibold text-[#167c70]">{homeContent.hero.eyebrow}</p>
             <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px]">
               {homeContent.hero.headline.replace(/every branch$/, "")}
@@ -217,10 +217,42 @@ export default function HomePage() {
             <p className="mt-6 sm:mt-7 max-w-xl text-sm sm:text-base lg:text-lg leading-relaxed sm:leading-8 text-zinc-600">
               {homeContent.hero.description}
             </p>
+
+            {/* Desktop CTA & Proof */}
+            <div className="hidden lg:block mt-6 sm:mt-7">
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <Button asChild size="lg" className="w-full sm:w-auto">
+                  <Link href={homeContent.hero.primaryCta.href} target="_blank" rel="noreferrer">
+                    {homeContent.hero.primaryCta.label}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
+                  <a
+                    href={homeContent.hero.secondaryCta.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2"
+                  >
+                    <Play className="h-4 w-4 fill-current text-[#167c70]" />
+                    <span>{homeContent.hero.secondaryCta.label}</span>
+                  </a>
+                </Button>
+              </div>
+
+              <ul className="mt-6 flex flex-col gap-3 text-sm font-medium text-zinc-600 sm:flex-row sm:flex-wrap sm:gap-x-6">
+                {homeContent.hero.proof.map((item) => (
+                  <li key={item} className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-[#167c70]" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          {/* Unified Showcase Image (Rendered once, positioned after description on mobile & column 2 on desktop) */}
-          <div className="relative w-full max-w-xl mx-auto my-2 lg:my-0 lg:col-span-6 lg:col-start-7 lg:row-start-1 lg:row-span-2 lg:max-w-none">
+          {/* Unified Showcase Image */}
+          <div className="relative w-full max-w-xl mx-auto my-2 lg:my-0 lg:col-span-6 lg:max-w-none">
             <div
               aria-hidden="true"
               className="pointer-events-none absolute -inset-2 sm:-inset-4 rounded-2xl sm:rounded-3xl bg-gradient-to-tr from-[#167c70]/15 via-[#7ae582]/10 to-transparent blur-xl sm:blur-2xl -z-10"
@@ -239,8 +271,9 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="max-w-2xl lg:col-span-6 lg:col-start-1 lg:row-start-2">
-            <div className="mt-2 sm:mt-4 lg:mt-6 flex flex-col gap-3 sm:flex-row">
+          {/* Mobile CTA & Proof (< lg only) */}
+          <div className="max-w-2xl lg:hidden">
+            <div className="mt-2 sm:mt-4 flex flex-col gap-3 sm:flex-row">
               <Button asChild size="lg" className="hidden sm:inline-flex w-full sm:w-auto">
                 <Link href={homeContent.hero.primaryCta.href} target="_blank" rel="noreferrer">
                   {homeContent.hero.primaryCta.label}

@@ -14,6 +14,7 @@
 const KEYWORD_PASS = "2026-10-02T12:00:00+05:00";
 
 export const BLOG_CONTENT_UPDATED: Record<string, string> = {
+  "restaurant-food-cost-calculator": "2026-11-11T12:00:00+05:00",
   "switch-pos-software-without-losing-data": "2026-10-30T12:00:00+05:00",
   "what-is-pos": "2024-12-18T12:00:00+05:00",
   "best-point-of-sale-system-for-small-business-in-pakistan": "2024-12-30T12:00:00+05:00",

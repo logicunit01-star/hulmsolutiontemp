@@ -10,6 +10,19 @@ export const EDITORIAL_AUTHOR: Author = {
 // Replace these with actual blog posts when provided by the user.
 export const blogPosts: BlogPost[] = [
   {
+    id: "restaurant-food-cost-calculator",
+    slug: "restaurant-food-cost-calculator",
+    title: "Restaurant Food Cost Calculator: How to Price Menu Items Profitably",
+    excerpt: "Calculate food cost percentage, price restaurant menu items, and improve margins with practical formulas and real examples.",
+    featuredImage: {
+      src: "/images/uploads/2026/11/restaurant-food-cost-calculator-menu-pricing.webp",
+      alt: "Restaurant owner reviewing food costs and menu prices using a laptop"
+    },
+    authorId: "hulm-editorial-team",
+    publishedAt: "2026-11-11",
+    readingTime: "8 min read"
+  },
+  {
     id: "post-1",
     slug: "how-to-improve-sales",
     title: "How to Improve Your Retail Sales Process in 2024",

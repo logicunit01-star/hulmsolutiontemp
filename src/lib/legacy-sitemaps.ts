@@ -14,6 +14,9 @@ export const newSitePaths = [
   "/pos-software-islamabad/",
   "/cookie-policy/",
   "/blog/switch-pos-software-without-losing-data/",
+  "/blog/excel-vs-pos-software-for-retail-shops/",
+  "/blog/manage-multiple-retail-branches/",
+  "/blog/restaurant-food-cost-calculator/",
 ];
 
 // Non-blog pages were rebuilt with the new site; blog posts keep their original modified date.
@@ -45,8 +48,14 @@ function escapeXml(value: string) {
 export function legacyUrlSet(kind: "post" | "page") {
   const routes =
     kind === "post"
-      ? productionParityPaths.filter((route) => route.startsWith("/blog/"))
-      : [...productionParityPaths.filter((route) => !route.startsWith("/blog/")), ...newSitePaths];
+      ? [
+          ...productionParityPaths.filter((route) => route.startsWith("/blog/")),
+          ...newSitePaths.filter((route) => route.startsWith("/blog/")),
+        ]
+      : [
+          ...productionParityPaths.filter((route) => !route.startsWith("/blog/")),
+          ...newSitePaths.filter((route) => !route.startsWith("/blog/")),
+        ];
   const urls = routes
     .map((route) => `  <url><loc>${escapeXml(`${siteUrl}${route}`)}</loc><lastmod>${lastModified(route)}</lastmod></url>`)
     .join("\n");
@@ -54,8 +63,14 @@ export function legacyUrlSet(kind: "post" | "page") {
 }
 
 export function legacySitemapIndex() {
-  const posts = productionParityPaths.filter((route) => route.startsWith("/blog/"));
-  const pages = [...productionParityPaths.filter((route) => !route.startsWith("/blog/")), ...newSitePaths];
+  const posts = [
+    ...productionParityPaths.filter((route) => route.startsWith("/blog/")),
+    ...newSitePaths.filter((route) => route.startsWith("/blog/")),
+  ];
+  const pages = [
+    ...productionParityPaths.filter((route) => !route.startsWith("/blog/")),
+    ...newSitePaths.filter((route) => !route.startsWith("/blog/")),
+  ];
   return `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <sitemap><loc>${escapeXml(`${siteUrl}/post-sitemap.xml`)}</loc><lastmod>${latest(posts)}</lastmod></sitemap>\n  <sitemap><loc>${escapeXml(`${siteUrl}/page-sitemap.xml`)}</loc><lastmod>${latest(pages)}</lastmod></sitemap>\n</sitemapindex>\n`;
 }
 

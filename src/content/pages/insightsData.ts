@@ -14,6 +14,19 @@ export type Insight = {
 
 export const insightsData: Insight[] = [
   {
+    id: "restaurant-food-cost-calculator",
+    title: "Restaurant Food Cost Calculator: How to Price Menu Items Profitably",
+    slug: "restaurant-food-cost-calculator",
+    excerpt: "Calculate food cost percentage, price restaurant menu items, and improve margins with practical formulas and real examples.",
+    category: "Restaurant Management",
+    date: "2026-11-11",
+    readTime: "8 min read",
+    author: "Aamir Khan",
+    authorSlug: "aamir-khan",
+    imageUrl: "/images/uploads/2026/11/restaurant-food-cost-calculator-menu-pricing.webp",
+    content: ""
+  },
+  {
     id: "manage-multiple-retail-branches",
     title: "How to Manage Multiple Retail Branches Without Separate Spreadsheets",
     slug: "manage-multiple-retail-branches",

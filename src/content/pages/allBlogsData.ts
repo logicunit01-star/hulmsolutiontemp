@@ -3,6 +3,7 @@ import { whatIsPosBlog } from "@/content/pages/blogs/what-is-pos";
 import { switchPosSoftwareWithoutLosingDataBlog } from "@/content/pages/blogs/switch-pos-software-without-losing-data";
 import { excelVsPosRetailBlog } from "@/content/pages/blogs/excel-vs-pos-software-for-retail-shops";
 import { manageMultipleRetailBranchesBlog } from "@/content/pages/blogs/manage-multiple-retail-branches";
+import { restaurantFoodCostCalculatorBlog } from "@/content/pages/blogs/restaurant-food-cost-calculator";
 
 export interface SingleBlogData {
   slug: string;
@@ -756,6 +757,7 @@ export const allBlogsData: Record<string, SingleBlogData> = {
   "best-pos-system-for-retail": bestPosRetailBlog,
   "excel-vs-pos-software-for-retail-shops": excelVsPosRetailBlog,
   "manage-multiple-retail-branches": manageMultipleRetailBranchesBlog,
+  "restaurant-food-cost-calculator": restaurantFoodCostCalculatorBlog,
   "how-to-manage-multiple-retail-branches-without-separate-spreadsheets": {
     ...manageMultipleRetailBranchesBlog,
     slug: "how-to-manage-multiple-retail-branches-without-separate-spreadsheets",

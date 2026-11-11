@@ -60,6 +60,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/restaurant-pos',
+        destination: '/industries/restaurant-pos/',
+        permanent: true,
+      },
+      {
         source: '/point-of-sale-2',
         destination: '/',
         permanent: true,

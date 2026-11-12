@@ -23,7 +23,7 @@ import {
 
 import { FaqDetails } from "@/components/seo/faq-details";
 import { BenefitsSection } from "@/components/home/BenefitsSection";
-import { DashboardCarousel } from "@/components/home/DashboardCarousel";
+import { DashboardTabs } from "@/components/home/DashboardTabs";
 import { GoogleReviewsSection } from "@/components/home/GoogleReviewsSection";
 import { OutcomesSection } from "@/components/home/OutcomesSection";
 import { PosFeaturesSection } from "@/components/home/PosFeaturesSection";
@@ -311,7 +311,7 @@ export default function HomePage() {
         <Container>
           <SectionIntro {...homeContent.product} centered />
           <div className="mt-8 sm:mt-10">
-            <DashboardCarousel screens={homeContent.product.screens} />
+            <DashboardTabs />
           </div>
         </Container>
       </Section>

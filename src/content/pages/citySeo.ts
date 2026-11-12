@@ -43,11 +43,11 @@ export const cityPages: Record<string, CityPage> = {
     path: "/pos-software-karachi/",
     city: "Karachi",
     region: "Sindh",
-    title: "POS Software in Karachi | FBR-Integrated POS System | Hulm",
+    title: "POS Software in Karachi | Cloud POS & Billing – Hulm",
     description:
-      "Hulm POS software is built in Karachi for retailers, restaurants and pharmacies: FBR-integrated invoicing, inventory and branches. 14-day free trial.",
+      "POS software in Karachi for retail, restaurants and pharmacies. Manage billing, inventory and branches with Hulm POS. Start your 14-day free trial.",
     eyebrow: "Made in Karachi",
-    h1: "POS software in Karachi, built by a Karachi team",
+    h1: "POS Software in Karachi That Makes Business Management Easier",
     intro:
       "Hulm Solutions is based in Gulistan-e-Johar, Karachi. Hulm POS software runs billing, FBR-integrated invoicing, inventory and branch reporting for Karachi retail shops, restaurants, pharmacies and distributors from one cloud POS system.",
     segmentsHeading: "A POS system for the way Karachi businesses sell",
@@ -97,40 +97,66 @@ export const cityPages: Record<string, CityPage> = {
       { title: "Connect FBR and hardware", text: "FBR registration, receipt printers and barcode scanners are set up with you." },
       { title: "Train staff and go live", text: "Your counter team is trained and the Karachi team stays on WhatsApp and phone after go-live." },
     ],
-    faqHeading: "POS software in Karachi: FAQs",
+    faqHeading: "Frequently asked questions",
     faqs: [
       {
         q: "What is the best POS software in Karachi?",
-        a: "The best POS software for a Karachi business handles fast billing, FBR-integrated invoices, inventory, purchasing and branch reports in one place. Hulm POS covers these in one cloud system, with a team based in Karachi.",
+        a: "The right POS software depends on your business type, required features, budget, reporting needs and support expectations. Hulm POS is a cloud-based option for businesses looking to manage billing, sales, inventory, purchases and business records through one system.",
       },
       {
-        q: "Is Hulm FBR integrated for Karachi retailers?",
-        a: "Yes. FBR integration is available for eligible retailers, adding the FBR invoice number and QR code to every receipt.",
-        link: fbr,
-      },
-      {
-        q: "Does Hulm handle SRB sales tax for restaurants in Karachi?",
-        a: "SRB requirements are reviewed as part of your setup, alongside FBR where it applies. Share your registration details so the team can confirm the configuration for your restaurant.",
-        link: { label: "Restaurant POS", href: "/industries/restaurant-pos/" },
-      },
-      {
-        q: "How much does a POS system cost in Karachi?",
-        a: "Hulm plans start at PKR 2,500 per month, with a 14-day free trial and no credit card required.",
+        q: "How much does POS software cost in Karachi?",
+        a: "Hulm POS has a starting subscription price of PKR 2,500 per month. Contact the team to confirm current plan inclusions, branch limits and any additional charges.",
         link: pricing,
       },
       {
-        q: "What hardware do I need?",
-        a: "Any PC, laptop or tablet with a web browser. Standard receipt printers, barcode scanners, cash drawers and label printers integrate easily.",
-        link: hardware,
+        q: "Is Hulm POS suitable for small retail stores?",
+        a: "Hulm POS supports retail workflows such as product management, checkout, sales records and inventory management. Contact the team to confirm the setup and plan that suits your store.",
+        link: { label: "Retail POS software", href: "/industries/retail-store/" },
       },
       {
-        q: "Where is the Hulm office in Karachi?",
-        a: "Hulm Solutions is at C-27, Block 14, Gulistan-e-Johar, Karachi. Most setup and training is done online and on WhatsApp, so you do not need to visit.",
-        link: { label: "About Hulm Solutions", href: "/about/" },
+        q: "Can I switch from my existing POS software to Hulm POS?",
+        a: "Hulm provides assistance with importing compatible business data from Excel sheets. The supported data fields and migration requirements should be reviewed before switching.",
+        link: { label: "Switch POS software guide", href: "/blog/switch-pos-software-without-losing-data/" },
+      },
+      {
+        q: "Can I import products from Excel into Hulm POS?",
+        a: "Compatible product data can be prepared in an Excel sheet and reviewed for import. Contact the Hulm team to confirm the supported file format and required columns.",
+      },
+      {
+        q: "Is Hulm POS easy for new employees to use?",
+        a: "Hulm POS is designed to make everyday operations easier to understand, including product search, checkout and sales processing. Staff should receive appropriate onboarding and training for their business setup.",
+      },
+      {
+        q: "Can I manage multiple branches with Hulm POS?",
+        a: "Hulm POS supports centralized multi-branch management. Contact the team to confirm the number of branches and configuration available under your subscription.",
+        link: { label: "Manage multiple retail branches", href: "/blog/manage-multiple-retail-branches/" },
+      },
+      {
+        q: "Can I see my business sales remotely?",
+        a: "Hulm POS is cloud-based and provides access to supported business information through the configured account and permissions. Ask the team about your device and access requirements.",
+      },
+      {
+        q: "Does Hulm POS support FBR integration?",
+        a: "Hulm POS offers FBR-related integration for eligible businesses, subject to applicable requirements and supported configuration. Contact the team to discuss business eligibility and setup.",
+        link: fbr,
+      },
+      {
+        q: "Does Hulm POS provide a free trial?",
+        a: "Yes. Hulm POS offers a 14-day free trial so you can explore the system before choosing a subscription.",
+      },
+      {
+        q: "Does Hulm POS work for restaurants and cafes?",
+        a: "Hulm POS supports restaurant-related workflows such as orders, tables and payment handling. Contact the team to confirm the configuration for your restaurant or cafe.",
+        link: { label: "Restaurant POS", href: "/industries/restaurant-pos/" },
+      },
+      {
+        q: "How can I get a demo of Hulm POS in Karachi?",
+        a: "Contact Hulm Solutions through WhatsApp at +92 339 111 9259 or use the website to request a demo and discuss your business requirements.",
+        link: demo,
       },
     ],
-    ctaHeading: "Run your Karachi business on Hulm POS",
-    ctaSubheading: "Start a 14-day free trial, or contact the Karachi team.",
+    ctaHeading: "Ready to Make Your Business Management Easier?",
+    ctaSubheading: "Stop depending on disconnected spreadsheets, paper records and complicated manual billing. Start with Hulm POS for PKR 2,500/month and explore it with a 14-day free trial.",
   },
 
   lahore: {

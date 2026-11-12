@@ -55,13 +55,6 @@ const badges = [
     height: 225,
   },
   {
-    wrapClass: "wrap-text",
-    src: "/images/home/trusted/trustpilot.webp",
-    alt: "Trustpilot Rating",
-    width: 260,
-    height: 142,
-  },
-  {
     wrapClass: "wrap-pill",
     src: "/images/home/trusted/openhunts.webp",
     alt: "OpenHunts Club Member",

@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import { ShoppingBag, Pill, Utensils } from "lucide-react";
+import { ImageZoom } from "@/components/ui/image-zoom";
 
 export interface IndustryTab {
   id: "retail" | "pharmacy" | "restaurant";
@@ -31,18 +31,18 @@ const DEFAULT_TABS: readonly IndustryTab[] = [
   {
     id: "pharmacy",
     name: "Pharmacy",
-    image: "/images/home/dashboard/pharmacy-pos-overview.webp",
-    width: 1920,
-    height: 1088,
-    alt: "Hulm Pharmacy POS software dashboard for medicine billing, batch tracking, and expiry alerts",
+    image: "/images/home/dashboard/pharmacy-pos-overview.png",
+    width: 1024,
+    height: 650,
+    alt: "Hulm Pharmacy POS software dashboard diagram with annotated callouts for medicine billing, catalog, cart, and instructions",
   },
   {
     id: "restaurant",
     name: "Restaurant",
     image: "/images/home/dashboard/restaurant-pos-overview.png",
-    width: 1203,
-    height: 687,
-    alt: "Hulm Restaurant POS software dashboard with active tables, order management, and revenue analytics",
+    width: 1024,
+    height: 639,
+    alt: "Hulm Restaurant POS software dashboard diagram with annotated callouts for table orders, menu categories, cart, and checkout",
   },
 ];
 
@@ -84,9 +84,9 @@ export function DashboardTabs({ tabs = DEFAULT_TABS }: DashboardTabsProps) {
   };
 
   return (
-    <div className="relative w-full max-w-5xl mx-auto focus:outline-none select-none">
+    <div className="relative z-10 w-full max-w-5xl mx-auto focus:outline-none">
       {/* Tab Switcher Pills */}
-      <div className="flex justify-center mb-6 sm:mb-8">
+      <div className="relative z-20 flex justify-center mb-6 sm:mb-8">
         <div
           role="tablist"
           aria-label="POS Industry Editions"
@@ -104,40 +104,49 @@ export function DashboardTabs({ tabs = DEFAULT_TABS }: DashboardTabsProps) {
                 aria-controls={`panel-${tab.id}`}
                 tabIndex={isActive ? 0 : -1}
                 onClick={() => setActiveTabId(tab.id)}
+                onPointerDown={(e) => {
+                  if (e.pointerType === "touch") {
+                    setActiveTabId(tab.id);
+                  }
+                }}
                 onKeyDown={(e) => handleKeyDown(e, idx)}
                 type="button"
-                className={`flex items-center gap-2 sm:gap-2.5 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
+                style={{ WebkitTapHighlightColor: "transparent" }}
+                className={`relative z-20 flex items-center justify-center gap-2 sm:gap-2.5 px-3.5 sm:px-6 py-2.5 sm:py-3 min-h-[44px] rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer touch-manipulation select-none ${
                   isActive
                     ? "bg-[#167c70] text-white shadow-sm scale-[1.02]"
-                    : "text-[#0F2A26] hover:text-[#167c70] hover:bg-white/80"
+                    : "text-[#0F2A26] md:hover:text-[#167c70] md:hover:bg-white/80 active:bg-zinc-200/80"
                 }`}
               >
-                <Icon className={`w-4 h-4 sm:w-4.5 sm:h-4.5 ${isActive ? "text-white" : "text-[#167c70]"}`} />
-                <span>{tab.name}</span>
+                <Icon className={`w-4 h-4 sm:w-4.5 sm:h-4.5 pointer-events-none ${isActive ? "text-white" : "text-[#167c70]"}`} />
+                <span className="pointer-events-none">{tab.name}</span>
               </button>
             );
           })}
         </div>
       </div>
 
-      {/* Main Showcase Image Area - shadow-free & bottom card removed */}
+      {/* Main Showcase Image Area with Shopify-style Hover Zoom */}
       <div
         id={`panel-${currentTab.id}`}
         role="tabpanel"
         aria-labelledby={`tab-${currentTab.id}`}
         className="relative w-full overflow-hidden flex items-center justify-center bg-transparent"
       >
-        <Image
+        <ImageZoom
           key={currentTab.id}
           src={currentTab.image}
           alt={currentTab.alt}
           width={currentTab.width}
           height={currentTab.height}
+          zoomScale={2.4}
           priority={currentTab.id === "retail"}
           loading={currentTab.id === "retail" ? "eager" : "lazy"}
           sizes="(min-width: 1024px) 1024px, (min-width: 640px) calc(100vw - 64px), calc(100vw - 32px)"
-          className="h-auto w-full object-contain select-none [image-rendering:-webkit-optimize-contrast] transition-opacity duration-200"
-          draggable={false}
+          className="[image-rendering:-webkit-optimize-contrast]"
+          containerClassName="w-full"
+          showHint={true}
+          allowFullscreen={true}
         />
       </div>
     </div>

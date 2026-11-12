@@ -37,7 +37,6 @@ export const homeContent = {
       { src: "/images/home/trusted/top-trending-trimmed.webp", alt: "SoftwareSuggest Top Trending POS software award" },
       { src: "/images/home/trusted/highly-recommended-trimmed.webp", alt: "SoftwareSuggest Highly Recommended POS software award" },
       { src: "/images/home/trusted/goodfirms-partner.png", alt: "GoodFirms partner badge" },
-      { src: "/images/home/trusted/trustpilot.webp", alt: "Hulm POS Trustpilot rating" },
       { src: "/images/home/trusted/product-hunt.png", alt: "Hulm POS on Product Hunt" },
     ],
   },

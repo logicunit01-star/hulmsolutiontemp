@@ -174,11 +174,11 @@
     letter-spacing: 0.01em;
   }
 
-  /* Max-width for readable long-form content */
+  /* Full width content */
   article p,
   article ul,
   article ol {
-    max-width: 65ch;
+    max-width: 100%;
   }
 
   /* Smooth focus states */
@@ -300,6 +300,7 @@
   .blog-content p {
     margin-bottom: 1.35rem;
     color: #4b5563;
+    max-width: 100% !important;
   }
 
   .blog-content a:not(.wp-block-button__link):not(.wp-block-buttons-is-layout-flex):not(.animated-pos-button):not(.wp-element-button):not(.blog-cta-btn):not(.blog-cta-outline):not([class*="rounded-full"]):not([class*="btn"]):not([class*="button"]):not(.wp-block-button a),
@@ -385,12 +386,14 @@
     list-style-type: disc;
     padding-left: 1.5rem;
     margin-bottom: 1.5rem;
+    max-width: 100% !important;
   }
 
   .blog-content ol {
     list-style-type: decimal;
     padding-left: 1.5rem;
     margin-bottom: 1.5rem;
+    max-width: 100% !important;
   }
 
   .blog-content li {
@@ -772,6 +775,51 @@
     background-color: #8ef095 !important;
     transform: translateY(-1px) !important;
     box-shadow: 0 4px 12px rgba(122, 229, 130, 0.35) !important;
+  }
+
+  /* Ensure any dark container inside blog content renders headings and paragraphs in crisp white */
+  .blog-content [class*="bg-[#0F2A26]"] h2,
+  .blog-content [class*="bg-[#0F2A26]"] h3,
+  .blog-content [class*="bg-[#0F2A26]"] h4,
+  .blog-content [class*="bg-[#0F2A26]"] h5,
+  .blog-content [class*="bg-[#0F2A26]"] h6,
+  .blog-content [class*="bg-[#0f2a26]"] h2,
+  .blog-content [class*="bg-[#0f2a26]"] h3,
+  .blog-content [class*="bg-[#0f2a26]"] h4,
+  .blog-content [class*="bg-[#0f2a26]"] h5,
+  .blog-content [class*="bg-[#0f2a26]"] h6 {
+    color: #ffffff !important;
+  }
+
+  .blog-content [class*="bg-[#0F2A26]"] p,
+  .blog-content [class*="bg-[#0f2a26]"] p {
+    color: rgba(255, 255, 255, 0.88) !important;
+  }
+
+  .blog-content [class*="bg-[#0F2A26]"] a.blog-cta-btn,
+  .blog-content [class*="bg-[#0f2a26]"] a.blog-cta-btn {
+    background: #7AE582 !important;
+    color: #0F2A26 !important;
+    border-color: #7AE582 !important;
+  }
+  .blog-content [class*="bg-[#0F2A26]"] a.blog-cta-btn:hover,
+  .blog-content [class*="bg-[#0f2a26]"] a.blog-cta-btn:hover {
+    background: #8ef095 !important;
+    border-color: #8ef095 !important;
+    color: #0F2A26 !important;
+  }
+
+  .blog-content [class*="bg-[#0F2A26]"] a.blog-cta-outline,
+  .blog-content [class*="bg-[#0f2a26]"] a.blog-cta-outline {
+    background: transparent !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+  }
+  .blog-content [class*="bg-[#0F2A26]"] a.blog-cta-outline:hover,
+  .blog-content [class*="bg-[#0f2a26]"] a.blog-cta-outline:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
   }
 
   /* Site-standard FAQ Details Accordion inside Blog Content */

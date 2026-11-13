@@ -124,7 +124,8 @@ export default async function AuthorPage({ params }: AuthorProps) {
                     src={insight.imageUrl} 
                     alt={insight.title}
                     fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    loading="lazy"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, calc(100vw - 32px)"
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-[#167c70] shadow-xs">

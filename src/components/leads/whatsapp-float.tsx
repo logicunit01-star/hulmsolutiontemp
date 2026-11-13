@@ -33,7 +33,7 @@ export function WhatsAppFloat() {
         width={56}
         height={56}
         className="h-14 w-14 object-contain"
-        priority
+        loading="lazy"
       />
     </a>
   );

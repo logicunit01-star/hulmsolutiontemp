@@ -275,7 +275,7 @@ export default async function IndustrySubpage({ params }: Props) {
                     </video>
                   </div>
                 ) : (
-                  <Image src={data.image} alt={`${data.name} POS system by Hulm`} fill priority sizes="(max-width: 1024px) 100vw, 42vw" className="object-cover" />
+                  <Image src={data.image} alt={`${data.name} POS system by Hulm`} fill priority sizes="(min-width: 1024px) 42vw, calc(100vw - 32px)" className="object-cover" />
                 )}
                 
                 {/* Floating Status Pill */}
@@ -332,7 +332,8 @@ export default async function IndustrySubpage({ params }: Props) {
                             src={item.image}
                             alt={item.imageAlt || parsed.title}
                             fill
-                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            loading="lazy"
+                            sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 50vw, 33vw"
                             className="object-cover object-center transition duration-300 group-hover:scale-105"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" />
@@ -965,7 +966,7 @@ export default async function IndustrySubpage({ params }: Props) {
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {otherIndustries.map((item) => (
               <Link key={item.slug} href={`/industries/${item.slug}/`} className="lift group overflow-hidden rounded-2xl border border-[#E4E2DA] bg-white shadow-sm transition hover:border-[#167c70]">
-                <div className="relative h-36"><Image src={item.image} alt={`${item.name} POS system`} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover transition duration-500 group-hover:scale-105" /></div>
+                <div className="relative h-36"><Image src={item.image} alt={`${item.name} POS system`} fill loading="lazy" sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 50vw, 25vw" className="object-cover transition duration-500 group-hover:scale-105" /></div>
                 <div className="flex items-center justify-between gap-3 p-5"><h3 className="font-bold text-[#0F2A26]">{item.name}</h3><ArrowRight className="h-4 w-4 text-[#167c70] transition group-hover:translate-x-1" /></div>
               </Link>
             ))}

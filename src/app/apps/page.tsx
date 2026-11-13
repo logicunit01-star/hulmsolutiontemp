@@ -121,7 +121,7 @@ export default function ProductPage() {
                 width={1197}
                 height={688}
                 priority
-                sizes="(min-width: 1024px) 52vw, 100vw"
+                sizes="(min-width: 1280px) 620px, (min-width: 1024px) 52vw, calc(100vw - 32px)"
                 className="h-auto w-full rounded-xl"
               />
             </div>

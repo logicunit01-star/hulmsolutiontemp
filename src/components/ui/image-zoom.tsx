@@ -31,7 +31,7 @@ export function ImageZoom({
   className = "",
   containerClassName = "",
   sizes,
-  unoptimized = true,
+  unoptimized = false,
   showHint = true,
   allowFullscreen = true,
 }: ImageZoomProps) {

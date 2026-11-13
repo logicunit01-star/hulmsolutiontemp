@@ -237,7 +237,7 @@ export function CountryTemplate({ countryKey }: CountryTemplateProps) {
                     width={1024}
                     height={498}
                     priority
-                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    sizes="(min-width: 1280px) 512px, (min-width: 1024px) 50vw, calc(100vw - 32px)"
                     className="h-auto w-full rounded-xl object-contain"
                   />
 
@@ -582,7 +582,8 @@ export function CountryTemplate({ countryKey }: CountryTemplateProps) {
                   src={industryImageMap[ind.href] || "/images/industries/retail.jpg"}
                   alt={`${ind.name} POS software in ${country}`}
                   fill
-                  sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  loading="lazy"
+                  sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, calc(100vw - 32px)"
                   className="object-cover transition duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F2A26] via-[#0F2A26]/65 to-transparent" />

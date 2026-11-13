@@ -136,6 +136,8 @@ export default function CaseStudiesPage() {
                           src={study.image}
                           alt={`${study.client} POS case study`}
                           fill
+                          loading="lazy"
+                          sizes="(min-width: 1024px) 450px, calc(100vw - 32px)"
                           className="object-cover"
                         />
                       </div>

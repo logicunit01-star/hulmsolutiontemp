@@ -154,6 +154,8 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
                     src={study.image}
                     alt={`${study.client} POS case study`}
                     fill
+                    loading="lazy"
+                    sizes="(min-width: 1024px) 800px, calc(100vw - 32px)"
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />

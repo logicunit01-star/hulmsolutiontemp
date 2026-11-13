@@ -135,7 +135,8 @@ export default function IndustriesPage() {
                       src={industry.image}
                       alt={`${industry.name} system by Hulm`}
                       fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      loading="lazy"
+                      sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80" />
@@ -216,7 +217,7 @@ export default function IndustriesPage() {
             {industriesContent.additional.items.map((industry) => (
               <Link key={industry.slug} href={`/industries/${industry.slug}/`} className="lift group overflow-hidden rounded-2xl border border-[#E4E2DA] bg-white shadow-sm transition hover:border-[#167c70]">
                 <div className="relative h-44 overflow-hidden">
-                  <Image src={industry.image} alt={`${industry.name} system by Hulm`} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105" />
+                  <Image src={industry.image} alt={`${industry.name} system by Hulm`} fill loading="lazy" sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 50vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105" />
                 </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between gap-4"><h3 className="text-xl font-bold text-[#0F2A26]">{industry.name}</h3><ArrowRight className="h-5 w-5 shrink-0 text-[#167c70] transition-transform group-hover:translate-x-1" /></div>

@@ -173,7 +173,7 @@ export function ProductWorkflowInteractive() {
                   height={activeStep.height}
                   loading="lazy"
                   className="h-full w-full object-contain object-top"
-                  sizes="(min-width: 1024px) 580px, 100vw"
+                  sizes="(min-width: 1024px) 580px, calc(100vw - 32px)"
                 />
               </div>
               <div className="mt-2 flex items-center justify-between px-2 text-xs text-zinc-500">

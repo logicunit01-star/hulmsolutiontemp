@@ -495,9 +495,9 @@ export const restaurantFoodCostCalculatorBlog: SingleBlogData = {
   <li>Sales tax (FBR / PRA / SRB) and licensing fees</li>
 </ul>
 
-<div class="p-4 rounded-xl bg-[#0F2A26] text-white my-5">
+<div class="p-4 rounded-xl bg-[#0F2A26] text-white my-5 border border-[#167c70]/20">
   <p class="text-sm font-semibold text-[#7AE582] mb-1">Remember:</p>
-  <p class="text-xs sm:text-sm text-white/90">
+  <p class="text-xs sm:text-sm !text-white/90 font-normal leading-relaxed">
     Food cost percentage only measures raw ingredient expenses relative to sales. It does <em>not</em> tell you how much net profit remains in your bank account after all business overheads are settled.
   </p>
 </div>
@@ -859,14 +859,14 @@ export const restaurantFoodCostCalculatorBlog: SingleBlogData = {
 
 <p class="wp-block-paragraph">To organize your restaurant orders, tables, sales, inventory, and supplier transactions in one intuitive platform, explore <a href="/industries/restaurant-pos/">HulmPOS for Restaurants</a> or visit <a href="/">hulmsolutions.com</a>.</p>
 
-<div class="my-8 p-6 rounded-2xl bg-[#0F2A26] text-white text-center">
-  <h3 class="text-xl sm:text-2xl font-bold mb-2">Better Cost Tracking. Smarter Menu Decisions.</h3>
-  <p class="text-white/80 text-xs sm:text-sm max-w-xl mx-auto mb-6 leading-relaxed">
+<div class="my-8 p-6 sm:p-8 rounded-2xl bg-[#0F2A26] text-white text-center shadow-xl border border-[#167c70]/20">
+  <h3 class="text-xl sm:text-2xl font-bold !text-white mb-2">Better Cost Tracking. Smarter Menu Decisions.</h3>
+  <p class="!text-white/85 text-xs sm:text-sm max-w-xl mx-auto mb-6 leading-relaxed font-normal">
     Take control of your restaurant margins. Start your 14-day free trial with HulmPOS today &mdash; subscriptions starting at PKR 2,500/month.
   </p>
   <div class="flex flex-wrap items-center justify-center gap-3">
-    <a href="https://app.hulmsolutions.com/Register" class="blog-cta-btn">Start 14-Day Free Trial &rarr;</a>
-    <a href="/industries/restaurant-pos/" class="blog-cta-outline text-white border-white/40 hover:bg-white/10">Explore Restaurant POS</a>
+    <a href="https://app.hulmsolutions.com/Register" class="blog-cta-btn !bg-[#7AE582] !text-[#0F2A26] hover:!bg-[#8ef095] !border-[#7AE582] font-bold">Start 14-Day Free Trial &rarr;</a>
+    <a href="/industries/restaurant-pos/" class="blog-cta-outline !bg-transparent !text-white !border-white/40 hover:!bg-white/10 hover:!border-white">Explore Restaurant POS</a>
   </div>
 </div>
 `

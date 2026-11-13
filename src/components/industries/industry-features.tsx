@@ -441,9 +441,9 @@ export function IndustryFeatures({
                         src={currentItem.image}
                         alt={currentItem.imageAlt || currentItem.title}
                         fill
-                        sizes="(max-width: 1024px) 100vw, 58vw"
+                        loading="lazy"
+                        sizes="(max-width: 1024px) calc(100vw - 32px), 58vw"
                         className="object-contain object-top"
-                        priority
                       />
                     </div>
                   ) : (
@@ -499,7 +499,8 @@ export function IndustryFeatures({
                         src={feature.image}
                         alt={feature.imageAlt || feature.title}
                         fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        loading="lazy"
+                        sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 50vw, 33vw"
                         className="object-contain object-top"
                       />
                     </div>

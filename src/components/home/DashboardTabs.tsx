@@ -140,9 +140,9 @@ export function DashboardTabs({ tabs = DEFAULT_TABS }: DashboardTabsProps) {
           width={currentTab.width}
           height={currentTab.height}
           zoomScale={2.4}
-          priority={currentTab.id === "retail"}
-          loading={currentTab.id === "retail" ? "eager" : "lazy"}
-          sizes="(min-width: 1024px) 1024px, (min-width: 640px) calc(100vw - 64px), calc(100vw - 32px)"
+          priority={false}
+          loading="lazy"
+          sizes="(min-width: 1024px) 960px, (min-width: 640px) calc(100vw - 64px), calc(100vw - 32px)"
           className="[image-rendering:-webkit-optimize-contrast]"
           containerClassName="w-full"
           showHint={true}

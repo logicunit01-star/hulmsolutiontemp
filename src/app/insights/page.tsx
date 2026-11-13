@@ -49,6 +49,8 @@ export default function InsightsPage() {
                   src={featuredInsight.imageUrl} 
                   alt={featuredInsight.title}
                   fill
+                  loading="lazy"
+                  sizes="(min-width: 1024px) 50vw, calc(100vw - 32px)"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -104,6 +106,8 @@ export default function InsightsPage() {
                     src={insight.imageUrl} 
                     alt={insight.title}
                     fill
+                    loading="lazy"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, calc(100vw - 32px)"
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-[#167c70] border border-[#E4E2DA] shadow-xs">

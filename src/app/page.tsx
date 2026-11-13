@@ -209,7 +209,6 @@ export default function HomePage() {
         <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
         <Container className="relative grid items-center gap-y-6 lg:gap-y-0 lg:grid-cols-12 lg:gap-12 xl:gap-14">
           <div className="max-w-2xl lg:col-span-6">
-            <p className="hidden md:block mb-5 text-sm font-semibold text-[#167c70]">{homeContent.hero.eyebrow}</p>
             <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px]">
               {homeContent.hero.headline.replace(/every branch$/, "")}
               <span className="mark-lime">every branch</span>

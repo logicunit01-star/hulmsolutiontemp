@@ -469,7 +469,7 @@ export default function KarachiPosPage() {
                   height={692}
                   priority
                   className="h-full w-full object-cover object-top"
-                  sizes="(min-width: 1280px) 1024px, 100vw"
+                  sizes="(min-width: 1280px) 1024px, calc(100vw - 32px)"
                 />
               </div>
               <div className="mt-2.5 flex items-center justify-between px-3 text-xs text-zinc-500">
@@ -607,7 +607,7 @@ export default function KarachiPosPage() {
                     height={1689}
                     loading="lazy"
                     className="h-full w-full object-cover"
-                    sizes="(min-width: 1024px) 440px, 100vw"
+                    sizes="(min-width: 1024px) 440px, calc(100vw - 32px)"
                   />
                 </div>
                 <div className="mt-3 p-2 text-center">
@@ -741,7 +741,7 @@ export default function KarachiPosPage() {
                     height={675}
                     loading="lazy"
                     className="h-full w-full object-cover"
-                    sizes="(min-width: 1024px) 560px, 100vw"
+                    sizes="(min-width: 1024px) 560px, calc(100vw - 32px)"
                   />
                 </div>
                 <div className="p-3 text-center">
@@ -856,7 +856,7 @@ export default function KarachiPosPage() {
                     height={f.height}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    sizes="(min-width: 1024px) 280px, (min-width: 640px) 50vw, 100vw"
+                    sizes="(min-width: 1024px) 280px, (min-width: 640px) 50vw, calc(100vw - 32px)"
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-5">
@@ -939,7 +939,7 @@ export default function KarachiPosPage() {
                     height={ind.height}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw"
+                    sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, calc(100vw - 32px)"
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-6">
@@ -1022,7 +1022,7 @@ export default function KarachiPosPage() {
                     height={1689}
                     loading="lazy"
                     className="h-full w-full object-cover"
-                    sizes="(min-width: 1024px) 560px, 100vw"
+                    sizes="(min-width: 1024px) 560px, calc(100vw - 32px)"
                   />
                 </div>
                 <div className="mt-3 text-center">

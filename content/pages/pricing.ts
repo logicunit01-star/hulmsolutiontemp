@@ -24,7 +24,7 @@ export const pricingContent = {
         "Basic inventory management",
         "Customer records and sales reports",
         "FBR integration available",
-        "Email support",
+        "WhatsApp support",
       ],
       cta: { label: "Start Free Trial", href: "https://app.hulmsolutions.com/Register?plan=starter" },
       highlighted: false,

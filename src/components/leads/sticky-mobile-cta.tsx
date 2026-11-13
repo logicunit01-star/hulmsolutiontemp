@@ -15,9 +15,10 @@ export function StickyMobileCta() {
   const [show, setShow] = useState(false);
   useEffect(() => {
     const onScroll = () => {
-      const pastHero = window.scrollY > 480;
+      // Show after scrolling past 1 section on mobile (~200px)
+      const pastFirstSection = window.scrollY > 200;
       const nearBottom = window.innerHeight + window.scrollY > document.body.scrollHeight - 700;
-      setShow(pastHero && !nearBottom);
+      setShow(pastFirstSection && !nearBottom);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });

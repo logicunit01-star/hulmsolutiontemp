@@ -35,7 +35,8 @@ export function ProductScreens({
             alt={altFor(main)}
             width={main.width}
             height={main.height}
-            sizes="(max-width: 1024px) 100vw, 1100px"
+            loading="lazy"
+            sizes="(max-width: 1024px) calc(100vw - 32px), 1100px"
             className="h-auto w-full"
           />
           <figcaption className="border-t border-[#E4E2DA] bg-white px-5 py-3 text-sm text-zinc-600">{main.caption}</figcaption>
@@ -44,7 +45,7 @@ export function ProductScreens({
           <div className={`mt-6 grid gap-6 ${rest.length === 1 ? "sm:grid-cols-1 lg:mx-auto lg:max-w-2xl" : rest.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3"}`}>
             {rest.map((s) => (
               <figure key={s.src} className="overflow-hidden rounded-2xl border border-[#E4E2DA] bg-[#f8fbfa]">
-                <Image src={s.src} alt={altFor(s)} width={s.width} height={s.height} sizes="(max-width: 640px) 100vw, 360px" loading="lazy" className="h-auto w-full" />
+                <Image src={s.src} alt={altFor(s)} width={s.width} height={s.height} sizes="(max-width: 640px) calc(100vw - 32px), 360px" loading="lazy" className="h-auto w-full" />
                 <figcaption className="border-t border-[#E4E2DA] bg-white px-4 py-3 text-xs leading-5 text-zinc-600">{s.caption}</figcaption>
               </figure>
             ))}

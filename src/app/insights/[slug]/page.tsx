@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { Calendar, Clock, User, ArrowLeft, ArrowRight, List, Sparkles } from "lucide-react";
+import { Calendar, Clock, User, ArrowLeft, ArrowRight, List } from "lucide-react";
 import { allBlogsData } from "@/content/pages/allBlogsData";
 import { insightsData } from "@/content/pages/insightsData";
 import { BlogFaqEnhancer } from "@/components/blog/blog-faq-enhancer";
@@ -156,7 +156,7 @@ export default async function SingleInsightPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
       />
       <article className="py-12 md:py-20">
-        <Container className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Breadcrumbs */}
           <nav className="text-xs text-zinc-500 mb-8 flex items-center gap-2">
@@ -167,55 +167,7 @@ export default async function SingleInsightPage({ params }: Props) {
             <span className="text-zinc-600 truncate max-w-xs sm:max-w-md">{post.title}</span>
           </nav>
 
-          {/* 2-Column Minimalist Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-
-            {/* Left Column: Sticky Sidebar (TOC + Trial Card) */}
-            <aside className="hidden lg:block lg:col-span-4 lg:sticky lg:top-28 space-y-6">
-              {hasToc && (
-                <div className="lift bg-[#FAF9F5] border border-[#E4E2DA] rounded-[22px] p-6 sm:p-7 shadow-xs">
-                  <div className="flex items-center gap-2 mb-3.5 pb-2.5 border-b border-[#E4E2DA]">
-                    <p className="text-xs font-bold uppercase tracking-wider text-[#0F2A26]">
-                      Table of Contents
-                    </p>
-                  </div>
-                  <nav className="max-h-[58vh] overflow-y-auto toc-scrollbar pr-3 space-y-2.5 text-[13.5px]">
-                    {post.tocItems.map((item, idx) => (
-                      <a
-                        key={idx}
-                        href={item.href}
-                        className="group flex items-start gap-2 text-zinc-600 hover:text-[#0F2A26] transition-all duration-150 leading-[1.5] py-0.5 rounded-md"
-                      >
-                        <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover:bg-[#167c70] transition-colors shrink-0" />
-                        <span className="group-hover:text-[#167c70] transition-colors font-normal">
-                          {item.title}
-                        </span>
-                      </a>
-                    ))}
-                  </nav>
-                </div>
-              )}
-
-              {/* Attractive Minimalist Trial Card */}
-              <div className="lift bg-white border border-[#E4E2DA] rounded-[20px] p-6 shadow-xs">
-                <div className="w-9 h-9 rounded-xl bg-[#167c70]/10 text-[#167c70] border border-[#167c70]/20 flex items-center justify-center font-bold mb-4">
-                  <Sparkles className="w-4 h-4" />
-                </div>
-                <h4 className="text-base font-bold text-[#0F2A26] mb-1.5 leading-snug">
-                  Modern POS for Retailers
-                </h4>
-                <p className="text-xs text-zinc-500 leading-relaxed mb-5 font-normal">
-                  Automate checkout, real-time inventory, and tax compliance with Hulm.
-                </p>
-                <Button asChild size="sm" className="w-full bg-[#0F2A26] hover:bg-[#167c70] text-white text-xs font-semibold h-10 rounded-full shadow-sm transition-colors">
-                  <Link href="https://app.hulmsolutions.com/Register">Start Free 14-Day Trial</Link>
-                </Button>
-              </div>
-            </aside>
-
-            {/* Right Column: Main Article Body */}
-            <div className={`${hasToc ? 'lg:col-span-8' : 'lg:col-span-12 max-w-4xl mx-auto'} min-w-0`}>
-              <Link href="/blogs/" className="inline-flex items-center text-xs font-semibold text-zinc-500 hover:text-[#0F2A26] transition-colors mb-6">
+          <Link href="/blogs/" className="inline-flex items-center text-xs font-semibold text-zinc-500 hover:text-[#0F2A26] transition-colors mb-6">
                 <ArrowLeft className="w-3.5 h-3.5 mr-1.5" /> Back to all articles
               </Link>
 
@@ -268,29 +220,36 @@ export default async function SingleInsightPage({ params }: Props) {
                 </div>
               </div>
 
-              {/* Mobile Table of Contents */}
-              {hasToc && (
-                <details className="lg:hidden bg-[#FAF9F5] border border-[#E4E2DA] rounded-[20px] p-5 mb-8 text-sm [&_summary::-webkit-details-marker]:hidden">
-                  <summary className="flex items-center justify-between font-bold text-[#0F2A26] cursor-pointer select-none">
-                    <span className="flex items-center gap-2 text-xs uppercase tracking-wider text-zinc-500 font-bold">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#167c70]" /> Table of Contents
+          {/* Table of Contents (After title and metadata) */}
+          {hasToc && (
+            <div className="lift bg-[#FAF9F5] border border-[#E4E2DA] rounded-[22px] p-6 sm:p-7 shadow-xs mb-10">
+              <div className="flex items-center justify-between gap-2 pb-3.5 border-b border-[#E4E2DA] mb-4">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#167c70]" />
+                  <p className="text-xs font-bold uppercase tracking-wider text-[#0F2A26]">
+                    Table of Contents
+                  </p>
+                </div>
+                <span className="text-xs text-zinc-400 font-medium">
+                  {post.tocItems.length} sections
+                </span>
+              </div>
+              <nav className="grid sm:grid-cols-2 gap-x-8 gap-y-2.5 text-[13.5px]">
+                {post.tocItems.map((item, idx) => (
+                  <a
+                    key={idx}
+                    href={item.href}
+                    className="group flex items-start gap-2.5 text-zinc-600 hover:text-[#167c70] transition-colors py-0.5 leading-snug"
+                  >
+                    <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover:bg-[#167c70] transition-colors shrink-0" />
+                    <span className="group-hover:translate-x-0.5 transition-transform font-normal">
+                      {item.title}
                     </span>
-                    <span className="text-zinc-500 text-xs font-normal">Tap to expand</span>
-                  </summary>
-                  <nav className="max-h-[45vh] overflow-y-auto toc-scrollbar pr-2 space-y-2.5 mt-4 pt-3 border-t border-[#E4E2DA] text-[13.5px]">
-                    {post.tocItems.map((item, idx) => (
-                      <a
-                        key={idx}
-                        href={item.href}
-                        className="group flex items-start gap-2 text-zinc-600 hover:text-[#167c70] py-1 transition-colors leading-snug"
-                      >
-                        <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover:bg-[#167c70] transition-colors shrink-0" />
-                        <span>{item.title}</span>
-                      </a>
-                    ))}
-                  </nav>
-                </details>
-              )}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          )}
 
               {/* Complete Article Content with Clean Editorial Typography */}
               <div
@@ -334,7 +293,7 @@ export default async function SingleInsightPage({ params }: Props) {
 
               {/* Minimalist Bottom Upgrade Banner */}
               <div className="p-8 sm:p-10 rounded-[20px] bg-[#0F2A26] text-white text-center mb-16 shadow-xl border border-[#167c70]/20">
-                <h3 className="text-xl sm:text-2xl font-bold mb-2">Upgrade Your Business with Hulm POS</h3>
+                <h3 className="text-xl sm:text-2xl font-bold !text-white mb-2">Upgrade Your Business with Hulm POS</h3>
                 <p className="text-white/80 text-xs sm:text-sm max-w-xl mx-auto mb-6 leading-relaxed font-normal">
                   Designed for speed, simplicity, and multi-location scalability. Start ringing up sales in minutes.
                 </p>
@@ -365,9 +324,6 @@ export default async function SingleInsightPage({ params }: Props) {
                   ))}
                 </div>
               </div>
-
-            </div>
-          </div>
         </Container>
       </article>
     </div>

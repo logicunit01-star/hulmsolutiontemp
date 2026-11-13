@@ -93,7 +93,7 @@ export default function AboutPage() {
                 width={700}
                 height={500}
                 priority
-                sizes="(min-width: 1024px) 40vw, 100vw"
+                sizes="(min-width: 1280px) 480px, (min-width: 1024px) 40vw, calc(100vw - 32px)"
                 className="h-auto w-full rounded-xl object-cover"
               />
             </div>
@@ -127,6 +127,8 @@ export default function AboutPage() {
                     alt={`${whoWeAreSection.heading} - Hulm Solutions POS`}
                     width={640}
                     height={440}
+                    loading="lazy"
+                    sizes="(min-width: 1024px) 50vw, calc(100vw - 32px)"
                     className="h-auto w-full rounded-xl object-cover"
                   />
                 </div>
@@ -148,6 +150,8 @@ export default function AboutPage() {
                     alt={`${missionSection.heading} - Hulm Solutions POS`}
                     width={640}
                     height={440}
+                    loading="lazy"
+                    sizes="(min-width: 1024px) 50vw, calc(100vw - 32px)"
                     className="h-auto w-full rounded-xl object-cover"
                   />
                 </div>

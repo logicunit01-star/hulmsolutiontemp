@@ -212,7 +212,7 @@ const jobGroups: JobGroup[] = [
       "Excel import/export",
     ],
     footerHighlight: "3 compliance tools",
-    footerStatus: "Tier-1 Certified",
+    footerStatus: "FBR-integrated invoicing",
   },
 ];
 
@@ -373,7 +373,7 @@ export function PosFeaturesSection() {
             What&apos;s inside Hulm POS
           </h2>
           <p className="mt-3.5 text-sm sm:text-base leading-relaxed text-zinc-600 max-w-2xl mx-auto">
-            8 purpose-built operational modules. Every feature QA-tested, connected into one database, and ready from day one with zero complex setup.
+            8 purpose-built operational modules, connected into one database and ready from day one with zero complex setup.
           </p>
         </div>
 

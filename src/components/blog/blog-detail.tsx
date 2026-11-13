@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { Calendar, Clock, ArrowRight, Check, List, Sparkles } from "lucide-react";
+import { Calendar, Clock, ArrowRight, Check, List } from "lucide-react";
 import { SiteFaqAccordion } from "@/components/common/site-faq";
 import { bestPosRetailBlog } from "@/content/pages/blogs/best-pos-system-for-retail";
 
@@ -12,7 +12,7 @@ export function BlogDetail() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <article className="py-10 md:py-16">
-        <Container className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Breadcrumbs */}
           <nav className="text-xs text-zinc-500 mb-8 flex items-center gap-2">
@@ -23,56 +23,7 @@ export function BlogDetail() {
             <span className="text-zinc-600 truncate max-w-xs sm:max-w-md">{b.title}</span>
           </nav>
 
-          {/* 2-Column Attractive Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            
-            {/* Left Column: Sticky Sidebar (Matches uploaded reference exactly) */}
-            <aside className="hidden lg:block lg:col-span-4 lg:sticky lg:top-28 space-y-6">
-              {/* Exact Table of Contents Card from uploaded design */}
-              <div className="bg-[#FAF9F5] border border-[#E4E2DA] rounded-[22px] p-6 sm:p-7 shadow-[0_2px_12px_rgba(0,0,0,0.02)]">
-                <div className="flex items-center gap-2 mb-3.5 pb-2.5 border-b border-[#E4E2DA]/80">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#167c70]" />
-                  <p className="text-[11px] font-bold tracking-[0.1em] text-[#6b7280] uppercase">
-                    Table of Contents
-                  </p>
-                </div>
-                <nav className="max-h-[58vh] overflow-y-auto toc-scrollbar pr-3 space-y-2.5 text-[13.5px]">
-                  {b.toc.map((item) => (
-                    <a
-                      key={item.id}
-                      href={`#${item.id}`}
-                      className="group flex items-start gap-2 text-[#475467] hover:text-[#0F2A26] transition-all duration-150 leading-[1.5] py-0.5 rounded-md"
-                    >
-                      <span className="mt-[7px] w-1 h-1 rounded-full bg-zinc-300 group-hover:bg-[#167c70] transition-colors shrink-0" />
-                      <span className="group-hover:text-[#167c70] transition-colors">
-                        {item.title}
-                      </span>
-                    </a>
-                  ))}
-                </nav>
-              </div>
-
-              {/* Attractive Minimalist Trial Card */}
-              <div className="bg-gradient-to-b from-white to-[#F8FAFB] border border-[#E4E2DA] rounded-[20px] p-6 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
-                <div className="w-9 h-9 rounded-xl bg-[#167c70]/10 text-[#167c70] flex items-center justify-center font-bold mb-4">
-                  <Sparkles className="w-4 h-4" />
-                </div>
-                <h4 className="text-base font-bold text-[#0F2A26] mb-1.5 leading-snug">
-                  Modern POS for Retailers
-                </h4>
-                <p className="text-xs text-zinc-500 leading-relaxed mb-5">
-                  Automate checkout, real-time inventory, and tax compliance with Hulm.
-                </p>
-                <Button asChild size="sm" className="w-full bg-[#0F2A26] hover:bg-[#167c70] text-white text-xs font-semibold h-10 rounded-xl shadow-sm transition-colors">
-                  <Link href="https://app.hulmsolutions.com/Register">Start Free 14-Day Trial</Link>
-                </Button>
-              </div>
-            </aside>
-
-            {/* Right Column: Main Article Body */}
-            <div className="lg:col-span-8 min-w-0">
-              
-              {/* Category Pill */}
+          {/* Category Pill */}
               <div className="mb-4">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#167c70]/10 text-[#167c70]">
                   {b.category}
@@ -124,27 +75,34 @@ export function BlogDetail() {
                 </p>
               </div>
 
-              {/* Mobile Table of Contents */}
-              <details className="lg:hidden bg-[#FAF9F5] border border-[#E4E2DA] rounded-[20px] p-5 mb-8 text-sm [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex items-center justify-between font-bold text-[#0F2A26] cursor-pointer select-none">
-                  <span className="flex items-center gap-2 text-xs uppercase tracking-wider text-[#6b7280] font-bold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#167c70]" /> Table of Contents
+              {/* Table of Contents (After title and metadata) */}
+              <div className="lift bg-[#FAF9F5] border border-[#E4E2DA] rounded-[22px] p-6 sm:p-7 shadow-xs mb-10">
+                <div className="flex items-center justify-between gap-2 pb-3.5 border-b border-[#E4E2DA] mb-4">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#167c70]" />
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#0F2A26]">
+                      Table of Contents
+                    </p>
+                  </div>
+                  <span className="text-xs text-zinc-400 font-medium">
+                    {b.toc.length} sections
                   </span>
-                  <span className="text-zinc-500 text-xs font-normal">Tap to expand</span>
-                </summary>
-                <nav className="max-h-[45vh] overflow-y-auto toc-scrollbar pr-2 space-y-2.5 mt-4 pt-3 border-t border-zinc-200/60 text-[13.5px]">
+                </div>
+                <nav className="grid sm:grid-cols-2 gap-x-8 gap-y-2.5 text-[13.5px]">
                   {b.toc.map((item) => (
                     <a 
                       key={item.id} 
                       href={`#${item.id}`} 
-                      className="group flex items-start gap-2 text-[#475467] hover:text-[#167c70] py-1 transition-colors leading-snug"
+                      className="group flex items-start gap-2.5 text-zinc-600 hover:text-[#167c70] transition-colors py-0.5 leading-snug"
                     >
-                      <span className="mt-[7px] w-1 h-1 rounded-full bg-zinc-300 group-hover:bg-[#167c70] transition-colors shrink-0" />
-                      <span>{item.title}</span>
+                      <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-zinc-300 group-hover:bg-[#167c70] transition-colors shrink-0" />
+                      <span className="group-hover:translate-x-0.5 transition-transform font-normal">
+                        {item.title}
+                      </span>
                     </a>
                   ))}
                 </nav>
-              </details>
+              </div>
 
               {/* Editorial Intro */}
               <div className="space-y-4 text-base sm:text-[17px] text-zinc-700 leading-relaxed mb-12">
@@ -453,7 +411,7 @@ export function BlogDetail() {
 
               {/* Attractive Bottom Box */}
               <div className="p-8 sm:p-10 rounded-[24px] bg-gradient-to-br from-[#0F2A26] to-[#0d1c1a] text-white text-center mb-16 shadow-lg">
-                <h3 className="text-2xl sm:text-3xl font-extrabold mb-2.5">Upgrade Your Business with Hulm POS</h3>
+                <h3 className="text-2xl sm:text-3xl font-extrabold !text-white mb-2.5">Upgrade Your Business with Hulm POS</h3>
                 <p className="text-zinc-300 text-xs sm:text-sm max-w-xl mx-auto mb-6 leading-relaxed">
                   Designed for speed, simplicity, and multi-location scalability. Start ringing up sales in minutes.
                 </p>
@@ -484,9 +442,6 @@ export function BlogDetail() {
                   ))}
                 </div>
               </div>
-
-            </div>
-          </div>
         </Container>
       </article>
     </div>

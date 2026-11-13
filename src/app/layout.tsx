@@ -5,7 +5,6 @@ import { RevealObserver } from "@/components/motion/reveal-observer";
 import { StickyMobileCta } from "@/components/leads/sticky-mobile-cta";
 import { GoogleTagManager } from "@/components/analytics/google-tag-manager";
 import { MicrosoftClarity } from "@/components/analytics/clarity";
-import { Trustpilot } from "@/components/analytics/trustpilot";
 import { SiteTracking } from "@/components/analytics/site-tracking";
 import { WhatsAppFloat } from "@/components/leads/whatsapp-float";
 import { contactInfo } from "@/lib/contact-info";
@@ -136,10 +135,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${schibsted.variable}`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,r,n){w.TrustpilotObject=n;w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)};a=d.createElement(s);a.async=1;a.src=r;a.type='text/java'+s;f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(a,f)})(window,document,'script', 'https://invitejs.trustpilot.com/tp.min.js', 'tp');tp('register', 'ZfMtKoiZQ3Zi4yYF');`,
+          }}
+        />
+      </head>
       <body className={`antialiased flex min-h-screen flex-col text-[#0F2A26]`}>
         <GoogleTagManager id={gtmId} />
         <MicrosoftClarity />
-        <Trustpilot />
         {hubspotPortalId && (
           <script
             type="text/javascript"

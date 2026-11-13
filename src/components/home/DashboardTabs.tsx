@@ -40,9 +40,9 @@ const DEFAULT_TABS: readonly IndustryTab[] = [
     id: "restaurant",
     name: "Restaurant",
     image: "/images/home/dashboard/restaurant-pos-overview.png",
-    width: 1024,
-    height: 639,
-    alt: "Hulm Restaurant POS software dashboard diagram with annotated callouts for table orders, menu categories, cart, and checkout",
+    width: 1203,
+    height: 687,
+    alt: "Hulm Restaurant POS software dashboard with active tables, order management, and revenue analytics",
   },
 ];
 

@@ -130,7 +130,7 @@ export const homeContent = {
       {
         title: "Retail stores",
         href: "/industries/retail-store/",
-        image: "/images/industries/retail.webp",
+        image: "/images/industries/retail-store.webp",
         alt: "Hulm POS checkout counter setup in a modern retail apparel store",
         description: "Barcode scanning, multi-branch stock, customer ledgers, supplier POs",
       },
@@ -144,7 +144,7 @@ export const homeContent = {
       {
         title: "Pharmacies",
         href: "/industries/pharmacy-store/",
-        image: "/images/industries/pharmacy.webp",
+        image: "/images/industries/pharmacy-store.webp",
         alt: "Hulm POS pharmacy dispensing counter with medicine stock tracking",
         description: "Counter billing, packs and units, distributor ledgers, GRN",
       },

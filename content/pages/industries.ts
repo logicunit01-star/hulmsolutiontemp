@@ -18,7 +18,7 @@ export const industriesContent = {
       "Each setup starts with the same Hulm POS foundation and brings the most relevant daily workflows forward for your team.",
     items: [
       {
-        name: "Retail store POS system", slug: "retail-store", image: "/images/industries/retail.jpg", tag: "Retail & Marts",
+        name: "Retail store POS system", slug: "retail-store", image: "/images/industries/retail-store.jpg", tag: "Retail & Marts",
         description: "Keep checkout, product stock and customer records connected across one or more locations.",
         highlights: ["Barcode-ready selling", "Branch-level stock visibility", "Customer purchase history"],
       },
@@ -28,7 +28,7 @@ export const industriesContent = {
         highlights: ["Order and table workflows", "Menu item management", "Sales and stock reporting"],
       },
       {
-        name: "Pharmacy POS system", slug: "pharmacy-store", image: "/images/industries/pharmacy.jpg", tag: "Pharma & Healthcare",
+        name: "Pharmacy POS system", slug: "pharmacy-store", image: "/images/industries/pharmacy-store.jpg", tag: "Pharma & Healthcare",
         description: "Sell quickly while keeping closer visibility over product stock, batches and expiry dates.",
         highlights: ["Product and batch records", "Expiry visibility", "Fast counter billing"],
       },

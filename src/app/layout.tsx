@@ -5,6 +5,7 @@ import { RevealObserver } from "@/components/motion/reveal-observer";
 import { StickyMobileCta } from "@/components/leads/sticky-mobile-cta";
 import { GoogleTagManager } from "@/components/analytics/google-tag-manager";
 import { MicrosoftClarity } from "@/components/analytics/clarity";
+import { Trustpilot } from "@/components/analytics/trustpilot";
 import { SiteTracking } from "@/components/analytics/site-tracking";
 import { WhatsAppFloat } from "@/components/leads/whatsapp-float";
 import { contactInfo } from "@/lib/contact-info";
@@ -138,6 +139,7 @@ export default function RootLayout({
       <body className={`antialiased flex min-h-screen flex-col text-[#0F2A26]`}>
         <GoogleTagManager id={gtmId} />
         <MicrosoftClarity />
+        <Trustpilot />
         {hubspotPortalId && (
           <script
             type="text/javascript"

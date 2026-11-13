@@ -23,6 +23,7 @@ import {
 
 import { FaqDetails } from "@/components/seo/faq-details";
 import { BenefitsSection } from "@/components/home/BenefitsSection";
+import { HomeIndustriesCarousel } from "@/components/home/HomeIndustriesCarousel";
 import { DashboardTabs } from "@/components/home/DashboardTabs";
 import { GoogleReviewsSection } from "@/components/home/GoogleReviewsSection";
 import { OutcomesSection } from "@/components/home/OutcomesSection";
@@ -30,6 +31,7 @@ import { PosFeaturesSection } from "@/components/home/PosFeaturesSection";
 import { ReplaceManualSection } from "@/components/home/ReplaceManualSection";
 import { TrustedBy } from "@/components/home/trusted-by";
 import { WhyChooseSection } from "@/components/home/WhyChooseSection";
+import { HeroVideo } from "@/components/home/hero-video";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
@@ -207,18 +209,18 @@ export default function HomePage() {
       />
       <section className="relative overflow-hidden border-b border-zinc-200/70 bg-white pt-12 pb-14 sm:pt-16 sm:pb-16 lg:pt-20 lg:pb-24">
         <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
-        <Container className="relative grid items-center gap-y-6 lg:gap-y-0 lg:grid-cols-12 lg:gap-12 xl:gap-14">
-          <div className="max-w-2xl lg:col-span-6">
-            <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px]">
+        <Container className="relative grid items-center gap-y-6 lg:gap-y-0 lg:grid-cols-12 lg:gap-8 xl:gap-12">
+          <div className="max-w-2xl lg:col-span-5 flex flex-col justify-center">
+            <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[38px] xl:text-[42px]">
               {homeContent.hero.headline.replace(/every branch$/, "")}
               <span className="mark-lime">every branch</span>
             </h1>
-            <p className="mt-6 sm:mt-7 max-w-xl text-sm sm:text-base lg:text-lg leading-relaxed sm:leading-8 text-zinc-600">
+            <p className="mt-5 sm:mt-6 max-w-xl text-sm sm:text-base lg:text-[17px] leading-relaxed sm:leading-7 text-zinc-600">
               {homeContent.hero.description}
             </p>
 
             {/* Desktop CTA & Proof */}
-            <div className="hidden lg:block mt-6 sm:mt-7">
+            <div className="hidden lg:block mt-6">
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Button asChild size="lg" className="w-full sm:w-auto">
                   <Link href={homeContent.hero.primaryCta.href} target="_blank" rel="noreferrer">
@@ -239,7 +241,7 @@ export default function HomePage() {
                 </Button>
               </div>
 
-              <ul className="mt-6 flex flex-col gap-3 text-sm font-medium text-zinc-600 sm:flex-row sm:flex-wrap sm:gap-x-6">
+              <ul className="mt-5 flex flex-col gap-2.5 text-sm font-medium text-zinc-600 sm:flex-row sm:flex-wrap sm:gap-x-5">
                 {homeContent.hero.proof.map((item) => (
                   <li key={item} className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-[#167c70]" />
@@ -250,23 +252,10 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Unified Showcase Image */}
-          <div className="relative w-full max-w-xl mx-auto my-2 lg:my-0 lg:col-span-6 lg:max-w-none">
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -inset-2 sm:-inset-4 rounded-2xl sm:rounded-3xl bg-gradient-to-tr from-[#167c70]/15 via-[#7ae582]/10 to-transparent blur-xl sm:blur-2xl -z-10"
-            />
-            <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-zinc-200/90 bg-white p-1 sm:p-2 shadow-[0_15px_35px_-10px_rgba(21,40,37,0.18)] lg:shadow-[0_25px_60px_-15px_rgba(21,40,37,0.22)]">
-              <Image
-                src="/images/home/hero-pos-terminal.webp"
-                alt="Hulm POS cloud cashier terminal with barcode scanner and instant checkout interface"
-                width={1024}
-                height={498}
-                priority
-                fetchPriority="high"
-                sizes="(min-width: 1280px) 590px, (min-width: 1024px) 50vw, (min-width: 640px) 576px, calc(100vw - 32px)"
-                className="h-auto w-full rounded-lg sm:rounded-xl object-contain select-none"
-              />
+          {/* Unified Showcase Video */}
+          <div className="relative w-full mx-auto my-2 lg:my-0 lg:col-span-7 flex items-center justify-center">
+            <div className="relative w-full aspect-[1400/1060] overflow-hidden rounded-xl sm:rounded-2xl border border-transparent bg-transparent p-0 shadow-none flex items-center justify-center">
+              <HeroVideo />
             </div>
           </div>
 
@@ -370,34 +359,7 @@ export default function HomePage() {
       <Section data-reveal className="bg-[#F7F6F2]">
         <Container>
           <SectionIntro {...homeContent.industries} centered />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {homeContent.industries.items.map((industry) => (
-              <Link key={industry.title} href={industry.href} className="group relative min-h-64 sm:min-h-72 overflow-hidden rounded-2xl bg-[#0F2A26]">
-                <Image
-                  src={industry.image}
-                  alt={industry.alt}
-                  fill
-                  loading="lazy"
-                  sizes="(min-width: 1280px) 380px, (min-width: 1024px) 30vw, (min-width: 640px) 50vw, calc(100vw - 32px)"
-                  className="object-cover transition duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2A26] via-[#0F2A26]/55 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-5 sm:p-6 text-white">
-                  <div className="pr-3">
-                    <h3 className="text-lg sm:text-xl font-bold text-white leading-snug">{industry.title}</h3>
-                    {"description" in industry && industry.description ? (
-                      <p className="mt-1 text-xs sm:text-[13px] text-white/85 leading-snug font-normal">
-                        {industry.description}
-                      </p>
-                    ) : null}
-                  </div>
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/15 transition group-hover:bg-[#7AE582] group-hover:text-[#0F2A26]">
-                    <ArrowRight className="h-4 w-4" />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <HomeIndustriesCarousel items={homeContent.industries.items} />
           <div className="mt-10 text-center">
             <p className="text-sm font-bold text-[#0F2A26]">{homeContent.industries.moreHeading}</p>
             <ul className="mt-4 flex flex-wrap justify-center gap-2.5">

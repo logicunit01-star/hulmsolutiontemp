@@ -968,8 +968,11 @@
   }
 
   .animate-marquee:hover,
+  .animate-marquee:active,
   .animate-marquee-left:hover,
-  .animate-marquee-right:hover {
+  .animate-marquee-left:active,
+  .animate-marquee-right:hover,
+  .animate-marquee-right:active {
     animation-play-state: paused;
   }
 

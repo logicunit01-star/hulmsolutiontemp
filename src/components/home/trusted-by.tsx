@@ -92,7 +92,8 @@ export function TrustedBy() {
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 lg:gap-10 py-2">
+        {/* Desktop View: Clean flex wrap row */}
+        <div className="hidden md:flex flex-wrap items-center justify-center gap-6 sm:gap-8 lg:gap-10 py-2">
           {badges.map((b) => (
             <a
               key={b.href}
@@ -113,6 +114,77 @@ export function TrustedBy() {
               />
             </a>
           ))}
+        </div>
+
+        {/* Mobile View: Infinite auto-scrolling logo slider */}
+        <div className="relative -mx-4 overflow-x-auto scrollbar-none py-2 md:hidden motion-safe:overflow-hidden">
+          {/* Subtle gradient fade on left edge */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-10 bg-gradient-to-r from-[#FAF9F5] to-transparent"
+          />
+
+          {/* Subtle gradient fade on right edge */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-10 bg-gradient-to-l from-[#FAF9F5] to-transparent"
+          />
+
+          {/* Marquee Track */}
+          <div className="flex w-max items-center animate-marquee hover:[animation-play-state:paused] active:[animation-play-state:paused]">
+            {/* Primary Set */}
+            <div className="flex shrink-0 items-center gap-7 pr-7">
+              {badges.map((b) => (
+                <a
+                  key={`m-${b.href}`}
+                  href={b.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={b.title || b.alt}
+                  aria-label={b.title || b.alt}
+                  className="flex shrink-0 items-center justify-center transition-transform duration-200 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#167c70]"
+                >
+                  <img
+                    decoding="async"
+                    src={b.src}
+                    alt={b.alt}
+                    loading="lazy"
+                    width={b.width}
+                    height={b.height}
+                    className={b.className}
+                  />
+                </a>
+              ))}
+            </div>
+
+            {/* Duplicate Set for Seamless Loop */}
+            <div
+              aria-hidden="true"
+              className="flex shrink-0 items-center gap-7 pr-7"
+            >
+              {badges.map((b, idx) => (
+                <a
+                  key={`m-${b.href}-dup-${idx}`}
+                  href={b.href}
+                  tabIndex={-1}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={b.title || b.alt}
+                  className="flex shrink-0 items-center justify-center transition-transform duration-200 active:scale-95 focus-visible:outline-none pointer-events-auto"
+                >
+                  <img
+                    decoding="async"
+                    src={b.src}
+                    alt=""
+                    loading="lazy"
+                    width={b.width}
+                    height={b.height}
+                    className={b.className}
+                  />
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </Container>
     </section>

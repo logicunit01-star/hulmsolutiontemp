@@ -98,14 +98,23 @@ interface DashboardTabsProps {
 }
 
 export function DashboardTabs({ tabs = DEFAULT_TABS }: DashboardTabsProps) {
-  const [activeTabId, setActiveTabId] = useState<string>("retail");
+  const [activeTabId, setActiveTabId] = useState<string>(() => {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash.replace("#", "").toLowerCase();
+      if (tabs.some((t) => t.id === hash)) return hash;
+    }
+    return "retail";
+  });
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const hash = window.location.hash.replace("#", "").toLowerCase();
-    if (tabs.some((t) => t.id === hash)) {
-      setActiveTabId(hash);
-    }
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace("#", "").toLowerCase();
+      if (tabs.some((t) => t.id === hash)) {
+        setActiveTabId(hash);
+      }
+    };
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
   }, [tabs]);
 
   const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
@@ -246,16 +255,16 @@ export function DashboardTabs({ tabs = DEFAULT_TABS }: DashboardTabsProps) {
                   {/* Bullet list */}
                   {bullets.length > 0 && (
                     <div className="mt-4 pt-4 border-t border-zinc-200/60">
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3">
+                      <ul className="columns-2 gap-2 sm:columns-auto sm:grid sm:grid-cols-2 md:grid-cols-3 sm:gap-3">
                         {bullets.map((bullet, idx) => (
                           <li
                             key={idx}
-                            className="flex items-center gap-2.5 rounded-xl border border-zinc-200/70 bg-white px-3.5 py-2.5 text-xs sm:text-sm text-zinc-800 shadow-2xs"
+                            className="break-inside-avoid mb-2 sm:mb-0 flex items-center gap-2 sm:gap-2.5 rounded-xl border border-zinc-200/70 bg-white px-2.5 py-2 sm:px-3.5 sm:py-2.5 text-xs sm:text-sm text-zinc-800 shadow-2xs"
                           >
                             <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-[#167c70]">
                               <Check className="h-3.5 w-3.5 stroke-[2.5]" />
                             </div>
-                            <span className="font-medium">{bullet}</span>
+                            <span className="font-medium leading-snug break-words">{bullet}</span>
                           </li>
                         ))}
                       </ul>

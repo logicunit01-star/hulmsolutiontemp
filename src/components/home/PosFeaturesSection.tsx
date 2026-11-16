@@ -10,10 +10,10 @@ import {
   Users,
   BarChart3,
   ShieldCheck,
+  Pill,
   Check,
   ChevronLeft,
   ChevronRight,
-  ArrowRight,
 } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
@@ -214,6 +214,29 @@ const jobGroups: JobGroup[] = [
     footerHighlight: "3 compliance tools",
     footerStatus: "FBR-integrated invoicing",
   },
+  {
+    number: "09",
+    job: "Pharmacy",
+    shortLabel: "Pharmacy",
+    badge: "Medical & Pharmacy",
+    tagline: "Counter dispensing, pack-to-unit conversions & distributor ledger tracking.",
+    icon: Pill,
+    microUi: {
+      leftLabel: "Batch #RX-409 · Expiry 2027",
+      rightLabel: "Rx Dispensed",
+      isPulse: false,
+    },
+    features: [
+      "Counter billing",
+      "Packs and units",
+      "Distributor ledgers",
+      "GRN",
+      "Goods return note",
+      "Vendor payments",
+    ],
+    footerHighlight: "6 pharmacy tools",
+    footerStatus: "Pharmacy Ready",
+  },
 ];
 
 export function PosFeaturesSection() {
@@ -275,7 +298,7 @@ export function PosFeaturesSection() {
   const renderCard = (group: JobGroup) => {
     const Icon = group.icon;
     return (
-      <div className="group relative flex h-full flex-col justify-between rounded-2xl border border-zinc-200/90 bg-white p-5 sm:p-6 shadow-[0_2px_12px_-4px_rgba(15,42,38,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-[#167c70]/60 hover:shadow-[0_20px_40px_-15px_rgba(22,124,112,0.18)]">
+      <div className="group relative flex h-full flex-col justify-between rounded-2xl border border-zinc-200/85 bg-white p-5 sm:p-6 shadow-2xs transition-all duration-200 hover:-translate-y-0.5 hover:border-[#167c70]/50 hover:shadow-sm">
         {/* Top Accent Gradient Bar on Hover */}
         <div
           aria-hidden="true"
@@ -284,7 +307,7 @@ export function PosFeaturesSection() {
 
         <div className="flex flex-col">
           {/* Micro-UI Software Snippet */}
-          <div className="mb-4 flex items-center justify-between rounded-xl bg-[#0F2A26] px-3 py-2 text-white shadow-inner">
+          <div className="mb-4 flex items-center justify-between rounded-xl bg-[#0F2A26] px-3 py-1.5 text-white">
             <div className="flex items-center gap-1.5 min-w-0">
               {group.microUi.isPulse ? (
                 <span className="relative flex h-2 w-2 shrink-0">
@@ -373,7 +396,7 @@ export function PosFeaturesSection() {
             What&apos;s inside Hulm POS
           </h2>
           <p className="mt-3.5 text-sm sm:text-base leading-relaxed text-zinc-600 max-w-2xl mx-auto">
-            8 purpose-built operational modules, connected into one database and ready from day one with zero complex setup.
+            9 purpose-built operational modules, connected into one database and ready from day one with zero complex setup.
           </p>
         </div>
 
@@ -410,11 +433,11 @@ export function PosFeaturesSection() {
           </div>
         </div>
 
-        {/* UNIFIED Track: Swipeable Carousel on Mobile/Tablet, 4x2 Grid on Desktop */}
+        {/* UNIFIED Track: Swipeable Carousel on Mobile/Tablet, 3x3 Grid on Desktop */}
         <div
           ref={carouselRef}
           onScroll={handleScroll}
-          className="flex lg:grid gap-4 lg:gap-5 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 snap-x snap-mandatory scrollbar-none scroll-smooth px-4 -mx-4 sm:px-0 sm:mx-0 lg:grid-cols-4 items-stretch"
+          className="flex lg:grid gap-4 lg:gap-5 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 snap-x snap-mandatory scrollbar-none scroll-smooth px-4 -mx-4 sm:px-0 sm:mx-0 lg:grid-cols-3 items-stretch"
         >
           {jobGroups.map((group) => (
             <div

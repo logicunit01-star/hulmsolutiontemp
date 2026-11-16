@@ -8,6 +8,7 @@ import { MicrosoftClarity } from "@/components/analytics/clarity";
 import { SiteTracking } from "@/components/analytics/site-tracking";
 import { WhatsAppFloat } from "@/components/leads/whatsapp-float";
 import { contactInfo } from "@/lib/contact-info";
+import { siteStructuredData } from "@/lib/seo/site-schema";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 
@@ -90,44 +91,6 @@ export const metadata: Metadata = {
   },
 };
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": `${siteUrl}/#organization`,
-  name: "Hulm Solutions",
-  url: siteUrl,
-  logo: `${siteUrl}/images/logo/hulm-logo-600.png`,
-  description:
-    "Hulm Solutions builds Hulm POS, cloud-based POS and business management software with FBR integration in Pakistan and ZATCA / UAE e-invoicing readiness for Gulf businesses.",
-  knowsAbout: ["POS software", "FBR integrated POS", "ZATCA e-invoicing", "Inventory management", "Restaurant POS", "Retail POS"],
-  telephone: contactInfo.phoneDisplay,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: contactInfo.address.streetAddress,
-    addressLocality: contactInfo.address.addressLocality,
-    addressRegion: contactInfo.address.addressRegion,
-    addressCountry: contactInfo.address.addressCountry,
-  },
-  contactPoint: [
-    { "@type": "ContactPoint", contactType: "sales", telephone: contactInfo.phoneDisplay, url: `${siteUrl}/contact/`, areaServed: ["PK", "SA", "AE", "QA", "US"], availableLanguage: ["en"] },
-  ],
-  sameAs: [
-    "https://www.linkedin.com/company/hulm-solutions/",
-    "https://www.instagram.com/hulmsolutions",
-    "https://www.youtube.com/@Hulmsolutions",
-  ],
-};
-
-const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": `${siteUrl}/#website`,
-  name: "Hulm Solutions",
-  url: siteUrl,
-  publisher: { "@id": `${siteUrl}/#organization` },
-  inLanguage: "en",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -139,6 +102,12 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,r,n){w.TrustpilotObject=n;w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)};a=d.createElement(s);a.async=1;a.src=r;a.type='text/java'+s;f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(a,f)})(window,document,'script', 'https://invitejs.trustpilot.com/tp.min.js', 'tp');tp('register', 'ZfMtKoiZQ3Zi4yYF');`,
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(siteStructuredData).replace(/</g, "\\u003c"),
           }}
         />
       </head>
@@ -163,12 +132,6 @@ export default function RootLayout({
             aria-hidden="true"
           />
         </noscript>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([organizationSchema, websiteSchema]).replace(/</g, "\\u003c"),
-          }}
-        />
         <Header />
         <main className="flex-1">
           {children}

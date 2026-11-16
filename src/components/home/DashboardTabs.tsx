@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ShoppingBag, Pill, Utensils, Check, ArrowRight } from "lucide-react";
 import { ImageZoom } from "@/components/ui/image-zoom";
@@ -19,11 +19,13 @@ export interface IndustryTab {
   alt: string;
   badge?: string;
   tagline?: string;
-  description: string;
+  sentence: string;
+  bullets: readonly string[];
+  description?: string;
   href?: string;
   linkLabel?: string;
   features?: string[];
-  featureItems: IndustryFeature[];
+  featureItems?: IndustryFeature[];
 }
 
 const DEFAULT_TABS: readonly IndustryTab[] = [
@@ -36,36 +38,17 @@ const DEFAULT_TABS: readonly IndustryTab[] = [
     alt: "Hulm Retail POS software dashboard diagram with annotated callouts for cashier checkout, catalog, cart, and administration",
     badge: "Retail Edition",
     tagline: "High-Speed Cashier Terminal & Multi-Store Control",
-    description:
-      "All-in-one cashier register interface designed for fast-paced retail shops, supermarkets, and boutiques. Scan barcodes in milliseconds, hold and resume carts during rush hours, maintain customer ledgers (khata), and issue FBR-compliant QR receipts.",
+    sentence: "Barcode checkout, customer ledger, purchase orders, price lists, packs and units, and 12 reports.",
+    bullets: [
+      "Barcode checkout",
+      "Customer ledger",
+      "Purchase orders",
+      "Price lists",
+      "Packs and units",
+      "12 reports",
+    ],
     href: "/industries/retail-store/",
     linkLabel: "Explore Retail POS Software",
-    featureItems: [
-      {
-        title: "Instant Barcode & SKU Search",
-        description: "Scan barcodes or search items by name and category with instant live price calculation.",
-      },
-      {
-        title: "Multi-Item Cart & Hold Sales",
-        description: "Park transactions on hold when a customer steps away, serve the next shopper, and resume instantly.",
-      },
-      {
-        title: "Real-Time Stock Sync Across Branches",
-        description: "Every checkout immediately deducts inventory and reflects live stock levels across all your stores.",
-      },
-      {
-        title: "Customer Ledgers & Khata Records",
-        description: "Track customer purchase histories, assign loyalty credit, and manage udhaar/receivables seamlessly.",
-      },
-      {
-        title: "Automated FBR Invoicing",
-        description: "Generate compliant digital receipts with verifiable FBR invoice numbers and QR codes automatically.",
-      },
-      {
-        title: "Flexible Payment Modes",
-        description: "Accept cash, credit/debit cards, bank transfers, or split tender with automated drawer balancing.",
-      },
-    ],
   },
   {
     id: "pharmacy",
@@ -76,36 +59,16 @@ const DEFAULT_TABS: readonly IndustryTab[] = [
     alt: "Hulm Pharmacy POS software dashboard diagram with annotated callouts for medicine billing, catalog, cart, and instructions",
     badge: "Pharmacy Edition",
     tagline: "Medical Dispensing, Expiry Validation & Doctor Tracking",
-    description:
-      "Specialized medical billing system built for pharmacies, medical stores, and dispensaries. Effortlessly dispense medicines by unit, strip, or full pack, track batch numbers with automated expiry warnings, and record prescribing doctors and patient dosage instructions.",
+    sentence: "Counter billing, packs and units, distributor ledgers, goods received and return notes, stock reports.",
+    bullets: [
+      "Counter billing",
+      "Packs and units",
+      "Distributor ledgers",
+      "Goods received and return notes",
+      "Stock reports",
+    ],
     href: "/industries/pharmacy-store/",
     linkLabel: "Explore Pharmacy POS Software",
-    featureItems: [
-      {
-        title: "Pack, Strip & Unit Fractional Billing",
-        description: "Dispense single tablets, blister strips, or complete boxes with automated fractional pricing.",
-      },
-      {
-        title: "Batch Number & Expiry Date Alerts",
-        description: "Prevent selling expired medicines with automated visual alerts for batches near expiration.",
-      },
-      {
-        title: "Doctor & Prescription Notes",
-        description: "Record prescribing physicians, patient contact details, and dosage instructions directly on the receipt.",
-      },
-      {
-        title: "Generic Formula & Brand Matching",
-        description: "Search medications by chemical generic formula or commercial brand to suggest quick alternatives.",
-      },
-      {
-        title: "Distributor Purchase & GRN Tracking",
-        description: "Manage supplier purchase orders, incoming distributor deliveries, and payment schedules.",
-      },
-      {
-        title: "Controlled Substance & Drug Auditing",
-        description: "Keep an immutable, audit-ready record of scheduled and restricted pharmaceutical sales.",
-      },
-    ],
   },
   {
     id: "restaurant",
@@ -116,36 +79,17 @@ const DEFAULT_TABS: readonly IndustryTab[] = [
     alt: "Hulm Restaurant POS software dashboard diagram with annotated callouts for table orders, menu categories, cart, and checkout",
     badge: "Restaurant Edition",
     tagline: "Dining Floor Management, KOT Routing & Fast Modifiers",
-    description:
-      "Fast-paced floor and counter order management interface built for cafes, quick-service counters, and dine-in restaurants. Route orders instantly to the kitchen via KOT, customize orders with menu modifiers, manage live table occupancy, and split checks with zero confusion.",
+    sentence: "Tables, kitchen board, menu management, recipes, wastage log, stock counts and shift cash.",
+    bullets: [
+      "Tables",
+      "Kitchen board",
+      "Menu management",
+      "Recipes",
+      "Wastage log",
+      "Stock counts and shift cash",
+    ],
     href: "/industries/restaurant-pos/",
     linkLabel: "Explore Restaurant POS Software",
-    featureItems: [
-      {
-        title: "Visual Table & Floor Management",
-        description: "Track live table occupancy, guest counts, and status (vacant, ordered, billed) across dining sections.",
-      },
-      {
-        title: "Kitchen Order Tickets (KOT)",
-        description: "Route orders directly to kitchen thermal printers or KDS screens categorized by cooking station.",
-      },
-      {
-        title: "Menu Modifiers & Special Notes",
-        description: "Add size options, crust choices, spice levels, and custom cooking instructions to any item.",
-      },
-      {
-        title: "Dine-in, Takeaway & Delivery Modes",
-        description: "Toggle seamlessly between dine-in table orders, counter takeaways, and third-party rider deliveries.",
-      },
-      {
-        title: "Split Billing & Table Merging",
-        description: "Split checks equally, by item, or by seat, and transfer or merge tables during busy service hours.",
-      },
-      {
-        title: "Ingredient & Recipe Stock Deduction",
-        description: "Automatically deplete raw ingredients and kitchen supplies as menu dishes are ordered.",
-      },
-    ],
   },
 ];
 
@@ -156,7 +100,13 @@ interface DashboardTabsProps {
 export function DashboardTabs({ tabs = DEFAULT_TABS }: DashboardTabsProps) {
   const [activeTabId, setActiveTabId] = useState<string>("retail");
 
-  const currentTab = tabs.find((t) => t.id === activeTabId) || tabs[0];
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const hash = window.location.hash.replace("#", "").toLowerCase();
+    if (tabs.some((t) => t.id === hash)) {
+      setActiveTabId(hash);
+    }
+  }, [tabs]);
 
   const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
     let nextIndex: number | null = null;
@@ -196,7 +146,7 @@ export function DashboardTabs({ tabs = DEFAULT_TABS }: DashboardTabsProps) {
           className="inline-flex items-center gap-1 sm:gap-2 p-1.5 sm:p-2 rounded-2xl bg-[#F7F6F2] border border-[#E4E2DA]"
         >
           {tabs.map((tab, idx) => {
-            const isActive = tab.id === currentTab.id;
+            const isActive = tab.id === activeTabId;
             const Icon = getTabIcon(tab.id);
             return (
               <button
@@ -229,85 +179,93 @@ export function DashboardTabs({ tabs = DEFAULT_TABS }: DashboardTabsProps) {
         </div>
       </div>
 
-      {/* Main Showcase Image Area with Shopify-style Hover Zoom */}
-      <div
-        id={`panel-${currentTab.id}`}
-        role="tabpanel"
-        aria-labelledby={`tab-${currentTab.id}`}
-        className="relative w-full overflow-hidden flex flex-col items-center justify-center bg-transparent"
-      >
-        <ImageZoom
-          key={currentTab.id}
-          src={currentTab.image}
-          alt={currentTab.alt}
-          width={currentTab.width}
-          height={currentTab.height}
-          zoomScale={2.4}
-          priority={false}
-          loading="lazy"
-          sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
-          className="[image-rendering:-webkit-optimize-contrast]"
-          containerClassName="w-full"
-          showHint={true}
-          allowFullscreen={true}
-        />
+      {/* Tab Panels: All tabs are rendered in HTML for SEO crawlability */}
+      <div className="w-full">
+        {tabs.map((tab) => {
+          const isActive = tab.id === activeTabId;
+          const sentence = tab.sentence || tab.description || "";
+          const bullets = tab.bullets || tab.features || [];
 
-        {/* Text Caption & Feature List Under Tab Diagram */}
-        <div className="w-full mt-6 sm:mt-8 rounded-2xl border border-zinc-200/80 bg-[#FAF9F5] p-5 sm:p-7 md:p-8">
-          {/* Header & Caption */}
-          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 border-b border-zinc-200/80 pb-5">
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#167c70] mb-1.5">
-                <span>{currentTab.badge || `${currentTab.name} POS Edition`}</span>
-                {currentTab.tagline && (
-                  <>
-                    <span className="text-zinc-300">&bull;</span>
-                    <span className="text-zinc-600 font-medium normal-case tracking-normal">{currentTab.tagline}</span>
-                  </>
-                )}
-              </div>
-              <p className="text-sm sm:text-base leading-relaxed text-zinc-700">
-                {currentTab.description}
-              </p>
-            </div>
-            {currentTab.href && (
-              <Link
-                href={currentTab.href}
-                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#167c70] hover:text-[#0F2A26] transition-colors shrink-0 group self-start sm:self-center"
-              >
-                <span>{currentTab.linkLabel || `Explore ${currentTab.name} POS`}</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            )}
-          </div>
+          return (
+            <div
+              key={tab.id}
+              id={`panel-${tab.id}`}
+              role="tabpanel"
+              aria-labelledby={`tab-${tab.id}`}
+              hidden={!isActive}
+              className={`w-full ${isActive ? "block" : "hidden"}`}
+            >
+              <div className="relative w-full overflow-hidden flex flex-col items-center justify-center bg-transparent">
+                <ImageZoom
+                  src={tab.image}
+                  alt={tab.alt}
+                  width={tab.width}
+                  height={tab.height}
+                  zoomScale={2.4}
+                  priority={tab.id === "retail"}
+                  loading={tab.id === "retail" ? "eager" : "lazy"}
+                  sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 960px"
+                  className="[image-rendering:-webkit-optimize-contrast]"
+                  containerClassName="w-full"
+                  showHint={true}
+                  allowFullscreen={true}
+                />
 
-          {/* Feature List Grid */}
-          <div className="mt-5 sm:mt-6">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500 mb-3.5">
-              Key Features Highlighted in {currentTab.name} Dashboard:
-            </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-              {currentTab.featureItems.map((feat, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-start gap-3 rounded-xl border border-zinc-200/70 bg-white p-3.5 shadow-2xs transition-all hover:border-[#167c70]/30 hover:shadow-xs"
-                >
-                  <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-[#167c70]">
-                    <Check className="h-3 w-3 stroke-[3]" />
+                {/* Real text under tab screenshot: short sentence plus bullet list */}
+                <div className="w-full mt-6 sm:mt-8 rounded-2xl border border-zinc-200/80 bg-[#FAF9F5] p-5 sm:p-7 md:p-8">
+                  {/* Header & Link */}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-zinc-200/80 pb-4">
+                    <div className="inline-flex items-center gap-2">
+                      <span className="inline-flex items-center rounded-md bg-[#167c70]/10 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-[#167c70]">
+                        {tab.badge || `${tab.name} Edition`}
+                      </span>
+                      {tab.tagline && (
+                        <span className="hidden sm:inline-block text-xs font-medium text-zinc-500">
+                          &bull; {tab.tagline}
+                        </span>
+                      )}
+                    </div>
+                    {tab.href && (
+                      <Link
+                        href={tab.href}
+                        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#167c70] hover:text-[#0F2A26] transition-colors shrink-0 group"
+                      >
+                        <span>{tab.linkLabel || `Explore ${tab.name} POS`}</span>
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </Link>
+                    )}
                   </div>
-                  <div>
-                    <h5 className="text-xs sm:text-[13px] font-bold text-[#0F2A26] leading-snug">
-                      {feat.title}
-                    </h5>
-                    <p className="mt-1 text-[11px] sm:text-xs leading-relaxed text-zinc-600">
-                      {feat.description}
+
+                  {/* Short sentence */}
+                  {sentence && (
+                    <p className="mt-4 text-sm sm:text-base font-medium text-zinc-800 leading-relaxed">
+                      {sentence}
                     </p>
-                  </div>
+                  )}
+
+                  {/* Bullet list */}
+                  {bullets.length > 0 && (
+                    <div className="mt-4 pt-4 border-t border-zinc-200/60">
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3">
+                        {bullets.map((bullet, idx) => (
+                          <li
+                            key={idx}
+                            className="flex items-center gap-2.5 rounded-xl border border-zinc-200/70 bg-white px-3.5 py-2.5 text-xs sm:text-sm text-zinc-800 shadow-2xs"
+                          >
+                            <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-[#167c70]">
+                              <Check className="h-3.5 w-3.5 stroke-[2.5]" />
+                            </div>
+                            <span className="font-medium">{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
     </div>
   );

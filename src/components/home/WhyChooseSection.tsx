@@ -2,6 +2,7 @@ import Image from "next/image";
 import { CheckCircle2, ReceiptText, Boxes, Building2, BarChart3 } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
+import { supportFeatureLabel } from "@content/pages/home";
 
 const workflowCards = [
   {
@@ -38,7 +39,7 @@ const proofPoints = [
   "Run in any modern browser and on mobile",
   "FBR-Integrated Invoicing",
   "Encrypted connection (HTTPS)",
-  "Support by WhatsApp",
+  supportFeatureLabel,
 ];
 
 export function WhyChooseSection() {

@@ -73,92 +73,6 @@ export const metadata: Metadata = {
   },
 };
 
-const pageSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebPage",
-      "@id": `${siteUrl}/#webpage`,
-      url: `${siteUrl}/`,
-      name: homeContent.seo.title,
-      description: homeContent.seo.description,
-      inLanguage: "en",
-      isPartOf: { "@id": `${siteUrl}/#website` },
-      about: { "@id": `${siteUrl}/#organization` },
-      primaryImageOfPage: { "@type": "ImageObject", url: homeContent.seo.ogImage, width: 1540, height: 963 },
-      breadcrumb: { "@id": `${siteUrl}/#breadcrumb` },
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": `${siteUrl}/#breadcrumb`,
-      itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` }],
-    },
-    {
-      "@type": "SoftwareApplication",
-      "@id": `${siteUrl}/#software`,
-      name: "Hulm POS",
-      description: homeContent.hero.description,
-      applicationCategory: "BusinessApplication",
-      applicationSubCategory: "Point of sale software",
-      operatingSystem: "Web",
-      publisher: { "@id": `${siteUrl}/#organization` },
-      offers: { "@type": "Offer", url: `${siteUrl}/pricing/`, priceCurrency: "PKR", price: "2500", availability: "https://schema.org/InStock" },
-    },
-    {
-      "@type": "LocalBusiness",
-      "@id": `${siteUrl}/#localbusiness`,
-      name: "Hulm Solutions",
-      alternateName: "Hulm POS",
-      url: `${siteUrl}/`,
-      logo: `${siteUrl}/images/logo/hulm-logo.svg`,
-      image: `${siteUrl}/images/home/dashboard/hulm-pos-terminal.webp`,
-      description: homeContent.hero.description,
-      telephone: contactInfo.phoneE164,
-      priceRange: "PKR 2,500 - PKR 15,000",
-      currenciesAccepted: "PKR",
-      paymentAccepted: "Cash, Credit Card, Bank Transfer",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: contactInfo.address.streetAddress,
-        addressLocality: contactInfo.address.addressLocality,
-        addressRegion: contactInfo.address.addressRegion,
-        postalCode: "75290",
-        addressCountry: contactInfo.address.addressCountry,
-      },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: 24.918,
-        longitude: 67.135,
-      },
-      openingHoursSpecification: [
-        {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-          opens: "09:00",
-          closes: "19:00",
-        },
-      ],
-      sameAs: [
-        "https://www.linkedin.com/company/hulm-solutions/",
-        "https://www.instagram.com/hulmsolutions",
-        "https://www.youtube.com/@Hulmsolutions",
-      ],
-    },
-  ],
-};
-
-const homepageFaqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: homeContent.faq.items.map((item) => ({
-    "@type": "Question",
-    name: item.q,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.a,
-    },
-  })),
-};
 function renderFormattedDescription(text: string) {
   return text;
 }
@@ -195,18 +109,6 @@ function SectionIntro({
 export default function HomePage() {
   return (
     <div className="relative overflow-hidden bg-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(pageSchema).replace(/</g, "\\u003c"),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(homepageFaqSchema).replace(/</g, "\\u003c"),
-        }}
-      />
       <section className="relative overflow-hidden border-b border-zinc-200/70 bg-white pt-12 pb-14 sm:pt-16 sm:pb-16 lg:pt-20 lg:pb-24">
         <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
         <Container className="relative grid items-center gap-y-6 lg:gap-y-0 lg:grid-cols-12 lg:gap-8 xl:gap-12">

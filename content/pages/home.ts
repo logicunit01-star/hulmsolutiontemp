@@ -14,6 +14,26 @@
  * Check: node scripts/seo-page-check.mjs home
  */
 
+const ENABLE_BATCH_EXPIRY =
+  process.env.NEXT_PUBLIC_ENABLE_BATCH_EXPIRY === "true" ||
+  process.env.ENABLE_BATCH_EXPIRY === "true" ||
+  process.env.NEXT_PUBLIC_PHARMACY_BATCH_EXPIRY === "true" ||
+  process.env.PHARMACY_BATCH_EXPIRY === "true";
+
+const MOBILE_APP_IN_STORES =
+  process.env.NEXT_PUBLIC_MOBILE_APP_IN_STORES === "true" ||
+  process.env.MOBILE_APP_IN_STORES === "true";
+
+export const SUPPORT_HOURS = (
+  process.env.NEXT_PUBLIC_SUPPORT_HOURS ??
+  process.env.SUPPORT_HOURS ??
+  "24/7"
+).trim();
+
+export const supportFeatureLabel = SUPPORT_HOURS
+  ? `${SUPPORT_HOURS} WhatsApp support`
+  : "WhatsApp support";
+
 export const homeContent = {
   seo: {
     title: "POS | Best POS Software | Point of Sale Systems in Pakistan",
@@ -29,22 +49,24 @@ export const homeContent = {
     primaryCta: { label: "Start 14-Day Free Trial", href: "https://app.hulmsolutions.com/Register" },
     secondaryCta: { label: "Watch a Demo", href: "https://www.youtube.com/watch?v=NNwtC-uayeY" },
     proof: [
-      "Multi-branch ready",
       "Customer and vendor ledgers",
       "FBR-integrated invoices",
+      "Multi-branch",
       "Free 14-day trial",
+      "Easy switch from old POS to HulmPOS",
     ],
     offer: "From PKR 2,500/month · No credit card required",
   },
   trust: {
     heading: "Find Hulm POS on:",
     badges: [
-      { src: "/images/home/trusted/thesaasdir.svg", alt: "Featured on TheSaaSDir" },
-      { src: "/images/home/trusted/top-trending-trimmed.webp", alt: "SoftwareSuggest Top Trending POS software award" },
-      { src: "/images/home/trusted/saashub.webp", alt: "SaaSHub Approved Badge" },
-      { src: "/images/home/trusted/highly-recommended-trimmed.webp", alt: "SoftwareSuggest Highly Recommended POS software award" },
-      { src: "/images/home/trusted/goodfirms-partner.webp", alt: "GoodFirms Partner Badge" },
-      { src: "/images/home/trusted/product-hunt.webp", alt: "Hulm POS on Product Hunt" },
+      { href: "https://althunt.io/compare/hulm-pos-vs-loyverse", src: "/images/home/trusted/althunt.svg", alt: "Featured on AltHunt - Hulm POS" },
+      { href: "https://openhunts.com", src: "/images/home/trusted/openhunts.webp", alt: "OpenHunts Club Member - Hulm POS" },
+      { href: "https://www.producthunt.com/products/hulm-solutions-pos", src: "/images/home/trusted/product-hunt.webp", alt: "Hulm POS on Product Hunt" },
+      { href: "https://www.goodfirms.co/software/hulm-pos", src: "/images/home/trusted/goodfirms-partner.webp", alt: "GoodFirms Partner Badge - Hulm POS" },
+      { href: "https://www.softwaresuggest.com/hulm-pos", src: "/images/home/trusted/softwaresuggest.svg", alt: "SoftwareSuggest Software Review - Hulm POS" },
+      { href: "https://www.saasworthy.com/product/hulm-pos", src: "/images/home/trusted/saasworthy.svg", alt: "SaaSworthy Software Review - Hulm POS" },
+      { href: "https://sourceforge.net/software/product/Hulm-POS/", src: "/images/home/trusted/sourceforge.svg", alt: "SourceForge Software Review - Hulm POS" },
     ],
   },
   problems: {
@@ -124,10 +146,10 @@ export const homeContent = {
     },
     bullets: [
       "Who needs it? Depends on business type, size and province. Tier-1 retailers and certain restaurants and other businesses must integrate.",
-      "SRB (Sindh Revenue Board): Confirmed support for Sindh sales tax on services and restaurant invoice integration across Sindh.",
-      "PRA (Punjab Revenue Authority): Confirmed support for Punjab sales tax on services and restaurant invoice monitoring across Punjab.",
-      "KPRA (Khyber Pakhtunkhwa Revenue Authority): Confirmed support for KPRA sales tax on services and invoice reporting across KP.",
-      "BRA (Balochistan Revenue Authority): Confirmed support for Balochistan sales tax invoicing and local service compliance across Balochistan.",
+      "SRB (Sindh Revenue Board): sales tax invoice integration for services and restaurants in Sindh.",
+      "PRA (Punjab Revenue Authority): sales tax invoice integration for services and restaurants in Punjab.",
+      "KPRA (Khyber Pakhtunkhwa Revenue Authority): sales tax invoice integration for services and restaurants in Khyber Pakhtunkhwa.",
+      "BRA (Balochistan Revenue Authority): sales tax invoice integration for services and restaurants in Balochistan.",
       "How setup works: 1) Register your POS with FBR 2) Hulm connects your account 3) Your first invoice carries the FBR number and QR code.",
     ],
     cta: { label: "FBR-integrated Point of Sale Software", href: "https://app.hulmsolutions.com/" },
@@ -284,7 +306,7 @@ export const homeContent = {
       "Basic inventory management",
       "Customer records and sales reports",
       "FBR integration available",
-      "WhatsApp support",
+      supportFeatureLabel,
     ],
     cta: { label: "See pricing", href: "/pricing/" },
   },
@@ -313,7 +335,7 @@ export const homeContent = {
       },
       {
         q: "Is there free POS software in Pakistan?",
-        a: "Reliable, cloud-based POS software requires secure hosting, regular updates, and local support, so true business-grade POS is not completely free. However, Hulm POS offers a free 14-day trial with full access to all features and no credit card required, allowing you to test billing and stock management before subscribing from PKR 2,500/month.",
+        a: "Reliable, cloud-based POS software requires secure hosting, regular updates, and local support, so true business-grade POS is not completely free. However, Hulm POS offers a free 14-day trial and no credit card required, allowing you to test billing and stock management before subscribing from PKR 2,500/month.",
         link: { label: "Pricing plans", href: "/pricing/" },
       },
       {
@@ -329,6 +351,25 @@ export const homeContent = {
         q: "Is Hulm a good POS system for small business?",
         a: "Yes. Small shops can start on one device with the Starter plan and add users, branches and apps later, without changing systems.",
         link: { label: "choosing a POS system for small business in Pakistan", href: "/blog/best-point-of-sale-system-for-small-business-in-pakistan/" },
+      },
+      {
+        q: "Does Hulm POS have a pharmacy edition?",
+        a: ENABLE_BATCH_EXPIRY
+          ? "Yes. Hulm POS for pharmacies covers counter billing, packs and units, distributor ledgers, purchase orders, goods received and return notes, daily reports, and batch and expiry tracking. Designed for retail medical stores and pharmacies in Pakistan, it simplifies fast barcode dispensing, supplier balances, and compliant FBR invoicing from one cloud system."
+          : "Yes. Hulm POS for pharmacies covers counter billing, packs and units, distributor ledgers, purchase orders, goods received and return notes, and daily reports. Designed specifically for retail medical stores and pharmacies in Pakistan, it simplifies fast barcode dispensing, customer balances, and compliant FBR invoicing from one single cloud system.",
+        link: { label: "pharmacy POS software", href: "/industries/pharmacy-store/" },
+      },
+      {
+        q: "Does Hulm POS support restaurants?",
+        a: "Yes. The restaurant edition includes tables, a kitchen board, menu management, recipes, a wastage log and stock counts. Built for cafes, fast-food outlets, and dine-in restaurants in Pakistan, Hulm speeds up kitchen order ticketing (KOT), takeaway checkout, multi-counter billing, and FBR-integrated receipts so your floor and kitchen run smoothly.",
+        link: { label: "restaurant POS system", href: "/industries/restaurant-pos/" },
+      },
+      {
+        q: "Does Hulm POS work on mobile?",
+        a: MOBILE_APP_IN_STORES
+          ? "Yes. Hulm POS runs in any modern browser on phones, tablets and computers, and the Mobile POS module is built for billing on a mobile device. Dedicated apps are available in major app stores for Android and iOS, allowing staff to scan barcodes, take payments, and sync sales in real time."
+          : "Yes. Hulm POS runs in any modern browser on phones, tablets and computers, and the Mobile POS module is built for billing on a mobile device. You can create digital orders, scan barcodes, take cash or card payments, and sync sales in real time without purchasing expensive, dedicated POS hardware.",
+        link: { label: "Mobile POS module", href: "/mobile-pos/" },
       },
       {
         q: "Which hardware works with Hulm?",
@@ -353,7 +394,7 @@ export const homeContent = {
     eyebrow: "At a glance",
     heading: "Hulm POS at a glance",
     description:
-      "Hulm POS is cloud-based point of sale software in Pakistan with dedicated editions for restaurants, retail and pharmacies. Bill faster, track stock, manage customer and supplier ledgers, control purchasing and issue FBR-integrated invoices from one system. Plans start from PKR 2,500/month per user.",
+      "Hulm POS is cloud-based point of sale software by Hulm Solutions, Karachi, Pakistan, with editions for restaurants and cafes (tables, kitchen board, recipes, wastage, stock counts), retail and wholesale (billing, price lists, packs, customer ledgers, salesman performance) and pharmacies (counter billing, packs and units, distributor ledgers, purchase orders, GRN and return notes). Includes FBR-integrated invoicing with QR codes. Pricing from PKR 2,500 per month per user with a 14-day free trial.",
     badges: [
       "FBR-integrated invoices",
       "Multi-branch inventory",

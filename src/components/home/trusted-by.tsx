@@ -1,131 +1,86 @@
-"use client";
-
-import { useEffect, useRef } from "react";
 import { Container } from "@/components/ui/container";
 
 const badges = [
   {
-    wrapClass: "wrap-pill",
-    src: "/images/home/trusted/thesaasdir.svg",
-    alt: "Featured on TheSaaSDir",
-    title: "TheSaaSDir",
-    href: "https://thesaasdir.com",
-    width: 182,
-    height: 46,
+    name: "AltHunt",
+    href: "https://althunt.io/compare/hulm-pos-vs-loyverse",
+    src: "/images/home/trusted/althunt.svg",
+    alt: "Featured on AltHunt - Hulm POS",
+    title: "AltHunt",
+    width: 168,
+    height: 36,
+    className: "h-8 sm:h-9 w-auto object-contain",
   },
   {
-    wrapClass: "wrap-shield",
-    src: "/images/home/trusted/top-trending.webp",
-    alt: "SoftwareSuggest Top Trending POS software award",
-    title: "SoftwareSuggest Top Trending Award",
-    href: "https://www.softwaresuggest.com/hulm-pos",
-    width: 170,
-    height: 194,
+    name: "OpenHunts",
+    href: "https://openhunts.com",
+    src: "/images/home/trusted/openhunts.webp",
+    alt: "OpenHunts Club Member - Hulm POS",
+    title: "OpenHunts Club",
+    width: 486,
+    height: 105,
+    className: "h-7 sm:h-8 w-auto object-contain",
   },
   {
-    wrapClass: "wrap-rect",
-    src: "/images/home/trusted/saashub.webp",
-    alt: "SaaSHub Approved Badge",
-    title: "SaaSHub",
-    href: "https://www.saashub.com",
-    width: 280,
-    height: 93,
-  },
-  {
-    wrapClass: "wrap-shield",
-    src: "/images/home/trusted/highly-recommended.webp",
-    alt: "SoftwareSuggest Highly Recommended POS software award",
-    title: "SoftwareSuggest Highly Recommended Award",
-    href: "https://www.softwaresuggest.com/hulm-pos",
-    width: 170,
-    height: 194,
-  },
-  {
-    wrapClass: "wrap-shield",
-    src: "/images/home/trusted/goodfirms-partner.webp",
-    alt: "GoodFirms Partner Badge",
-    title: "GoodFirms",
-    href: "https://www.goodfirms.co",
-    width: 200,
-    height: 225,
-  },
-  {
-    wrapClass: "wrap-text",
+    name: "Product Hunt",
+    href: "https://www.producthunt.com/products/hulm-solutions-pos",
     src: "/images/home/trusted/product-hunt.webp",
-    alt: "Product Hunt",
+    alt: "Hulm POS on Product Hunt",
     title: "Product Hunt",
-    href: "https://www.producthunt.com",
     width: 260,
     height: 61,
+    className: "h-8 sm:h-9 w-auto object-contain",
+  },
+  {
+    name: "GoodFirms",
+    href: "https://www.goodfirms.co/software/hulm-pos",
+    src: "/images/home/trusted/goodfirms-partner.webp",
+    alt: "GoodFirms Partner Badge - Hulm POS",
+    title: "GoodFirms",
+    width: 200,
+    height: 225,
+    className: "h-11 sm:h-12 w-auto object-contain",
+  },
+  {
+    name: "SoftwareSuggest",
+    href: "https://www.softwaresuggest.com/hulm-pos",
+    src: "/images/home/trusted/softwaresuggest.svg",
+    alt: "SoftwareSuggest Software Review - Hulm POS",
+    title: "SoftwareSuggest",
+    width: 145,
+    height: 46,
+    className: "h-8 sm:h-9 w-auto object-contain",
+  },
+  {
+    name: "SaaSworthy",
+    href: "https://www.saasworthy.com/product/hulm-pos",
+    src: "/images/home/trusted/saasworthy.svg",
+    alt: "SaaSworthy Software Review - Hulm POS",
+    title: "SaaSworthy",
+    width: 176,
+    height: 38,
+    className: "h-8 sm:h-9 w-auto object-contain",
+  },
+  {
+    name: "SourceForge",
+    href: "https://sourceforge.net/software/product/Hulm-POS/",
+    src: "/images/home/trusted/sourceforge.svg",
+    alt: "SourceForge Software Review - Hulm POS",
+    title: "SourceForge",
+    width: 653,
+    height: 103,
+    className: "h-6 sm:h-7 w-auto object-contain",
   },
 ];
 
 export function TrustedBy() {
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    // Guard against duplicate cloning
-    if (track.querySelector("[data-cloned='true']")) return;
-
-    const children = Array.from(track.children);
-    children.forEach((child) => {
-      const clone = child.cloneNode(true) as HTMLElement;
-      clone.setAttribute("aria-hidden", "true");
-      clone.setAttribute("data-cloned", "true");
-      if (clone.tagName === "A") {
-        clone.setAttribute("tabindex", "-1");
-      }
-      clone.querySelectorAll("a, button, input").forEach((el) => {
-        el.setAttribute("tabindex", "-1");
-      });
-      track.appendChild(clone);
-    });
-  }, []);
-
-  const renderItem = (b: (typeof badges)[number], key: string) => {
-    const imgContent = (
-      <img
-        decoding="async"
-        src={b.src}
-        alt={b.alt}
-        loading="lazy"
-        width={b.width}
-        height={b.height}
-      />
-    );
-
-    if (b.href) {
-      return (
-        <a
-          key={key}
-          href={b.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          title={b.title || b.alt}
-          className={`slider-item ${b.wrapClass}`}
-        >
-          {imgContent}
-        </a>
-      );
-    }
-
-    return (
-      <div key={key} className={`slider-item ${b.wrapClass}`}>
-        {imgContent}
-      </div>
-    );
-  };
-
   return (
     <section
       aria-labelledby="trusted-by"
       className="relative overflow-hidden border-b border-[#E4E2DA] bg-[#FAF9F5] pt-8 pb-8 sm:pt-10 sm:pb-10"
     >
       <Container>
-        <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-2">
+        <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-6 sm:mb-8">
           <h2
             id="trusted-by"
             className="text-xl sm:text-2xl md:text-[26px] font-bold tracking-tight text-[#0F2A26]"
@@ -136,23 +91,30 @@ export function TrustedBy() {
             Featured across leading software review platforms & directories
           </p>
         </div>
-      </Container>
-      <div className="relative overflow-hidden mt-3 sm:mt-4">
-        {/* Soft edge fade masks for seamless infinite scroll */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-24 md:w-36 bg-gradient-to-r from-[#FAF9F5] to-transparent z-10"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-24 md:w-36 bg-gradient-to-l from-[#FAF9F5] to-transparent z-10"
-        />
-        <div className="certificate-slider !bg-transparent !py-2 sm:!py-3">
-          <div ref={trackRef} className="slider-track">
-            {badges.map((b, i) => renderItem(b, `badge-${i}`))}
-          </div>
+
+        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 lg:gap-10 py-2">
+          {badges.map((b) => (
+            <a
+              key={b.href}
+              href={b.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={b.title || b.alt}
+              className="flex items-center justify-center transition-transform duration-200 hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#167c70]"
+            >
+              <img
+                decoding="async"
+                src={b.src}
+                alt={b.alt}
+                loading="lazy"
+                width={b.width}
+                height={b.height}
+                className={b.className}
+              />
+            </a>
+          ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

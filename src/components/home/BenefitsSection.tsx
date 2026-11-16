@@ -5,28 +5,28 @@ import { Section } from "@/components/ui/section";
 
 const benefits = [
   {
-    bold: "Fast checkout and cashier billing",
-    rest: " to accelerate transaction speed and eliminate long customer queues.",
+    bold: "Three editions in one login:",
+    rest: " restaurant, retail and pharmacy",
   },
   {
-    bold: "Real-time inventory tracking",
-    rest: " across all locations to avoid stockouts and prevent costly over-ordering.",
+    bold: "Customer and vendor ledgers",
+    rest: " for credit-based trade",
   },
   {
-    bold: "FBR-compliant digital invoicing",
-    rest: " with automated fiscal invoice numbers and verifiable QR codes.",
+    bold: "Full purchasing flow:",
+    rest: " purchase order, GRN, return note, vendor payment",
   },
   {
-    bold: "Multi-branch central management",
-    rest: " to control pricing, inventory, and staff permissions from one system.",
+    bold: "Packs, units of measure",
+    rest: " and price lists",
   },
   {
-    bold: "Detailed reports and sales analytics",
-    rest: " for accurate profit tracking, bestselling item visibility, and smarter decisions.",
+    bold: "Reports",
+    rest: " including product profit, sales vs purchase and cash in vs cash out",
   },
   {
-    bold: "Customer ledgers and vendor records",
-    rest: " to manage khata, purchase histories, and streamlined supplier orders.",
+    bold: "FBR-integrated invoices",
+    rest: " with QR codes",
   },
 ];
 
@@ -93,7 +93,7 @@ export function BenefitsSection() {
             </h2>
 
             <p className="mt-3 text-sm sm:text-base leading-relaxed text-zinc-600 max-w-2xl font-normal">
-              At Hulm Solutions, we empower businesses to thrive by simplifying the way they operate and engage with customers. Here are the 6 key benefits of choosing Hulm Solutions for your business:
+              Hulm POS combines billing, stock, purchasing, ledgers and reporting in one cloud system.
             </p>
 
             {/* 2-Column Responsive Benefits Cards Grid */}

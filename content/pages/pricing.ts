@@ -1,3 +1,5 @@
+import { supportFeatureLabel, SUPPORT_HOURS } from "./home";
+
 export const pricingContent = {
   // Title + meta description come from the live page via seoMetadata("/pricing/").
   // Primary keyword: POS software price in Pakistan. Secondary: POS system price, POS pricing plans,
@@ -24,7 +26,7 @@ export const pricingContent = {
         "Basic inventory management",
         "Customer records and sales reports",
         "FBR integration available",
-        "WhatsApp support",
+        supportFeatureLabel,
       ],
       cta: { label: "Start Free Trial", href: "https://app.hulmsolutions.com/Register?plan=starter" },
       highlighted: false,
@@ -42,7 +44,7 @@ export const pricingContent = {
         "Vendor and purchase management",
         "Order management",
         "Advanced reporting",
-        "Priority WhatsApp support",
+        SUPPORT_HOURS ? `Priority ${SUPPORT_HOURS} WhatsApp support` : "Priority WhatsApp support",
       ],
       cta: { label: "Start Free Trial", href: "https://app.hulmsolutions.com/Register?plan=growth" },
       highlighted: true,

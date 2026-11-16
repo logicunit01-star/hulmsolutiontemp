@@ -28,16 +28,23 @@ export const homeContent = {
       "Hulm POS is cloud-based point of sale software in Pakistan with dedicated editions for restaurants, retail and pharmacies. Bill faster, track stock, manage customer and supplier ledgers, control purchasing and issue FBR-integrated invoices from one system. Plans start from PKR 2,500/month per user.",
     primaryCta: { label: "Start 14-Day Free Trial", href: "https://app.hulmsolutions.com/Register" },
     secondaryCta: { label: "Watch a Demo", href: "https://www.youtube.com/watch?v=NNwtC-uayeY" },
-    proof: ["Multi-branch", "Free 14-day trial", "Easy switch from old POS to HulmPOS"],
+    proof: [
+      "Multi-branch ready",
+      "Customer and vendor ledgers",
+      "FBR-integrated invoices",
+      "Free 14-day trial",
+    ],
     offer: "From PKR 2,500/month · No credit card required",
   },
   trust: {
     heading: "Find Hulm POS on:",
     badges: [
+      { src: "/images/home/trusted/thesaasdir.svg", alt: "Featured on TheSaaSDir" },
       { src: "/images/home/trusted/top-trending-trimmed.webp", alt: "SoftwareSuggest Top Trending POS software award" },
+      { src: "/images/home/trusted/saashub.webp", alt: "SaaSHub Approved Badge" },
       { src: "/images/home/trusted/highly-recommended-trimmed.webp", alt: "SoftwareSuggest Highly Recommended POS software award" },
-      { src: "/images/home/trusted/goodfirms-partner.png", alt: "GoodFirms partner badge" },
-      { src: "/images/home/trusted/product-hunt.png", alt: "Hulm POS on Product Hunt" },
+      { src: "/images/home/trusted/goodfirms-partner.webp", alt: "GoodFirms Partner Badge" },
+      { src: "/images/home/trusted/product-hunt.webp", alt: "Hulm POS on Product Hunt" },
     ],
   },
   problems: {
@@ -111,6 +118,10 @@ export const homeContent = {
     heading: "What is an FBR-integrated POS?",
     description:
       "An FBR-integrated POS sends each sale to the Federal Board of Revenue in real time and prints an FBR invoice number and QR code on the receipt. Tier-1 retailers, certain restaurants and other businesses are required to use one. Hulm POS supports this integration and helps you complete setup.",
+    updateLink: {
+      label: "Last update",
+      href: "/fbr-integrated-pos-pakistan/",
+    },
     bullets: [
       "Who needs it? Depends on business type, size and province. Tier-1 retailers and certain restaurants and other businesses must integrate.",
       "SRB (Sindh Revenue Board): Confirmed support for Sindh sales tax on services and restaurant invoice integration across Sindh.",
@@ -119,7 +130,7 @@ export const homeContent = {
       "BRA (Balochistan Revenue Authority): Confirmed support for Balochistan sales tax invoicing and local service compliance across Balochistan.",
       "How setup works: 1) Register your POS with FBR 2) Hulm connects your account 3) Your first invoice carries the FBR number and QR code.",
     ],
-    cta: { label: "FBR-integrated Point of Sale Software", href: "/fbr-integrated-pos-pakistan/" },
+    cta: { label: "FBR-integrated Point of Sale Software", href: "https://app.hulmsolutions.com/" },
   },
   industries: {
     eyebrow: "Built around real workflows",
@@ -261,7 +272,7 @@ export const homeContent = {
   },
   pricing: {
     eyebrow: "Simple place to start",
-    heading: "Start with Point of Sale Software, then grow at your own pace",
+    heading: "POS software price in Pakistan",
     description:
       "Hulm POS software price in Pakistan starts at PKR 2,500 per month. Compare what is included and choose the plan that fits your locations and team.",
     price: "PKR 2,500",
@@ -337,5 +348,18 @@ export const homeContent = {
       "Try Hulm Point of Sale for 14 days, or speak with our team in Pakistan about your branches, inventory and FBR requirements.",
     primaryCta: { label: "Start 14-Day Free Trial", href: "https://app.hulmsolutions.com/Register" },
     secondaryCta: { label: "Watch a Demo", href: "https://www.youtube.com/watch?v=NNwtC-uayeY" },
+  },
+  atGlance: {
+    eyebrow: "At a glance",
+    heading: "Hulm POS at a glance",
+    description:
+      "Hulm POS is cloud-based point of sale software in Pakistan with dedicated editions for restaurants, retail and pharmacies. Bill faster, track stock, manage customer and supplier ledgers, control purchasing and issue FBR-integrated invoices from one system. Plans start from PKR 2,500/month per user.",
+    badges: [
+      "FBR-integrated invoices",
+      "Multi-branch inventory",
+      "Retail, restaurant & pharmacy editions",
+      "Customer & vendor ledgers",
+      "From PKR 2,500/month · Free 14-day trial",
+    ],
   },
 } as const;

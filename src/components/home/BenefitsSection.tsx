@@ -5,44 +5,28 @@ import { Section } from "@/components/ui/section";
 
 const benefits = [
   {
-    bold: "Fast checkout",
-    rest: " and improved customer experience.",
+    bold: "Fast checkout and cashier billing",
+    rest: " to accelerate transaction speed and eliminate long customer queues.",
   },
   {
     bold: "Real-time inventory tracking",
-    rest: " to avoid stock issues.",
+    rest: " across all locations to avoid stockouts and prevent costly over-ordering.",
   },
   {
-    bold: "Monitors sales",
-    rest: " to optimize pricing and strategy.",
+    bold: "FBR-compliant digital invoicing",
+    rest: " with automated fiscal invoice numbers and verifiable QR codes.",
   },
   {
-    bold: "Simplified expense tracking",
-    rest: " for better budgeting.",
+    bold: "Multi-branch central management",
+    rest: " to control pricing, inventory, and staff permissions from one system.",
   },
   {
-    bold: "Efficient employee scheduling",
-    rest: " and performance monitoring.",
+    bold: "Detailed reports and sales analytics",
+    rest: " for accurate profit tracking, bestselling item visibility, and smarter decisions.",
   },
   {
-    bold: "Strengthens vendor relationships",
-    rest: " with accurate records.",
-  },
-  {
-    bold: "Quick, error-free",
-    rest: " digital invoicing.",
-  },
-  {
-    bold: "Detailed reports",
-    rest: " for better decision-making.",
-  },
-  {
-    bold: "Manage multiple locations",
-    rest: " from one system.",
-  },
-  {
-    bold: "Fast service",
-    rest: " with a personalized touch for loyal customers.",
+    bold: "Customer ledgers and vendor records",
+    rest: " to manage khata, purchase histories, and streamlined supplier orders.",
   },
 ];
 
@@ -78,7 +62,8 @@ export function BenefitsSection() {
                   height={416}
                   className="mx-auto h-auto w-full object-contain drop-shadow-xs transition-transform duration-500 hover:scale-[1.02]"
                   loading="lazy"
-                  sizes="(min-width: 1024px) 440px, (min-width: 640px) 448px, calc(100vw - 32px)"
+                  decoding="async"
+                  sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 448px, 440px"
                 />
 
                 {/* Floating micro-badge */}
@@ -108,7 +93,7 @@ export function BenefitsSection() {
             </h2>
 
             <p className="mt-3 text-sm sm:text-base leading-relaxed text-zinc-600 max-w-2xl font-normal">
-              At Hulm Solutions, we empower businesses to thrive by simplifying the way they operate and engage with customers. Here are the key benefits of choosing Hulm Solutions for your business:
+              At Hulm Solutions, we empower businesses to thrive by simplifying the way they operate and engage with customers. Here are the 6 key benefits of choosing Hulm Solutions for your business:
             </p>
 
             {/* 2-Column Responsive Benefits Cards Grid */}
@@ -116,13 +101,13 @@ export function BenefitsSection() {
               {benefits.map((item, index) => (
                 <div
                   key={index}
-                  className="group relative flex items-start gap-2.5 rounded-xl border border-zinc-200/75 bg-white/95 p-3 shadow-[0_1px_3px_rgba(0,0,0,0.02)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#167c70]/40 hover:bg-white hover:shadow-md"
+                  className="group relative flex items-start gap-2.5 rounded-xl border border-zinc-200/75 bg-white/95 p-3.5 shadow-[0_1px_3px_rgba(0,0,0,0.02)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#167c70]/40 hover:bg-white hover:shadow-md"
                 >
                   <div className="mt-0.5 flex h-5.5 w-5.5 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-[#167c70] transition-colors duration-200 group-hover:bg-[#167c70] group-hover:text-white">
                     <Check className="h-3 w-3 stroke-[3]" aria-hidden="true" />
                   </div>
                   <p className="text-xs sm:text-[13px] leading-snug text-zinc-700">
-                    {item.bold}
+                    <span className="font-semibold text-[#0F2A26]">{item.bold}</span>
                     {item.rest}
                   </p>
                 </div>

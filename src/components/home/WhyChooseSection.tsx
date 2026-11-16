@@ -89,7 +89,8 @@ export function WhyChooseSection() {
                   height={1285}
                   className="w-full h-auto object-contain rounded-xl mx-auto transition-transform duration-500 hover:scale-[1.01]"
                   loading="lazy"
-                  sizes="(min-width: 1024px) 480px, (min-width: 640px) 512px, calc(100vw - 32px)"
+                  decoding="async"
+                  sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 512px, 480px"
                 />
               </div>
             </div>

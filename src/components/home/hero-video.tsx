@@ -126,7 +126,8 @@ export function HeroVideo({
         height={1060}
         priority
         fetchPriority="high"
-        sizes="(min-width: 1280px) 680px, (min-width: 1024px) 50vw, (min-width: 640px) 576px, calc(100vw - 32px)"
+        decoding="async"
+        sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 576px, (max-width: 1280px) 50vw, 680px"
         className={`w-full h-full object-contain select-none transition-opacity duration-500 ${
           isPlaying ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}

@@ -210,7 +210,8 @@ export default function HomePage() {
       <section className="relative overflow-hidden border-b border-zinc-200/70 bg-white pt-12 pb-14 sm:pt-16 sm:pb-16 lg:pt-20 lg:pb-24">
         <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
         <Container className="relative grid items-center gap-y-6 lg:gap-y-0 lg:grid-cols-12 lg:gap-8 xl:gap-12">
-          <div className="max-w-2xl lg:col-span-5 flex flex-col justify-center">
+          {/* 1. Headline & Description */}
+          <div className="max-w-2xl lg:col-span-5 lg:col-start-1 lg:row-start-1 flex flex-col justify-end lg:pb-2">
             <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[38px] xl:text-[42px]">
               {homeContent.hero.headline.replace(/every branch$/, "")}
               <span className="mark-lime">every branch</span>
@@ -218,51 +219,19 @@ export default function HomePage() {
             <p className="mt-5 sm:mt-6 max-w-xl text-sm sm:text-base lg:text-[17px] leading-relaxed sm:leading-7 text-zinc-600">
               {homeContent.hero.description}
             </p>
-
-            {/* Desktop CTA & Proof */}
-            <div className="hidden lg:block mt-6">
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <Button asChild size="lg" className="w-full sm:w-auto">
-                  <Link href={homeContent.hero.primaryCta.href} target="_blank" rel="noreferrer">
-                    {homeContent.hero.primaryCta.label}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
-                  <a
-                    href={homeContent.hero.secondaryCta.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2"
-                  >
-                    <Play className="h-4 w-4 fill-current text-[#167c70]" />
-                    <span>{homeContent.hero.secondaryCta.label}</span>
-                  </a>
-                </Button>
-              </div>
-
-              <ul className="mt-5 flex flex-col gap-2.5 text-sm font-medium text-zinc-600 sm:flex-row sm:flex-wrap sm:gap-x-5">
-                {homeContent.hero.proof.map((item) => (
-                  <li key={item} className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-[#167c70]" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
 
-          {/* Unified Showcase Video */}
-          <div className="relative w-full mx-auto my-2 lg:my-0 lg:col-span-7 flex items-center justify-center">
+          {/* 2. Unified Showcase Video */}
+          <div className="relative w-full mx-auto my-2 lg:my-0 lg:col-span-7 lg:col-start-6 lg:row-start-1 lg:row-span-2 flex items-center justify-center">
             <div className="relative w-full aspect-[1400/1060] overflow-hidden rounded-xl sm:rounded-2xl border border-transparent bg-transparent p-0 shadow-none flex items-center justify-center">
               <HeroVideo />
             </div>
           </div>
 
-          {/* Mobile CTA & Proof (< lg only) */}
-          <div className="max-w-2xl lg:hidden">
-            <div className="mt-2 sm:mt-4 flex flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg" className="hidden sm:inline-flex w-full sm:w-auto">
+          {/* 3. CTA Buttons & Proof Bullets (Rendered once: below video on mobile, below description on desktop) */}
+          <div className="max-w-2xl lg:col-span-5 lg:col-start-1 lg:row-start-2 lg:self-start lg:pt-2">
+            <div className="mt-2 sm:mt-4 lg:mt-0 flex flex-col gap-3 sm:flex-row">
+              <Button asChild size="lg" className="w-full sm:w-auto">
                 <Link href={homeContent.hero.primaryCta.href} target="_blank" rel="noreferrer">
                   {homeContent.hero.primaryCta.label}
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -281,7 +250,7 @@ export default function HomePage() {
               </Button>
             </div>
 
-            <ul className="hidden md:flex mt-6 flex-col gap-3 text-sm font-medium text-zinc-600 sm:flex-row sm:flex-wrap sm:gap-x-6">
+            <ul className="mt-5 flex flex-col gap-2.5 text-sm font-medium text-zinc-600 sm:flex-row sm:flex-wrap sm:gap-x-5">
               {homeContent.hero.proof.map((item) => (
                 <li key={item} className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-[#167c70]" />
@@ -314,7 +283,15 @@ export default function HomePage() {
             <div className="p-5 sm:p-10 lg:p-14">
               
               <h2 className="max-w-2xl text-xl sm:text-2xl font-bold tracking-tight text-white text-balance lg:text-[32px] lg:leading-[1.22]">{homeContent.compliance.heading}</h2>
-              <p className="mt-4 sm:mt-5 max-w-2xl text-sm sm:text-base leading-relaxed text-white/75">{renderFormattedDescriptionDark(homeContent.compliance.description)}</p>
+              <p className="mt-4 sm:mt-5 max-w-2xl text-sm sm:text-base leading-relaxed text-white/75">
+                {renderFormattedDescriptionDark(homeContent.compliance.description)}{" "}
+                <Link
+                  href={homeContent.compliance.updateLink.href}
+                  className="font-medium text-[#7AE582] underline underline-offset-4 hover:text-white transition-colors"
+                >
+                  {homeContent.compliance.updateLink.label}
+                </Link>
+              </p>
               <ul className="mt-6 sm:mt-7 space-y-2.5 sm:space-y-3">
                 {homeContent.compliance.bullets.map((bullet) => {
                   const match = bullet.match(/^([^?:]+[?:])\s*(.*)$/);
@@ -336,7 +313,12 @@ export default function HomePage() {
                 })}
               </ul>
               <Button asChild size="lg" className="mt-7 sm:mt-8 w-full sm:w-auto h-auto min-h-12 py-3 px-5 sm:px-8 bg-white text-[#0F2A26] hover:bg-[#F7F6F2] text-sm sm:text-base font-semibold whitespace-normal text-center">
-                <Link href={homeContent.compliance.cta.href} className="inline-flex items-center justify-center gap-2">
+                <Link
+                  href={homeContent.compliance.cta.href}
+                  target={homeContent.compliance.cta.href.startsWith("http") ? "_blank" : undefined}
+                  rel={homeContent.compliance.cta.href.startsWith("http") ? "noreferrer" : undefined}
+                  className="inline-flex items-center justify-center gap-2"
+                >
                   <span>{homeContent.compliance.cta.label}</span>
                   <ArrowRight className="h-4 w-4 shrink-0" />
                 </Link>
@@ -570,6 +552,35 @@ export default function HomePage() {
           </div>
         </Container>
       </Section>
+
+      {/* At-a-Glance Block (Above the Footer) */}
+      <section className="border-t border-[#E4E2DA] bg-[#FAF9F5] py-10 sm:py-14">
+        <Container>
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-[#167c70]/20 bg-[#167c70]/8 px-3.5 py-1 text-xs font-semibold text-[#167c70]">
+              <Sparkles className="h-3.5 w-3.5 text-[#25A18E]" />
+              <span>{homeContent.atGlance.eyebrow}</span>
+            </div>
+            <h2 className="mt-3 text-xl font-bold tracking-tight text-[#0F2A26] sm:text-2xl lg:text-3xl">
+              {homeContent.atGlance.heading}
+            </h2>
+            <p className="mt-3.5 text-sm sm:text-base leading-relaxed text-zinc-600 sm:text-lg max-w-3xl mx-auto">
+              {homeContent.atGlance.description}
+            </p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+              {homeContent.atGlance.badges.map((badge) => (
+                <span
+                  key={badge}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-[#E4E2DA] bg-white px-3 py-1.5 text-xs sm:text-sm font-medium text-zinc-700 shadow-2xs"
+                >
+                  <CheckCircle2 className="h-3.5 w-3.5 text-[#167c70] shrink-0" />
+                  <span>{badge}</span>
+                </span>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
     </div>
   );
 }

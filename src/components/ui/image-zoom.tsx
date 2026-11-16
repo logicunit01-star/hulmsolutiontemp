@@ -173,6 +173,7 @@ export function ImageZoom({
             height={height}
             priority={priority}
             loading={loading}
+            decoding="async"
             sizes={sizes}
             unoptimized={unoptimized}
             draggable={false}
@@ -310,7 +311,9 @@ export function ImageZoom({
                 alt={alt}
                 width={width}
                 height={height}
-                priority
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 1280px) 100vw, 1200px"
                 unoptimized={unoptimized}
                 draggable={false}
                 className="max-h-[80vh] w-auto h-auto object-contain rounded-lg shadow-2xl pointer-events-none"

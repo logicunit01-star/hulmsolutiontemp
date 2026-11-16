@@ -87,7 +87,8 @@ export function HomeIndustriesCarousel({ items }: HomeIndustriesCarouselProps) {
                 alt={industry.alt}
                 fill
                 loading="lazy"
-                sizes="(min-width: 1280px) 380px, (min-width: 1024px) 30vw, (min-width: 640px) 50vw, 84vw"
+                decoding="async"
+                sizes="(max-width: 640px) 84vw, (max-width: 1024px) 50vw, (max-width: 1280px) 30vw, 380px"
                 className="object-cover transition duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0F2A26] via-[#0F2A26]/55 to-transparent" />

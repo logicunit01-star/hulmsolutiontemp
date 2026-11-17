@@ -20,6 +20,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
             {
+        source: '/blogs/cloud-pos-vs-desktop-pos',
+        destination: '/blog/cloud-pos-vs-desktop-pos/',
+        permanent: true,
+      },
+      {
         source: '/blog/how-to-manage-multiple-retail-branches-without-separate-spreadsheets',
         destination: '/blog/manage-multiple-retail-branches/',
         permanent: true,

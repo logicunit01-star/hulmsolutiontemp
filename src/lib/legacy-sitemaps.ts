@@ -17,6 +17,7 @@ export const newSitePaths = [
   "/blog/excel-vs-pos-software-for-retail-shops/",
   "/blog/manage-multiple-retail-branches/",
   "/blog/restaurant-food-cost-calculator/",
+  "/blog/cloud-pos-vs-desktop-pos/",
 ];
 
 // Non-blog pages were rebuilt with the new site; blog posts keep their original modified date.

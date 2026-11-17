@@ -4,6 +4,7 @@ import { switchPosSoftwareWithoutLosingDataBlog } from "@/content/pages/blogs/sw
 import { excelVsPosRetailBlog } from "@/content/pages/blogs/excel-vs-pos-software-for-retail-shops";
 import { manageMultipleRetailBranchesBlog } from "@/content/pages/blogs/manage-multiple-retail-branches";
 import { restaurantFoodCostCalculatorBlog } from "@/content/pages/blogs/restaurant-food-cost-calculator";
+import { cloudPosVsDesktopPosBlog } from "@/content/pages/blogs/cloud-pos-vs-desktop-pos";
 
 export interface SingleBlogData {
   slug: string;
@@ -22,6 +23,7 @@ export interface SingleBlogData {
 }
 
 export const allBlogsData: Record<string, SingleBlogData> = {
+  "cloud-pos-vs-desktop-pos": cloudPosVsDesktopPosBlog,
   "switch-pos-software-without-losing-data": switchPosSoftwareWithoutLosingDataBlog,
   "what-is-pos": whatIsPosBlog,
   "cloud-pos-software-for-retail-stores": {

@@ -10,6 +10,19 @@ export const EDITORIAL_AUTHOR: Author = {
 // Replace these with actual blog posts when provided by the user.
 export const blogPosts: BlogPost[] = [
   {
+    id: "cloud-pos-vs-desktop-pos",
+    slug: "cloud-pos-vs-desktop-pos",
+    title: "Cloud POS vs Desktop POS: Which Fits Your Business?",
+    excerpt: "Compare cloud POS vs desktop POS for cost, internet outages, security, inventory and multiple branches. Discover which system fits your business.",
+    featuredImage: {
+      src: "/images/uploads/2026/11/cloud-pos-vs-desktop-pos-architecture-comparison.webp",
+      alt: "Cloud POS vs Desktop POS architecture comparison: centralized cloud database vs standalone counter PC"
+    },
+    authorId: "hulm-editorial-team",
+    publishedAt: "2026-11-17",
+    readingTime: "9 min read"
+  },
+  {
     id: "restaurant-food-cost-calculator",
     slug: "restaurant-food-cost-calculator",
     title: "Restaurant Food Cost Calculator: How to Price Menu Items Profitably",

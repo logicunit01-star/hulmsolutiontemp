@@ -14,6 +14,19 @@ export type Insight = {
 
 export const insightsData: Insight[] = [
   {
+    id: "cloud-pos-vs-desktop-pos",
+    title: "Cloud POS vs Desktop POS: Which Fits Your Business?",
+    slug: "cloud-pos-vs-desktop-pos",
+    excerpt: "Compare cloud POS vs desktop POS for cost, internet outages, security, inventory and multiple branches. Discover which system fits your business.",
+    category: "POS Strategy",
+    date: "2026-11-17",
+    readTime: "9 min read",
+    author: "Aamir Khan",
+    authorSlug: "aamir-khan",
+    imageUrl: "/images/uploads/2026/11/cloud-pos-vs-desktop-pos-architecture-comparison.webp",
+    content: ""
+  },
+  {
     id: "restaurant-food-cost-calculator",
     title: "Restaurant Food Cost Calculator: How to Price Menu Items Profitably",
     slug: "restaurant-food-cost-calculator",

@@ -23,7 +23,7 @@ export const insightsData: Insight[] = [
     readTime: "9 min read",
     author: "Aamir Khan",
     authorSlug: "aamir-khan",
-    imageUrl: "/images/uploads/2026/11/cloud-pos-vs-desktop-pos-architecture-comparison.webp",
+    imageUrl: "/images/uploads/2026/11/hulmpos-one-platform-better-retail-management.webp",
     content: ""
   },
   {

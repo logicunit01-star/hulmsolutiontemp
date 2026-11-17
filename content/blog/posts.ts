@@ -15,8 +15,8 @@ export const blogPosts: BlogPost[] = [
     title: "Cloud POS vs Desktop POS: Which Fits Your Business?",
     excerpt: "Compare cloud POS vs desktop POS for cost, internet outages, security, inventory and multiple branches. Discover which system fits your business.",
     featuredImage: {
-      src: "/images/uploads/2026/11/cloud-pos-vs-desktop-pos-architecture-comparison.webp",
-      alt: "Cloud POS vs Desktop POS architecture comparison: centralized cloud database vs standalone counter PC"
+      src: "/images/uploads/2026/11/hulmpos-one-platform-better-retail-management.webp",
+      alt: "Cloud POS vs Desktop POS: One Platform for Complete Retail Management — HulmPOS Dashboard"
     },
     authorId: "hulm-editorial-team",
     publishedAt: "2026-11-17",

@@ -40,39 +40,27 @@ export default function CaseStudiesPage() {
     <div className="relative flex flex-col min-h-screen overflow-hidden bg-white">
       <JsonLd data={schema} />
       <Breadcrumbs items={[{ name: "Customer stories" }]} className="border-b border-[#E4E2DA]/70 bg-white" />
-      {/* Hero */}
+      {/* Merged Hero */}
       <section className="relative overflow-hidden border-b border-zinc-200/70 bg-white pt-10 pb-12 sm:pt-14 lg:pt-16 lg:pb-16 text-center">
         <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
 
         <div className="relative z-10 max-w-3xl mx-auto px-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3.5 py-1 text-xs font-semibold text-[#167c70] tracking-wide mb-5">
             <Sparkles className="w-3.5 h-3.5 text-[#167c70]" />
-            <span>Customer Success</span>
+            <span>Customer Success · Proven Results Across 11+ Verticals</span>
           </div>
           <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px] mb-4">
-            POS case studies: real results from Hulm customers
+            POS case studies: real results by industry and country
           </h1>
           <p className="text-base sm:text-lg text-zinc-600 font-normal leading-relaxed max-w-2xl mx-auto">
-            Read real POS case studies from businesses using Hulm POS, from FBR-integrated retail, apparel, and computer stores to specialty cafes, supermarkets, pharmacies, and automotive distributors.
+            Read real POS case studies from businesses using Hulm POS—from FBR-integrated retail, apparel, and computer stores to specialty cafes, supermarkets, pharmacies, and automotive distributors in Karachi, Lahore, Islamabad, Dubai, and Doha.
           </p>
         </div>
       </section>
 
       {/* Case Studies Interactive Directory */}
-      <Section data-reveal className="bg-[#F7F6F2] py-12 sm:py-16 border-b border-[#E4E2DA]">
+      <Section data-reveal className="bg-[#F7F6F2] py-10 sm:py-14 border-b border-[#E4E2DA]">
         <Container>
-          <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-10 space-y-2.5">
-            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#167c70]">
-              Proven Results Across 11+ Verticals
-            </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0F2A26] tracking-tight">
-              POS case studies by industry and country
-            </h2>
-            <p className="text-sm sm:text-base text-zinc-600 leading-relaxed font-normal">
-              Explore how retail stores, specialty cafes, pharmacies, supermarkets, and wholesale distributors in Karachi, Lahore, Islamabad, Dubai, and Doha transformed their operations with Hulm POS.
-            </p>
-          </div>
-
           <CaseStudiesDirectory studies={caseStudiesData} />
         </Container>
       </Section>

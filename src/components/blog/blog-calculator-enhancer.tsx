@@ -300,6 +300,178 @@ export function BlogCalculatorEnhancer() {
       // Initial score calculation
       updateQuizResults();
     }
+
+    // =========================================================================
+    // 4. Cash Drawer Shortage & Reconciliation Calculator
+    // =========================================================================
+    const cashCalc = document.querySelector<HTMLElement>(".cash-drawer-calculator-widget");
+    if (cashCalc && cashCalc.dataset.cashEnhanced !== "true") {
+      cashCalc.dataset.cashEnhanced = "true";
+
+      const inOpening = cashCalc.querySelector<HTMLInputElement>("#cash-calc-opening");
+      const inSales = cashCalc.querySelector<HTMLInputElement>("#cash-calc-sales");
+      const inOtherIn = cashCalc.querySelector<HTMLInputElement>("#cash-calc-other-in");
+      const inRefunds = cashCalc.querySelector<HTMLInputElement>("#cash-calc-refunds");
+      const inExpenses = cashCalc.querySelector<HTMLInputElement>("#cash-calc-expenses");
+      const inRemoved = cashCalc.querySelector<HTMLInputElement>("#cash-calc-removed");
+      const inActual = cashCalc.querySelector<HTMLInputElement>("#cash-calc-actual");
+
+      const outTotalIn = cashCalc.querySelector<HTMLElement>("#cash-calc-out-total-in");
+      const outTotalOut = cashCalc.querySelector<HTMLElement>("#cash-calc-out-total-out");
+      const outExpected = cashCalc.querySelector<HTMLElement>("#cash-calc-out-expected");
+      const outActual = cashCalc.querySelector<HTMLElement>("#cash-calc-out-actual");
+      const outDiff = cashCalc.querySelector<HTMLElement>("#cash-calc-out-diff");
+      const outStatusBadge = cashCalc.querySelector<HTMLElement>("#cash-calc-status-badge");
+      const outAnalysis = cashCalc.querySelector<HTMLElement>("#cash-calc-analysis");
+      const outDiffContainer = cashCalc.querySelector<HTMLElement>("#cash-calc-diff-container");
+
+      function calculateCashDrawer() {
+        const opening = Math.max(0, parseFloat(inOpening?.value || "0") || 0);
+        const sales = Math.max(0, parseFloat(inSales?.value || "0") || 0);
+        const otherIn = Math.max(0, parseFloat(inOtherIn?.value || "0") || 0);
+        const refunds = Math.max(0, parseFloat(inRefunds?.value || "0") || 0);
+        const expenses = Math.max(0, parseFloat(inExpenses?.value || "0") || 0);
+        const removed = Math.max(0, parseFloat(inRemoved?.value || "0") || 0);
+        const actual = Math.max(0, parseFloat(inActual?.value || "0") || 0);
+
+        const totalIn = opening + sales + otherIn;
+        const totalOut = refunds + expenses + removed;
+        const expected = totalIn - totalOut;
+        const diff = actual - expected;
+
+        if (outTotalIn) outTotalIn.textContent = `Rs. ${Math.round(totalIn).toLocaleString()}`;
+        if (outTotalOut) outTotalOut.textContent = `Rs. ${Math.round(totalOut).toLocaleString()}`;
+        if (outExpected) outExpected.textContent = `Rs. ${Math.round(expected).toLocaleString()}`;
+        if (outActual) outActual.textContent = `Rs. ${Math.round(actual).toLocaleString()}`;
+
+        if (outDiff) {
+          if (diff < 0) {
+            outDiff.textContent = `- Rs. ${Math.abs(Math.round(diff)).toLocaleString()}`;
+          } else if (diff > 0) {
+            outDiff.textContent = `+ Rs. ${Math.round(diff).toLocaleString()}`;
+          } else {
+            outDiff.textContent = `Rs. 0 (Balanced)`;
+          }
+        }
+
+        if (outDiffContainer && outStatusBadge && outAnalysis && outDiff) {
+          if (diff < 0) {
+            // Shortage
+            outDiffContainer.className = "p-4 sm:p-5 rounded-2xl border-2 border-rose-300 bg-rose-50/80 transition-all";
+            outDiff.className = "text-2xl sm:text-3xl font-extrabold text-rose-700 font-mono";
+            outStatusBadge.textContent = "Cash Shortage (Discrepancy)";
+            outStatusBadge.className = "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-rose-200 text-rose-900 border border-rose-300";
+            outAnalysis.innerHTML = `
+              <div class="text-sm text-rose-950 space-y-1.5">
+                <p class="font-semibold text-rose-900">Your cash drawer is short by Rs. ${Math.abs(Math.round(diff)).toLocaleString()}.</p>
+                <p class="text-xs text-rose-800 leading-relaxed font-normal">
+                  Immediate checklist: (1) Check if an unrecorded petty cash expense or supplier payment was made. (2) Confirm if a customer paid via card/bank transfer but the cashier marked it as cash. (3) Verify change errors at checkout.
+                </p>
+              </div>
+            `;
+          } else if (diff > 0) {
+            // Overage
+            outDiffContainer.className = "p-4 sm:p-5 rounded-2xl border-2 border-blue-300 bg-blue-50/80 transition-all";
+            outDiff.className = "text-2xl sm:text-3xl font-extrabold text-blue-700 font-mono";
+            outStatusBadge.textContent = "Cash Overage (Surplus)";
+            outStatusBadge.className = "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-blue-200 text-blue-900 border border-blue-300";
+            outAnalysis.innerHTML = `
+              <div class="text-sm text-blue-950 space-y-1.5">
+                <p class="font-semibold text-blue-900">Your drawer has Rs. ${Math.round(diff).toLocaleString()} more cash than recorded sales.</p>
+                <p class="text-xs text-blue-800 leading-relaxed font-normal">
+                  Immediate checklist: (1) Check if a transaction was completed without ringing it up on the POS. (2) Confirm if a cashier forgot to enter a customer change amount. (3) Check if opening cash was higher than entered in Start Day.
+                </p>
+              </div>
+            `;
+          } else {
+            // Exactly Balanced
+            outDiffContainer.className = "p-4 sm:p-5 rounded-2xl border-2 border-emerald-300 bg-emerald-50/80 transition-all";
+            outDiff.className = "text-2xl sm:text-3xl font-extrabold text-emerald-700 font-mono";
+            outStatusBadge.textContent = "Perfectly Balanced (100% Reconciled)";
+            outStatusBadge.className = "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-200 text-emerald-900 border border-emerald-300";
+            outAnalysis.innerHTML = `
+              <div class="text-sm text-emerald-950 space-y-1.5">
+                <p class="font-semibold text-emerald-900">Zero variance! Your drawer matches POS records completely.</p>
+                <p class="text-xs text-emerald-800 leading-relaxed font-normal">
+                  All physical cash counted matches your recorded opening cash, net sales, and recorded drawer disbursements exactly.
+                </p>
+              </div>
+            `;
+          }
+        }
+      }
+
+      const allInputs = [inOpening, inSales, inOtherIn, inRefunds, inExpenses, inRemoved, inActual];
+      allInputs.forEach((input) => {
+        input?.addEventListener("input", calculateCashDrawer);
+      });
+
+      calculateCashDrawer();
+    }
+
+    // =========================================================================
+    // 5. Interactive Cash Denomination Counter Tool
+    // =========================================================================
+    const denomWidget = document.querySelector<HTMLElement>(".cash-denomination-counter-widget");
+    if (denomWidget && denomWidget.dataset.denomEnhanced !== "true") {
+      denomWidget.dataset.denomEnhanced = "true";
+      const widget = denomWidget;
+
+      const denominations = [5000, 1000, 500, 100, 75, 50, 20, 10];
+      const grandTotalEl = widget.querySelector<HTMLElement>("#denom-grand-total");
+      const coinsInput = widget.querySelector<HTMLInputElement>("#denom-coins");
+      const copyBtn = widget.querySelector<HTMLButtonElement>("#denom-copy-btn");
+      const copyFeedback = widget.querySelector<HTMLElement>("#denom-copy-feedback");
+
+      function updateDenominations() {
+        let total = 0;
+        denominations.forEach((d) => {
+          const input = widget.querySelector<HTMLInputElement>(`#denom-count-${d}`);
+          const subtotalEl = widget.querySelector<HTMLElement>(`#denom-sub-${d}`);
+          const count = Math.max(0, parseInt(input?.value || "0", 10) || 0);
+          const subtotal = count * d;
+          total += subtotal;
+          if (subtotalEl) {
+            subtotalEl.textContent = `Rs. ${subtotal.toLocaleString()}`;
+          }
+        });
+
+        const coins = Math.max(0, parseFloat(coinsInput?.value || "0") || 0);
+        total += coins;
+
+        if (grandTotalEl) {
+          grandTotalEl.textContent = `Rs. ${Math.round(total).toLocaleString()}`;
+        }
+        return total;
+      }
+
+      denominations.forEach((d) => {
+        const input = widget.querySelector<HTMLInputElement>(`#denom-count-${d}`);
+        input?.addEventListener("input", updateDenominations);
+      });
+
+      coinsInput?.addEventListener("input", updateDenominations);
+
+      copyBtn?.addEventListener("click", () => {
+        const total = updateDenominations();
+        const mainActualInput = document.querySelector<HTMLInputElement>("#cash-calc-actual");
+        if (mainActualInput) {
+          mainActualInput.value = Math.round(total).toString();
+          mainActualInput.dispatchEvent(new Event("input", { bubbles: true }));
+          mainActualInput.scrollIntoView({ behavior: "smooth", block: "center" });
+
+          if (copyFeedback) {
+            copyFeedback.classList.remove("hidden");
+            copyFeedback.textContent = `✓ Copied Rs. ${Math.round(total).toLocaleString()} to closing cash!`;
+            setTimeout(() => {
+              copyFeedback.classList.add("hidden");
+            }, 3500);
+          }
+        }
+      });
+
+      updateDenominations();
+    }
   }, []);
 
   return null;

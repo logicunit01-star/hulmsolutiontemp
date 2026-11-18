@@ -14,6 +14,19 @@ export type Insight = {
 
 export const insightsData: Insight[] = [
   {
+    id: "cash-drawer-management-start-end-day",
+    title: "Cash Drawer Shortages? See How HulmPOS Helps You Track Cash from Start Day to End Day",
+    slug: "cash-drawer-management-start-end-day",
+    excerpt: "Stop guessing where your shop's cash goes. Learn how to record opening cash, track daily sales, and check closing cash with HulmPOS POS software.",
+    category: "Retail Operations",
+    date: "2026-11-18",
+    readTime: "9 min read",
+    author: "Aamir Khan",
+    authorSlug: "aamir-khan",
+    imageUrl: "/images/uploads/2026/11/cash-drawer-shortages-management-hulmpos.webp",
+    content: ""
+  },
+  {
     id: "cloud-pos-vs-desktop-pos",
     title: "Cloud POS vs Desktop POS: Which Fits Your Business?",
     slug: "cloud-pos-vs-desktop-pos",

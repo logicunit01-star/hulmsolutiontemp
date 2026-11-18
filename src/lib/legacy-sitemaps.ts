@@ -18,6 +18,7 @@ export const newSitePaths = [
   "/blog/manage-multiple-retail-branches/",
   "/blog/restaurant-food-cost-calculator/",
   "/blog/cloud-pos-vs-desktop-pos/",
+  "/blog/cash-drawer-management-start-end-day/",
 ];
 
 // Non-blog pages were rebuilt with the new site; blog posts keep their original modified date.

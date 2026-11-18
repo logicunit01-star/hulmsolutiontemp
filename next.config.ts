@@ -25,6 +25,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/blogs/cash-drawer-management-start-end-day',
+        destination: '/blog/cash-drawer-management-start-end-day/',
+        permanent: true,
+      },
+      {
         source: '/blog/how-to-manage-multiple-retail-branches-without-separate-spreadsheets',
         destination: '/blog/manage-multiple-retail-branches/',
         permanent: true,

@@ -205,7 +205,10 @@ export const cityPages: Record<string, CityPage> = {
       "Tier-1 retailers in Pakistan must connect their point of sale to FBR, so every invoice carries an FBR invoice number and QR code. Hulm sets up FBR integration with you as part of onboarding.",
       "Restaurants and other service businesses in Lahore also deal with sales tax on services collected by the Punjab Revenue Authority (PRA). Share your PRA registration details and the team reviews the invoice configuration with you during setup.",
     ],
-    caseStudies: [],
+    caseStudies: [
+      "khaas-pret-apparel-pos-lahore",
+      "al-madina-auto-parts-pos-lahore",
+    ],
     setupHeading: "How setup works for Lahore businesses",
     setupSteps: [
       { title: "Talk to our team", text: "Discuss your products and workflow with our team on a video call or WhatsApp." },
@@ -290,7 +293,9 @@ export const cityPages: Record<string, CityPage> = {
       "Tier-1 retailers in Pakistan must connect their point of sale to FBR, so every invoice carries an FBR invoice number and QR code. Hulm sets up FBR integration with you as part of onboarding.",
       "Sales tax on services works differently in the twin cities: in Islamabad Capital Territory it is administered by FBR, while Rawalpindi falls under the Punjab Revenue Authority (PRA). If you have branches in both cities, share each registration and the team reviews the invoice configuration with you during setup.",
     ],
-    caseStudies: [],
+    caseStudies: [
+      "careplus-pharmacy-pos-islamabad",
+    ],
     setupHeading: "How setup works for Islamabad and Rawalpindi businesses",
     setupSteps: [
       { title: "Talk to our team", text: "Discuss your products and workflow with our team on a video call or WhatsApp." },

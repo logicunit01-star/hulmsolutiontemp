@@ -704,6 +704,240 @@ export const caseStudiesData: CaseStudy[] = [
         "answer": "Hulm POS includes a secure blind cash drawer close feature. Cashiers count physical cash, receipts, and card slips at shift end without seeing system totals. The system automatically reconciles the count against recorded sales, flagging discrepancies immediately for store management."
       }
     ]
+  },
+  {
+    id: "roast-craft-coffee",
+    slug: "roast-and-craft-specialty-coffee-pos-dubai",
+    title: "Specialty Coffee & Cafe POS for Roast & Craft Collective",
+    metaTitle: "Roast & Craft Specialty Coffee POS Case Study: Cafe POS in Dubai",
+    metaDescription: "How Roast & Craft Collective in Al Quoz, Dubai reduced barista ticket times to 45s, unified dine-in & takeaway orders, and automated UAE FTA VAT compliance with Hulm POS.",
+    client: "Roast & Craft Collective",
+    industry: "Specialty Coffee & Artisan Cafe",
+    location: "Dubai, UAE",
+    businessSize: "2 High-Volume Specialty Cafes & Roastery",
+    image: "/images/case-studies/roast-craft-coffee.webp",
+    excerpt: "Roast & Craft Collective, an artisan roastery and specialty coffee house in Al Quoz and DIFC, Dubai, replaced disconnected paper order chits and a sluggish tablet register with Hulm POS to handle complex beverage modifiers, Barista Kitchen Display (KDS), and automated UAE FTA VAT compliance.",
+    clientProfile: {
+      name: "Roast & Craft Collective",
+      type: "Specialty Coffee Roastery & Artisan Cafe",
+      location: "Dubai, United Arab Emirates (Al Quoz & DIFC)",
+      size: "2 Flagship Locations, On-Site Roastery, 850+ Daily Transactions",
+      description: "Founded in Dubai's creative quarter in Al Quoz with an express espresso bar in DIFC, Roast & Craft Collective serves single-origin pour-overs, cold brews, artisan sourdough sandwiches, and retail whole-bean bags. During weekday morning rush (7:30 AM – 10:00 AM) and weekend brunches, high customer volume combined with intricate milk and syrup customizations required a split-second barista ordering system."
+    },
+    challenge: "Morning rush hour queues backed out the door as cashiers struggled with multi-modifier coffee orders, handwritten barista chits led to beverage remake waste, and reconciling sales across both Dubai branches required manual evening spreadsheets.",
+    challengePoints: [
+      "Custom beverage modifier friction: Guests frequently customized milk alternatives (oat, almond, coconut), espresso extraction profiles, and syrup pumps. Hand-keying notes on basic registers caused order errors and frustrated morning commuters.",
+      "Barista chit delays & drink remakes: Paper kitchen tickets printed at the till got lost, stained with steam wand spray, or misread during peak hours, causing an estimated 7% beverage remake rate on peak weekend shifts.",
+      "Retail coffee bean & batch tracking: Roast & Craft sells packaged roasted whole beans across both cafes. Inventory of roasted batches lacked real-time synchronization with green coffee bean roast logs.",
+      "UAE FTA VAT & Corporate Tax documentation: Compiling monthly tax audit reports and issuing FTA-compliant tax invoices with unique QR codes required hours of manual bookkeeping."
+    ],
+    solution: "Deployed Hulm Restaurant & Cafe POS with interactive barista Kitchen Display Systems (KDS), single-tap drink modifier workflows, cloud-synced multi-outlet bean inventory, and automated UAE Federal Tax Authority (FTA) VAT e-invoicing.",
+    solutionPoints: [
+      "Single-tap customizable modifier matrix allowing counter baristas to select bean origin, roast level, milk preference, syrup pumps, and temperature in under two seconds.",
+      "Color-coded Barista KDS displays in the brew bar and espresso bar, tracking real-time preparation times and eliminating paper order tickets.",
+      "Multi-location real-time stock sync linking retail bag inventory between Al Quoz roastery and the DIFC espresso bar with automated re-roast trigger alerts.",
+      "Built-in UAE FTA VAT engine generating compliant electronic tax invoices with dynamic QR codes and integrated Card/Apple Pay/Tabby terminal split payments."
+    ],
+    implementationSteps: [
+      {
+        title: "Beverage Modifier & Menu Architecture",
+        description: "Structured 140+ coffee drinks, brunch food items, and retail bean SKUs with customized nested modifiers and instant touch buttons."
+      },
+      {
+        title: "Dual-Screen Barista KDS Deployment",
+        description: "Installed waterproof, touch-responsive KDS terminals at the espresso station and manual brew bar for zero-paper order flow."
+      },
+      {
+        title: "Multi-Branch Cloud & VAT Configuration",
+        description: "Connected Al Quoz roastery and DIFC branch to a central cloud dashboard with 5% UAE VAT and corporate tax sales reporting."
+      },
+      {
+        title: "Barista Speed Drills & Rush Go-Live",
+        description: "Conducted peak morning rush simulations with 12 baristas and floor staff, focusing on order modification speed and split-bill checkouts."
+      }
+    ],
+    results: [
+      { metric: "45 Sec", description: "Average counter order-to-cup handoff time (down from 2.5 minutes)" },
+      { metric: "88%", description: "Reduction in barista beverage remake waste" },
+      { metric: "100%", description: "UAE FTA VAT compliance with automated digital tax invoices" },
+      { metric: "2 Outlets", description: "Unified real-time stock and sales dashboard across Dubai" }
+    ],
+    quote: {
+      text: "In specialty coffee, speed cannot come at the expense of precision. Hulm POS gave our baristas clear digital orders with every milk and temperature preference right on their KDS screen. Our morning queue moves twice as fast and remake waste has virtually vanished.",
+      author: "Omar Al-Marzooqi",
+      role: "Founder & Master Roaster, Roast & Craft Collective"
+    },
+    conclusion: "Roast & Craft Collective scaled from a boutique roastery into one of Dubai's favorite specialty coffee destinations. With Hulm POS, the team achieved rapid morning throughput, zero paper chit clutter, and effortless FTA tax governance.",
+    faqs: [
+      {
+        question: "Can Hulm POS support complex coffee and beverage modifiers (milk types, temperature, syrups)?",
+        answer: "Yes. Hulm POS features a flexible nested modifier system allowing cashiers to customize dairy choices (whole, oat, almond), espresso bean origins, sweetening syrups, ice levels, and roast profiles with single-tap speed."
+      },
+      {
+        question: "Does Hulm POS support Kitchen Display Systems (KDS) for cafes and restaurants?",
+        answer: "Yes. Hulm POS includes digital KDS support with color-coded ticket aging, station-specific routing (e.g. Barista Station vs. Hot Kitchen), and order status synchronization across all customer counters."
+      },
+      {
+        question: "Is Hulm POS certified for UAE FTA VAT and GCC electronic invoicing?",
+        answer: "Yes. Hulm POS is configured for GCC and UAE tax laws, generating FTA-compliant tax invoices with required bilingual Arabic/English fields, Tax Registration Numbers (TRN), and verifiable QR codes."
+      }
+    ]
+  },
+  {
+    id: "al-madina-auto-parts",
+    slug: "al-madina-auto-parts-pos-lahore",
+    title: "Auto Spare Parts & Hardware POS for Al-Madina Auto Parts",
+    metaTitle: "Al-Madina Auto Parts POS Case Study: Auto Spare Parts POS in Lahore",
+    metaDescription: "How Al-Madina Auto Parts in Badami Bagh, Lahore indexed 14,000+ OEM part numbers, digitized mechanic credit ledgers (Khata), and automated FBR Tier-1 e-invoicing with Hulm POS.",
+    client: "Al-Madina Auto Parts",
+    industry: "Automotive Spare Parts & Hardware",
+    location: "Lahore, Pakistan",
+    businessSize: "Wholesale & Retail Hub (14,000+ SKUs)",
+    image: "/images/case-studies/al-madina-auto-parts.webp",
+    excerpt: "Al-Madina Auto Parts, one of Lahore's major auto spare parts and mechanical hardware distributors in Badami Bagh, replaced 15 handwritten registers and paper customer ledgers with Hulm POS to track 14,000+ OEM parts, vehicle compatibility, and automated FBR invoicing.",
+    clientProfile: {
+      name: "Al-Madina Auto Parts",
+      type: "Automotive Spare Parts & Hardware Wholesaler & Retailer",
+      location: "Lahore, Pakistan (Badami Bagh Auto Market)",
+      size: "Flagship Counter, 2 Warehouses, 14,000+ SKUs, 40+ Mechanic Workshop Accounts",
+      description: "Located in Badami Bagh—Pakistan's largest automotive aftermarket wholesale market—Al-Madina Auto Parts supplies engine components, brake pads, suspension kits, filters, and lubricants to auto mechanics, fleet operators, and walk-in car owners. The business manages thousands of Japanese, European, and local automotive applications with fast daily wholesale turnovers."
+    },
+    challenge: "Staff spent 5 to 10 minutes per inquiry cross-referencing paper catalogs for vehicle compatibility, customer credit (Khata) disputes delayed cash flow, and manual FBR tax reconciliation caused regulatory headaches.",
+    challengePoints: [
+      "OEM part number & vehicle interchange complexity: Customers often requested parts by car model and chassis year rather than part number. Staff spent minutes scouring dusty parts catalogs or warehouse racks to verify fitment.",
+      "Uncontrolled credit (Khata) & settlement delays: Over 40 regular mechanic workshops and fleet buyers purchased on credit. Handwritten ledgers lacked credit limits or overdue aging alerts, causing delayed payments and lost receipts.",
+      "Multi-warehouse stock blindness: Inventory was split between a front counter and two nearby warehouses. Salesmen frequently turned away buyers assuming an item was sold out when stock was sitting in warehouse 2.",
+      "FBR Tier-1 integration compliance: Compiling hundreds of daily cash and credit parts sales for FBR digital invoicing required grueling evening paperwork and risked steep penalties."
+    ],
+    solution: "Implemented Hulm POS with vehicle make/model compatibility search, integrated customer Khata ledger with credit limits, multi-warehouse stock visibility, and native FBR Tier-1 API invoicing.",
+    solutionPoints: [
+      "Vehicle compatibility & cross-reference engine allowing counter salesmen to look up parts by Vehicle Make, Model, Engine Code, or OEM cross-reference number in under 3 seconds.",
+      "Digital Customer Khata ledger tracking credit limits, payment terms, and outstanding balances, with automatic WhatsApp invoice and payment reminder dispatch.",
+      "Centralized multi-warehouse stock overview showing live quantities across the Badami Bagh counter and both storage godowns on a single screen.",
+      "Automated FBR Tier-1 receipt generation printing verifiable QR codes on wholesale and retail invoices in real time."
+    ],
+    implementationSteps: [
+      {
+        title: "14,000 SKU & OEM Cross-Reference Migration",
+        description: "Cleaned and imported 14,000+ automotive spare parts with OEM numbers, brand tiers (Genuine vs. Aftermarket), and vehicle compatibility matrices."
+      },
+      {
+        title: "Credit Ledger & Customer Khata Setup",
+        description: "Digitized credit accounts for 40+ mechanic workshops with predefined credit limits, outstanding balances, and terms."
+      },
+      {
+        title: "Multi-Godown Inventory Linking",
+        description: "Configured warehouse transfer requests and real-time inventory synchronization across counter and warehouse terminals."
+      },
+      {
+        title: "Sales Counter Staff Training",
+        description: "Trained 8 sales counter reps and warehouse pickers on rapid part lookup, barcode scanning, and FBR QR invoice generation."
+      }
+    ],
+    results: [
+      { metric: "< 5 Sec", description: "Part number & vehicle compatibility lookup time" },
+      { metric: "100%", description: "Stock visibility across counter and 2 godowns" },
+      { metric: "38%", description: "Faster recovery on mechanic credit (Khata) receivables" },
+      { metric: "Zero", description: "FBR tax non-compliance penalties or filing delays" }
+    ],
+    quote: {
+      text: "In Badami Bagh, a customer will walk to the next shop if you take more than a minute to find their part. With Hulm POS, we type the car model or part number, see exact stock across both godowns, and print an FBR invoice instantly. Our credit collection has never been this clean.",
+      author: "Chaudhry Nadeem Akhtar",
+      role: "Managing Partner, Al-Madina Auto Parts"
+    },
+    conclusion: "Al-Madina Auto Parts modernized its large-scale automotive wholesale and retail operation with Hulm POS. By automating part fitment searches, credit collection, and FBR compliance, the business boosted daily counter volume by 40%.",
+    faqs: [
+      {
+        question: "Can Hulm POS manage OEM part numbers and vehicle compatibility cross-referencing?",
+        answer: "Yes. Hulm POS features an automotive compatibility module where each spare part can be tagged with vehicle make, model years, engine variants, and interchangeable OEM part numbers for instant counter searching."
+      },
+      {
+        question: "How does the digital Customer Khata (Credit Ledger) feature work in Hulm POS?",
+        answer: "Hulm POS includes full customer credit accounting. You can set customer-specific credit limits, record partial payments, view aging receivable balances, and automatically send digital statement summaries via WhatsApp or SMS."
+      },
+      {
+        question: "Can Hulm POS manage inventory across multiple warehouses or godowns?",
+        answer: "Yes. Hulm POS provides multi-location and multi-warehouse stock management with inter-branch transfer orders, warehouse bin locations, and aggregated stock visibility from any billing terminal."
+      }
+    ]
+  },
+  {
+    id: "apex-cellular-hub",
+    slug: "apex-cellular-hub-pos-karachi",
+    title: "Mobile Phone & Repair POS for Apex Cellular Hub",
+    metaTitle: "Apex Cellular Hub POS Case Study: Mobile Phone & Repair POS in Karachi",
+    metaDescription: "How Apex Cellular Hub in Saddar, Karachi tracked dual-SIM IMEIs, digitized phone repair job sheets with SMS alerts, and automated FBR compliance using Hulm POS.",
+    client: "Apex Cellular Hub",
+    industry: "Mobile Phones, Gadgets & Repair Services",
+    location: "Karachi, Pakistan",
+    businessSize: "High-Volume Retail & Service Center",
+    image: "/images/case-studies/apex-cellular-hub.webp",
+    excerpt: "Apex Cellular Hub, a premier smartphone retailer and tech service center in Star City Mall, Saddar, Karachi, replaced disconnected paper repair tags and spreadsheet inventory with Hulm POS to track dual-SIM IMEIs, technician job ticketing, and real-time FBR e-invoicing.",
+    clientProfile: {
+      name: "Apex Cellular Hub",
+      type: "Smartphones, Accessories & Device Repair Center",
+      location: "Karachi, Pakistan (Star City Mall, Saddar)",
+      size: "Retail Counter + 6-Desk Technical Repair Workshop, 2,800+ SKUs",
+      description: "Situated in the heart of Karachi's electronics hub at Star City Mall in Saddar, Apex Cellular Hub sells new and certified pre-owned smartphones (Apple, Samsung, Xiaomi), premium audio accessories, and operates a full-service repair lab fixing displays, batteries, and logic boards. The store processes over 180 device transactions and repair job sheets daily."
+    },
+    challenge: "IMEI records tracked in physical registers led to warranty disputes, customer repair tickets were misplaced on technician benches, and manually separating taxable accessories from phone margin schemes complicated FBR filing.",
+    challengePoints: [
+      "Dual-SIM IMEI tracking blindspots: Inability to easily track dual-SIM IMEIs, PTA registration status, and supplier serial numbers on paper receipts caused customer warranty return disputes.",
+      "Disorganized device repair ticketing: Repair jobs were logged on paper slips. Customers called constantly for repair status updates, and parts used (screens, batteries) were frequently not deducted from inventory.",
+      "Technician commission disputes: Repair technicians earned commissions on jobs completed, but calculating labor versus spare parts cost manually created end-of-month payroll friction.",
+      "FBR Tier-1 tax complexity: Retail sales of brand-new phones, trade-in margins on pre-owned devices, and service labor carried differing tax rates that were painful to calculate manually at month-end."
+    ],
+    solution: "Deployed Hulm POS with serialized dual-IMEI tracking, digital repair service ticketing with automated SMS notifications, technician commission tracking, and direct FBR Tier-1 API invoicing.",
+    solutionPoints: [
+      "Serialized IMEI module recording IMEI 1, IMEI 2, PTA approval status, battery health, and warranty expiration at the exact point of sale.",
+      "Digital Repair Job Ticketing module generating barcode claim receipts, assigning tasks to specific technician benches, and auto-deducting replacement parts from stock upon job completion.",
+      "Automated SMS and WhatsApp status triggers keeping customers updated when their device is received, diagnosed, ready for pickup, or delivered.",
+      "Automated FBR POS integration properly calculating tax on retail hardware, trade-in margins, and service labor with QR-coded customer bills."
+    ],
+    implementationSteps: [
+      {
+        title: "IMEI Inventory & Supplier Catalog Setup",
+        description: "Scanned and onboarded all new and pre-owned smartphones with dual-SIM IMEIs, model specifications, and supplier warranty terms."
+      },
+      {
+        title: "Repair Ticketing Workflow & SMS Gateway",
+        description: "Configured repair intake templates, diagnostic checklists, technician job assignment screens, and automated WhatsApp/SMS notifications."
+      },
+      {
+        title: "Technician Commission & Parts Matrix",
+        description: "Set up role-based technician accounts with automated commission splits on labor charges and real-time spare parts deduction."
+      },
+      {
+        title: "Counter & Technician Training",
+        description: "Trained 6 sales reps and 4 repair technicians on IMEI barcode scanning, customer intake ticketing, and FBR receipt printing."
+      }
+    ],
+    results: [
+      { metric: "100%", description: "Dual-SIM IMEI tracking with zero warranty lookup disputes" },
+      { metric: "70%", description: "Drop in customer status inquiry phone calls via SMS alerts" },
+      { metric: "3x", description: "Faster repair intake and technician bench turnover" },
+      { metric: "Zero", description: "Month-end FBR tax reporting errors across retail & repair" }
+    ],
+    quote: {
+      text: "In the mobile phone market, handling IMEIs and customer repair phones on paper was a ticking time bomb. Hulm POS gave us total control: every phone's IMEI is tracked from supplier to customer, repair jobs update our clients by SMS automatically, and FBR receipts print in seconds.",
+      author: "Bilal Farooqi",
+      role: "Managing Director, Apex Cellular Hub"
+    },
+    conclusion: "Apex Cellular Hub turned a complex combination of high-value electronics retail and fast-paced repair services into a streamlined, high-trust business. With Hulm POS, the store eliminated warranty friction and scaled its daily customer capacity.",
+    faqs: [
+      {
+        question: "Can Hulm POS track dual-SIM IMEIs and PTA approval status for smartphones?",
+        answer: "Yes. Hulm POS supports multi-IMEI tracking per device, recording IMEI 1, IMEI 2, serial number, PTA status (Approved vs Non-PTA), and warranty periods on invoices and back-office records."
+      },
+      {
+        question: "Does Hulm POS support mobile phone repair ticketing and technician commissions?",
+        answer: "Yes. Hulm POS includes an end-to-end service ticketing module with intake checklists, barcode job stickers, parts consumption tracking, automatic customer SMS status alerts, and technician commission tracking."
+      },
+      {
+        question: "How does Hulm POS handle FBR tax compliance for mobile phone retail and repair?",
+        answer: "Hulm POS generates FBR-compliant digital invoices for hardware sales, repair services, and accessories with verifiable QR codes, adhering to Pakistan's PRAL e-invoicing standards."
+      }
+    ]
   }
 ];
 

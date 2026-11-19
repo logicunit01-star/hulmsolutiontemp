@@ -128,8 +128,8 @@ const customerProblems = [
     solution:
       "HulmPOS provides cloud-based multi-branch management capabilities. Manage supported locations through one connected platform and review branch sales and operational information. Choose a subscription according to your required number of users and branches.",
     benefit: "Better visibility and more organized management across locations.",
-    image: null,
-    imageAlt: "Multi-branch cafe management",
+    image: "/images/problems/cafe-multi-branch-operations.jpg",
+    imageAlt: "Multi-branch cafe management and branch reports",
     icon: Building2,
   },
   {
@@ -141,8 +141,8 @@ const customerProblems = [
     solution:
       "HulmPOS provides customer management functionality to maintain customer profiles and purchase information. Available CRM and loyalty capabilities can help you organize customer relationships and encourage repeat business.",
     benefit: "Better organized customer records and customer management.",
-    image: null,
-    imageAlt: "Customer profiles and loyalty records",
+    image: "/images/problems/cafe-customer-records-scattered.jpg",
+    imageAlt: "Customer profiles and scattered loyalty records",
     icon: Users,
   },
 ];

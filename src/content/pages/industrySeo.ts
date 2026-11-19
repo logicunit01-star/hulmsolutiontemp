@@ -272,41 +272,73 @@ export const industrySeo: Record<string, IndustrySeo> = {
     ],
   },
   cafe: {
-    primaryKeyword: "cafe POS system",
-    schemaName: "Hulm Cafe POS",
-    h1: "Cafe POS System for Faster Orders and Better Stock Control",
+    primaryKeyword: "coffee shop POS",
+    schemaName: "Hulm Cafe & Coffee Shop POS",
+    h1: "Cafe & Coffee Shop POS System",
     intro:
-      "Manage coffee shop billing, stock and daily sales with a POS workflow shaped around your business.",
+      "Manage your cafe's sales, billing, inventory and customers with HulmPOS. Run your coffee shop more efficiently with one cloud-based POS system.",
     h2: {
-      overview: "How HulmPOS Fits Your Cafe & Coffee Shop Workflow",
-      problems: "Everyday Cafe & Coffee Shop Problems—and How HulmPOS Helps",
-      features: "Cafe & Coffee Shop POS Features for Daily Operations",
-      who: "Who Is HulmPOS Suitable For?",
-      benefits: "Why Consider HulmPOS for Your Cafe?",
+      overview: "Running a Cafe Is Easier When Everything Is Organized",
+      problems: "Common Problems Cafe Owners Face Every Day",
+      features: "Everything You Need in a Coffee Shop POS System",
+      who: "One POS Solution for Different Types of Cafes",
+      benefits: "Why Choose HulmPOS as Your Cafe POS Software?",
       fbr: "Add FBR-connected invoicing to your cafe POS",
     },
-    faqHeading: "Frequently Asked Questions",
+    faqHeading: "Frequently Asked Questions About Cafe and Coffee Shop POS Systems",
     faqs: [
       {
+        q: "What is the best POS system for a coffee shop?",
+        a: "The best POS system for a coffee shop should support billing, sales, product management, inventory, purchasing, customers and business reporting. HulmPOS is a practical option for businesses looking for affordable cloud-based coffee shop POS software with connected business management features.",
+      },
+      {
         q: "What is the best POS system for a cafe?",
-        a: "Choose a system that fits order speed, drink modifiers, ingredient tracking, payments and reporting. Demo HulmPOS with your menu.",
+        a: "The best cafe POS system depends on your business size, number of employees, branches and operational requirements. HulmPOS provides digital billing, inventory management, customer records, purchasing and sales reporting, with subscriptions starting at PKR 2,500 per month.",
       },
       {
-        q: "Can HulmPOS manage custom coffee orders?",
-        a: "The live page advertises drink options such as sizes, milk and syrups. Confirm the modifier workflow.",
+        q: "What is coffee shop POS software?",
+        a: "Coffee shop POS software is a digital platform used to process customer sales, manage products, record transactions and maintain business information. More comprehensive systems also provide inventory, customer and reporting functionality.",
       },
       {
-        q: "Can cafe POS track beans and milk?",
-        a: "The live page advertises automatic ingredient deductions. Verify recipes, unit conversions and stock adjustments.",
+        q: "What is the difference between a cafe POS and a regular POS?",
+        a: "A cafe POS system is designed to support cafe and coffee shop operations. A general POS system may serve multiple industries. The right choice depends on the product, inventory, billing and management workflows your business requires.",
       },
       {
-        q: "Does HulmPOS support barista printers or screens?",
-        a: "The live page describes barista routing; confirm device models and routing configuration.",
+        q: "How much does a coffee shop POS system cost?",
+        a: "The price depends on the software features, number of users and supported locations. HulmPOS starts at PKR 2,500 per month for one user and one branch. Growth costs PKR 5,500 per month, while Business costs PKR 11,000 per month.",
       },
       {
-        q: "Does HulmPOS support FBR integration?",
-        a: "FBR integration is described for eligible Pakistan deployments; confirm requirements for your registration.",
+        q: "Can I use HulmPOS for a small cafe?",
+        a: "Yes. HulmPOS offers a Starter subscription designed for small businesses with one user and one branch. It includes POS billing, cash management, basic inventory, customer records and sales reports.",
+      },
+      {
+        q: "Can a coffee shop POS system manage inventory?",
+        a: "Yes. HulmPOS includes inventory management to help coffee shop owners maintain product quantities and stock records. Purchasing and supplier workflows also help organize replenishment activities.",
+      },
+      {
+        q: "Can I manage multiple cafe branches with HulmPOS?",
+        a: "Yes. HulmPOS supports multi-branch management. The Growth plan supports two branches, while the Business plan supports five branches. Enterprise options are available for larger operations.",
+      },
+      {
+        q: "Does HulmPOS provide daily sales reports?",
+        a: "Yes. HulmPOS provides sales reports and transaction records that help cafe owners review business activity and monitor sales performance.",
+      },
+      {
+        q: "Can I manage customers through a cafe POS system?",
+        a: "Yes. HulmPOS includes customer management functionality for maintaining customer profiles and purchase information. CRM and loyalty capabilities are available through applicable subscription plans.",
+      },
+      {
+        q: "Is HulmPOS cloud-based?",
+        a: "Yes. HulmPOS is a cloud-based POS platform. Businesses can access supported business information through connected devices and locations using an internet connection.",
+      },
+      {
+        q: "Does HulmPOS support FBR integration for cafes in Pakistan?",
+        a: "HulmPOS provides FBR integration for eligible businesses in Pakistan. Requirements and configuration depend on your business and applicable FBR regulations. Contact the HulmPOS team to confirm your setup.",
         link: fbrLink,
+      },
+      {
+        q: "Is there a free trial of HulmPOS?",
+        a: "Yes. HulmPOS offers a 14-day free trial so you can explore its features before selecting a subscription. No credit card is required at signup.",
       },
     ],
   },

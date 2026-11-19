@@ -85,8 +85,8 @@ export const cityPages: Record<string, CityPage> = {
       "Restaurants and other service businesses in Karachi also deal with sales tax on services collected by the Sindh Revenue Board (SRB). Share your SRB registration details and the team reviews the invoice configuration with you during setup.",
     ],
     caseStudies: [
-      "implementing-a-pos-system-for-retail-the-laptop-store",
-      "real-tech-pos-system-karachi",
+      "pos-system-for-retail-the-laptop-store",
+      "pos-system-for-real-tech-store",
       "implementing-pos-systems-for-medical-euquipment-industry",
       "farhan-caterers-pos-karachi",
     ],

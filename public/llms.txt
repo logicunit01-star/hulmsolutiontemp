@@ -58,9 +58,9 @@ Primary use cases: retail POS, restaurant POS, pharmacy POS, cafe POS, bakery PO
 - [Cattle Management Software](https://hulmsolutions.com/cattle-management-software/): Hulm cattle management software for livestock tracking, farm operations, productivity, and business management.
 ## Case Studies
 - [POS Case Studies](https://hulmsolutions.com/pos-case-studies/): Hulm POS case study hub showing real business implementations and results.
-- [Real Tech System Case Study](https://hulmsolutions.com/pos-case-studies/real-tech-pos-system-karachi/): Case study showing how Hulm POS helped Real Tech System streamline sales, inventory tracking, tax compliance, and retail operations.
+- [Real Tech System Case Study](https://hulmsolutions.com/pos-case-studies/pos-system-for-real-tech-store/): Case study showing how Hulm POS helped Real Tech System streamline sales, inventory tracking, tax compliance, and retail operations.
 - [Elate CC Medical Equipment Case Study](https://hulmsolutions.com/pos-case-studies/medical-equipment-pos-elate-cc/): Case study showing Hulm POS implementation for Elate CC Pvt Ltd with invoicing, inventory, tax integration, and order management for medical equipment operations.
-- [The Laptop Store Case Study](https://hulmsolutions.com/pos-case-studies/implementing-a-pos-system-for-retail-the-laptop-store/): Case study showing how Hulm POS helped The Laptop Store improve retail transactions, inventory management, and tax compliance.
+- [The Laptop Store Case Study](https://hulmsolutions.com/pos-case-studies/pos-system-for-retail-the-laptop-store/): Case study showing how Hulm POS helped The Laptop Store improve retail transactions, inventory management, and tax compliance.
 - [Farhan Caterers Case Study](https://hulmsolutions.com/pos-case-studies/farhan-caterers-pos-karachi/): How a Karachi event caterer streamlined bookings and automated FBR tax filing with Hulm POS.
 - [Cupcake Queen Bakery Case Study](https://hulmsolutions.com/pos-case-studies/cupcake-queen-bakery-pos-qatar/): How a multi-branch Doha bakery unified custom orders and reduced stock waste with Hulm POS.
 ## Blog and Educational Resources

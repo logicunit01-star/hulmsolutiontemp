@@ -48,6 +48,7 @@ import { IndustryFeatures } from "@/components/industries/industry-features";
 import { industrySeo } from "@/content/pages/industrySeo";
 import { pageJsonLd, seoMetadata, softwareNode } from "@/lib/seo/page-seo";
 import { industryLinks, linksExcept } from "@/lib/seo/site-links";
+import { CafePageContent } from "@/components/industries/cafe-page";
 
 function getFeatureIcon(title: string) {
   const t = title.toLowerCase();
@@ -142,6 +143,35 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   const { industry } = await params;
+  if (industry === "cafe") {
+    return {
+      title: { absolute: "Cafe & Coffee Shop POS System | HulmPOS" },
+      description:
+        "Manage cafe sales, billing, inventory and customers with HulmPOS. The affordable coffee shop POS system starts at PKR 2,500/month. Try it free for 14 days.",
+      alternates: { canonical: "/industries/cafe/" },
+      openGraph: {
+        title: "Cafe & Coffee Shop POS System | HulmPOS",
+        description:
+          "Manage cafe sales, billing, inventory and customers with HulmPOS. The affordable coffee shop POS system starts at PKR 2,500/month. Try it free for 14 days.",
+        url: "/industries/cafe/",
+        images: [
+          {
+            url: "/images/industries/cafe.webp",
+            width: 1200,
+            height: 630,
+            alt: "Cafe & Coffee Shop POS System | HulmPOS",
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Cafe & Coffee Shop POS System | HulmPOS",
+        description:
+          "Manage cafe sales, billing, inventory and customers with HulmPOS. The affordable coffee shop POS system starts at PKR 2,500/month. Try it free for 14 days.",
+        images: ["/images/industries/cafe.webp"],
+      },
+    };
+  }
   const data = allIndustriesData[industry];
   if (!data) return { title: "Industry Not Found | Hulm Solutions" };
   // Live WordPress title + meta description (they carry the current rankings).
@@ -175,6 +205,9 @@ function SectionIntro({ eyebrow, heading, description, centered = false }: {
 
 export default async function IndustrySubpage({ params }: Props) {
   const { industry } = await params;
+  if (industry === "cafe") {
+    return <CafePageContent />;
+  }
   const data = allIndustriesData[industry];
 
   if (!data) notFound();

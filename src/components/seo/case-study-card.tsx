@@ -7,24 +7,24 @@ import { caseStudiesData } from "@/content/pages/caseStudiesData";
 
 /** Which customer story each industry / module page features (slugs from caseStudiesData). */
 export const caseStudyByRoute: Record<string, string> = {
-  "/industries/retail-store/": "implementing-a-pos-system-for-retail-the-laptop-store",
-  "/industries/electric-store/": "real-tech-pos-system-karachi",
+  "/industries/retail-store/": "pos-system-for-retail-the-laptop-store",
+  "/industries/electric-store/": "pos-system-for-real-tech-store",
   "/industries/clothing-store/": "khaas-pret-apparel-pos-lahore",
-  "/industries/toys-store/": "implementing-a-pos-system-for-retail-the-laptop-store",
-  "/industries/jewellery-shop/": "real-tech-pos-system-karachi",
-  "/industries/furniture-store/": "real-tech-pos-system-karachi",
+  "/industries/toys-store/": "pos-system-for-retail-the-laptop-store",
+  "/industries/jewellery-shop/": "pos-system-for-real-tech-store",
+  "/industries/furniture-store/": "pos-system-for-real-tech-store",
   "/industries/bakery-pos-system/": "cupcake-queen-bakery-pos-qatar",
   "/industries/cafe/": "roast-and-craft-specialty-coffee-pos-dubai",
   "/industries/restaurant-pos/": "farhan-caterers-pos-karachi",
   "/industries/pharmacy-store/": "careplus-pharmacy-pos-islamabad",
   "/industries/manufacturing-industries/": "implementing-pos-systems-for-medical-euquipment-industry",
-  "/inventory-management/": "real-tech-pos-system-karachi",
+  "/inventory-management/": "pos-system-for-real-tech-store",
   "/order-management/": "farhan-caterers-pos-karachi",
   "/purchase-orders/": "implementing-pos-systems-for-medical-euquipment-industry",
   "/vendors-management/": "implementing-pos-systems-for-medical-euquipment-industry",
   "/reporting-module/": "cupcake-queen-bakery-pos-qatar",
-  "/customer-management/": "implementing-a-pos-system-for-retail-the-laptop-store",
-  "/fbr-integrated-pos-pakistan/": "implementing-a-pos-system-for-retail-the-laptop-store",
+  "/customer-management/": "pos-system-for-retail-the-laptop-store",
+  "/fbr-integrated-pos-pakistan/": "pos-system-for-retail-the-laptop-store",
   "/pos-software-qatar/": "cupcake-queen-bakery-pos-qatar",
 };
 

@@ -1109,7 +1109,7 @@ For established operations requiring additional users and branches, accounting d
     <li>Microsoft &ndash; Excel Specifications and Limits</li>
     <li>HulmPOS &ndash; <a href="/features/" class="text-[#167c70] underline">Retail POS Features</a></li>
     <li>HulmPOS &ndash; <a href="/pricing/" class="text-[#167c70] underline">Pricing</a></li>
-    <li>HulmPOS &ndash; <a href="/pos-case-studies/implementing-a-pos-system-for-retail-the-laptop-store/" class="text-[#167c70] underline">Retail POS Implementation Case Study: The Laptop Store</a></li>
+    <li>HulmPOS &ndash; <a href="/pos-case-studies/pos-system-for-retail-the-laptop-store/" class="text-[#167c70] underline">Retail POS Implementation Case Study: The Laptop Store</a></li>
   </ul>
 </div>`
 };

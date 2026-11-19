@@ -56,9 +56,9 @@ Order = commercial value × current risk. The figures come from `page-comparison
 | 48 | `/pos-case-studies/` | ❌ | ❌ | 205→1283 (526%) | 0 | ⬜ | ⬜ | ⬜ |
 | 49 | `/pos-case-studies/cupcake-queen-bakery-pos-qatar/` | ✅ | ❌ | 843→1229 (46%) | 4 | ⬜ | ⬜ | ⬜ |
 | 50 | `/pos-case-studies/farhan-caterers-pos-karachi/` | ✅ | ❌ | 771→1221 (58%) | 4 | ⬜ | ⬜ | ⬜ |
-| 51 | `/pos-case-studies/implementing-a-pos-system-for-retail-the-laptop-store/` | ✅ | ❌ | 729→1292 (77%) | 4 | ⬜ | ⬜ | ⬜ |
+| 51 | `/pos-case-studies/pos-system-for-retail-the-laptop-store/` | ✅ | ❌ | 729→1292 (77%) | 4 | ⬜ | ⬜ | ⬜ |
 | 52 | `/pos-case-studies/implementing-pos-systems-for-medical-euquipment-industry/` | ✅ | ❌ | 635→1203 (89%) | 5 | ⬜ | ⬜ | ⬜ |
-| 53 | `/pos-case-studies/real-tech-pos-system-karachi/` | ✅ | ❌ | 642→1189 (85%) | 3 | ⬜ | ⬜ | ⬜ |
+| 53 | `/pos-case-studies/pos-system-for-real-tech-store/` | ✅ | ❌ | 642→1189 (85%) | 3 | ⬜ | ⬜ | ⬜ |
 | 54 | `/about/` | ❌ | ❌ | 874→1016 (16%) | 0 | ⬜ | ⬜ | ⬜ |
 | 55 | `/contact/` | ❌ | ✅ | 76→648 (753%) | 0 | ⬜ | ⬜ | ⬜ |
 | 56 | `/author/` | ✅ | ✅ | 517→517 (0%) | 0 | ⬜ | ⬜ | ⬜ |

@@ -77,8 +77,12 @@ export default async function SingleInsightPage({ params }: Props) {
       'href="/'
     )
     .replace(
-      /href="\/pos-case-studies\/laptop-store-pos-system-karachi\/?"/g,
-      'href="/pos-case-studies/implementing-a-pos-system-for-retail-the-laptop-store/"'
+      /href="\/pos-case-studies\/(?:laptop-store-pos-system-karachi|implementing-a-pos-system-for-retail-the-laptop-store)\/?"/g,
+      'href="/pos-case-studies/pos-system-for-retail-the-laptop-store/"'
+    )
+    .replace(
+      /href="\/pos-case-studies\/(?:real-tech-pos-system-karachi|implementing-pos-systems-for-real-tech-system)\/?"/g,
+      'href="/pos-case-studies/pos-system-for-real-tech-store/"'
     )
     .replace(/href="\/industries\/restaurant\/?"/g, 'href="/industries/restaurant-pos/"')
     .replace(/href="(\/(?!\/)[^"#?]+)"/g, (match, path: string) =>

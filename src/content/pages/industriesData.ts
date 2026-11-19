@@ -14,6 +14,7 @@ export interface ProblemSolution {
   imageAlt?: string;
   ctaText?: string;
   ctaLink?: string;
+  benefit?: string;
 }
 
 export interface FeatureItem {

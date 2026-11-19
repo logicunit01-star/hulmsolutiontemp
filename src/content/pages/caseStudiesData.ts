@@ -44,7 +44,7 @@ export type CaseStudy = {
 export const caseStudiesData: CaseStudy[] = [
   {
     id: "the-laptop-store",
-    slug: "implementing-a-pos-system-for-retail-the-laptop-store",
+    slug: "pos-system-for-retail-the-laptop-store",
     title: "Retail POS Systems for The Laptop Store",
     metaTitle: "Implementation Hulm POS System for Retail: The Laptop Store",
     metaDescription: "Explore how POS System for retail transformed operations. Learn how efficient transactions, inventory management and tax compliance drove growth with Hulm POS.",
@@ -120,7 +120,7 @@ export const caseStudiesData: CaseStudy[] = [
   },
   {
     id: "real-tech-system",
-    slug: "real-tech-pos-system-karachi",
+    slug: "pos-system-for-real-tech-store",
     title: "Retail POS Systems for Real Tech System",
     metaTitle: "Real Tech System POS Case Study: Retail POS in Karachi",
     metaDescription: "Real Tech System reduced warranty-claim handling time and automated FBR filing with Hulm POS. Read the full Karachi computer retail case study.",

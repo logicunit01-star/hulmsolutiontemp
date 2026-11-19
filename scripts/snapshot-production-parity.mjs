@@ -56,7 +56,10 @@ function rewriteInternalUrl(value) {
       ["/author/hulm-editorial-team/", "/author/"],
       ["/author/hulm-team/", "/author/"],
       ["/author/hulm-solutions-editorial-team/", "/author/"],
-      ["/pos-case-studies/laptop-store-pos-system-karachi/", "/pos-case-studies/implementing-a-pos-system-for-retail-the-laptop-store/"],
+      ["/pos-case-studies/laptop-store-pos-system-karachi/", "/pos-case-studies/pos-system-for-retail-the-laptop-store/"],
+      ["/pos-case-studies/implementing-a-pos-system-for-retail-the-laptop-store/", "/pos-case-studies/pos-system-for-retail-the-laptop-store/"],
+      ["/pos-case-studies/real-tech-pos-system-karachi/", "/pos-case-studies/pos-system-for-real-tech-store/"],
+      ["/pos-case-studies/implementing-pos-systems-for-real-tech-system/", "/pos-case-studies/pos-system-for-real-tech-store/"],
     ]);
     return `${canonicalAliases.get(cleanPath) || cleanPath}${url.search}${url.hash}`;
   } catch {

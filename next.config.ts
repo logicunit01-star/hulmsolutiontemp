@@ -51,7 +51,17 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/pos-case-studies/laptop-store-pos-system-karachi',
-        destination: '/pos-case-studies/implementing-a-pos-system-for-retail-the-laptop-store/',
+        destination: '/pos-case-studies/pos-system-for-retail-the-laptop-store/',
+        permanent: true,
+      },
+      {
+        source: '/pos-case-studies/implementing-a-pos-system-for-retail-the-laptop-store',
+        destination: '/pos-case-studies/pos-system-for-retail-the-laptop-store/',
+        permanent: true,
+      },
+      {
+        source: '/pos-case-studies/real-tech-pos-system-karachi',
+        destination: '/pos-case-studies/pos-system-for-real-tech-store/',
         permanent: true,
       },
       {
@@ -127,7 +137,7 @@ const nextConfig: NextConfig = {
       { source: '/home', destination: '/', permanent: true },
       {
         source: '/pos-case-studies/implementing-pos-systems-for-real-tech-system',
-        destination: '/pos-case-studies/real-tech-pos-system-karachi/',
+        destination: '/pos-case-studies/pos-system-for-real-tech-store/',
         permanent: true,
       },
     ];

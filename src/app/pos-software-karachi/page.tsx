@@ -1523,7 +1523,7 @@ export default function KarachiPosPage() {
                     </div>
                     <div>
                       <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-400">
-                        WhatsApp &amp; Phone Support
+                        WhatsApp Support
                       </span>
                       <p className="text-sm sm:text-base font-bold text-[#0F2A26] group-hover:text-[#167c70] transition-colors">
                         +92 339 111 9259

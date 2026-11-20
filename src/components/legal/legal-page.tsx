@@ -83,7 +83,7 @@ export function LegalPage({
                 Email: <Link className="font-semibold text-[#167c70] hover:underline" href="mailto:info@hulmsolutions.com">info@hulmsolutions.com</Link>
               </p>
               <p>
-                Phone: <Link className="font-semibold text-[#167c70] hover:underline" href="https://wa.me/923391119259">+92 339 111 9259</Link>
+                WhatsApp: <Link className="font-semibold text-[#167c70] hover:underline" href="https://wa.me/923391119259">+92 339 111 9259</Link>
               </p>
             </address>
             <p className="mt-6 border-t border-[#E4E2DA] pt-4 text-zinc-500">

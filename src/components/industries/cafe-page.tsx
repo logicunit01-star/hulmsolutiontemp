@@ -26,7 +26,6 @@ import {
   Layers,
   LayoutDashboard,
   Mail,
-  Phone,
   Play,
   Printer,
   Receipt,
@@ -43,13 +42,14 @@ import {
 } from "lucide-react";
 
 import { FaqDetails, type FaqDetailsItem } from "@/components/seo/faq-details";
+import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
 import { JsonLd } from "@/components/seo/json-ld";
 import { LinkChips } from "@/components/seo/link-chips";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { TrustedBy } from "@/components/home/trusted-by";
-import { DashboardCarousel } from "@/components/home/DashboardCarousel";
+import { ImageZoom } from "@/components/ui/image-zoom";
 import { GoogleReviewsSection } from "@/components/home/GoogleReviewsSection";
 import { homeContent } from "@content/pages/home";
 import { cityLinks } from "@/content/pages/citySeo";
@@ -1074,7 +1074,7 @@ export function CafePageContent() {
         </Container>
       </Section>
 
-      {/* Product Screen Carousel (Homepage Feature) */}
+      {/* Product Screen Overview Diagram */}
       <Section data-reveal className="bg-white py-10 sm:py-16">
         <Container>
           <div className="mx-auto mb-6 sm:mb-8 max-w-3xl text-center">
@@ -1089,8 +1089,71 @@ export function CafePageContent() {
               Real screens from HulmPOS. Your setup is configured around your coffee drinks, food catalogue, branches and team.
             </p>
           </div>
-          <div className="mt-6 sm:mt-8">
-            <DashboardCarousel screens={homeContent.product.screens} />
+          <div className="mt-6 sm:mt-8 max-w-5xl mx-auto">
+            <div className="relative w-full overflow-hidden flex flex-col items-center justify-center bg-transparent">
+              <ImageZoom
+                src="/images/home/dashboard/cafe-pos-overview-diagram.webp"
+                alt="Hulm Cafe & Coffee Shop POS software workspace diagram with callouts for dashboard, menu filters, checkout, cart and navigation"
+                width={1024}
+                height={639}
+                zoomScale={2.4}
+                priority={true}
+                loading="eager"
+                sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 64px), 1024px"
+                className="[image-rendering:-webkit-optimize-contrast] rounded-2xl border border-[#E4E2DA] shadow-xl"
+                containerClassName="w-full"
+                showHint={true}
+                allowFullscreen={true}
+              />
+
+              {/* Callout details matching homepage dashboard tabs architecture */}
+              <div className="w-full mt-6 sm:mt-8 rounded-2xl border border-zinc-200/80 bg-[#FAF9F5] p-5 sm:p-7 md:p-8">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-zinc-200/80 pb-4">
+                  <div className="inline-flex items-center gap-2">
+                    <span className="inline-flex items-center rounded-md bg-[#167c70]/10 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-[#167c70]">
+                      Cafe Edition
+                    </span>
+                    <span className="hidden sm:inline-block text-xs font-medium text-zinc-500">
+                      • High-Speed Cashier Terminal & Coffee Menu Workflow
+                    </span>
+                  </div>
+                  <Link
+                    href="https://app.hulmsolutions.com/Register"
+                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#167c70] hover:text-[#0F2A26] transition-colors shrink-0 group"
+                  >
+                    <span>Start 14-day free trial</span>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
+
+                <p className="mt-4 text-sm sm:text-base font-medium text-zinc-800 leading-relaxed">
+                  Fast counter billing, dine-in & takeaway tabs, drink modifier customizations, automated bean & milk inventory depletion, and shift cash drawer balance.
+                </p>
+
+                <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3">
+                  {[
+                    "1. Dashboard & Quick Stats",
+                    "2. Full Module Navigation",
+                    "3. Admin & User Roles",
+                    "4. Menu Category Filters",
+                    "5. Cloud Sync & Settings",
+                    "6. Order Cart & Modifiers",
+                    "8. Fast Checkout & Receipts",
+                    "Dine-in, Takeaway & Delivery",
+                  ].map((bullet, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-2 text-xs sm:text-sm text-zinc-700 font-medium"
+                    >
+                      <span className="flex-shrink-0 w-4 h-4 rounded-full bg-[#167c70]/10 flex items-center justify-center text-[#167c70]">
+                        <Check className="w-2.5 h-2.5 stroke-[3]" />
+                      </span>
+                      <span>{bullet}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </Container>
       </Section>
@@ -2154,7 +2217,7 @@ export function CafePageContent() {
                     </Link>
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <Phone className="h-3.5 w-3.5 text-[#7AE582]" />
+                    <WhatsAppIcon size={14} className="h-3.5 w-3.5 text-[#7AE582]" />
                     WhatsApp:{" "}
                     <a href="https://wa.me/923391119259" target="_blank" rel="noreferrer" className="text-[#7AE582] hover:underline font-semibold">
                       +92 339 111 9259

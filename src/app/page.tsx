@@ -114,7 +114,7 @@ export default function HomePage() {
         <Container className="relative grid items-center gap-y-6 lg:gap-y-0 lg:grid-cols-12 lg:gap-8 xl:gap-12">
           {/* 1. Headline & Description */}
           <div className="max-w-2xl lg:col-span-5 lg:col-start-1 lg:row-start-1 flex flex-col justify-end lg:pb-2">
-            <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[38px] xl:text-[42px]">
+            <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[48px] lg:leading-[1.15]">
               {homeContent.hero.headline.replace(/every branch$/, "")}
               <span className="mark-lime">every branch</span>
             </h1>
@@ -152,14 +152,24 @@ export default function HomePage() {
               </Button>
             </div>
 
-            <ul className="mt-5 flex flex-col gap-2.5 text-sm font-medium text-zinc-600 sm:flex-row sm:flex-wrap sm:gap-x-5">
-              {homeContent.hero.proof.map((item) => (
-                <li key={item} className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-[#167c70]" />
-                  {item}
-                </li>
-              ))}
-            </ul>
+            <div className="mt-5 space-y-2 text-sm font-medium text-zinc-600">
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                {homeContent.hero.proof.slice(0, 2).map((item) => (
+                  <span key={item} className="inline-flex items-center gap-2 whitespace-nowrap">
+                    <CheckCircle2 className="h-4 w-4 text-[#167c70] shrink-0" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                {homeContent.hero.proof.slice(2).map((item) => (
+                  <span key={item} className="inline-flex items-center gap-2 whitespace-nowrap">
+                    <CheckCircle2 className="h-4 w-4 text-[#167c70] shrink-0" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </Container>
       </section>

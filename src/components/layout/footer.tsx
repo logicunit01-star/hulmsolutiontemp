@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { LogoLockup } from "@/components/layout/logo"
-import { ArrowRight, ArrowUpRight, Mail, MapPin, Phone } from "lucide-react"
+import { ArrowRight, ArrowUpRight, Mail, MapPin } from "lucide-react"
 import { WhatsAppIcon } from "@/components/ui/whatsapp-icon"
 import { Container } from "@/components/ui/container"
 import { REGIONAL_LOCATIONS } from "@/lib/countries/data"
@@ -9,7 +9,6 @@ import { EmailPrivacyLink } from "@/components/ui/email-privacy-link"
 
 const productLinks = [
   { title: "Product overview", href: "/apps/" },
-  { title: "POS & Billing", href: "/features/" },
   { title: "Mobile POS", href: "/mobile-pos/" },
   { title: "Inventory Management", href: "/inventory-management/" },
   { title: "Purchase Orders", href: "/purchase-orders/" },
@@ -106,10 +105,6 @@ export function Footer() {
                 <MapPin className="mt-1 h-4 w-4 shrink-0 text-[#25a18e]" aria-hidden="true" />
                 <span>{contactInfo.address.display}</span>
               </div>
-              <a href={`tel:${contactInfo.phoneE164}`} className="inline-flex items-center gap-2 text-slate-300 transition-colors hover:text-[#7ae582]">
-                <Phone className="h-4 w-4 text-[#25a18e]" aria-hidden="true" />
-                {contactInfo.phoneDisplay}
-              </a>
               <a href={`https://wa.me/${contactInfo.whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-slate-300 transition-colors hover:text-[#7ae582]">
                 <WhatsAppIcon size={16} className="h-4 w-4" aria-hidden="true" />
                 WhatsApp: {contactInfo.phoneDisplay}

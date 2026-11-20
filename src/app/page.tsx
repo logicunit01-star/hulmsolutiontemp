@@ -107,13 +107,56 @@ function SectionIntro({
 }
 
 export default function HomePage() {
+  const heroCta = (
+    <div>
+      <div className="flex flex-col gap-3 sm:flex-row">
+        <Button asChild size="lg" className="w-full sm:w-auto">
+          <Link href={homeContent.hero.primaryCta.href} target="_blank" rel="noreferrer">
+            {homeContent.hero.primaryCta.label}
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
+        <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
+          <a
+            href={homeContent.hero.secondaryCta.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2"
+          >
+            <Play className="h-4 w-4 fill-current text-[#167c70]" />
+            <span>{homeContent.hero.secondaryCta.label}</span>
+          </a>
+        </Button>
+      </div>
+
+      <div className="mt-5 space-y-2 text-sm font-medium text-zinc-600">
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+          {homeContent.hero.proof.slice(0, 2).map((item) => (
+            <span key={item} className="inline-flex items-center gap-2 whitespace-nowrap">
+              <CheckCircle2 className="h-4 w-4 text-[#167c70] shrink-0" />
+              {item}
+            </span>
+          ))}
+        </div>
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+          {homeContent.hero.proof.slice(2).map((item) => (
+            <span key={item} className="inline-flex items-center gap-2 whitespace-nowrap">
+              <CheckCircle2 className="h-4 w-4 text-[#167c70] shrink-0" />
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <div className="relative overflow-hidden bg-white">
       <section className="relative overflow-hidden border-b border-zinc-200/70 bg-white pt-12 pb-14 sm:pt-16 sm:pb-16 lg:pt-20 lg:pb-24">
         <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
         <Container className="relative grid items-center gap-y-6 lg:gap-y-0 lg:grid-cols-12 lg:gap-8 xl:gap-12">
-          {/* 1. Headline & Description */}
-          <div className="max-w-2xl lg:col-span-5 lg:col-start-1 lg:row-start-1 flex flex-col justify-end lg:pb-2">
+          {/* 1. Left Column (Headline, Description, Desktop CTA & Proof) */}
+          <div className="max-w-2xl lg:col-span-5 flex flex-col justify-center">
             <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[48px] lg:leading-[1.15]">
               {homeContent.hero.headline.replace(/every branch$/, "")}
               <span className="mark-lime">every branch</span>
@@ -121,55 +164,23 @@ export default function HomePage() {
             <p className="mt-5 sm:mt-6 max-w-xl text-sm sm:text-base lg:text-[17px] leading-relaxed sm:leading-7 text-zinc-600">
               {homeContent.hero.description}
             </p>
+
+            {/* Desktop CTA & Proof */}
+            <div className="mt-6 sm:mt-7 hidden lg:block">
+              {heroCta}
+            </div>
           </div>
 
           {/* 2. Unified Showcase Video */}
-          <div className="relative w-full mx-auto my-2 lg:my-0 lg:col-span-7 lg:col-start-6 lg:row-start-1 lg:row-span-2 flex items-center justify-center">
+          <div className="relative w-full mx-auto my-2 lg:my-0 lg:col-span-7 flex items-center justify-center">
             <div className="relative w-full aspect-[1400/1060] overflow-hidden rounded-xl sm:rounded-2xl border border-transparent bg-transparent p-0 shadow-none flex items-center justify-center">
               <HeroVideo />
             </div>
           </div>
 
-          {/* 3. CTA Buttons & Proof Bullets (Rendered once: below video on mobile, below description on desktop) */}
-          <div className="max-w-2xl lg:col-span-5 lg:col-start-1 lg:row-start-2 lg:self-start lg:pt-2">
-            <div className="mt-2 sm:mt-4 lg:mt-0 flex flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg" className="w-full sm:w-auto">
-                <Link href={homeContent.hero.primaryCta.href} target="_blank" rel="noreferrer">
-                  {homeContent.hero.primaryCta.label}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
-                <a
-                  href={homeContent.hero.secondaryCta.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2"
-                >
-                  <Play className="h-4 w-4 fill-current text-[#167c70]" />
-                  <span>{homeContent.hero.secondaryCta.label}</span>
-                </a>
-              </Button>
-            </div>
-
-            <div className="mt-5 space-y-2 text-sm font-medium text-zinc-600">
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-                {homeContent.hero.proof.slice(0, 2).map((item) => (
-                  <span key={item} className="inline-flex items-center gap-2 whitespace-nowrap">
-                    <CheckCircle2 className="h-4 w-4 text-[#167c70] shrink-0" />
-                    {item}
-                  </span>
-                ))}
-              </div>
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-                {homeContent.hero.proof.slice(2).map((item) => (
-                  <span key={item} className="inline-flex items-center gap-2 whitespace-nowrap">
-                    <CheckCircle2 className="h-4 w-4 text-[#167c70] shrink-0" />
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
+          {/* 3. Mobile CTA & Proof (< lg only) */}
+          <div className="max-w-2xl lg:hidden mt-2 sm:mt-4">
+            {heroCta}
           </div>
         </Container>
       </section>

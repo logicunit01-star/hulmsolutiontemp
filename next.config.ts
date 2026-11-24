@@ -30,6 +30,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/blogs/track-cash-card-bank-transfer-payments',
+        destination: '/blog/track-cash-card-bank-transfer-payments/',
+        permanent: true,
+      },
+      {
         source: '/blog/how-to-manage-multiple-retail-branches-without-separate-spreadsheets',
         destination: '/blog/manage-multiple-retail-branches/',
         permanent: true,

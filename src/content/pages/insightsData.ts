@@ -14,6 +14,19 @@ export type Insight = {
 
 export const insightsData: Insight[] = [
   {
+    id: "track-cash-card-bank-transfer-payments",
+    title: "Customers Are Paying by Cash, Card and Bank Transfer. How Do You Track Everything?",
+    slug: "track-cash-card-bank-transfer-payments",
+    excerpt: "Learn how to track cash, card and bank transfer payments, reconcile daily sales and manage every payment method using POS software.",
+    category: "Retail Operations",
+    date: "2026-11-24",
+    readTime: "9 min read",
+    author: "Aamir Khan",
+    authorSlug: "aamir-khan",
+    imageUrl: "/images/uploads/2026/11/track-cash-card-bank-transfer-payments.webp",
+    content: ""
+  },
+  {
     id: "cash-drawer-management-start-end-day",
     title: "Cash Drawer Shortages? See How HulmPOS Helps You Track Cash from Start Day to End Day",
     slug: "cash-drawer-management-start-end-day",

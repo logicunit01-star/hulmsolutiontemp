@@ -472,6 +472,227 @@ export function BlogCalculatorEnhancer() {
 
       updateDenominations();
     }
+
+    // =========================================================================
+    // 6. Payment Breakdown & Daily Reconciliation Calculator
+    // =========================================================================
+    const payReconcile = document.querySelector<HTMLElement>(".payment-reconciliation-calculator-widget");
+    if (payReconcile && payReconcile.dataset.payEnhanced !== "true") {
+      payReconcile.dataset.payEnhanced = "true";
+      const widget = payReconcile;
+
+      const inCash = widget.querySelector<HTMLInputElement>("#pay-calc-cash");
+      const inCard = widget.querySelector<HTMLInputElement>("#pay-calc-card");
+      const inBank = widget.querySelector<HTMLInputElement>("#pay-calc-bank");
+      const inTotalBill = widget.querySelector<HTMLInputElement>("#pay-calc-total-bill");
+
+      const outTotalPaid = widget.querySelector<HTMLElement>("#pay-calc-out-total-paid");
+      const outTotalBill = widget.querySelector<HTMLElement>("#pay-calc-out-total-bill");
+      const outDiff = widget.querySelector<HTMLElement>("#pay-calc-out-diff");
+      const outDiffContainer = widget.querySelector<HTMLElement>("#pay-calc-diff-container");
+      const outBadge = widget.querySelector<HTMLElement>("#pay-calc-out-badge");
+      const outAnalysis = widget.querySelector<HTMLElement>("#pay-calc-out-analysis");
+
+      const barCash = widget.querySelector<HTMLElement>("#pay-calc-bar-cash");
+      const barCard = widget.querySelector<HTMLElement>("#pay-calc-bar-card");
+      const barBank = widget.querySelector<HTMLElement>("#pay-calc-bar-bank");
+      const txtCashPct = widget.querySelector<HTMLElement>("#pay-calc-pct-cash");
+      const txtCardPct = widget.querySelector<HTMLElement>("#pay-calc-pct-card");
+      const txtBankPct = widget.querySelector<HTMLElement>("#pay-calc-pct-bank");
+
+      const presetBtn = widget.querySelector<HTMLButtonElement>("#pay-calc-preset-btn");
+      const clearBtn = widget.querySelector<HTMLButtonElement>("#pay-calc-clear-btn");
+
+      function calculatePaymentReconciliation() {
+        const cash = Math.max(0, parseFloat(inCash?.value || "0") || 0);
+        const card = Math.max(0, parseFloat(inCard?.value || "0") || 0);
+        const bank = Math.max(0, parseFloat(inBank?.value || "0") || 0);
+        const bill = Math.max(0, parseFloat(inTotalBill?.value || "0") || 0);
+
+        const totalPaid = cash + card + bank;
+        const diff = totalPaid - bill;
+
+        if (outTotalPaid) outTotalPaid.textContent = `Rs. ${Math.round(totalPaid).toLocaleString()}`;
+        if (outTotalBill) outTotalBill.textContent = `Rs. ${Math.round(bill).toLocaleString()}`;
+
+        // Percentage calculations
+        if (totalPaid > 0) {
+          const pctCash = ((cash / totalPaid) * 100).toFixed(1);
+          const pctCard = ((card / totalPaid) * 100).toFixed(1);
+          const pctBank = ((bank / totalPaid) * 100).toFixed(1);
+
+          if (txtCashPct) txtCashPct.textContent = `${pctCash}% (Rs. ${Math.round(cash).toLocaleString()})`;
+          if (txtCardPct) txtCardPct.textContent = `${pctCard}% (Rs. ${Math.round(card).toLocaleString()})`;
+          if (txtBankPct) txtBankPct.textContent = `${pctBank}% (Rs. ${Math.round(bank).toLocaleString()})`;
+
+          if (barCash) barCash.style.width = `${pctCash}%`;
+          if (barCard) barCard.style.width = `${pctCard}%`;
+          if (barBank) barBank.style.width = `${pctBank}%`;
+        } else {
+          if (txtCashPct) txtCashPct.textContent = `0%`;
+          if (txtCardPct) txtCardPct.textContent = `0%`;
+          if (txtBankPct) txtBankPct.textContent = `0%`;
+          if (barCash) barCash.style.width = `0%`;
+          if (barCard) barCard.style.width = `0%`;
+          if (barBank) barBank.style.width = `0%`;
+        }
+
+        if (outDiff && outDiffContainer && outBadge && outAnalysis) {
+          if (Math.abs(diff) < 0.01) {
+            // Balanced
+            outDiff.textContent = "Rs. 0 (Fully Reconciled)";
+            outDiff.className = "text-2xl sm:text-3xl font-extrabold text-emerald-700 font-mono";
+            outDiffContainer.className = "p-4 sm:p-5 rounded-2xl border-2 border-emerald-300 bg-emerald-50/80 transition-all";
+            outBadge.textContent = "Payments Match Total Sales Perfectly";
+            outBadge.className = "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-200 text-emerald-900 border border-emerald-300";
+            outAnalysis.innerHTML = `
+              <p class="font-semibold text-emerald-900 text-sm m-0">All payment channels add up exactly to Rs. ${Math.round(bill).toLocaleString()}.</p>
+              <p class="text-xs text-emerald-800 leading-relaxed font-normal mt-1 m-0">
+                Next steps: (1) Verify physical drawer has Rs. ${Math.round(cash).toLocaleString()} plus opening float. (2) Match Rs. ${Math.round(card).toLocaleString()} with POS card terminal batch slips. (3) Verify Rs. ${Math.round(bank).toLocaleString()} in actual bank credits.
+              </p>
+            `;
+          } else if (diff < 0) {
+            // Shortfall
+            const missing = Math.abs(diff);
+            outDiff.textContent = `- Rs. ${Math.round(missing).toLocaleString()} (Uncollected / Unrecorded)`;
+            outDiff.className = "text-2xl sm:text-3xl font-extrabold text-rose-700 font-mono";
+            outDiffContainer.className = "p-4 sm:p-5 rounded-2xl border-2 border-rose-300 bg-rose-50/80 transition-all";
+            outBadge.textContent = "Payment Shortfall Detected";
+            outBadge.className = "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-rose-200 text-rose-900 border border-rose-300";
+            outAnalysis.innerHTML = `
+              <p class="font-semibold text-rose-900 text-sm m-0">Recorded payments are Rs. ${Math.round(missing).toLocaleString()} less than total sales.</p>
+              <p class="text-xs text-rose-800 leading-relaxed font-normal mt-1 m-0">
+                Action required: Check if a sale was rung up on credit (Khata), if an unrecorded discount was given, or if a cashier forgot to enter a portion of a split payment.
+              </p>
+            `;
+          } else {
+            // Excess
+            outDiff.textContent = `+ Rs. ${Math.round(diff).toLocaleString()} (Surplus Payments)`;
+            outDiff.className = "text-2xl sm:text-3xl font-extrabold text-blue-700 font-mono";
+            outDiffContainer.className = "p-4 sm:p-5 rounded-2xl border-2 border-blue-300 bg-blue-50/80 transition-all";
+            outBadge.textContent = "Payments Exceed Recorded Sales";
+            outBadge.className = "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-blue-200 text-blue-900 border border-blue-300";
+            outAnalysis.innerHTML = `
+              <p class="font-semibold text-blue-900 text-sm m-0">Tendered payments exceed total sales by Rs. ${Math.round(diff).toLocaleString()}.</p>
+              <p class="text-xs text-blue-800 leading-relaxed font-normal mt-1 m-0">
+                Action required: Check if a transaction was double-counted, or if extra customer change was kept, or if an unrecorded transaction occurred.
+              </p>
+            `;
+          }
+        }
+      }
+
+      [inCash, inCard, inBank, inTotalBill].forEach((el) => {
+        el?.addEventListener("input", calculatePaymentReconciliation);
+      });
+
+      presetBtn?.addEventListener("click", () => {
+        if (inCash) inCash.value = "12500";
+        if (inCard) inCard.value = "8200";
+        if (inBank) inBank.value = "6300";
+        if (inTotalBill) inTotalBill.value = "27000";
+        calculatePaymentReconciliation();
+      });
+
+      clearBtn?.addEventListener("click", () => {
+        if (inCash) inCash.value = "0";
+        if (inCard) inCard.value = "0";
+        if (inBank) inBank.value = "0";
+        if (inTotalBill) inTotalBill.value = "0";
+        calculatePaymentReconciliation();
+      });
+
+      calculatePaymentReconciliation();
+    }
+
+    // =========================================================================
+    // 7. Split Payment Tender Splitter Tool
+    // =========================================================================
+    const splitWidget = document.querySelector<HTMLElement>(".split-payment-calculator-widget");
+    if (splitWidget && splitWidget.dataset.splitEnhanced !== "true") {
+      splitWidget.dataset.splitEnhanced = "true";
+      const widget = splitWidget;
+
+      const inBill = widget.querySelector<HTMLInputElement>("#split-bill-total");
+      const inCash = widget.querySelector<HTMLInputElement>("#split-tender-cash");
+      const inCard = widget.querySelector<HTMLInputElement>("#split-tender-card");
+      const inBank = widget.querySelector<HTMLInputElement>("#split-tender-bank");
+
+      const outPaid = widget.querySelector<HTMLElement>("#split-out-total-paid");
+      const outRemaining = widget.querySelector<HTMLElement>("#split-out-remaining");
+      const outBadge = widget.querySelector<HTMLElement>("#split-out-badge");
+      const outStatusText = widget.querySelector<HTMLElement>("#split-out-status-text");
+      const outBox = widget.querySelector<HTMLElement>("#split-out-box");
+
+      const preset15k = widget.querySelector<HTMLButtonElement>("#split-preset-15k");
+      const preset50k = widget.querySelector<HTMLButtonElement>("#split-preset-50k");
+
+      function updateSplitTender() {
+        const bill = Math.max(0, parseFloat(inBill?.value || "0") || 0);
+        const cash = Math.max(0, parseFloat(inCash?.value || "0") || 0);
+        const card = Math.max(0, parseFloat(inCard?.value || "0") || 0);
+        const bank = Math.max(0, parseFloat(inBank?.value || "0") || 0);
+
+        const totalPaid = cash + card + bank;
+        const diff = bill - totalPaid;
+
+        if (outPaid) outPaid.textContent = `Rs. ${Math.round(totalPaid).toLocaleString()}`;
+
+        if (outRemaining && outBadge && outStatusText && outBox) {
+          if (bill === 0 && totalPaid === 0) {
+            outRemaining.textContent = "Rs. 0";
+            outBadge.textContent = "Enter Bill Amount";
+            outBadge.className = "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-zinc-200 text-zinc-800";
+            outStatusText.textContent = "Enter bill and customer payment allocations above.";
+            outBox.className = "p-4 sm:p-5 rounded-2xl border border-zinc-200 bg-white transition-all";
+          } else if (Math.abs(diff) < 0.01) {
+            outRemaining.textContent = "Rs. 0 (Fully Paid)";
+            outRemaining.className = "text-2xl sm:text-3xl font-extrabold text-emerald-700 font-mono";
+            outBadge.textContent = "Split Payment Complete & Balanced";
+            outBadge.className = "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-200 text-emerald-900 border border-emerald-300";
+            outStatusText.innerHTML = `Customer has completely settled the Rs. ${Math.round(bill).toLocaleString()} bill using 3 separate payment channels. The cashier can finalize checkout and issue the receipt.`;
+            outBox.className = "p-4 sm:p-5 rounded-2xl border-2 border-emerald-300 bg-emerald-50/80 transition-all";
+          } else if (diff > 0) {
+            outRemaining.textContent = `Rs. ${Math.round(diff).toLocaleString()} Still Due`;
+            outRemaining.className = "text-2xl sm:text-3xl font-extrabold text-amber-700 font-mono";
+            outBadge.textContent = "Partial Payment (Amount Due)";
+            outBadge.className = "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-amber-200 text-amber-900 border border-amber-300";
+            outStatusText.innerHTML = `Customer still owes <strong>Rs. ${Math.round(diff).toLocaleString()}</strong> to complete this purchase. Collect remaining amount via cash, card, or bank transfer before completing checkout.`;
+            outBox.className = "p-4 sm:p-5 rounded-2xl border-2 border-amber-300 bg-amber-50/80 transition-all";
+          } else {
+            const change = Math.abs(diff);
+            outRemaining.textContent = `Rs. ${Math.round(change).toLocaleString()} Change Due`;
+            outRemaining.className = "text-2xl sm:text-3xl font-extrabold text-blue-700 font-mono";
+            outBadge.textContent = "Overpayment / Return Cash Change";
+            outBadge.className = "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-blue-200 text-blue-900 border border-blue-300";
+            outStatusText.innerHTML = `Customer has overpaid by <strong>Rs. ${Math.round(change).toLocaleString()}</strong>. Cashier must return this change amount from the cash drawer.`;
+            outBox.className = "p-4 sm:p-5 rounded-2xl border-2 border-blue-300 bg-blue-50/80 transition-all";
+          }
+        }
+      }
+
+      [inBill, inCash, inCard, inBank].forEach((el) => {
+        el?.addEventListener("input", updateSplitTender);
+      });
+
+      preset15k?.addEventListener("click", () => {
+        if (inBill) inBill.value = "15000";
+        if (inCash) inCash.value = "5000";
+        if (inCard) inCard.value = "4000";
+        if (inBank) inBank.value = "6000";
+        updateSplitTender();
+      });
+
+      preset50k?.addEventListener("click", () => {
+        if (inBill) inBill.value = "50000";
+        if (inCash) inCash.value = "20000";
+        if (inCard) inCard.value = "15000";
+        if (inBank) inBank.value = "15000";
+        updateSplitTender();
+      });
+
+      updateSplitTender();
+    }
   }, []);
 
   return null;

@@ -10,6 +10,19 @@ export const EDITORIAL_AUTHOR: Author = {
 // Replace these with actual blog posts when provided by the user.
 export const blogPosts: BlogPost[] = [
   {
+    id: "track-cash-card-bank-transfer-payments",
+    slug: "track-cash-card-bank-transfer-payments",
+    title: "Customers Are Paying by Cash, Card and Bank Transfer. How Do You Track Everything?",
+    excerpt: "Learn how to track cash, card and bank transfer payments, reconcile daily sales and manage every payment method using POS software.",
+    featuredImage: {
+      src: "/images/uploads/2026/11/track-cash-card-bank-transfer-payments.webp",
+      alt: "Customers Paying by Cash, Card and Bank Transfer: How to Track Everything with POS Software"
+    },
+    authorId: "hulm-editorial-team",
+    publishedAt: "2026-11-24",
+    readingTime: "9 min read"
+  },
+  {
     id: "cash-drawer-management-start-end-day",
     slug: "cash-drawer-management-start-end-day",
     title: "Cash Drawer Shortages? See How HulmPOS Helps You Track Cash from Start Day to End Day",

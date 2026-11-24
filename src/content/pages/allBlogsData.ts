@@ -6,6 +6,7 @@ import { manageMultipleRetailBranchesBlog } from "@/content/pages/blogs/manage-m
 import { restaurantFoodCostCalculatorBlog } from "@/content/pages/blogs/restaurant-food-cost-calculator";
 import { cloudPosVsDesktopPosBlog } from "@/content/pages/blogs/cloud-pos-vs-desktop-pos";
 import { cashDrawerManagementStartEndDayBlog } from "@/content/pages/blogs/cash-drawer-management-start-end-day";
+import { trackCashCardBankTransferPaymentsBlog } from "@/content/pages/blogs/track-cash-card-bank-transfer-payments";
 
 export interface SingleBlogData {
   slug: string;
@@ -24,6 +25,7 @@ export interface SingleBlogData {
 }
 
 export const allBlogsData: Record<string, SingleBlogData> = {
+  "track-cash-card-bank-transfer-payments": trackCashCardBankTransferPaymentsBlog,
   "cash-drawer-management-start-end-day": cashDrawerManagementStartEndDayBlog,
   "cloud-pos-vs-desktop-pos": cloudPosVsDesktopPosBlog,
   "switch-pos-software-without-losing-data": switchPosSoftwareWithoutLosingDataBlog,

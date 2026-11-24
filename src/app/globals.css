@@ -792,32 +792,78 @@
   }
 
   .blog-content [class*="bg-[#0F2A26]"] p,
-  .blog-content [class*="bg-[#0f2a26]"] p {
+  .blog-content [class*="bg-[#0f2a26]"] p,
+  .blog-content [class*="from-[#0F2A26]"] p,
+  .blog-content [class*="from-[#0f2a26]"] p {
     color: rgba(255, 255, 255, 0.88) !important;
   }
 
   .blog-content [class*="bg-[#0F2A26]"] a.blog-cta-btn,
-  .blog-content [class*="bg-[#0f2a26]"] a.blog-cta-btn {
+  .blog-content [class*="bg-[#0f2a26]"] a.blog-cta-btn,
+  .blog-content [class*="from-[#0F2A26]"] a.blog-cta-btn,
+  .blog-content [class*="from-[#0f2a26]"] a.blog-cta-btn,
+  .blog-content [class*="bg-[#0F2A26]"] a.blog-cta-btn span,
+  .blog-content [class*="bg-[#0f2a26]"] a.blog-cta-btn span,
+  .blog-content [class*="from-[#0F2A26]"] a.blog-cta-btn span,
+  .blog-content [class*="from-[#0f2a26]"] a.blog-cta-btn span,
+  .blog-content [class*="bg-[#0F2A26]"] a.blog-cta-btn strong,
+  .blog-content [class*="bg-[#0f2a26]"] a.blog-cta-btn strong,
+  .blog-content [class*="from-[#0F2A26]"] a.blog-cta-btn strong,
+  .blog-content [class*="from-[#0f2a26]"] a.blog-cta-btn strong {
     background: #7AE582 !important;
+    background-color: #7AE582 !important;
     color: #0F2A26 !important;
     border-color: #7AE582 !important;
   }
   .blog-content [class*="bg-[#0F2A26]"] a.blog-cta-btn:hover,
-  .blog-content [class*="bg-[#0f2a26]"] a.blog-cta-btn:hover {
+  .blog-content [class*="bg-[#0f2a26]"] a.blog-cta-btn:hover,
+  .blog-content [class*="from-[#0F2A26]"] a.blog-cta-btn:hover,
+  .blog-content [class*="from-[#0f2a26]"] a.blog-cta-btn:hover,
+  .blog-content [class*="bg-[#0F2A26]"] a.blog-cta-btn:hover span,
+  .blog-content [class*="bg-[#0f2a26]"] a.blog-cta-btn:hover span,
+  .blog-content [class*="from-[#0F2A26]"] a.blog-cta-btn:hover span,
+  .blog-content [class*="from-[#0f2a26]"] a.blog-cta-btn:hover span,
+  .blog-content [class*="bg-[#0F2A26]"] a.blog-cta-btn:hover strong,
+  .blog-content [class*="bg-[#0f2a26]"] a.blog-cta-btn:hover strong,
+  .blog-content [class*="from-[#0F2A26]"] a.blog-cta-btn:hover strong,
+  .blog-content [class*="from-[#0f2a26]"] a.blog-cta-btn:hover strong {
     background: #8ef095 !important;
+    background-color: #8ef095 !important;
     border-color: #8ef095 !important;
     color: #0F2A26 !important;
   }
 
   .blog-content [class*="bg-[#0F2A26]"] a.blog-cta-outline,
-  .blog-content [class*="bg-[#0f2a26]"] a.blog-cta-outline {
+  .blog-content [class*="bg-[#0f2a26]"] a.blog-cta-outline,
+  .blog-content [class*="from-[#0F2A26]"] a.blog-cta-outline,
+  .blog-content [class*="from-[#0f2a26]"] a.blog-cta-outline,
+  .blog-content [class*="bg-[#0F2A26]"] a.blog-cta-outline span,
+  .blog-content [class*="bg-[#0f2a26]"] a.blog-cta-outline span,
+  .blog-content [class*="from-[#0F2A26]"] a.blog-cta-outline span,
+  .blog-content [class*="from-[#0f2a26]"] a.blog-cta-outline span,
+  .blog-content [class*="bg-[#0F2A26]"] a.blog-cta-outline strong,
+  .blog-content [class*="bg-[#0f2a26]"] a.blog-cta-outline strong,
+  .blog-content [class*="from-[#0F2A26]"] a.blog-cta-outline strong,
+  .blog-content [class*="from-[#0f2a26]"] a.blog-cta-outline strong {
     background: transparent !important;
+    background-color: transparent !important;
     color: #ffffff !important;
     border-color: rgba(255, 255, 255, 0.4) !important;
   }
   .blog-content [class*="bg-[#0F2A26]"] a.blog-cta-outline:hover,
-  .blog-content [class*="bg-[#0f2a26]"] a.blog-cta-outline:hover {
+  .blog-content [class*="bg-[#0f2a26]"] a.blog-cta-outline:hover,
+  .blog-content [class*="from-[#0F2A26]"] a.blog-cta-outline:hover,
+  .blog-content [class*="from-[#0f2a26]"] a.blog-cta-outline:hover,
+  .blog-content [class*="bg-[#0F2A26]"] a.blog-cta-outline:hover span,
+  .blog-content [class*="bg-[#0f2a26]"] a.blog-cta-outline:hover span,
+  .blog-content [class*="from-[#0F2A26]"] a.blog-cta-outline:hover span,
+  .blog-content [class*="from-[#0f2a26]"] a.blog-cta-outline:hover span,
+  .blog-content [class*="bg-[#0F2A26]"] a.blog-cta-outline:hover strong,
+  .blog-content [class*="bg-[#0f2a26]"] a.blog-cta-outline:hover strong,
+  .blog-content [class*="from-[#0F2A26]"] a.blog-cta-outline:hover strong,
+  .blog-content [class*="from-[#0f2a26]"] a.blog-cta-outline:hover strong {
     background: rgba(255, 255, 255, 0.1) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
     color: #ffffff !important;
     border-color: #ffffff !important;
   }

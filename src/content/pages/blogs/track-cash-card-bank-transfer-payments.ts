@@ -772,7 +772,7 @@ export const trackCashCardBankTransferPaymentsBlog: SingleBlogData = {
 
 <p class="wp-block-paragraph font-normal"><a href="/features/" class="text-[#167c70] font-semibold underline underline-offset-2 hover:text-[#0F2A26]">HulmPOS</a> is a modern cloud-based POS software platform built specifically for growing businesses in Pakistan:</p>
 
-<div class="my-8 rounded-2xl bg-gradient-to-r from-[#0F2A26] to-[#167c70] p-6 sm:p-8 text-white shadow-md border border-[#167c70]/30">
+<div class="my-8 rounded-2xl bg-[#0F2A26] bg-gradient-to-r from-[#0F2A26] to-[#167c70] p-6 sm:p-8 text-white shadow-md border border-[#167c70]/30">
   <div class="max-w-2xl">
     <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-white/20 !text-white mb-3" style="color: #ffffff !important;">Simplify Daily Reconciliation</span>
     <h3 class="text-xl sm:text-2xl font-bold mb-2 !text-white" style="color: #ffffff !important;">Track Every Rupee Across Cash, Card, and Bank</h3>
@@ -780,10 +780,10 @@ export const trackCashCardBankTransferPaymentsBlog: SingleBlogData = {
       HulmPOS combines fast counter checkout, tender tracking, automated inventory updates, and daily sales reports starting at just <strong class="!text-white" style="color: #ffffff !important;">Rs. 2,500/month</strong>.
     </p>
     <div class="flex flex-wrap items-center gap-3">
-      <a href="https://app.hulmsolutions.com/Register" class="blog-cta-btn rounded-full !bg-[#7AE582] !text-[#0F2A26] hover:!bg-[#8ef095] !border-[#7AE582] font-bold" style="color: #0F2A26 !important; text-decoration: none !important;">
+      <a href="https://app.hulmsolutions.com/Register" class="blog-cta-btn rounded-full !bg-[#7AE582] !text-[#0F2A26] hover:!bg-[#8ef095] !border-[#7AE582] font-bold" style="background-color: #7AE582 !important; color: #0F2A26 !important; border-color: #7AE582 !important; text-decoration: none !important;">
         Start 14-Day Free Trial &rarr;
       </a>
-      <a href="/pricing/" class="blog-cta-outline rounded-full !bg-transparent !text-white !border-white/40 hover:!bg-white/10 hover:!border-white" style="color: #ffffff !important; text-decoration: none !important;">
+      <a href="/pricing/" class="blog-cta-outline rounded-full !bg-transparent !text-white !border-white/40 hover:!bg-white/10 hover:!border-white" style="background-color: transparent !important; color: #ffffff !important; border: 1.5px solid rgba(255, 255, 255, 0.4) !important; text-decoration: none !important;">
         View Pricing Plans
       </a>
     </div>
@@ -1039,10 +1039,10 @@ export const trackCashCardBankTransferPaymentsBlog: SingleBlogData = {
     </p>
 
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-      <a href="https://app.hulmsolutions.com/Register" class="blog-cta-btn rounded-full !bg-[#7AE582] !text-[#0F2A26] hover:!bg-[#8ef095] !border-[#7AE582] font-bold text-base px-8 py-3.5" style="color: #0F2A26 !important; text-decoration: none !important;">
+      <a href="https://app.hulmsolutions.com/Register" class="blog-cta-btn rounded-full !bg-[#7AE582] !text-[#0F2A26] hover:!bg-[#8ef095] !border-[#7AE582] font-bold text-base px-8 py-3.5" style="background-color: #7AE582 !important; color: #0F2A26 !important; border-color: #7AE582 !important; text-decoration: none !important;">
         Start Your 14-Day Free Trial
       </a>
-      <a href="/pricing/" class="blog-cta-outline rounded-full !bg-transparent !text-white !border-white/40 hover:!bg-white/10 hover:!border-white text-base px-6 py-3.5" style="color: #ffffff !important; text-decoration: none !important;">
+      <a href="/pricing/" class="blog-cta-outline rounded-full !bg-transparent !text-white !border-white/40 hover:!bg-white/10 hover:!border-white text-base px-6 py-3.5" style="background-color: transparent !important; color: #ffffff !important; border: 1.5px solid rgba(255, 255, 255, 0.4) !important; text-decoration: none !important;">
         View Pricing (From Rs. 2,500/mo)
       </a>
     </div>

@@ -47,13 +47,13 @@ export default function CaseStudiesPage() {
         <div className="relative z-10 max-w-3xl mx-auto px-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3.5 py-1 text-xs font-semibold text-[#167c70] tracking-wide mb-5">
             <Sparkles className="w-3.5 h-3.5 text-[#167c70]" />
-            <span>Customer Success · Proven Results Across 11+ Verticals</span>
+            <span>Customer Success · Proven Results Across 13+ Verticals</span>
           </div>
           <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] text-balance sm:text-4xl lg:text-[44px] mb-4">
             POS case studies: real results by industry and country
           </h1>
           <p className="text-base sm:text-lg text-zinc-600 font-normal leading-relaxed max-w-2xl mx-auto">
-            Read real POS case studies from businesses using Hulm POS—from FBR-integrated retail, apparel, and computer stores to specialty cafes, supermarkets, pharmacies, and automotive distributors in Karachi, Lahore, Islamabad, Dubai, and Doha.
+            Read real POS case studies from businesses using Hulm POS—from FBR-integrated retail, apparel, and computer stores to gourmet burger chains, specialty cafes, supermarkets, pharmacies, fine jewellery, and automotive distributors in Karachi, Lahore, Islamabad, Dubai, and Doha.
           </p>
         </div>
       </section>
@@ -73,6 +73,7 @@ export default function CaseStudiesPage() {
             items={[
               { label: "Retail store POS", href: "/industries/retail-store/" },
               { label: "Restaurant POS", href: "/industries/restaurant-pos/" },
+              { label: "Jewellery shop POS", href: "/industries/jewellery-shop/" },
               { label: "Cafe & Coffee POS", href: "/industries/cafe/" },
               { label: "Bakery POS", href: "/industries/bakery-pos-system/" },
               { label: "Pharmacy POS", href: "/industries/pharmacy-store/" },

@@ -87,6 +87,7 @@ export const cityPages: Record<string, CityPage> = {
     caseStudies: [
       "pos-system-for-retail-the-laptop-store",
       "pos-system-for-real-tech-store",
+      "al-zahra-jewellers-pos-karachi",
       "implementing-pos-systems-for-medical-euquipment-industry",
       "farhan-caterers-pos-karachi",
     ],
@@ -295,6 +296,7 @@ export const cityPages: Record<string, CityPage> = {
     ],
     caseStudies: [
       "careplus-pharmacy-pos-islamabad",
+      "smash-and-grill-burger-pos-islamabad",
     ],
     setupHeading: "How setup works for Islamabad and Rawalpindi businesses",
     setupSteps: [

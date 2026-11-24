@@ -22,7 +22,8 @@ type CategoryId =
   | "health"
   | "apparel"
   | "supermarket"
-  | "auto";
+  | "auto"
+  | "jewelry";
 
 interface CategoryMeta {
   id: CategoryId;
@@ -37,6 +38,7 @@ const CATEGORIES: CategoryMeta[] = [
   { id: "apparel", label: "Fashion & Apparel" },
   { id: "supermarket", label: "Supermarkets" },
   { id: "auto", label: "Automotive & Hardware" },
+  { id: "jewelry", label: "Gold & Jewellery" },
 ];
 
 function getStudyCategory(study: CaseStudy): CategoryId {
@@ -48,6 +50,7 @@ function getStudyCategory(study: CaseStudy): CategoryId {
     case "cupcake-queen":
     case "farhan-caterers":
     case "roast-craft-coffee":
+    case "smash-grill-burgers":
       return "food";
     case "elate-cc":
     case "careplus-pharmacy":
@@ -58,6 +61,8 @@ function getStudyCategory(study: CaseStudy): CategoryId {
       return "supermarket";
     case "al-madina-auto-parts":
       return "auto";
+    case "al-zahra-jewellers":
+      return "jewelry";
     default:
       return "retail";
   }

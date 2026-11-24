@@ -938,6 +938,162 @@ export const caseStudiesData: CaseStudy[] = [
         answer: "Hulm POS generates FBR-compliant digital invoices for hardware sales, repair services, and accessories with verifiable QR codes, adhering to Pakistan's PRAL e-invoicing standards."
       }
     ]
+  },
+  {
+    id: "al-zahra-jewellers",
+    slug: "al-zahra-jewellers-pos-karachi",
+    title: "Gold & Fine Jewellery POS for Al-Zahra Jewellers",
+    metaTitle: "Al-Zahra Jewellers POS Case Study: Gold & Jewellery POS in Karachi",
+    metaDescription: "How Al-Zahra Jewellers on Tariq Road, Karachi automated daily gold bullion rates, digitized 3-decimal carat weight billing, and ensured FBR Tier-1 e-invoicing with Hulm POS.",
+    client: "Al-Zahra Jewellers",
+    industry: "Gold, Diamonds & Luxury Fine Jewellery",
+    location: "Karachi, Pakistan (Tariq Road)",
+    businessSize: "Flagship Showroom & Custom Workshop (4,800+ Articles)",
+    image: "/images/case-studies/al-zahra-jewellers.webp",
+    excerpt: "Al-Zahra Jewellers, a renowned gold and diamond jewellery house on Tariq Road, Karachi, replaced manual rate sheets and hand-calculated bills with Hulm POS to handle dynamic daily bullion pricing, net-gold wastage formulas, and mandatory FBR Tier-1 digital tax invoicing.",
+    clientProfile: {
+      name: "Al-Zahra Jewellers",
+      type: "High-End Gold, Diamond & Bridal Jewellery Retailer",
+      location: "Karachi, Pakistan (Tariq Road Jewellery Market)",
+      size: "Flagship Showroom, In-House Goldsmith Workshop, 4,800+ Registered Pieces",
+      description: "Established in Karachi's premier bridal shopping district on Tariq Road, Al-Zahra Jewellers specializes in 21K and 22K handcrafted gold bridal sets, certified solitaire diamond rings, and precious gemstone jewelry. The showroom serves bridal parties, family heirloom investors, and walk-in buyers, managing high-value inventory where fractions of a milligram impact transaction profitability."
+    },
+    challenge: "Fluctuating daily gold rates required manual recalculations on paper slips, complex wastage (kaat) and stone-weight deduction formulas caused customer disputes, and compiling high-value sales for FBR/AML tax compliance created severe regulatory stress.",
+    challengePoints: [
+      "Dynamic bullion rate volatility: Gold market rates (per tola and per gram) shifted multiple times a day based on international and local bullion exchanges. Cashiers manually recalculated article prices with desk calculators, leading to pricing errors during volatile trading hours.",
+      "Complex net gold vs. stone weight deductions: Calculating gross weight, gemstone/diamond weight in carats, wastage (kaat), and making charges (riyaasi) on paper slips confused customers and led to protracted counter negotiations.",
+      "Old gold exchange and buyback disputes: Valuing customer trade-in gold (khol) lacked transparent testing documentation and digital audit records, complicating trade-in profit margin calculations.",
+      "FBR Tier-1 AML documentation compliance: Recording customer CNICs for high-value precious metal transactions and generating real-time FBR e-invoices with verifiable QR codes was cumbersome on disconnected desktop machines."
+    ],
+    solution: "Implemented Hulm Jewellery POS with centralized daily gold/silver board rates, automatic stone-weight and wastage formula billing, digital old-gold exchange appraisal ledger, and instant FBR Tier-1 QR invoicing.",
+    solutionPoints: [
+      "Live Board Rate Engine allowing the showroom manager to update 24K, 22K, 21K, and 18K rates centrally once, instantly updating all counter terminal price calculations across the sales floor.",
+      "Precision Weight & Breakdown Calculator directly integrating with digital carat weighing scales to automatically calculate Gross Weight, Stone Weight, Net Gold, Making Charges, and Taxes.",
+      "Integrated Old Gold Buyback Ledger generating photographic appraisal certificates with melt loss estimates, exchange valuation credit, and customer verification.",
+      "Built-in FBR Tier-1 integration recording mandatory customer CNIC / NTN for precious metal purchases and printing digital invoices with FBR QR verification in under 3 seconds."
+    ],
+    implementationSteps: [
+      {
+        title: "Catalog Tagging & Barcode Serialization",
+        description: "Serialized 4,800+ pieces with tamper-evident dumbbell barcode tags recording karatage, gross weight, net gold weight, diamond carat weight, and making charges."
+      },
+      {
+        title: "Digital Scale & Hardware Integration",
+        description: "Connected certified high-precision electronic balance scales directly to Hulm POS terminals via RS-232 interface for automated weight capture."
+      },
+      {
+        title: "Bullion Rate & Formula Customization",
+        description: "Configured automated pricing formulas for 21K and 22K gold, gemstone pricing tiers, variable making charges per gram, and custom bridal package discounts."
+      },
+      {
+        title: "Sales Staff & Goldsmith Workshop Training",
+        description: "Trained 10 showroom sales consultants and goldsmith accounts managers on rapid tag scanning, old-gold buyback appraisals, and FBR QR receipt issuance."
+      }
+    ],
+    results: [
+      { metric: "< 3 Sec", description: "Automatic calculation of complex gold, stone & making charges" },
+      { metric: "100%", description: "Traceability across 4,800+ serialized jewellery pieces" },
+      { metric: "Zero", description: "Discrepancies in daily gold bullion rate price execution" },
+      { metric: "100%", description: "FBR Tier-1 compliance with instant verified QR invoice generation" }
+    ],
+    quote: {
+      text: "In fine jewellery, trust is everything. Previously, customers would watch us punch numbers on a calculator and wonder if our wastage math was fair. With Hulm POS, the scale reads directly into the screen, gross weight, stone weight, and today's gold rate are printed clearly on the bill with the FBR QR code. Our closing rate has surged.",
+      author: "Haji Muhammad Saleem",
+      role: "Founder & Master Jeweller, Al-Zahra Jewellers"
+    },
+    conclusion: "Al-Zahra Jewellers elevated its luxury showroom experience by replacing manual desk calculations with precision jewellery automation. With real-time bullion rate sync, scale integration, and seamless FBR tax compliance, the business solidified its reputation as Tariq Road's most trusted bridal jeweller.",
+    faqs: [
+      {
+        question: "Can Hulm POS handle dynamic daily gold rates and karat-wise pricing?",
+        answer: "Yes. Hulm POS features a live bullion rate board where store managers update 24K, 22K, 21K, and 18K rates per gram or per tola. The system automatically recalculates item prices across all showroom terminals in real time."
+      },
+      {
+        question: "Does Hulm POS support electronic weighing scale integration and jewellery tag printing?",
+        answer: "Yes. Hulm POS connects directly to high-precision electronic carat scales (accurate to 0.001g) via USB/RS-232 and supports specialized thermal jewellery tag printers for printing durable dumbbell barcode labels."
+      },
+      {
+        question: "How does Hulm POS manage old gold exchange (buyback) and FBR compliance for jewelers?",
+        answer: "Hulm POS includes a dedicated old gold buyback module that records gross weight, estimated purity/melt loss, and calculates exchange credit against new purchases, while automatically capturing customer CNIC details and generating FBR-compliant digital tax invoices."
+      }
+    ]
+  },
+  {
+    id: "smash-grill-burgers",
+    slug: "smash-and-grill-burger-pos-islamabad",
+    title: "Fast-Casual & Burger QSR POS for Smash & Grill",
+    metaTitle: "Smash & Grill Burger POS Case Study: Restaurant POS in Islamabad",
+    metaDescription: "How Smash & Grill in Beverly Centre, Islamabad slashed dinner rush ticket times to 75s, unified Foodpanda and dine-in orders, and automated FBR/ICT tax compliance with Hulm POS.",
+    client: "Smash & Grill Craft Burgers",
+    industry: "Quick-Service Restaurant (QSR) & Gourmet Burgers",
+    location: "Islamabad, Pakistan (Beverly Centre & F-7)",
+    businessSize: "2 High-Footfall Outlets & Cloud Kitchen",
+    image: "/images/case-studies/smash-grill-burgers.webp",
+    excerpt: "Smash & Grill, one of Islamabad's top-rated gourmet smash burger brands in Beverly Centre and F-7 Markaz, replaced fragmented tablet registers and paper kitchen chits with Hulm POS to synchronize multi-station kitchen display systems (KDS), delivery aggregator orders, and FBR POS billing.",
+    clientProfile: {
+      name: "Smash & Grill Craft Burgers",
+      type: "Gourmet Smash Burger Chain & Fast-Casual Diner",
+      location: "Islamabad, Pakistan (Beverly Centre, Blue Area & F-7 Markaz)",
+      size: "2 Flagship Dine-In Outlets, 1 Cloud Kitchen, 1,100+ Daily Orders",
+      description: "Smash & Grill is known across the capital for its fresh angus beef smash patties, artisanal brioche buns, loaded seasoned fries, and craft shakes. With high-density footfall during lunch breaks and massive evening rushes between 8 PM and 1 AM, the brand processes hundreds of dine-in, takeaway, and online delivery orders simultaneously across multi-tiered kitchen stations."
+    },
+    challenge: "Multi-platform delivery orders (Foodpanda, direct WhatsApp, dine-in) created order confusion, paper kitchen tickets were lost during intense dinner rushes, and manually calculating bun/patty ingredient inventory caused late-night stockouts.",
+    challengePoints: [
+      "Fragmented delivery tablet chaos: Cashiers had to manually re-type orders from Foodpanda and direct delivery WhatsApp tablets into the billing system, slowing counter queues and causing kitchen order mix-ups.",
+      "Kitchen ticket bottlenecks & lost chits: During Friday and Saturday dinner rushes, paper chits printed at the grill station got greased, misplaced, or queued out of sequence, stretching customer wait times past 25 minutes.",
+      "Recipe-level ingredient inventory blindspots: Without real-time ingredient deduction (beef patties, cheese slices, truffle mayo, brioche buns), kitchen leads suffered stockouts of key ingredients mid-rush.",
+      "ICT / FBR Tier-1 restaurant tax reporting: Managing differing tax treatment for dine-in services versus takeaway under ICT / FBR rules required slow manual end-of-day sales reconciliation."
+    ],
+    solution: "Implemented Hulm Restaurant POS with integrated Kitchen Display Systems (KDS), centralized delivery aggregator ingestion, recipe-level stock depletion, and real-time FBR digital QR invoice generation.",
+    solutionPoints: [
+      "Dual Kitchen Display System (KDS) routing burger orders directly to the Grill Station and loaded fries/drinks to the Fryer & Shake Bar with color-coded countdown timers.",
+      "Omnichannel Order Hub synchronizing dine-in tables, takeaway walk-ins, and Foodpanda delivery orders onto a single touchscreen terminal.",
+      "Automated Recipe Yield & Ingredient Tracking automatically deducting individual beef patties, brioche buns, and sauces per order with low-stock alerts before evening service.",
+      "Instant FBR Tier-1 Invoicing printing verifiable digital tax receipts with QR codes in under 1.5 seconds, supporting split payments across Cash, Cards, and Raast."
+    ],
+    implementationSteps: [
+      {
+        title: "Menu Architecture & Combo Modifiers",
+        description: "Configured 85+ burger combos, drink upgrades, patty add-ons, and specialty sauces with fast-touch cashier buttons."
+      },
+      {
+        title: "Kitchen Display & Station Routing Setup",
+        description: "Installed industrial heat-resistant KDS touchscreens at the meat grill and fryer stations with auditory ticket chime alerts."
+      },
+      {
+        title: "Recipe Costing & Inventory Onboarding",
+        description: "Linked master ingredient lists (beef cuts, brioche buns, sauces, branded packaging) to individual menu items for automated yield deduction."
+      },
+      {
+        title: "Peak Hour Rush & Cashier Training",
+        description: "Conducted simulated high-throughput rush training with 14 kitchen crew members and cashiers to optimize ticket clearing speed."
+      }
+    ],
+    results: [
+      { metric: "75 Sec", description: "Average counter order-to-kitchen firing time (down from 3.5 mins)" },
+      { metric: "92%", description: "Reduction in missed order modifications and kitchen prep errors" },
+      { metric: "100%", description: "Real-time ingredient inventory accuracy across all 3 kitchens" },
+      { metric: "Zero", description: "Manual sales tax reconciliation hours required at month-end" }
+    ],
+    quote: {
+      text: "When you have 40 delivery riders outside and a dining room packed with 70 hungry people, a slow POS will kill your brand reputation. Hulm POS routes our orders directly to the cook's KDS screen the second the cashier taps enter. Our kitchen runs like clockwork, and we haven't had a single missed burger modification since go-live.",
+      author: "Daniyal Shah",
+      role: "Co-Founder & Culinary Director, Smash & Grill"
+    },
+    conclusion: "Smash & Grill turned intense fast-casual rush hours into a seamless high-throughput competitive advantage. With station-based KDS routing, recipe-level inventory control, and automated FBR compliance, the brand is now launching its third location with total operational peace of mind.",
+    faqs: [
+      {
+        question: "Can Hulm POS connect to multiple Kitchen Display Systems (KDS) in a restaurant?",
+        answer: "Yes. Hulm POS supports multi-screen kitchen displays with station-level order routing (e.g., grill station, fryer station, dessert/beverage bar), item countdown timers, and order preparation tracking."
+      },
+      {
+        question: "Does Hulm POS support recipe-level inventory deduction for burgers and meals?",
+        answer: "Yes. Hulm POS features a full restaurant food-costing and recipe management module that automatically depletes raw ingredients (buns, patties, cheese slices, sauces) from inventory every time a menu item or combo is billed."
+      },
+      {
+        question: "How does Hulm POS handle FBR tax compliance and delivery orders for restaurants?",
+        answer: "Hulm POS generates real-time FBR digital tax invoices with unique QR codes for dine-in, takeaway, and online delivery aggregator orders, while categorizing provincial services sales tax (PRA/SRB/ICT) automatically."
+      }
+    ]
   }
 ];
 

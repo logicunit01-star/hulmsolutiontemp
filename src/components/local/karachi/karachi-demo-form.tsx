@@ -1,15 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, ChevronDown, Loader2 } from "lucide-react";
+import { CheckCircle2, ChevronDown, ChevronUp, Loader2, Sparkles } from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
 import { Button } from "@/components/ui/button";
 import { whatsappUrl } from "@/lib/contact-info";
 import { submitLead } from "@/lib/submit-lead";
 import { COUNTRY_CODES, DEFAULT_COUNTRY, formatPhoneWithCountryCode } from "@/lib/country-codes";
+import { track } from "@/lib/track";
 
 const inputClass =
-  "w-full h-11 px-4 rounded-xl border border-gray-200 bg-white text-sm text-[#0F2A26] placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-[#167c70] focus:border-transparent transition-all shadow-xs";
+  "w-full h-11 px-4 rounded-xl border border-gray-200 bg-white text-sm text-[#0F2A26] placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-[#167c70] focus:border-transparent transition-all shadow-2xs";
 
 const businessTypes = [
   "Retail Store / Supermarket",
@@ -43,38 +44,72 @@ export function KarachiDemoForm({
   compactHeader?: boolean;
 } = {}) {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "failed">("idle");
+  const [hasStarted, setHasStarted] = useState(false);
+  const [showOtherCountries, setShowOtherCountries] = useState(false);
+  const [showOptionalStep, setShowOptionalStep] = useState(false);
   const [countryIso, setCountryIso] = useState(DEFAULT_COUNTRY.iso);
   const [fallbackUrl, setFallbackUrl] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const selectedCountry = COUNTRY_CODES.find((c) => c.iso === countryIso) || DEFAULT_COUNTRY;
 
+  const handleFocus = () => {
+    if (!hasStarted) {
+      setHasStarted(true);
+      track("demo_form_start", { form: "karachi_demo_form", page_path: window.location.pathname });
+    }
+  };
+
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setErrorMsg("");
+
     const form = new FormData(event.currentTarget);
     const name = String(form.get("fullName") || "").trim();
     const rawPhone = String(form.get("phone") || "").trim();
-    const businessName = String(form.get("businessName") || "").trim();
     const businessType = String(form.get("businessType") || "").trim();
+    const businessName = String(form.get("businessName") || "").trim();
     const branches = String(form.get("branches") || "").trim();
     const currentMethod = String(form.get("currentMethod") || "").trim();
 
+    // Validation
+    if (!name || name.length < 2) {
+      setErrorMsg("Please enter your name.");
+      return;
+    }
+    const cleanPhone = rawPhone.replace(/\D/g, "");
+    if (!cleanPhone || cleanPhone.length < 7) {
+      setErrorMsg("Please enter a valid WhatsApp or mobile number.");
+      return;
+    }
+    if (!businessType) {
+      setErrorMsg("Please select your business type.");
+      return;
+    }
+
     const fullPhone = formatPhoneWithCountryCode(rawPhone, selectedCountry.dial_code);
 
-    const message = [
+    const messageLines = [
       `City: Karachi`,
       `Business type: ${businessType}`,
-      `Branches: ${branches}`,
-      `Current POS / billing: ${currentMethod}`,
-    ].join("\n");
+    ];
+    if (businessName) messageLines.push(`Business name: ${businessName}`);
+    if (branches) messageLines.push(`Branches: ${branches}`);
+    if (currentMethod) messageLines.push(`Current POS: ${currentMethod}`);
 
     setStatus("sending");
+    track("demo_form_submit", {
+      form: "karachi_demo_form",
+      business_type: businessType,
+      page_path: window.location.pathname,
+    });
 
     const ok = await submitLead({
       name,
       phone: fullPhone,
-      businessName,
+      businessName: businessName || undefined,
       industry: businessType,
-      message,
+      message: messageLines.join("\n"),
       source: "demo",
     });
 
@@ -84,7 +119,7 @@ export function KarachiDemoForm({
     }
 
     const fallback = whatsappUrl(
-      `Hi Hulm, I want to request a POS demo for my business in Karachi.\nName: ${name}\nPhone: ${fullPhone}\nBusiness: ${businessName}\nType: ${businessType}\nBranches: ${branches}\nCurrent billing: ${currentMethod}`
+      `Hi Hulm, I want to request a POS demo for my business in Karachi.\nName: ${name}\nPhone: ${fullPhone}\nType: ${businessType}${businessName ? `\nBusiness: ${businessName}` : ""}${branches ? `\nBranches: ${branches}` : ""}`
     );
     setFallbackUrl(fallback);
     setStatus("failed");
@@ -92,13 +127,13 @@ export function KarachiDemoForm({
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-[#167c70]/20 bg-[#F4F9F8] p-8 text-center sm:p-10 shadow-sm">
+      <div className="rounded-2xl border border-[#167c70]/20 bg-[#F4F9F8] p-8 text-center sm:p-10 shadow-xs">
         <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#167c70]/10 text-[#167c70]">
           <CheckCircle2 className="h-8 w-8" />
         </div>
         <h3 className="mt-4 text-2xl font-bold text-[#0F2A26]">Demo Request Received</h3>
         <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-zinc-600 sm:text-base">
-          Thank you for contacting Hulm Solutions. Our team will get in touch with you about your POS requirements.
+          Thank you for reaching out. Our Karachi product team will connect with you shortly on WhatsApp to coordinate your demo walkthrough.
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
           <Button
@@ -120,206 +155,227 @@ export function KarachiDemoForm({
   }
 
   return (
-    <div id="demo-form" className="rounded-3xl border border-[#E4E2DA] bg-white p-6 sm:p-8 lg:p-9 shadow-lg ring-1 ring-zinc-900/5">
+    <div className="rounded-3xl border border-[#E4E2DA] bg-white p-6 sm:p-8 lg:p-10 shadow-md ring-1 ring-zinc-900/5">
       <div className="mb-6">
-        {compactHeader ? (
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-[#167c70]">
-              Quick Reservation
-            </span>
-            <h3 className="mt-1 text-xl sm:text-2xl font-bold tracking-tight text-[#0F2A26]">
-              Request Your Free Walkthrough
-            </h3>
-            <p className="mt-1 text-xs sm:text-sm text-zinc-500">
-              Provide your details below and our product specialist will arrange your session.
-            </p>
-          </div>
-        ) : (
-          <div>
-            <span className="inline-block text-xs font-bold uppercase tracking-wider text-[#167c70]">
-              Schedule a Walkthrough
-            </span>
-            <h3 className="mt-1 text-2xl font-bold tracking-tight text-[#0F2A26] sm:text-3xl">
-              Get a POS Demo for Your Business in Karachi
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-zinc-600">
-              Tell us about your business setup. Our Karachi product team will show you checkout, stock management, and reports tailored to your workflow.
-            </p>
-          </div>
-        )}
+        <div className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3 py-0.5 text-xs font-semibold text-[#167c70] mb-2">
+          <Sparkles className="h-3 w-3" />
+          <span>Quick 30-Second Request</span>
+        </div>
+        <h3 className="text-xl sm:text-2xl font-bold text-[#0F2A26]">
+          Request a Free POS Demo in Karachi
+        </h3>
+        <p className="mt-1.5 text-xs sm:text-sm text-zinc-600">
+          See live billing, inventory tracking, and reports tailored to your store.
+        </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="space-y-1.5">
-            <label htmlFor="karachi-fullname" className="text-xs font-semibold text-zinc-700">
-              Full name <span className="text-rose-600">*</span>
+        {/* Visible Field 1: Name */}
+        <div>
+          <label htmlFor="karachi-name" className="block text-xs font-semibold uppercase tracking-wider text-zinc-700 mb-1.5">
+            Your Full Name <span className="text-rose-500">*</span>
+          </label>
+          <input
+            id="karachi-name"
+            name="fullName"
+            type="text"
+            required
+            autoComplete="name"
+            placeholder="e.g. Tariq Mehmood"
+            onFocus={handleFocus}
+            className={inputClass}
+          />
+        </div>
+
+        {/* Visible Field 2: WhatsApp Number */}
+        <div>
+          <div className="flex items-center justify-between mb-1.5">
+            <label htmlFor="karachi-phone" className="block text-xs font-semibold uppercase tracking-wider text-zinc-700">
+              WhatsApp Number <span className="text-rose-500">*</span>
             </label>
-            <input
-              id="karachi-fullname"
-              name="fullName"
-              type="text"
-              required
-              autoComplete="name"
-              placeholder="e.g. Tariq Mehmood"
-              className={inputClass}
-            />
+            <button
+              type="button"
+              onClick={() => setShowOtherCountries(!showOtherCountries)}
+              className="text-[11px] text-[#167c70] hover:underline focus:outline-none"
+            >
+              {showOtherCountries ? "Default (+92 PK)" : "Other country?"}
+            </button>
           </div>
 
-          <div className="space-y-1.5">
-            <label htmlFor="karachi-phone" className="text-xs font-semibold text-zinc-700">
-              WhatsApp number <span className="text-rose-600">*</span>
-            </label>
-            <div className="flex h-11 w-full rounded-xl border border-gray-200 bg-white shadow-xs focus-within:ring-2 focus-within:ring-[#167c70] focus-within:border-transparent transition-all overflow-hidden">
-              <div className="relative flex items-center shrink-0 border-r border-gray-200 bg-zinc-50/70 hover:bg-zinc-100/70 transition-colors px-2.5 sm:px-3 cursor-pointer">
-                <span className="text-xs sm:text-sm font-medium text-[#0F2A26] flex items-center gap-1.5 pointer-events-none select-none">
-                  <span className="text-base leading-none">{selectedCountry.flag}</span>
-                  <span>{selectedCountry.dial_code}</span>
-                  <ChevronDown className="w-3.5 h-3.5 text-zinc-400" />
-                </span>
+          <div className="flex gap-2">
+            {showOtherCountries ? (
+              <div className="relative w-32 shrink-0">
                 <select
-                  aria-label="Country Code"
                   value={countryIso}
                   onChange={(e) => setCountryIso(e.target.value)}
-                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer text-sm"
+                  aria-label="Country Dial Code"
+                  className={`${inputClass} pr-7 appearance-none cursor-pointer`}
                 >
                   {COUNTRY_CODES.map((c) => (
                     <option key={c.iso} value={c.iso}>
-                      {c.flag} {c.dial_code} — {c.name}
+                      {c.iso} ({c.dial_code})
                     </option>
                   ))}
                 </select>
+                <ChevronDown className="pointer-events-none absolute right-2.5 top-3.5 h-4 w-4 text-zinc-400" />
               </div>
-              <input
-                id="karachi-phone"
-                name="phone"
-                type="tel"
-                required
-                autoComplete="tel"
-                placeholder={selectedCountry.placeholder || "300 1234567"}
-                className="h-full w-full px-3.5 bg-transparent text-sm text-[#0F2A26] placeholder:text-zinc-400 focus:outline-none"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="space-y-1.5">
-            <label htmlFor="karachi-business-name" className="text-xs font-semibold text-zinc-700">
-              Business name <span className="text-rose-600">*</span>
-            </label>
+            ) : (
+              <div className="flex h-11 items-center px-3 rounded-xl border border-gray-200 bg-zinc-50 text-xs font-semibold text-zinc-700 shrink-0">
+                <span>🇵🇰 +92</span>
+              </div>
+            )}
             <input
-              id="karachi-business-name"
-              name="businessName"
-              type="text"
+              id="karachi-phone"
+              name="phone"
+              type="tel"
               required
-              autoComplete="organization"
-              placeholder="e.g. Al-Madina Supermarket"
-              className={inputClass}
+              autoComplete="tel"
+              placeholder="300 1234567"
+              onFocus={handleFocus}
+              className={`${inputClass} flex-1`}
             />
           </div>
+          <p className="mt-1 text-[11px] text-zinc-400">
+            We will send your demo link and schedule details via WhatsApp.
+          </p>
+        </div>
 
-          <div className="space-y-1.5">
-            <label htmlFor="karachi-business-type" className="text-xs font-semibold text-zinc-700">
-              Business type <span className="text-rose-600">*</span>
-            </label>
+        {/* Visible Field 3: Business Type */}
+        <div>
+          <label htmlFor="karachi-type" className="block text-xs font-semibold uppercase tracking-wider text-zinc-700 mb-1.5">
+            Business Type <span className="text-rose-500">*</span>
+          </label>
+          <div className="relative">
             <select
-              id="karachi-business-type"
+              id="karachi-type"
               name="businessType"
               required
               defaultValue=""
-              className={inputClass}
+              onFocus={handleFocus}
+              className={`${inputClass} appearance-none pr-8 cursor-pointer`}
             >
-              <option value="" disabled>
-                Select your business type
-              </option>
+              <option value="" disabled>Select your business sector</option>
               {businessTypes.map((type) => (
                 <option key={type} value={type}>
                   {type}
                 </option>
               ))}
             </select>
+            <ChevronDown className="pointer-events-none absolute right-3 top-3.5 h-4 w-4 text-zinc-400" />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="space-y-1.5">
-            <label htmlFor="karachi-branches" className="text-xs font-semibold text-zinc-700">
-              Number of branches <span className="text-rose-600">*</span>
-            </label>
-            <select
-              id="karachi-branches"
-              name="branches"
-              required
-              defaultValue="1 Branch"
-              className={inputClass}
-            >
-              {branchOptions.map((opt) => (
-                <option key={opt} value={opt}>
-                  {opt}
-                </option>
-              ))}
-            </select>
-          </div>
+        {/* Optional Collapsible Step: Tell Us More */}
+        <div className="pt-1">
+          <button
+            type="button"
+            onClick={() => setShowOptionalStep(!showOptionalStep)}
+            className="flex items-center gap-1.5 text-xs font-semibold text-zinc-600 hover:text-[#0F2A26] transition-colors focus:outline-none"
+          >
+            {showOptionalStep ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
+            <span>{showOptionalStep ? "Hide extra details" : "Tell us more about your store (optional)"}</span>
+          </button>
 
-          <div className="space-y-1.5">
-            <label htmlFor="karachi-current-method" className="text-xs font-semibold text-zinc-700">
-              Current POS or billing method <span className="text-rose-600">*</span>
-            </label>
-            <select
-              id="karachi-current-method"
-              name="currentMethod"
-              required
-              defaultValue="Manual paper registers / Calculator"
-              className={inputClass}
-            >
-              {currentSystemOptions.map((method) => (
-                <option key={method} value={method}>
-                  {method}
-                </option>
-              ))}
-            </select>
-          </div>
+          {showOptionalStep && (
+            <div className="mt-3 space-y-3 rounded-2xl border border-zinc-200/80 bg-[#FAF9F5] p-4 text-left">
+              <div>
+                <label htmlFor="karachi-biz-name" className="block text-xs font-semibold text-zinc-700 mb-1">
+                  Business / Store Name
+                </label>
+                <input
+                  id="karachi-biz-name"
+                  name="businessName"
+                  type="text"
+                  placeholder="e.g. Al-Madina Supermarket"
+                  className={inputClass}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="karachi-branches" className="block text-xs font-semibold text-zinc-700 mb-1">
+                  Number of Branches
+                </label>
+                <div className="relative">
+                  <select
+                    id="karachi-branches"
+                    name="branches"
+                    defaultValue={branchOptions[0]}
+                    className={`${inputClass} appearance-none pr-8 cursor-pointer`}
+                  >
+                    {branchOptions.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className="pointer-events-none absolute right-3 top-3.5 h-4 w-4 text-zinc-400" />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="karachi-current-method" className="block text-xs font-semibold text-zinc-700 mb-1">
+                  Current Billing Method
+                </label>
+                <div className="relative">
+                  <select
+                    id="karachi-current-method"
+                    name="currentMethod"
+                    defaultValue={currentSystemOptions[0]}
+                    className={`${inputClass} appearance-none pr-8 cursor-pointer`}
+                  >
+                    {currentSystemOptions.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className="pointer-events-none absolute right-3 top-3.5 h-4 w-4 text-zinc-400" />
+                </div>
+              </div>
+            </div>
+          )}
         </div>
+
+        {errorMsg && (
+          <p className="text-xs font-medium text-rose-600 bg-rose-50 border border-rose-200 rounded-lg p-2.5">
+            {errorMsg}
+          </p>
+        )}
 
         {status === "failed" && (
-          <div className="rounded-xl border border-rose-200 bg-rose-50 p-4 text-xs text-rose-800">
-            <p className="font-semibold">Unable to submit directly online.</p>
+          <div className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs text-amber-900">
+            <p className="font-semibold">Unable to submit right now.</p>
             <p className="mt-1">
-              Please click below to send your details directly to our Karachi team via WhatsApp:
-            </p>
-            {fallbackUrl && (
+              Please connect directly via WhatsApp:{" "}
               <a
-                href={fallbackUrl}
+                href={fallbackUrl || whatsappUrl("Hi Hulm, I want to book a POS demo for my Karachi business.")}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-2 inline-flex items-center gap-1.5 font-bold text-[#167c70] underline hover:text-[#0F2A26]"
+                className="font-bold underline text-[#167c70]"
               >
-                <WhatsAppIcon size={14} /> Send details via WhatsApp
+                Click here to chat on WhatsApp
               </a>
-            )}
+            </p>
           </div>
         )}
 
-        <div className="pt-2">
-          <Button
-            type="submit"
-            disabled={status === "sending"}
-            size="lg"
-            className="w-full rounded-xl bg-[#0F2A26] hover:bg-[#167c70] text-white font-semibold h-12 shadow-sm text-sm"
-          >
-            {status === "sending" ? (
-              <span className="flex items-center justify-center gap-2">
-                <Loader2 className="h-4 w-4 animate-spin" /> Submitting request...
-              </span>
-            ) : (
-              "Request My Free Demo"
-            )}
-          </Button>
-          <p className="mt-2 text-center text-xs text-zinc-500">
-            No credit card required. Free 14-day trial included with your onboarding consultation.
-          </p>
-        </div>
+        <Button
+          type="submit"
+          disabled={status === "sending"}
+          className="w-full h-12 rounded-xl bg-[#0F2A26] hover:bg-[#167c70] text-white font-semibold text-sm shadow-sm transition-colors"
+        >
+          {status === "sending" ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Submitting...
+            </>
+          ) : (
+            "Request Free Demo Walkthrough"
+          )}
+        </Button>
+
+        <p className="text-center text-[11px] text-zinc-500">
+          🔒 No spam. 14-day free trial, no credit card required. Onboarding support provided in Urdu and English.
+        </p>
       </form>
     </div>
   );

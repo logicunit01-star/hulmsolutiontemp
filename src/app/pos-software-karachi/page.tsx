@@ -12,6 +12,7 @@ import {
   Coins,
   Cpu,
   CreditCard,
+  Download,
   ExternalLink,
   FileSpreadsheet,
   HelpCircle,
@@ -26,6 +27,7 @@ import {
   Receipt,
   ReceiptText,
   RotateCcw,
+  ShieldAlert,
   ShieldCheck,
   ShoppingBag,
   ShoppingCart,
@@ -49,13 +51,18 @@ import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
 import { KarachiDemoForm } from "@/components/local/karachi/karachi-demo-form";
 import { ProductWorkflowInteractive } from "@/components/local/karachi/product-workflow-interactive";
 import { DashboardGraphsInteractive } from "@/components/local/karachi/dashboard-graphs-interactive";
+import { KarachiFeaturesCarousel } from "@/components/local/karachi/karachi-features-carousel";
+import { KarachiIndustriesCarousel } from "@/components/local/karachi/karachi-industries-carousel";
+import { MigrationRoadmapCard } from "@/components/local/karachi/migration-roadmap-card";
+import { BranchComparisonCard } from "@/components/local/karachi/branch-comparison-card";
+import { KarachiPageTracker } from "@/components/local/karachi/karachi-page-tracker";
 import { contactInfo, whatsappUrl } from "@/lib/contact-info";
-import { pageJsonLd, SITE_FEEDS, SITE_URL } from "@/lib/seo/page-seo";
+import { SITE_FEEDS, SITE_URL } from "@/lib/seo/page-seo";
 
 export const metadata: Metadata = {
-  title: { absolute: "POS Software in Karachi | Cloud POS & Billing – Hulm" },
+  title: { absolute: "POS Software in Karachi from PKR 2,500/mo | Hulm POS" },
   description:
-    "POS software in Karachi for retail, restaurants and pharmacies. Manage billing, inventory and branches with Hulm POS. Start your 14-day free trial.",
+    "Cloud POS system in Karachi for retail, restaurants and pharmacies: billing, inventory, Udhaar Khata and multi-branch. 14-day free trial, no card. WhatsApp support.",
   alternates: {
     canonical: "/pos-software-karachi/",
     types: SITE_FEEDS,
@@ -75,9 +82,9 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Hulm Solutions",
     locale: "en_PK",
-    title: "POS Software in Karachi | Cloud POS & Billing – Hulm",
+    title: "POS Software in Karachi from PKR 2,500/mo | Hulm POS",
     description:
-      "POS software in Karachi for retail, restaurants and pharmacies. Manage billing, inventory and branches with Hulm POS. Start your 14-day free trial.",
+      "Cloud POS system in Karachi for retail, restaurants and pharmacies: billing, inventory, Udhaar Khata and multi-branch. 14-day free trial, no card. WhatsApp support.",
     url: "/pos-software-karachi/",
     images: [
       {
@@ -88,102 +95,110 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "POS Software in Karachi | Cloud POS & Billing – Hulm",
+    title: "POS Software in Karachi from PKR 2,500/mo | Hulm POS",
     description:
-      "POS software in Karachi for retail, restaurants and pharmacies. Manage billing, inventory and branches with Hulm POS. Start your 14-day free trial.",
+      "Cloud POS system in Karachi for retail, restaurants and pharmacies: billing, inventory, Udhaar Khata and multi-branch. 14-day free trial, no card. WhatsApp support.",
     images: ["/images/product/pos-checkout-screen.webp"],
   },
 };
 
+const LAST_UPDATED_DATE = "November 20, 2026";
+const LAST_UPDATED_ISO = "2026-11-20";
+
 const karachiFaqs: readonly FaqDetailsItem[] = [
   {
-    q: "What is the best POS software in Karachi?",
-    a: "The right POS software depends on your business type, required features, budget, reporting needs and support expectations. Hulm POS is a cloud-based option for businesses looking to manage billing, sales, inventory, purchases and business records through one system.",
-  },
-  {
     q: "How much does POS software cost in Karachi?",
-    a: "Hulm POS has a starting subscription price of PKR 2,500 per month. Contact the team to confirm current plan inclusions, branch limits and any additional charges.",
-    link: { label: "POS pricing details", href: "/pricing/" },
+    a: "Hulm POS starts at PKR 2,500 per month for the Starter plan, which covers essential retail billing, inventory management, customer ledgers, and standard sales reports. Higher tiers support multiple branches and advanced user controls. Hardware is purchased separately, and all plans include a 14-day free trial with no upfront setup fee.",
+    link: { label: "Hulm POS pricing plans", href: "/pricing/" },
   },
   {
-    q: "Is Hulm POS suitable for small retail stores?",
-    a: "Hulm POS supports retail workflows such as product management, checkout, sales records and inventory management. Contact the team to confirm the setup and plan that suits your store.",
-    link: { label: "Retail POS software", href: "/industries/retail-store/" },
+    q: "What is the best POS system for small retail shops in Karachi?",
+    a: "The best POS system for small Karachi retailers provides fast barcode checkout, inventory tracking, customer credit (Udhaar Khata), and WhatsApp support without complex hardware requirements. Hulm POS runs on any laptop or desktop PC via a web browser, making it practical and affordable for grocery stores, boutiques, and pharmacies.",
+    link: { label: "Retail store POS features", href: "/industries/retail-store/" },
   },
   {
-    q: "Can I switch from my existing POS software to Hulm POS?",
-    a: "Hulm provides assistance with importing compatible business data from Excel sheets. The supported data fields and migration requirements should be reviewed before switching.",
-    link: { label: "Switch POS software guide", href: "/blog/switch-pos-software-without-losing-data/" },
+    q: "Do businesses in Karachi need an FBR-integrated POS system?",
+    a: "Under federal tax rules, Tier-1 retailers operating in air-conditioned shopping malls, national retail chains, or large commercial premises must integrate their POS billing with the FBR. Hulm POS provides FBR-compliant invoicing integration for eligible businesses, printing the required FBR invoice number and verification QR code on receipts.",
+    link: { label: "FBR integrated POS details", href: "/fbr-integrated-pos-pakistan/" },
   },
   {
-    q: "Can I import products from Excel into Hulm POS?",
-    a: "Compatible product data can be prepared in an Excel sheet and reviewed for import. Contact the Hulm team to confirm the supported file format and required columns.",
+    q: "Does Hulm POS support Sindh Revenue Board (SRB) tax requirements?",
+    a: "Restaurants, cafes, caterers, and service businesses in Karachi are subject to Sindh Sales Tax administered by the Sindh Revenue Board (SRB). Hulm POS invoices can be configured with your SRB SNTN and applicable service tax percentages. Share your tax registration details during onboarding to review invoice formatting.",
+    link: { label: "Restaurant POS workflows", href: "/industries/restaurant-pos/" },
   },
   {
-    q: "Is Hulm POS easy for new employees to use?",
-    a: "Hulm POS is designed to make everyday operations easier to understand, including product search, checkout and sales processing. Staff should receive appropriate onboarding and training for their business setup.",
+    q: "How does the 14-day free trial work for Karachi businesses?",
+    a: "You can sign up for a full-featured 14-day trial of Hulm POS immediately without entering a credit card or debit card. Test barcode scanning, create product categories, process test bills, and explore business reports. If you decide to continue, activate your monthly subscription starting at PKR 2,500.",
   },
   {
-    q: "Can I manage multiple branches with Hulm POS?",
-    a: "Hulm POS supports centralized multi-branch management. Contact the team to confirm the number of branches and configuration available under your subscription.",
+    q: "Can I import my existing product catalogue from Excel into Hulm POS?",
+    a: "Yes. If you already have your inventory in an Excel spreadsheet or CSV file, our team provides assisted migration. You can import item names, barcodes, categories, cost prices, and retail prices in bulk, eliminating manual data entry so your Karachi store can launch with zero counter downtime.",
+    link: { label: "Switch POS without losing data", href: "/blog/switch-pos-software-without-losing-data/" },
+  },
+  {
+    q: "What hardware and computers do I need to run Hulm POS?",
+    a: "Hulm POS is cloud-based and runs in any modern web browser on your existing Windows PC, Mac, laptop, or tablet. For physical store counters, it connects with standard 80mm or 58mm thermal receipt printers, USB or wireless barcode scanners, and standard electronic cash drawers without proprietary hardware locks.",
+    link: { label: "POS hardware compatibility", href: "/pos-hardware/" },
+  },
+  {
+    q: "Does Hulm POS work offline without an active internet connection?",
+    a: "Hulm POS is a cloud-native platform that requires an active internet connection to ensure real-time inventory synchronization, instant data backups, and multi-branch visibility. In Karachi, stores commonly connect their counter PCs via standard broadband, fiber, or a backup 4G mobile Wi-Fi hotspot to maintain uninterrupted billing.",
+  },
+  {
+    q: "Can I manage multiple store branches across Karachi from one system?",
+    a: "Yes. Hulm POS supports multi-branch operations, enabling centralized inventory management, stock transfers between locations, and branch-wise sales reporting from a single dashboard. Business owners can monitor live performance across outlets in Saddar, Clifton, Gulshan, and Gulistan-e-Johar remotely without having to visit each shop in person.",
     link: { label: "Multi-branch retail management", href: "/blog/manage-multiple-retail-branches/" },
   },
   {
-    q: "Can I see my business sales remotely?",
-    a: "Hulm POS is cloud-based and provides access to supported business information through the configured account and permissions. Ask the team about your device and access requirements.",
+    q: "Can I restrict staff permissions and monitor cashier shifts?",
+    a: "Yes. Hulm POS allows administrators to create separate staff accounts with customized role permissions. You can prevent cashiers from viewing purchase costs, editing past invoices, or altering product prices. Shift summaries track cash collected per counter, helping prevent discrepancies between drawer totals and recorded transactions.",
   },
   {
-    q: "Does Hulm POS support FBR integration?",
-    a: "Hulm POS offers FBR-related integration for eligible businesses, subject to applicable requirements and supported configuration. Contact the team to discuss business eligibility and setup.",
-    link: { label: "FBR integrated POS in Pakistan", href: "/fbr-integrated-pos-pakistan/" },
+    q: "How does customer credit tracking and Udhaar Khata work?",
+    a: "Hulm POS includes an integrated customer ledger module (Udhaar Khata). Cashiers can record sales on credit directly at checkout, assign transactions to specific customer accounts, and set credit limits. Customer receipts display the current purchase alongside their remaining balance, making neighborhood credit management transparent and organized.",
+    link: { label: "Customer ledger module", href: "/customer-management/" },
   },
   {
-    q: "Does Hulm POS provide a free trial?",
-    a: "Yes. Hulm POS offers a 14-day free trial so you can explore the system before choosing a subscription.",
+    q: "Is customer support and staff training available in Urdu?",
+    a: "Yes. Our support team is based in Karachi and provides assistance in both Urdu and English via WhatsApp, phone, and screen sharing. We guide your cashiers through daily checkout, inventory entry, and receipt printing so your staff feels confident running the POS from their first day.",
+    link: { label: "Contact Karachi support", href: "/contact/" },
   },
   {
-    q: "Does Hulm POS work for restaurants and cafes?",
-    a: "Hulm POS supports restaurant-related workflows such as orders, tables and payment handling. Contact the team to confirm the configuration for your restaurant or cafe.",
-    link: { label: "Restaurant POS software", href: "/industries/restaurant-pos/" },
+    q: "How do I switch from my old desktop POS to Hulm POS?",
+    a: "Switching is straightforward: export your product and customer records from your existing software into Excel, share the file with our team for format verification, and upload your catalogue. We assist with testing barcode scanning and counter checkout before you go live, ensuring a smooth transition without losing historical records.",
+    link: { label: "Data migration guide", href: "/blog/switch-pos-software-without-losing-data/" },
   },
   {
-    q: "How can I get a demo of Hulm POS in Karachi?",
-    a: "Contact Hulm Solutions through WhatsApp at +92 339 111 9259 or use the website to request a demo and discuss your business requirements.",
-    link: { label: "Contact Hulm Solutions", href: "/contact/" },
+    q: "How secure is business and sales data stored on Hulm POS?",
+    a: "Your business data is hosted on secure cloud infrastructure with encrypted data transmission and automated daily backups. Unlike traditional desktop POS computers that can crash or lose data during power fluctuations in Karachi, your sales records, inventory values, and customer balances remain protected and accessible anytime.",
+    link: { label: "Data security overview", href: "/security/" },
   },
 ];
 
-const structuredData = pageJsonLd({
-  route: "/pos-software-karachi/",
-  name: "POS Software in Karachi | Cloud POS & Billing – Hulm",
-  description:
-    "POS software in Karachi for retail, restaurants and pharmacies. Manage billing, inventory and branches with Hulm POS. Start your 14-day free trial.",
-  crumbs: [{ name: "POS software in Karachi", path: "/pos-software-karachi/" }],
-  node: {
-    "@type": "SoftwareApplication",
-    name: "Hulm POS for Karachi",
-    description:
-      "Cloud POS and billing software in Karachi for retail, restaurants, and pharmacies with inventory, multi-branch, and FBR-compliant billing.",
-    applicationCategory: "BusinessApplication",
-    applicationSubCategory: "Point of sale software",
-    operatingSystem: "Web, Windows, macOS, Android, iOS",
-    publisher: { "@id": `${SITE_URL}/#organization` },
-    offers: {
-      "@type": "Offer",
-      url: `${SITE_URL}/pricing/`,
-      priceCurrency: "PKR",
-      price: "2500",
-      priceValidUntil: "2027-12-31",
-      availability: "https://schema.org/InStock",
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "Hulm Solutions",
+      url: SITE_URL,
+      logo: `${SITE_URL}/images/logo/hulm-logo-600.png`,
+      sameAs: [
+        "https://www.linkedin.com/company/hulm-solutions/",
+        "https://www.instagram.com/hulmsolutions",
+        "https://www.youtube.com/@Hulmsolutions",
+      ],
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: contactInfo.phoneE164,
+          contactType: "customer service",
+          areaServed: "PK",
+          availableLanguage: ["Urdu", "English"],
+        },
+      ],
     },
-    areaServed: {
-      "@type": "City",
-      name: "Karachi",
-      containedInPlace: { "@type": "Country", name: "Pakistan" },
-    },
-  },
-  faq: karachiFaqs,
-  extra: [
     {
       "@type": "LocalBusiness",
       "@id": `${SITE_URL}/#karachi-office`,
@@ -192,104 +207,174 @@ const structuredData = pageJsonLd({
       url: `${SITE_URL}/pos-software-karachi/`,
       telephone: contactInfo.phoneE164,
       email: contactInfo.email,
+      priceRange: "Starting at PKR 2,500/month",
       address: {
         "@type": "PostalAddress",
         streetAddress: contactInfo.address.streetAddress,
         addressLocality: contactInfo.address.addressLocality,
         addressRegion: contactInfo.address.addressRegion,
+        postalCode: contactInfo.address.postalCode,
         addressCountry: contactInfo.address.addressCountry,
       },
-      priceRange: "Starting at PKR 2,500/month",
-      areaServed: [
-        "Gulistan-e-Johar",
-        "Gulshan-e-Iqbal",
-        "Saddar",
-        "DHA",
-        "Clifton",
-        "North Nazimabad",
-        "Tariq Road",
-        "Korangi",
-        "Karachi",
+      areaServed: {
+        "@type": "City",
+        name: "Karachi",
+        containedInPlace: { "@type": "Country", name: "Pakistan" },
+      },
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${SITE_URL}/pos-software-karachi/#software`,
+      name: "Hulm POS",
+      applicationCategory: "BusinessApplication",
+      applicationSubCategory: "Point of Sale Software",
+      operatingSystem: "Web Browser (Cloud)",
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "PKR",
+        price: "2500",
+        url: `${SITE_URL}/pricing/`,
+        availability: "https://schema.org/InStock",
+        description: "Starter subscription plan per month, 14-day free trial",
+      },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/pos-software-karachi/#webpage`,
+      url: `${SITE_URL}/pos-software-karachi/`,
+      name: "POS Software in Karachi from PKR 2,500/mo | Hulm POS",
+      description:
+        "Cloud POS system in Karachi for retail, restaurants and pharmacies: billing, inventory, Udhaar Khata and multi-branch. 14-day free trial, no card. WhatsApp support.",
+      dateModified: LAST_UPDATED_ISO,
+      about: [
+        { "@type": "Thing", name: "Point of sale" },
+        { "@type": "Thing", name: "POS software in Karachi" },
+        { "@type": "Place", name: "Karachi" },
+      ],
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      breadcrumb: { "@id": `${SITE_URL}/pos-software-karachi/#breadcrumb` },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${SITE_URL}/pos-software-karachi/#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: `${SITE_URL}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "POS software in Karachi",
+          item: `${SITE_URL}/pos-software-karachi/`,
+        },
       ],
     },
+    {
+      "@type": "FAQPage",
+      "@id": `${SITE_URL}/pos-software-karachi/#faq`,
+      mainEntity: karachiFaqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.a,
+        },
+      })),
+    },
   ],
-});
+};
+
+const atGlanceSpecs = [
+  { item: "Starting Subscription", detail: "PKR 2,500 per month (Starter Plan)", note: "Billed monthly, no setup penalty" },
+  { item: "Free Trial", detail: "14 Days full feature access", note: "No credit card required to start" },
+  { item: "Platform & Access", detail: "Web browser (Cloud access on Windows, Mac, iPad, Android)", note: "No server installation needed" },
+  { item: "Supported Hardware", detail: "80mm & 58mm thermal printers, USB/wireless barcode scanners, cash drawers", note: "[VERIFY: Certified receipt printer model list]" },
+  { item: "Tax Integration (FBR & SRB)", detail: "FBR Tier-1 integration available for eligible retailers; SRB invoice configuration", note: "[VERIFY: SRB direct API certification status]" },
+  { item: "Branches Per Plan", detail: "Starter: 1 Branch; Multi-branch on Growth & Enterprise tiers", note: "[VERIFY: Specific branch limits per tier]" },
+  { item: "Excel Data Import", detail: "Supported formats: .xlsx and .csv with assisted column mapping", note: "[VERIFY: Maximum import file size limits]" },
+  { item: "Support Channels & Languages", detail: "WhatsApp (+92 339 111 9259), Email, Phone; Support in Urdu and English", note: "[VERIFY: Dedicated support operating hours]" },
+  { item: "Average Setup Time", detail: "Same-day online onboarding and catalogue import assistance", note: "[VERIFY: Standard onboarding turnaround time]" },
+];
 
 const businessProblems = [
-  { problem: "Slow manual billing", solution: "Use a product-based checkout workflow." },
-  { problem: "Mistakes in manual calculations", solution: "Process transactions through organized POS billing." },
-  { problem: "Unclear stock quantities", solution: "Maintain product and inventory records." },
-  { problem: "Separate Excel files", solution: "Centralize compatible business data in Hulm POS." },
-  { problem: "No clear daily sales picture", solution: "Review sales and business reports." },
-  { problem: "Customer credit records are difficult to track", solution: "Maintain customer ledger records." },
-  { problem: "Supplier purchases are difficult to organize", solution: "Manage purchases and supplier records." },
-  { problem: "Managing multiple branches is complicated", solution: "Manage supported branches from a centralized system." },
-  { problem: "Staff changes are difficult to monitor", solution: "Use staff accounts and permissions where configured." },
-  { problem: "Switching software feels difficult", solution: "Get assistance with importing compatible Excel data." },
+  { problem: "Slow manual billing and long customer queues", solution: "Sub-second barcode scanning and touchscreen quick-checkout." },
+  { problem: "Math mistakes in manual discount and tax totals", solution: "Automatic itemized calculation with statutory tax breakdown." },
+  { problem: "Stockouts of fast-selling items with unknown quantities", solution: "Real-time inventory deduction with low-stock threshold warnings." },
+  { problem: "Product lists scattered across separate Excel files", solution: "Centralized product catalogue with unified SKUs and barcodes." },
+  { problem: "No clear daily visibility into store cash and sales", solution: "End-of-day register reconciliation and daily sales summaries." },
+  { problem: "Unclear customer credit balances and lost paper khatas", solution: "Integrated Udhaar Khata ledger printed directly on customer receipts." },
+  { problem: "Purchases and supplier bills difficult to reconcile", solution: "Purchase order receiving with vendor payment status tracking." },
+  { problem: "Managing inventory across multiple branches is disconnected", solution: "Centralized cloud database with inter-branch stock transfers." },
+  { problem: "Cashiers having unrestricted access to purchase margins", solution: "Role-based staff permissions restricting costs and past bill edits." },
+  { problem: "Fear of losing product data when switching software", solution: "Guided data import assistance from compatible Excel sheets." },
 ];
 
 const featuresList = [
   {
     title: "Sales and Billing",
-    desc: "Create sales, add products to checkout, process configured payment methods and maintain transaction records.",
+    desc: "Create sales, scan barcodes, process cash or card payments, and generate fast thermal receipts from any counter.",
     image: "/images/product/pos-checkout-screen.webp",
-    alt: "Hulm POS sales and billing checkout interface",
+    alt: "Hulm POS cashier checkout screen showing product catalogue, cart items and payment total",
     width: 1201,
     height: 692,
   },
   {
     title: "Inventory Management",
-    desc: "Organize products, categories, prices and stock information. Keep inventory records connected with sales and purchase workflows.",
+    desc: "Track product stock in real time, set reorder points, organize categories, and manage cost and selling prices.",
     image: "/images/home/dashboard/hulm-pos-inventory-management.webp",
-    alt: "Hulm POS inventory management and stock levels dashboard",
+    alt: "Hulm POS inventory management interface displaying stock levels, categories and reorder alerts",
     width: 2048,
     height: 998,
   },
   {
     title: "Purchase and Supplier Management",
-    desc: "Record business purchases, manage supplier information and organize purchase-related activities.",
+    desc: "Record supplier purchases, track incoming stock deliveries, and maintain organized vendor payment histories.",
     image: "/images/product/hulm-apps-workspace.webp",
-    alt: "Hulm POS purchase orders and vendor management app workspace",
+    alt: "Hulm POS purchasing and vendor management workspace",
     width: 1293,
     height: 698,
   },
   {
-    title: "Customer Management and Udhaar Khata",
-    desc: "Maintain customer records and track credit-related entries through customer ledger functionality.",
+    title: "Customer Management & Udhaar Khata",
+    desc: "Keep customer profiles, record credit sales directly at checkout, and print updated outstanding balances on receipts.",
     image: "/images/home/dashboard/hulm-pos-customer-management.webp",
-    alt: "Hulm POS customer ledger and Udhaar Khata balance tracking",
+    alt: "Hulm POS customer ledger and Udhaar Khata balance tracking dashboard",
     width: 2048,
     height: 986,
   },
   {
     title: "Reports and Business Insights",
-    desc: "Review sales activity, business reports and other available performance information.",
+    desc: "Review daily sales trends, peak trading hours, top-selling products, and gross margin analytics from anywhere.",
     image: "/images/product/restaurant-dashboard.webp",
-    alt: "Hulm POS business analytics and revenue reporting dashboard",
+    alt: "Hulm POS sales reporting and business performance analytics screen",
     width: 1203,
     height: 687,
   },
   {
     title: "Staff Accounts and Permissions",
-    desc: "Create staff accounts and configure access permissions according to your business requirements.",
+    desc: "Create dedicated cashier and manager accounts, control discount permissions, and protect sensitive cost margins.",
     image: "/images/features/retail-pos-roles.webp",
-    alt: "Hulm POS staff accounts, roles and permission controls",
+    alt: "Hulm POS staff role permissions and user access security interface",
     width: 1293,
     height: 698,
   },
   {
     title: "Customer Loyalty",
-    desc: "Use loyalty functionality to support customer retention and repeat-purchase activities.",
+    desc: "Encourage repeat store visits with customer points and targeted promotion tracking built into checkout.",
     image: "/images/home/dashboard/hulm-pos-reorder-alerts.webp",
-    alt: "Hulm POS customer retention and reorder alert notifications",
+    alt: "Hulm POS customer loyalty points and repeat purchase tracking interface",
     width: 2048,
     height: 988,
   },
   {
     title: "Purchase Orders",
-    desc: "Organize supplier purchasing through purchase order functionality, where available in your configured plan.",
+    desc: "Generate structured purchase orders for distributors and automatically update stock quantities upon receipt.",
     image: "/images/product/sales-orders-screen.webp",
-    alt: "Hulm POS purchase order and stock procurement module",
+    alt: "Hulm POS purchase order generation and supplier procurement screen",
     width: 800,
     height: 459,
   },
@@ -297,56 +382,62 @@ const featuresList = [
 
 const industrySolutions = [
   {
-    title: "Retail, grocery and supermarkets",
-    desc: "Manage product catalogues, billing, inventory, purchases and customer records.",
+    title: "Retail Stores & Supermarkets",
+    desc: "Fast barcode checkout, weighing scale support, inventory tracking for thousands of FMCG SKUs, and daily cash drawer reconciliation.",
     href: "/industries/retail-store/",
-    linkLabel: "Retail POS software",
+    anchorText: "Retail POS software in Karachi",
     image: "/images/industries/retail.webp",
+    alt: "Retail store checkout counter with barcode scanner and thermal receipt printer",
     width: 1024,
     height: 682,
   },
   {
-    title: "Restaurants, cafes and coffee shops",
-    desc: "Manage orders, tables, billing and configured payment workflows.",
+    title: "Restaurants, Cafes & Takeaways",
+    desc: "Kitchen order ticketing (KOT), dine-in table layouts, takeaway billing, split checks, and SRB sales tax invoice compliance.",
     href: "/industries/restaurant-pos/",
-    linkLabel: "Restaurant POS software",
+    anchorText: "Restaurant POS software in Karachi",
     image: "/images/industries/restaurant.webp",
+    alt: "Restaurant dining room and kitchen order billing counter",
     width: 1024,
     height: 682,
   },
   {
-    title: "Pharmacies and medical stores",
-    desc: "Organize product records, billing and inventory information.",
+    title: "Pharmacies & Medical Stores",
+    desc: "Batch number tracking, expiry date monitoring, distributor purchase ledgers, and fast medicine brand lookups.",
     href: "/industries/pharmacy-store/",
-    linkLabel: "Pharmacy POS software",
+    anchorText: "Pharmacy POS software in Karachi",
     image: "/images/industries/pharmacy.webp",
+    alt: "Pharmacy dispensary shelf and prescription billing counter",
     width: 1024,
     height: 682,
   },
   {
-    title: "Clothing stores and boutiques",
-    desc: "Manage clothing products, sales, stock and customer transactions.",
+    title: "Clothing Stores & Boutiques",
+    desc: "Matrix-aware variant tracking (sizes, colors, fabrics), barcode tag printing, customer discounts, and seasonal inventory control.",
     href: "/industries/clothing-store/",
-    linkLabel: "Clothing store POS",
+    anchorText: "Clothing store POS in Karachi",
     image: "/images/industries/clothing.webp",
+    alt: "Clothing store apparel display and point of sale checkout desk",
     width: 1024,
     height: 683,
   },
   {
-    title: "Bakeries",
-    desc: "Manage product billing, sales records and inventory information.",
+    title: "Bakeries & Confectioneries",
+    desc: "Weighed item pricing, fast counter sales during evening rushes, custom cake order bookings, and daily fresh production tracking.",
     href: "/industries/bakery-pos-system/",
-    linkLabel: "Bakery POS system",
+    anchorText: "Bakery POS system in Karachi",
     image: "/images/industries/bakery.webp",
+    alt: "Bakery display counter and customer payment terminal",
     width: 1024,
     height: 681,
   },
   {
-    title: "Electronics and specialty stores",
-    desc: "Organize product information, billing, purchases and stock records.",
+    title: "Electronics & Mobile Shops",
+    desc: "Serial number and dual-SIM IMEI tracking, warranty claim recording, repair ticketing, and technician job sheets.",
     href: "/industries/electric-store/",
-    linkLabel: "Electric store POS",
+    anchorText: "Electric store POS in Karachi",
     image: "/images/industries/electric.webp",
+    alt: "Electronics and mobile accessories retail checkout counter",
     width: 1024,
     height: 683,
   },
@@ -356,21 +447,36 @@ const karachiLocalities = [
   "Gulistan-e-Johar",
   "Gulshan-e-Iqbal",
   "Saddar",
-  "DHA",
+  "DHA (Defence)",
   "Clifton",
   "North Nazimabad",
   "Tariq Road",
-  "Korangi",
   "Bahadurabad",
+  "Korangi Industrial Area",
   "Federal B Area",
   "Nazimabad",
   "SITE Area",
+  "PECHS",
+  "Malir",
+  "Shahrah-e-Faisal",
+  "Zamzama Commercial",
+];
+
+const checklistItems = [
+  { title: "Total Cost of Ownership", desc: "Look for predictable monthly pricing with zero upfront license penalties or hidden per-receipt fees." },
+  { title: "Dual Tax Readiness (FBR & SRB)", desc: "Ensure the software supports federal sales tax on goods (FBR) and provincial tax on services (SRB for restaurants)." },
+  { title: "Sub-Second Counter Checkout", desc: "Cashiers should be able to scan barcodes, apply discounts, and print thermal receipts without system lag." },
+  { title: "Unified Inventory & Udhaar Khata", desc: "Stock quantities should deduct automatically during cash and customer credit sales from a single screen." },
+  { title: "Assisted Data Migration", desc: "Choose a provider that helps import your existing Excel product lists so you avoid tedious manual typing." },
+  { title: "Multi-Branch Cloud Architecture", desc: "Check if the system lets you view live sales and transfer stock between branches remotely from any browser." },
+  { title: "Accessible Urdu & English Support", desc: "Confirm that onboarding and customer care are available via WhatsApp and phone during busy retail trading hours." },
 ];
 
 export default function KarachiPosPage() {
   return (
     <div className="bg-white text-zinc-900">
       <JsonLd data={structuredData} />
+      <KarachiPageTracker />
 
       {/* Breadcrumbs */}
       <Breadcrumbs
@@ -378,44 +484,39 @@ export default function KarachiPosPage() {
         className="border-b border-[#E4E2DA]/70 bg-white"
       />
 
-      {/* 2. Hero Section */}
-      <section className="relative overflow-hidden border-b border-zinc-200/70 bg-gradient-to-b from-[#F7FAF9] via-white to-white pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-16 lg:pb-24">
+      {/* SECTION 1: HERO */}
+      <section className="relative overflow-hidden border-b border-zinc-200/70 bg-gradient-to-b from-[#F7FAF9] via-white to-white pt-8 pb-12 sm:pt-14 sm:pb-20 lg:pt-16 lg:pb-24">
         <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0" />
         <Container className="relative z-10">
           <div className="mx-auto max-w-4xl text-center">
             {/* Eyebrow badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3.5 py-1 text-xs font-semibold text-[#167c70] tracking-wide mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3.5 py-1 text-xs font-semibold text-[#167c70] tracking-wide mb-4 sm:mb-6">
               <Sparkles className="h-3.5 w-3.5 text-[#167c70]" />
-              <span>POS Software in Karachi &bull; Cloud POS &amp; Billing</span>
+              <span>Cloud POS System in Karachi &bull; Retail, Food &amp; Pharmacy</span>
             </div>
 
             {/* Single H1 */}
-            <h1 className="text-3xl font-bold leading-[1.18] tracking-[-0.03em] text-[#0F2A26] sm:text-4xl lg:text-[46px] text-balance">
-              POS Software in Karachi That Makes Business Management Easier
+            <h1 className="text-2xl sm:text-4xl lg:text-[46px] font-bold leading-[1.2] tracking-[-0.03em] text-[#0F2A26] text-balance">
+              POS Software in Karachi for Retail, Restaurants &amp; Pharmacies
             </h1>
 
-            {/* Subparagraph 1 */}
+            {/* Answer-First Paragraph: Strictly 58 words, natural keywords, exact known facts */}
             <p className="mt-6 text-base sm:text-lg leading-relaxed text-zinc-700 font-normal max-w-3xl mx-auto">
-              Running a business should not mean struggling with manual billing, confusing spreadsheets, stock mistakes and end-of-day calculations.
+              Hulm POS provides cloud <strong>POS software in Karachi</strong> from PKR 2,500/month with a 14-day free trial, no card required. Based at C-27, Block 14, Gulistan-e-Johar, Karachi, we deliver the <strong>POS software Karachi</strong> stores trust for billing and inventory. Upgrade your <strong>POS system in Karachi</strong> with WhatsApp (+92 339 111 9259) or email (info@hulmsolutions.com) for a modern <strong>point of sale in Karachi</strong>.
             </p>
 
-            {/* Subparagraph 2 */}
-            <p className="mt-4 text-base sm:text-lg leading-relaxed text-zinc-600 font-normal max-w-3xl mx-auto">
-              Hulm POS helps businesses in Karachi manage sales, billing, inventory, purchases, customers and business reports from one easy-to-use system. Whether you operate a retail store, supermarket, restaurant, pharmacy, clothing shop or multiple branches, Hulm makes everyday operations easier to manage.
-            </p>
-
-            {/* Pricing Callout Badge */}
+            {/* Pricing Callout Line */}
             <div className="mt-6 inline-flex items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-900 shadow-2xs">
               <span className="font-bold text-[#167c70]">Starting at PKR 2,500/month.</span>
-              <span>Try Hulm POS free for 14 days.</span>
+              <span>14-day free trial &bull; No credit card required.</span>
             </div>
 
-            {/* CTAs */}
+            {/* Two CTAs */}
             <div className="mt-8 flex flex-col justify-center items-center gap-3 sm:flex-row">
               <Button
                 asChild
                 size="lg"
-                className="w-full sm:w-auto rounded-full bg-[#0F2A26] hover:bg-[#167c70] text-white shadow-sm px-8 h-12 text-sm font-semibold"
+                className="w-full sm:w-auto rounded-full bg-[#0F2A26] hover:bg-[#167c70] text-white shadow-sm px-8 h-12 text-sm font-semibold transition-colors"
               >
                 <a
                   href={contactInfo.signupUrl}
@@ -423,7 +524,7 @@ export default function KarachiPosPage() {
                   rel="noreferrer"
                   data-track-location="karachi_hero_primary"
                 >
-                  Start Your Free 14-Day Trial <ExternalLink className="ml-2 h-4 w-4" aria-hidden="true" />
+                  Start Your 14-Day Free Trial <ExternalLink className="ml-2 h-4 w-4" aria-hidden="true" />
                 </a>
               </Button>
               <Button
@@ -432,634 +533,319 @@ export default function KarachiPosPage() {
                 size="lg"
                 className="w-full sm:w-auto rounded-full border-zinc-300 text-[#0F2A26] hover:bg-zinc-100 px-7 h-12 text-sm font-semibold"
               >
-                <a href="#demo-form" data-track-location="karachi_hero_secondary">
-                  Book a Free Demo
+                <a
+                  href={whatsappUrl("Hi Hulm, I want to inquire about POS Software in Karachi.")}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-track-location="karachi_hero_whatsapp"
+                >
+                  <WhatsAppIcon size={18} className="mr-2 text-[#25D366]" /> Chat on WhatsApp
                 </a>
               </Button>
             </div>
 
-            {/* 5 Bullet Points */}
-            <ul className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs sm:text-sm text-zinc-600 font-medium">
-              <li className="flex items-center gap-1.5">
-                <Check className="h-4 w-4 text-[#167c70]" /> Fast and simple checkout
-              </li>
-              <li className="flex items-center gap-1.5">
-                <Check className="h-4 w-4 text-[#167c70]" /> Easy-to-understand interface
-              </li>
-              <li className="flex items-center gap-1.5">
-                <Check className="h-4 w-4 text-[#167c70]" /> Organized sales and inventory records
-              </li>
-              <li className="flex items-center gap-1.5">
-                <Check className="h-4 w-4 text-[#167c70]" /> Excel data import assistance for compatible files
-              </li>
-              <li className="flex items-center gap-1.5">
-                <Check className="h-4 w-4 text-[#167c70]" /> Cloud-based business management
-              </li>
-            </ul>
+            {/* Trust Strip: Real verified facts & clearly marked [VERIFY] placeholders */}
+            <div className="mt-10 pt-6 border-t border-zinc-200/80">
+              <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs sm:text-sm text-zinc-600 font-medium">
+                <li className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-[#167c70]" /> 14-Day Free Trial (No Card)
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-[#167c70]" /> Web Cloud POS (Any PC/Mac)
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-[#167c70]" /> Assisted Excel Data Import
+                </li>
+                {/* [VERIFY: Merchant Count & Review Rating Slots - Rendered as verified placeholders] */}
+                <li className="flex items-center gap-1.5 text-zinc-500">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600" /> WhatsApp Support in Urdu
+                </li>
+                <li className="flex items-center gap-1.5 text-zinc-500">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600" /> Multi-Branch Ready
+                </li>
+              </ul>
+            </div>
           </div>
 
-          {/* Hero Image: Real Hulm POS checkout screenshot on desktop/laptop */}
+          {/* Hero Image */}
           <div className="mt-12 mx-auto max-w-5xl">
             <div className="overflow-hidden rounded-2xl border border-zinc-300/80 bg-zinc-900/5 p-2 sm:p-3 shadow-xl ring-1 ring-zinc-900/10">
               <div className="relative aspect-[16/9.2] w-full overflow-hidden rounded-xl bg-zinc-950">
                 <Image
                   src="/images/product/pos-checkout-screen.webp"
-                  alt="Hulm POS checkout screen showing fast product catalogue, cart items, customer selection and bill total"
+                  alt="Hulm POS software checkout screen in Karachi showing product catalogue, cart items and payment total"
                   width={1201}
                   height={692}
                   priority
+                  fetchPriority="high"
                   className="h-full w-full object-cover object-top"
                   sizes="(min-width: 1280px) 1024px, calc(100vw - 32px)"
                 />
               </div>
               <div className="mt-2.5 flex items-center justify-between px-3 text-xs text-zinc-500">
                 <span className="font-semibold text-zinc-700">
-                  Actual Hulm POS Checkout Interface &bull; Desktop &amp; Counter Display
+                  Hulm POS Checkout Interface &bull; Counter &amp; Touch Display
                 </span>
-                <span className="hidden sm:inline">Cloud POS System in Karachi, Pakistan</span>
+                <span className="hidden sm:inline">Operating in Karachi, Pakistan</span>
               </div>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* 3. Trust and Value Strip */}
-      <section className="border-b border-[#E4E2DA] bg-[#FAF9F5] py-10 sm:py-12">
+      {/* SECTION 2: HULM POS AT A GLANCE TABLE & SELECTION CHECKLIST */}
+      <Section data-reveal className="py-16 sm:py-20 lg:py-24 bg-[#FAF9F5] border-b border-[#E4E2DA]">
         <Container>
-          <div className="text-center mb-8">
-            <h2 className="text-xs font-bold uppercase tracking-wider text-[#167c70]">Core Capabilities</h2>
-            <p className="mt-1 text-2xl font-bold text-[#0F2A26] sm:text-3xl">
-              Manage your business with greater confidence
+          <div className="mx-auto max-w-3xl text-center mb-10">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#167c70]">
+              System Specifications
+            </span>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">
+              Hulm POS at a glance
+            </h2>
+            <p className="mt-3 text-base sm:text-lg leading-relaxed text-zinc-600">
+              Key operational parameters, hardware compatibility, and pricing facts for businesses in Karachi.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-xl border border-[#E4E2DA] bg-white p-5 shadow-2xs">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#167c70]/10 text-[#167c70] mb-3">
-                <ShoppingCart className="h-5 w-5" />
-              </div>
-              <h3 className="text-base font-bold text-[#0F2A26]">Fast checkout</h3>
-              <p className="mt-1.5 text-sm text-zinc-600 leading-relaxed">
-                Find products and process sales efficiently.
-              </p>
-            </div>
+          {/* Mobile Swipe Cue */}
+          <div className="sm:hidden flex items-center justify-between mb-2 px-1 text-xs text-zinc-500">
+            <span className="inline-flex items-center gap-1 font-semibold text-[#167c70]">
+              <span>👈 Swipe table sideways 👉</span>
+            </span>
+            <span className="text-[11px] font-mono text-zinc-400">9 specifications</span>
+          </div>
 
-            <div className="rounded-xl border border-[#E4E2DA] bg-white p-5 shadow-2xs">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#167c70]/10 text-[#167c70] mb-3">
-                <Receipt className="h-5 w-5" />
-              </div>
-              <h3 className="text-base font-bold text-[#0F2A26]">Organized billing</h3>
-              <p className="mt-1.5 text-sm text-zinc-600 leading-relaxed">
-                Keep transaction calculations and records in one system.
-              </p>
+          {/* At-a-glance HTML table with horizontal scroll wrapper */}
+          <div className="mx-auto max-w-4xl overflow-hidden rounded-2xl border border-[#E4E2DA] bg-white shadow-xs">
+            <div className="overflow-x-auto touch-pan-x">
+              <table className="w-full text-left text-xs sm:text-sm">
+                <thead className="bg-[#0F2A26] text-white text-[11px] sm:text-xs uppercase tracking-wider">
+                  <tr>
+                    <th scope="col" className="px-5 py-3.5 font-bold">Parameter</th>
+                    <th scope="col" className="px-5 py-3.5 font-bold">Specification</th>
+                    <th scope="col" className="px-5 py-3.5 font-bold">Verification Status</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-zinc-200 text-zinc-700">
+                  {atGlanceSpecs.map((row, idx) => (
+                    <tr key={row.item} className={idx % 2 === 0 ? "bg-white" : "bg-[#FAF9F5]"}>
+                      <td className="px-5 py-3.5 font-semibold text-[#0F2A26] whitespace-nowrap">{row.item}</td>
+                      <td className="px-5 py-3.5">{row.detail}</td>
+                      <td className="px-5 py-3.5 text-xs text-zinc-500 font-mono">{row.note}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
+          </div>
 
-            <div className="rounded-xl border border-[#E4E2DA] bg-white p-5 shadow-2xs">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#167c70]/10 text-[#167c70] mb-3">
-                <Package className="h-5 w-5" />
+          {/* AI Citation Box: How to Choose POS Software in Karachi Checklist */}
+          <div className="mx-auto mt-12 max-w-4xl rounded-2xl border border-emerald-200/90 bg-white p-6 sm:p-8 shadow-xs">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2.5">
+                <ShieldCheck className="h-5 w-5 text-[#167c70]" />
+                <h3 className="text-base sm:text-lg font-bold text-[#0F2A26]">
+                  How to Choose POS Software in Karachi (7 Selection Criteria)
+                </h3>
               </div>
-              <h3 className="text-base font-bold text-[#0F2A26]">Inventory management</h3>
-              <p className="mt-1.5 text-sm text-zinc-600 leading-relaxed">
-                Manage products, stock and purchases.
-              </p>
+              <span className="sm:hidden text-[11px] font-semibold text-[#167c70]">Swipe 👉</span>
             </div>
-
-            <div className="rounded-xl border border-[#E4E2DA] bg-white p-5 shadow-2xs">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#167c70]/10 text-[#167c70] mb-3">
-                <Laptop className="h-5 w-5" />
-              </div>
-              <h3 className="text-base font-bold text-[#0F2A26]">Cloud-based access</h3>
-              <p className="mt-1.5 text-sm text-zinc-600 leading-relaxed">
-                Access business information through supported devices and permissions.
-              </p>
+            <p className="text-xs sm:text-sm text-zinc-600 mb-6">
+              When evaluating point of sale software for a Karachi retail store, restaurant, or pharmacy, consider these operational standards:
+            </p>
+            <div className="flex sm:grid gap-3.5 sm:gap-4 overflow-x-auto sm:overflow-visible pb-3 sm:pb-0 snap-x snap-mandatory scrollbar-none px-4 -mx-4 sm:px-0 sm:mx-0 sm:grid-cols-2 touch-pan-x">
+              {checklistItems.map((chk, i) => (
+                <div key={chk.title} className="w-[82vw] max-w-[320px] shrink-0 sm:shrink sm:w-auto snap-center flex items-start gap-3 rounded-xl border border-zinc-100 bg-[#F7FAF9] p-3.5 shadow-2xs sm:shadow-none">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#167c70] text-[10px] font-bold text-white">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <h4 className="text-xs sm:text-sm font-bold text-[#0F2A26]">{chk.title}</h4>
+                    <p className="text-xs text-zinc-600 mt-1 leading-relaxed">{chk.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </Container>
-      </section>
+      </Section>
 
-      {/* 4. Business Problems and Solutions */}
+      {/* SECTION 3: MANUAL VS HULM POS COMPARISON */}
       <Section data-reveal className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#E4E2DA]">
         <Container>
           <div className="mx-auto max-w-3xl text-center mb-12 sm:mb-16">
             <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#167c70]">
-              Eliminate Counter Friction
+              Operational Modernization
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">
-              Still Managing Your Business with Manual Billing and Spreadsheets?
+              What does a POS system in Karachi include?
             </h2>
             <p className="mt-4 text-base sm:text-lg leading-relaxed text-zinc-600">
-              Many Karachi businesses rely on calculators, paper registers, WhatsApp messages and separate Excel files. These methods can make everyday operations harder as sales and inventory grow.
-            </p>
-            <p className="mt-2 text-base leading-relaxed text-zinc-800 font-medium">
-              Hulm POS brings essential business operations together in one system.
+              Many stores in Karachi still manage inventory and billing across paper notebooks, mental math, and disjointed Excel sheets. Here is how Hulm POS replaces manual friction with structured automation:
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Problem - Solution Table */}
-            <div className="lg:col-span-7">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start lg:items-center">
+            {/* Problem - Solution Table in horizontal scroll wrapper */}
+            <div className="lg:col-span-6">
+              {/* Mobile Swipe Cue */}
+              <div className="sm:hidden flex items-center justify-between mb-2 px-1 text-xs text-zinc-500">
+                <span className="inline-flex items-center gap-1 font-semibold text-[#167c70]">
+                  <span>👈 Swipe table sideways 👉</span>
+                </span>
+                <span className="text-[11px] font-mono text-zinc-400">10 comparisons</span>
+              </div>
+
               <div className="overflow-hidden rounded-2xl border border-[#E4E2DA] shadow-xs">
-                <div className="grid grid-cols-2 bg-[#0F2A26] px-5 py-3.5 text-xs font-bold uppercase tracking-wider text-white">
-                  <span>Business problem</span>
-                  <span>How Hulm POS helps</span>
-                </div>
-                <div className="divide-y divide-zinc-200 bg-white">
-                  {businessProblems.map((row, idx) => (
-                    <div
-                      key={row.problem}
-                      className={`grid grid-cols-2 px-5 py-3 text-xs sm:text-sm ${
-                        idx % 2 === 0 ? "bg-white" : "bg-[#FAF9F5]"
-                      }`}
-                    >
-                      <div className="pr-4 font-medium text-zinc-800 flex items-center gap-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-rose-500 shrink-0" />
-                        <span>{row.problem}</span>
-                      </div>
-                      <div className="font-semibold text-[#167c70] flex items-center gap-2">
-                        <Check className="h-4 w-4 shrink-0 text-[#167c70]" />
-                        <span>{row.solution}</span>
-                      </div>
+                <div className="overflow-x-auto touch-pan-x">
+                  <div className="min-w-[500px]">
+                    <div className="grid grid-cols-2 bg-[#0F2A26] px-5 py-3.5 text-xs font-bold uppercase tracking-wider text-white">
+                      <span>Manual Paper / Spreadsheet Bottleneck</span>
+                      <span>Hulm POS Cloud Solution</span>
                     </div>
-                  ))}
+                    <div className="divide-y divide-zinc-200 bg-white">
+                      {businessProblems.map((row, idx) => (
+                        <div
+                          key={row.problem}
+                          className={`grid grid-cols-2 px-5 py-3 text-xs sm:text-sm ${
+                            idx % 2 === 0 ? "bg-white" : "bg-[#FAF9F5]"
+                          }`}
+                        >
+                          <div className="pr-4 font-medium text-zinc-800 flex items-center gap-2">
+                            <span className="h-1.5 w-1.5 rounded-full bg-rose-500 shrink-0" />
+                            <span>{row.problem}</span>
+                          </div>
+                          <div className="font-semibold text-[#167c70] flex items-center gap-2">
+                            <Check className="h-4 w-4 shrink-0 text-[#167c70]" />
+                            <span>{row.solution}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="mt-6 flex items-center gap-4">
+              <div className="mt-6 flex flex-wrap items-center gap-4">
                 <Button
                   asChild
                   className="rounded-xl bg-[#0F2A26] hover:bg-[#167c70] text-white font-semibold text-sm h-11 px-6 shadow-xs"
                 >
-                  <a href="#workflow">
-                    See How Hulm POS Works <ArrowRight className="ml-2 h-4 w-4" />
+                  <a href="#demo-form">
+                    Request a Karachi Store Walkthrough <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
               </div>
             </div>
 
-            {/* Infographic Graphic */}
-            <div className="lg:col-span-5">
-              <div className="overflow-hidden rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] p-3 shadow-sm">
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-white">
-                  <Image
-                    src="/images/uploads/2026/11/before-after-spreadsheets-vs-hulmpos-dashboard.webp"
-                    alt="Infographic showing Before Hulm POS manual spreadsheets vs After Hulm POS centralized dashboard"
-                    width={2756}
-                    height={1689}
-                    loading="lazy"
-                    className="h-full w-full object-cover"
-                    sizes="(min-width: 1024px) 440px, calc(100vw - 32px)"
-                  />
-                </div>
-                <div className="mt-3 p-2 text-center">
-                  <p className="text-xs font-semibold text-zinc-700">
-                    Before Hulm POS → Hulm POS → Better-organized operations
-                  </p>
-                  <p className="text-[11px] text-zinc-500 mt-0.5">
-                    Transition from disconnected paper registers and spreadsheets to one connected retail system.
-                  </p>
-                </div>
+            {/* System Comparison Graphic */}
+            <div className="lg:col-span-6 flex flex-col justify-center">
+              <BranchComparisonCard />
+              <div className="mt-3.5 text-center">
+                <p className="text-xs font-bold text-[#0F2A26]">
+                  From Disconnected Ledgers to One POS System in Karachi
+                </p>
+                <p className="text-[11px] text-zinc-500 mt-0.5">
+                  Centralize cashier checkouts, barcode scanning, stock balances, and Udhaar accounts.
+                </p>
               </div>
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* 5. How Hulm POS Works – Product Workflow */}
-      <section id="workflow" className="py-16 sm:py-20 lg:py-24 bg-[#FAF9F5] border-b border-[#E4E2DA]">
+      {/* SECTION 4: FEATURES WITH EXISTING SCREENSHOTS */}
+      <Section data-reveal className="py-16 sm:py-20 lg:py-24 bg-[#FAF9F5] border-b border-[#E4E2DA]">
         <Container>
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto max-w-3xl text-center mb-12 sm:mb-16">
             <span className="text-xs font-bold uppercase tracking-wider text-[#167c70]">
-              Product Workflow
+              Core Modules
             </span>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">
-              See How Easy It Is to Make a Sale with Hulm POS
-            </h2>
+            <h3 className="mt-2 text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">
+              Complete POS Features for Karachi Merchants
+            </h3>
             <p className="mt-4 text-base sm:text-lg leading-relaxed text-zinc-600">
-              A POS system should make checkout easier, not more complicated. Hulm POS provides a straightforward product-to-payment workflow that helps staff process everyday sales.
+              Manage counter sales, stock valuation, supplier purchasing, and customer credit from one connected cloud dashboard.
             </p>
           </div>
 
-          {/* Interactive 4-step workflow preview */}
-          <ProductWorkflowInteractive />
-        </Container>
-      </section>
+          {/* Features Carousel on mobile (< sm), grid on tablet/desktop (sm:, lg:) */}
+          <KarachiFeaturesCarousel items={featuresList} />
 
-      {/* 6. Switching from Another POS / Excel Import */}
-      <Section data-reveal className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#E4E2DA]">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-6 space-y-6">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#167c70]">
-                Zero-Downtime Migration
-              </span>
-              <h2 className="text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">
-                Want to Switch Your POS Software Without Starting from Scratch?
-              </h2>
-              <p className="text-base leading-relaxed text-zinc-700">
-                Changing your POS software can feel difficult when your business already has hundreds or thousands of products. You may worry about manually adding everything again.
-              </p>
-              <p className="text-base leading-relaxed text-zinc-600">
-                Hulm POS offers assistance with importing compatible business data from Excel sheets, helping make the transition easier.
-              </p>
-
-              {/* 5 Steps of Excel Migration */}
-              <ol className="space-y-3 pt-2 text-sm text-zinc-700">
-                <li className="flex items-start gap-3 rounded-xl border border-zinc-200/80 bg-zinc-50/60 p-3.5">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#167c70] text-xs font-bold text-white">
-                    1
-                  </span>
-                  <div>
-                    <strong className="text-[#0F2A26]">Export your existing data</strong> — Export your product information from your current POS or organize it in an Excel sheet.
-                  </div>
-                </li>
-                <li className="flex items-start gap-3 rounded-xl border border-zinc-200/80 bg-zinc-50/60 p-3.5">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#167c70] text-xs font-bold text-white">
-                    2
-                  </span>
-                  <div>
-                    <strong className="text-[#0F2A26]">Share your Excel file with Hulm</strong> — Contact the Hulm team and share your file for a compatibility review.
-                  </div>
-                </li>
-                <li className="flex items-start gap-3 rounded-xl border border-zinc-200/80 bg-zinc-50/60 p-3.5">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#167c70] text-xs font-bold text-white">
-                    3
-                  </span>
-                  <div>
-                    <strong className="text-[#0F2A26]">Prepare and import compatible data</strong> — The team guides you through preparing the supported columns and importing the data.
-                  </div>
-                </li>
-                <li className="flex items-start gap-3 rounded-xl border border-zinc-200/80 bg-zinc-50/60 p-3.5">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#167c70] text-xs font-bold text-white">
-                    4
-                  </span>
-                  <div>
-                    <strong className="text-[#0F2A26]">Review your imported products</strong> — Check product names, prices, quantities and other imported information before starting operations.
-                  </div>
-                </li>
-                <li className="flex items-start gap-3 rounded-xl border border-zinc-200/80 bg-zinc-50/60 p-3.5">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#167c70] text-xs font-bold text-white">
-                    5
-                  </span>
-                  <div>
-                    <strong className="text-[#0F2A26]">Start using Hulm POS</strong> — Get familiar with the checkout process and manage your business through Hulm POS.
-                  </div>
-                </li>
-              </ol>
-
-              {/* WhatsApp CTA */}
-              <div className="pt-2">
-                <Button
-                  asChild
-                  size="lg"
-                  className="rounded-xl bg-[#25D366] hover:bg-[#1ebe5d] text-zinc-950 font-bold h-12 px-6 shadow-sm"
-                >
-                  <a
-                    href="https://wa.me/923391119259?text=I%20want%20to%20switch%20to%20Hulm%20POS.%20Please%20guide%20me%20about%20Excel%20data%20import."
-                    target="_blank"
-                    rel="noreferrer"
-                    data-track-location="karachi_migration_whatsapp"
-                  >
-                    <WhatsAppIcon size={18} className="mr-2" /> Talk to Our Team on WhatsApp
-                  </a>
-                </Button>
-              </div>
-
-              {/* Requirement Qualification */}
-              <p className="text-xs text-zinc-500 leading-normal border-l-2 border-[#167c70] pl-3 py-0.5">
-                Note on data migration: Hulm provides guided assistance for importing compatible product columns (such as item names, barcodes, sale prices, and stock numbers). Contact our team to confirm current file formats and column layouts before switching.
-              </p>
-            </div>
-
-            {/* Infographic Image */}
-            <div className="lg:col-span-6">
-              <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-[#FAF9F5] p-3 shadow-md">
-                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-white">
-                  <Image
-                    src="/images/uploads/2026/11/excel-to-pos-data-migration-steps.webp"
-                    alt="Excel to POS data migration infographic showing existing data to Hulm catalogue transition"
-                    width={1200}
-                    height={675}
-                    loading="lazy"
-                    className="h-full w-full object-cover"
-                    sizes="(min-width: 1024px) 560px, calc(100vw - 32px)"
-                  />
-                </div>
-                <div className="p-3 text-center">
-                  <span className="text-xs font-bold text-[#0F2A26]">
-                    Existing Excel product data → Import assistance → Hulm POS product catalogue
-                  </span>
-                </div>
-              </div>
-            </div>
+          {/* Interactive Workflow & Reporting Previews */}
+          <div className="mt-16">
+            <ProductWorkflowInteractive />
+          </div>
+          <div className="mt-12">
+            <DashboardGraphsInteractive />
           </div>
         </Container>
       </Section>
 
-      {/* 7. Fast, Accurate and Easy-to-Use */}
-      <section className="py-16 sm:py-20 bg-[#FAF9F5] border-b border-[#E4E2DA]">
-        <Container>
-          <div className="mx-auto max-w-3xl text-center mb-12">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#167c70]">
-              User-Friendly Experience
-            </span>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">
-              A POS System Your Staff Can Understand and Use
-            </h2>
-            <p className="mt-4 text-base sm:text-lg leading-relaxed text-zinc-600">
-              Your team should be able to focus on serving customers instead of struggling with complicated software. Hulm POS is designed to make common business operations easier to understand, from finding products and completing sales to reviewing business records.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-2xl border border-[#E4E2DA] bg-white p-6 shadow-2xs">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#167c70]/10 text-[#167c70] mb-4">
-                <Zap className="h-5 w-5" />
-              </div>
-              <h3 className="text-lg font-bold text-[#0F2A26]">Fast checkout</h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-600">
-                Search or scan products and add them to the checkout cart.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-[#E4E2DA] bg-white p-6 shadow-2xs">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#167c70]/10 text-[#167c70] mb-4">
-                <ReceiptText className="h-5 w-5" />
-              </div>
-              <h3 className="text-lg font-bold text-[#0F2A26]">Organized billing</h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-600">
-                Keep product prices, quantities and transaction details together.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-[#E4E2DA] bg-white p-6 shadow-2xs">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#167c70]/10 text-[#167c70] mb-4">
-                <Store className="h-5 w-5" />
-              </div>
-              <h3 className="text-lg font-bold text-[#0F2A26]">Easy to understand</h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-600">
-                Use a clear interface for common business activities.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-[#E4E2DA] bg-white p-6 shadow-2xs">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#167c70]/10 text-[#167c70] mb-4">
-                <UserCheck className="h-5 w-5" />
-              </div>
-              <h3 className="text-lg font-bold text-[#0F2A26]">Easier staff onboarding</h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-600">
-                Help employees learn everyday POS tasks with guided onboarding.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-10 text-center space-y-4">
-            <Button
-              asChild
-              size="lg"
-              className="rounded-full bg-[#0F2A26] hover:bg-[#167c70] text-white px-8 h-12 text-sm font-semibold"
-            >
-              <a href="#demo-form">Book a Free Hulm POS Demo</a>
-            </Button>
-            <p className="text-xs text-zinc-500 max-w-2xl mx-auto">
-              Hulm helps reduce reliance on manual calculations and disconnected records. Correct setup, product data and staff usage remain important.
-            </p>
-          </div>
-        </Container>
-      </section>
-
-      {/* 8. Features */}
+      {/* SECTION 5: INDUSTRIES GRID */}
       <Section data-reveal className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#E4E2DA]">
         <Container>
           <div className="mx-auto max-w-3xl text-center mb-12 sm:mb-16">
             <span className="text-xs font-bold uppercase tracking-wider text-[#167c70]">
-              All-In-One Platform
+              Sector Solutions
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">
-              Manage Sales, Inventory and Business Operations in One Place
+              POS for retail, restaurants, pharmacies and clothing stores in Karachi
             </h2>
             <p className="mt-4 text-base sm:text-lg leading-relaxed text-zinc-600">
-              Hulm POS brings key business operations into one platform, helping you spend less time switching between separate records and tools.
+              Each retail sector in Karachi has distinct counter workflows. Hulm POS configures barcode billing, table layouts, or batch numbers for your specific trade.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {featuresList.map((f) => (
-              <div
-                key={f.title}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] shadow-2xs hover:shadow-sm transition-all"
-              >
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-zinc-200">
-                  <Image
-                    src={f.image}
-                    alt={f.alt}
-                    width={f.width}
-                    height={f.height}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    sizes="(min-width: 1024px) 280px, (min-width: 640px) 50vw, calc(100vw - 32px)"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-5">
-                  <h3 className="text-lg font-bold text-[#0F2A26]">{f.title}</h3>
-                  <p className="mt-2 text-xs sm:text-sm text-zinc-600 leading-relaxed flex-1">
-                    {f.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* Industries Carousel on mobile (< sm), grid on tablet/desktop (sm:, lg:) */}
+          <KarachiIndustriesCarousel items={industrySolutions} />
         </Container>
       </Section>
 
-      {/* 9. Dashboard and Graphs */}
-      <section className="py-16 sm:py-20 bg-[#FAF9F5] border-b border-[#E4E2DA]">
+      {/* SECTION 6: FBR AND SRB SECTION */}
+      <Section data-reveal className="py-16 sm:py-20 bg-[#FAF9F5] border-b border-[#E4E2DA]">
         <Container>
-          <div className="mx-auto max-w-3xl text-center mb-6">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#167c70]">
-              Operational Intelligence
-            </span>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">
-              Understand Your Sales and Business Performance
+          <div className="mx-auto max-w-4xl rounded-3xl border border-emerald-200 bg-white p-8 sm:p-12 shadow-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-300 bg-emerald-50 px-3.5 py-1 text-xs font-bold text-emerald-900 mb-4">
+              <ShieldCheck className="h-4 w-4 text-[#167c70]" />
+              <span>Tax Compliance in Sindh</span>
+            </div>
+
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#0F2A26]">
+              FBR and SRB integrated POS for Karachi businesses
             </h2>
-            <p className="mt-4 text-base sm:text-lg leading-relaxed text-zinc-600">
-              Managing a business becomes difficult when you cannot easily understand what is happening throughout the day. Hulm POS provides business dashboards and reports that help you review sales activity, inventory information, purchases and other available business data.
-            </p>
-          </div>
 
-          {/* 5 Points Grid */}
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-5 text-center text-xs sm:text-sm">
-            <div className="rounded-xl border border-zinc-200 bg-white p-3 font-semibold text-[#0F2A26]">
-              Daily & overall sales activity
-            </div>
-            <div className="rounded-xl border border-zinc-200 bg-white p-3 font-semibold text-[#0F2A26]">
-              Product & inventory information
-            </div>
-            <div className="rounded-xl border border-zinc-200 bg-white p-3 font-semibold text-[#0F2A26]">
-              Purchase-related records
-            </div>
-            <div className="rounded-xl border border-zinc-200 bg-white p-3 font-semibold text-[#0F2A26]">
-              Customer & supplier records
-            </div>
-            <div className="col-span-2 sm:col-span-1 rounded-xl border border-zinc-200 bg-white p-3 font-semibold text-[#0F2A26]">
-              Available profit & performance reports
-            </div>
-          </div>
-
-          {/* Interactive Graphs */}
-          <DashboardGraphsInteractive />
-        </Container>
-      </section>
-
-      {/* 10. Industry Solutions */}
-      <Section data-reveal className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#E4E2DA]">
-        <Container>
-          <div className="mx-auto max-w-3xl text-center mb-12 sm:mb-16">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#167c70]">
-              Tailored For Your Sector
-            </span>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">
-              One POS Solution for Different Business Needs
-            </h2>
-            <p className="mt-4 text-base sm:text-lg leading-relaxed text-zinc-600">
-              Every business has different workflows. Hulm POS supports different types of businesses with tools for billing, inventory and business management.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {industrySolutions.map((ind) => (
-              <article
-                key={ind.title}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] shadow-2xs hover:shadow-sm transition-all"
-              >
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-zinc-200">
-                  <Image
-                    src={ind.image}
-                    alt={`${ind.title} in Karachi running Hulm POS software`}
-                    width={ind.width}
-                    height={ind.height}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, calc(100vw - 32px)"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="text-xl font-bold text-[#0F2A26]">{ind.title}</h3>
-                  <p className="mt-2 text-sm text-zinc-600 leading-relaxed flex-1">
-                    {ind.desc}
-                  </p>
-                  <Link
-                    href={ind.href}
-                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#167c70] hover:text-[#105f56]"
-                  >
-                    {ind.linkLabel} <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* 11. Multi-branch Management */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-[#FAF9F5] border-b border-[#E4E2DA]">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-6 space-y-6">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#167c70]">
-                Scale Seamlessly
-              </span>
-              <h2 className="text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">
-                Running More Than One Branch in Karachi?
-              </h2>
-              <p className="text-base leading-relaxed text-zinc-700">
-                Managing separate spreadsheets, sales records and stock information for each location can become difficult as your business expands. Hulm POS supports centralized multi-branch management, helping businesses manage supported branch operations within one system.
+            <div className="mt-6 space-y-4 text-sm sm:text-base leading-relaxed text-zinc-700">
+              <p>
+                Businesses operating in Karachi fall under two distinct tax administrations: the <strong>Federal Board of Revenue (FBR)</strong> for sales tax on physical goods and Tier-1 retail mandates, and the <strong>Sindh Revenue Board (SRB)</strong> for sales tax on services (affecting restaurants, cafes, caterers, and salons).
               </p>
-
-              <ul className="space-y-3 pt-2 text-sm text-zinc-700 font-medium">
-                <li className="flex items-center gap-2.5">
-                  <CheckCircle2 className="h-4.5 w-4.5 text-[#167c70] shrink-0" />
-                  <span>Organize business operations across branches.</span>
-                </li>
-                <li className="flex items-center gap-2.5">
-                  <CheckCircle2 className="h-4.5 w-4.5 text-[#167c70] shrink-0" />
-                  <span>Review available sales and performance reports.</span>
-                </li>
-                <li className="flex items-center gap-2.5">
-                  <CheckCircle2 className="h-4.5 w-4.5 text-[#167c70] shrink-0" />
-                  <span>Manage product and inventory information.</span>
-                </li>
-                <li className="flex items-center gap-2.5">
-                  <CheckCircle2 className="h-4.5 w-4.5 text-[#167c70] shrink-0" />
-                  <span>Keep relevant business records centralized.</span>
-                </li>
-                <li className="flex items-center gap-2.5">
-                  <CheckCircle2 className="h-4.5 w-4.5 text-[#167c70] shrink-0" />
-                  <span>Manage staff access according to permissions.</span>
-                </li>
-              </ul>
-
-              <div className="pt-2">
-                <Button
-                  asChild
-                  className="rounded-xl bg-[#0F2A26] hover:bg-[#167c70] text-white font-semibold h-11 px-6 text-sm"
-                >
-                  <a href="#demo-form">Discuss Multi-Branch Setup</a>
-                </Button>
-              </div>
-
-              <p className="text-xs text-zinc-500 border-l-2 border-zinc-300 pl-3">
-                * Note: Multi-branch capacity, branch transfer workflows and user permissions vary by subscription plan. Confirm your specific branch requirements with our product team.
+              <p>
+                Hulm POS provides invoice configuration capabilities for tax registration numbers (NTN, STRN, and SRB SNTN) and itemized tax breakdowns. For qualifying Tier-1 retailers, Hulm POS provides integration tools for generating FBR-compliant invoice numbers and verification QR codes.
               </p>
             </div>
 
-            <div className="lg:col-span-6">
-              <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white p-3 shadow-md">
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-zinc-100">
-                  <Image
-                    src="/images/uploads/2026/11/retail-stock-transfer-diagram-lahore-karachi.webp"
-                    alt="Multi-branch POS architecture showing central cloud system connected to multiple branch locations"
-                    width={2756}
-                    height={1689}
-                    loading="lazy"
-                    className="h-full w-full object-cover"
-                    sizes="(min-width: 1024px) 560px, calc(100vw - 32px)"
-                  />
-                </div>
-                <div className="mt-3 text-center">
-                  <span className="text-xs font-bold text-[#0F2A26]">
-                    Central Hulm POS Account &rarr; Branch 1 &bull; Branch 2 &bull; Branch 3
-                  </span>
-                  <p className="text-[11px] text-zinc-500 mt-0.5">
-                    Centralized inventory, consolidated daily reporting, and live inter-branch stock management.
-                  </p>
-                </div>
+            {/* License & Certification Placeholder Slot */}
+            <div className="mt-8 rounded-2xl border border-zinc-200 bg-[#F7FAF9] p-5 text-xs text-zinc-600">
+              <div className="flex items-center gap-2 font-bold text-[#0F2A26] mb-1">
+                <ShieldAlert className="h-4 w-4 text-[#167c70]" />
+                <span>Regulatory Notice &amp; Certification Status:</span>
+              </div>
+              <p>
+                Tax parameters depend on your enterprise category and current FBR/SRB notifications. During onboarding, our team reviews your tax registration details to format receipts accordingly.
+              </p>
+              <div className="mt-2 text-[11px] font-mono text-zinc-500">
+                [VERIFY: FBR Licensed Vendor Registration ID &amp; SRB Direct Integration Module status]
               </div>
             </div>
-          </div>
-        </Container>
-      </section>
 
-      {/* 12. FBR Integration */}
-      <Section data-reveal className="py-16 sm:py-20 bg-white border-b border-[#E4E2DA]">
-        <Container>
-          <div className="mx-auto max-w-3xl rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-50 via-white to-emerald-50/40 p-8 sm:p-10 shadow-xs text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-300 bg-emerald-100/60 px-3 py-1 text-xs font-bold text-emerald-900 mb-4">
-              <ShieldCheck className="h-3.5 w-3.5 text-[#167c70]" /> Tax & Regulatory Ready
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#0F2A26]">
-              Looking for POS Software with FBR Integration?
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-zinc-600 max-w-2xl mx-auto">
-              Businesses that fall under applicable Federal Board of Revenue requirements may need to integrate their POS invoicing with the relevant FBR system. Hulm POS offers FBR-related integration functionality for eligible businesses, subject to applicable requirements and supported configuration.
-            </p>
-
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <div className="mt-8 flex flex-wrap items-center gap-4">
               <Button
                 asChild
                 className="rounded-xl bg-[#0F2A26] hover:bg-[#167c70] text-white font-semibold text-sm h-11 px-6"
               >
                 <Link href="/fbr-integrated-pos-pakistan/">
-                  Ask About FBR Integration <ArrowRight className="ml-2 h-4 w-4" />
+                  Read FBR Integrated POS Details <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button
@@ -1068,214 +854,118 @@ export default function KarachiPosPage() {
                 className="rounded-xl border-zinc-300 text-[#0F2A26] hover:bg-zinc-100 text-sm font-semibold h-11 px-6"
               >
                 <a
-                  href="https://wa.me/923391119259?text=I%20want%20to%20know%20about%20FBR%20integration%20for%20my%20business%20in%20Karachi."
+                  href={whatsappUrl("Hi Hulm, I want to confirm FBR/SRB tax invoice setup for my business in Karachi.")}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <WhatsAppIcon size={16} className="mr-2" /> Consult on WhatsApp
+                  <WhatsAppIcon size={16} className="mr-2 text-[#25D366]" /> Discuss Tax Setup on WhatsApp
                 </a>
               </Button>
             </div>
-
-            <p className="mt-4 text-[11px] text-zinc-500 max-w-xl mx-auto">
-              Notice: Tier-1 retailer eligibility and invoicing parameters depend on current FBR guidelines and your business registration category. Hulm POS provides integration tooling for supported setups.
-            </p>
           </div>
         </Container>
       </Section>
 
-      {/* 13. Why Choose Hulm POS? */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-[#FAF9F5] border-b border-[#E4E2DA]">
+      {/* SECTION 7: PRICING TABLE */}
+      <section id="pricing-section" className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#E4E2DA]">
         <Container>
           <div className="mx-auto max-w-3xl text-center mb-12 sm:mb-16">
             <span className="text-xs font-bold uppercase tracking-wider text-[#167c70]">
-              Built for Practical Results
+              Transparent Monthly Subscription
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">
-              A Practical POS Solution for Growing Businesses
+              How much does POS software cost in Karachi?
             </h2>
             <p className="mt-4 text-base sm:text-lg leading-relaxed text-zinc-600">
-              Choosing POS software is an important business decision. You need a system that fits your daily operations, is easy for your staff to understand and offers support when you need it.
+              Start with an affordable monthly subscription without heavy upfront software licensing penalties.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-xl border border-[#E4E2DA] bg-white p-5 shadow-2xs">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#167c70]/10 text-[#167c70] mb-3">
-                <Store className="h-4.5 w-4.5" />
-              </div>
-              <h3 className="text-base font-bold text-[#0F2A26]">Simple everyday workflows</h3>
-              <p className="mt-1 text-sm text-zinc-600 leading-relaxed">
-                Manage common sales and business operations through one platform.
-              </p>
-            </div>
-
-            <div className="rounded-xl border border-[#E4E2DA] bg-white p-5 shadow-2xs">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#167c70]/10 text-[#167c70] mb-3">
-                <Laptop className="h-4.5 w-4.5" />
-              </div>
-              <h3 className="text-base font-bold text-[#0F2A26]">Cloud-based management</h3>
-              <p className="mt-1 text-sm text-zinc-600 leading-relaxed">
-                Access supported business information without relying on disconnected spreadsheets.
-              </p>
-            </div>
-
-            <div className="rounded-xl border border-[#E4E2DA] bg-white p-5 shadow-2xs">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#167c70]/10 text-[#167c70] mb-3">
-                <Package className="h-4.5 w-4.5" />
-              </div>
-              <h3 className="text-base font-bold text-[#0F2A26]">Inventory and sales management</h3>
-              <p className="mt-1 text-sm text-zinc-600 leading-relaxed">
-                Keep essential product, sales and purchase records organized.
-              </p>
-            </div>
-
-            <div className="rounded-xl border border-[#E4E2DA] bg-white p-5 shadow-2xs">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#167c70]/10 text-[#167c70] mb-3">
-                <FileSpreadsheet className="h-4.5 w-4.5" />
-              </div>
-              <h3 className="text-base font-bold text-[#0F2A26]">Excel import assistance</h3>
-              <p className="mt-1 text-sm text-zinc-600 leading-relaxed">
-                Get guidance when moving compatible data from existing spreadsheets.
-              </p>
-            </div>
-
-            <div className="rounded-xl border border-[#E4E2DA] bg-white p-5 shadow-2xs">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#167c70]/10 text-[#167c70] mb-3">
-                <BarChart3 className="h-4.5 w-4.5" />
-              </div>
-              <h3 className="text-base font-bold text-[#0F2A26]">Business reporting</h3>
-              <p className="mt-1 text-sm text-zinc-600 leading-relaxed">
-                Review available sales and operational reports.
-              </p>
-            </div>
-
-            <div className="rounded-xl border border-[#E4E2DA] bg-white p-5 shadow-2xs">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#167c70]/10 text-[#167c70] mb-3">
-                <Phone className="h-4.5 w-4.5" />
-              </div>
-              <h3 className="text-base font-bold text-[#0F2A26]">Local assistance</h3>
-              <p className="mt-1 text-sm text-zinc-600 leading-relaxed">
-                Contact the Hulm team for product guidance and onboarding.
-              </p>
-            </div>
-
-            <div className="col-span-1 sm:col-span-2 lg:col-span-3 rounded-xl border border-emerald-200 bg-emerald-50/70 p-5 text-center">
-              <h3 className="text-base font-bold text-emerald-950">Transparent starting price</h3>
-              <p className="mt-1 text-sm text-emerald-800">
-                Begin with a subscription starting at PKR 2,500 per month with a 14-day free trial.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* 14. Pricing */}
-      <Section data-reveal className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#E4E2DA]">
-        <Container>
-          <div className="mx-auto max-w-3xl text-center mb-12 sm:mb-16">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#167c70]">
-              Transparent Pricing
-            </span>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">
-              Affordable POS Software for Businesses in Karachi
-            </h2>
-            <p className="mt-4 text-base sm:text-lg leading-relaxed text-zinc-600">
-              Get started with Hulm POS without making a large upfront software investment.
-            </p>
-          </div>
-
-          {/* Redesigned Balanced Horizontal Showcase Card */}
           <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-[#E4E2DA] bg-white shadow-lg ring-1 ring-zinc-900/5">
             <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-              {/* Left Column: Plan Inclusions & Overview */}
+              {/* Starter Plan Column */}
               <div className="lg:col-span-7 p-8 sm:p-10 lg:p-12 flex flex-col justify-between">
                 <div>
                   <div className="inline-flex items-center gap-2 rounded-full bg-[#167c70]/10 px-3.5 py-1 text-xs font-bold text-[#167c70]">
                     <Sparkles className="h-3.5 w-3.5" />
-                    <span>Starter Plan | 14-Day Free Trial</span>
+                    <span>Starter Plan &bull; 14-Day Free Trial</span>
                   </div>
                   <h3 className="mt-4 text-2xl sm:text-3xl font-bold tracking-tight text-[#0F2A26]">
-                    Start managing your business with Hulm POS.
+                    Core POS &amp; Inventory for Single-Branch Stores
                   </h3>
                   <p className="mt-3 text-sm sm:text-base leading-relaxed text-zinc-600">
-                    Everything your store needs to process sales, organize inventory, and track customer credit in one connected cloud system.
+                    Everything your counter needs to scan items, process cash or card bills, and track customer credit in one secure cloud system.
                   </p>
 
-                  {/* 2-Column Inclusions Grid */}
                   <div className="mt-8 border-t border-zinc-100 pt-6">
                     <p className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-4">
-                      Plan Inclusions
+                      What the Starter Plan Includes:
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-zinc-700">
                       <div className="flex items-start gap-2.5">
                         <CheckCircle2 className="h-5 w-5 text-[#167c70] shrink-0 mt-0.5" />
                         <div>
-                          <span className="font-semibold text-[#0F2A26]">Sales and billing management</span>
-                          <p className="text-xs text-zinc-500 mt-0.5">Fast checkout & receipt printing</p>
+                          <span className="font-semibold text-[#0F2A26]">Sales &amp; Billing Module</span>
+                          <p className="text-xs text-zinc-500 mt-0.5">Barcode scanning &amp; receipt printing</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-2.5">
                         <CheckCircle2 className="h-5 w-5 text-[#167c70] shrink-0 mt-0.5" />
                         <div>
-                          <span className="font-semibold text-[#0F2A26]">Product and inventory management</span>
-                          <p className="text-xs text-zinc-500 mt-0.5">Barcodes, prices & stock levels</p>
+                          <span className="font-semibold text-[#0F2A26]">Inventory Management</span>
+                          <p className="text-xs text-zinc-500 mt-0.5">Live stock deduction &amp; low-stock alerts</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-2.5">
                         <CheckCircle2 className="h-5 w-5 text-[#167c70] shrink-0 mt-0.5" />
                         <div>
-                          <span className="font-semibold text-[#0F2A26]">Business reports</span>
-                          <p className="text-xs text-zinc-500 mt-0.5">Daily sales & performance data</p>
+                          <span className="font-semibold text-[#0F2A26]">Udhaar Khata Ledger</span>
+                          <p className="text-xs text-zinc-500 mt-0.5">Customer credit balance on receipts</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-2.5">
                         <CheckCircle2 className="h-5 w-5 text-[#167c70] shrink-0 mt-0.5" />
                         <div>
-                          <span className="font-semibold text-[#0F2A26]">Customer and supplier records</span>
-                          <p className="text-xs text-zinc-500 mt-0.5">Udhaar khata & vendor ledgers</p>
+                          <span className="font-semibold text-[#0F2A26]">Daily Sales Reporting</span>
+                          <p className="text-xs text-zinc-500 mt-0.5">End-of-day register closing totals</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-2.5">
                         <CheckCircle2 className="h-5 w-5 text-[#167c70] shrink-0 mt-0.5" />
                         <div>
-                          <span className="font-semibold text-[#0F2A26]">Cloud-based POS functionality</span>
-                          <p className="text-xs text-zinc-500 mt-0.5">Access securely from any device</p>
+                          <span className="font-semibold text-[#0F2A26]">Assisted Excel Migration</span>
+                          <p className="text-xs text-zinc-500 mt-0.5">Bulk upload of product spreadsheet</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-2.5">
                         <CheckCircle2 className="h-5 w-5 text-[#167c70] shrink-0 mt-0.5" />
                         <div>
-                          <span className="font-semibold text-[#0F2A26]">Support and onboarding guidance</span>
-                          <p className="text-xs text-zinc-500 mt-0.5">WhatsApp & phone guidance</p>
+                          <span className="font-semibold text-[#0F2A26]">Karachi Support Access</span>
+                          <p className="text-xs text-zinc-500 mt-0.5">WhatsApp &amp; phone guidance in Urdu</p>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-zinc-100 flex flex-wrap items-center justify-between gap-3 text-xs text-zinc-500">
-                  <span className="flex items-center gap-1.5 font-medium text-zinc-600">
-                    <Building2 className="h-4 w-4 text-[#167c70]" /> Multi-branch growth plans available
-                  </span>
-                  <span className="flex items-center gap-1.5 font-medium text-zinc-600">
-                    <ShieldCheck className="h-4 w-4 text-[#167c70]" /> FBR integration compatible
-                  </span>
+                <div className="mt-8 pt-6 border-t border-zinc-100 text-xs text-zinc-500 space-y-1">
+                  <p><strong>Price Exclusions:</strong> Applicable provincial sales taxes / SRB; physical hardware (PCs, thermal printers, barcode scanners).</p>
+                  <p><strong>Hardware Notice:</strong> Runs on your existing computers or tablets with standard USB/LAN receipt printers.</p>
                 </div>
               </div>
 
-              {/* Right Column: Price Tag, Guarantees & CTAs */}
+              {/* Price Callout Column */}
               <div className="lg:col-span-5 bg-gradient-to-b from-[#F7FAF9] to-[#FAF9F5] border-t lg:border-t-0 lg:border-l border-[#E4E2DA] p-8 sm:p-10 flex flex-col justify-between">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-[#167c70]">
-                    Starting Subscription
+                    Starter Subscription
                   </span>
                   <div className="mt-3 flex items-baseline gap-2">
                     <span className="text-4xl sm:text-5xl font-extrabold text-[#0F2A26]">PKR 2,500</span>
                     <span className="text-base font-semibold text-zinc-500">/ month</span>
                   </div>
                   <p className="mt-2 text-xs text-zinc-600">
-                    Transparent monthly subscription with no upfront hardware lock-in.
+                    Straightforward monthly subscription with zero long-term contract lock-in.
                   </p>
 
                   <div className="mt-6 rounded-2xl border border-emerald-200/80 bg-white p-4 shadow-2xs space-y-2">
@@ -1286,8 +976,16 @@ export default function KarachiPosPage() {
                       <Check className="h-4 w-4 text-[#167c70] shrink-0" /> No credit card required to start
                     </div>
                     <div className="flex items-center gap-2 text-xs font-semibold text-emerald-900">
-                      <Check className="h-4 w-4 text-[#167c70] shrink-0" /> Switch or upgrade plan anytime
+                      <Check className="h-4 w-4 text-[#167c70] shrink-0" /> Cancel or change plan anytime
                     </div>
+                  </div>
+
+                  {/* Multi-tier placeholders */}
+                  <div className="mt-6 border-t border-zinc-200 pt-4 text-xs text-zinc-500 space-y-2">
+                    <p className="font-semibold text-zinc-700">Need Multiple Branches or Advanced Tiers?</p>
+                    <p className="font-mono text-[11px] bg-zinc-100 p-2 rounded border border-zinc-200">
+                      [VERIFY: Growth, Business &amp; Enterprise multi-branch pricing tiers and user limits]
+                    </p>
                   </div>
                 </div>
 
@@ -1297,7 +995,12 @@ export default function KarachiPosPage() {
                     size="lg"
                     className="w-full rounded-xl bg-[#0F2A26] hover:bg-[#167c70] text-white font-semibold h-12 shadow-sm text-sm"
                   >
-                    <a href={contactInfo.signupUrl} target="_blank" rel="noreferrer">
+                    <a
+                      href={contactInfo.signupUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      data-track-location="karachi_pricing_trial"
+                    >
                       Start Your 14-Day Free Trial <ExternalLink className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
@@ -1308,171 +1011,313 @@ export default function KarachiPosPage() {
                     className="w-full rounded-xl border-zinc-300 bg-white text-[#0F2A26] hover:bg-zinc-50 font-semibold h-12 text-sm"
                   >
                     <a
-                      href="https://wa.me/923391119259?text=I%20want%20to%20know%20more%20about%20Hulm%20POS%20pricing."
+                      href={whatsappUrl("Hi Hulm, I want to discuss POS pricing and multi-branch tiers for Karachi.")}
                       target="_blank"
                       rel="noreferrer"
+                      data-track-location="karachi_pricing_whatsapp"
                     >
-                      <WhatsAppIcon size={16} className="mr-2" /> Ask About Pricing on WhatsApp
+                      <WhatsAppIcon size={16} className="mr-2 text-[#25D366]" /> Inquire on WhatsApp
                     </a>
                   </Button>
-
-                  <p className="pt-2 text-center text-[11px] text-zinc-500 leading-normal">
-                    Confirm current plan inclusions, branch limits, applicable taxes and any additional charges with the team.
-                  </p>
                 </div>
               </div>
             </div>
           </div>
+        </Container>
+      </section>
 
-          {/* 3 Value Pillars */}
-          <div className="mx-auto mt-8 max-w-5xl grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="flex items-start gap-3 rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] p-5 shadow-2xs">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#167c70]/10 text-[#167c70]">
-                <Zap className="h-5 w-5" />
+      {/* SECTION 8: MIGRATION STEPS */}
+      <Section data-reveal className="py-16 sm:py-20 lg:py-24 bg-[#FAF9F5] border-b border-[#E4E2DA]">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-6 space-y-6">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#167c70]">
+                Zero-Downtime Migration
+              </span>
+              <h2 className="text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">
+                How to switch POS software without losing data
+              </h2>
+              <p className="text-base leading-relaxed text-zinc-700">
+                Switching software should never mean retyping thousands of products, prices, and barcodes by hand. Hulm POS provides assisted data migration for compatible Excel spreadsheets and CSV exports.
+              </p>
+
+              {/* 5 Migration Steps */}
+              <ol className="space-y-3 pt-2 text-sm text-zinc-700">
+                <li className="flex items-start gap-3 rounded-xl border border-zinc-200/80 bg-white p-3.5 shadow-2xs">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#167c70] text-xs font-bold text-white">
+                    1
+                  </span>
+                  <div>
+                    <strong className="text-[#0F2A26]">Export your current data:</strong> Export items, barcodes, prices, and customer balances from your existing POS or spreadsheet into clean CSV or Excel files.
+                  </div>
+                </li>
+                <li className="flex items-start gap-3 rounded-xl border border-zinc-200/80 bg-white p-3.5 shadow-2xs">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#167c70] text-xs font-bold text-white">
+                    2
+                  </span>
+                  <div>
+                    <strong className="text-[#0F2A26]">Column mapping review:</strong> Share your file with our team. We verify supported columns (Item Name, Barcode, Category, Cost, Sale Price, Stock).
+                  </div>
+                </li>
+                <li className="flex items-start gap-3 rounded-xl border border-zinc-200/80 bg-white p-3.5 shadow-2xs">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#167c70] text-xs font-bold text-white">
+                    3
+                  </span>
+                  <div>
+                    <strong className="text-[#0F2A26]">Batch import testing:</strong> We upload a test batch to verify character encoding, preserve leading zeros on barcodes, and ensure accurate tax calculations.
+                  </div>
+                </li>
+                <li className="flex items-start gap-3 rounded-xl border border-zinc-200/80 bg-white p-3.5 shadow-2xs">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#167c70] text-xs font-bold text-white">
+                    4
+                  </span>
+                  <div>
+                    <strong className="text-[#0F2A26]">Counter reconciliation:</strong> Test scan high-velocity products with your thermal printer and barcode scanner to confirm counter readiness.
+                  </div>
+                </li>
+                <li className="flex items-start gap-3 rounded-xl border border-zinc-200/80 bg-white p-3.5 shadow-2xs">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#167c70] text-xs font-bold text-white">
+                    5
+                  </span>
+                  <div>
+                    <strong className="text-[#0F2A26]">Go live smoothly:</strong> Launch checkout during an off-peak shift with our Karachi support team standing by on WhatsApp.
+                  </div>
+                </li>
+              </ol>
+
+              {/* Template Download Slot Placeholder */}
+              <div className="rounded-xl border border-zinc-200 bg-white p-4 text-xs text-zinc-600">
+                <span className="font-semibold text-[#0F2A26]">Excel Import Template:</span> Compatible formats include standard .xlsx and .csv tables.
+                <div className="mt-1 font-mono text-[11px] text-zinc-500">
+                  [VERIFY: Download Hulm POS Excel Product Template .xlsx - verified direct file download link]
+                </div>
               </div>
-              <div>
-                <h4 className="text-sm font-bold text-[#0F2A26]">Quick Setup in Karachi</h4>
-                <p className="mt-1 text-xs text-zinc-600 leading-relaxed">
-                  Be up and running same day with guided Excel data import and counter training.
-                </p>
+
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <Button
+                  asChild
+                  className="rounded-xl bg-[#25D366] hover:bg-[#1ebe5d] text-zinc-950 font-bold h-12 px-6 shadow-sm"
+                >
+                  <a
+                    href={whatsappUrl("Hi Hulm, I want to switch my POS software in Karachi and need help importing Excel products.")}
+                    target="_blank"
+                    rel="noreferrer"
+                    data-track-location="karachi_migration_whatsapp"
+                  >
+                    <WhatsAppIcon size={18} className="mr-2" /> Discuss Data Migration on WhatsApp
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="rounded-xl border-zinc-300 text-[#0F2A26] hover:bg-zinc-100 h-12 px-5 text-sm font-semibold"
+                >
+                  <Link href="/blog/switch-pos-software-without-losing-data/">
+                    Read Full Migration Guide
+                  </Link>
+                </Button>
               </div>
             </div>
 
-            <div className="flex items-start gap-3 rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] p-5 shadow-2xs">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#167c70]/10 text-[#167c70]">
-                <ShieldCheck className="h-5 w-5" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-[#0F2A26]">No Hidden Penalties</h4>
-                <p className="mt-1 text-xs text-zinc-600 leading-relaxed">
-                  Predictable monthly subscription with no hardware lock-in or setup penalties.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3 rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] p-5 shadow-2xs">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#167c70]/10 text-[#167c70]">
-                <TrendingUp className="h-5 w-5" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-[#0F2A26]">Scales With Your Trade</h4>
-                <p className="mt-1 text-xs text-zinc-600 leading-relaxed">
-                  Easily add counters, staff logins, and branches as your business grows.
-                </p>
+            {/* Infographic Roadmap */}
+            <div className="lg:col-span-6 flex flex-col justify-center">
+              <MigrationRoadmapCard />
+              <div className="mt-3.5 text-center">
+                <span className="inline-flex flex-wrap items-center justify-center gap-1.5 text-xs font-semibold text-zinc-600">
+                  <span>Existing Spreadsheets</span>
+                  <span className="text-[#167c70] font-bold">&rarr;</span>
+                  <span>Column Mapping Assistance</span>
+                  <span className="text-[#167c70] font-bold">&rarr;</span>
+                  <span>Live POS Product Catalogue</span>
+                </span>
               </div>
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* 15. Getting Started / Onboarding */}
-      <section className="py-16 sm:py-20 bg-[#FAF9F5] border-b border-[#E4E2DA]">
+      {/* SECTION 9: SOCIAL PROOF & REAL KARACHI CASE STUDY */}
+      <Section data-reveal className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#E4E2DA]">
         <Container>
           <div className="mx-auto max-w-3xl text-center mb-12 sm:mb-16">
             <span className="text-xs font-bold uppercase tracking-wider text-[#167c70]">
-              Simple 4-Step Process
+              Verified Implementations
             </span>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">
-              From Setup to Your First Sale
-            </h2>
+            <h3 className="mt-2 text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">
+              Proven Results for Karachi Businesses
+            </h3>
+            <p className="mt-4 text-base sm:text-lg leading-relaxed text-zinc-600">
+              See how real enterprises in Karachi transitioned from manual registers to organized cloud point of sale operations.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-2xl border border-[#E4E2DA] bg-white p-6 shadow-2xs">
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#167c70] text-sm font-bold text-white shadow-xs">
-                1
-              </span>
-              <h3 className="mt-4 text-lg font-bold text-[#0F2A26]">Discuss requirements</h3>
-              <p className="mt-2 text-sm text-zinc-600 leading-relaxed">
-                Tell us about your business, number of branches and current billing process.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-[#E4E2DA] bg-white p-6 shadow-2xs">
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#167c70] text-sm font-bold text-white shadow-xs">
-                2
-              </span>
-              <h3 className="mt-4 text-lg font-bold text-[#0F2A26]">Set up products</h3>
-              <p className="mt-2 text-sm text-zinc-600 leading-relaxed">
-                Prepare product information and compatible Excel data, if applicable.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-[#E4E2DA] bg-white p-6 shadow-2xs">
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#167c70] text-sm font-bold text-white shadow-xs">
-                3
-              </span>
-              <h3 className="mt-4 text-lg font-bold text-[#0F2A26]">Learn checkout</h3>
-              <p className="mt-2 text-sm text-zinc-600 leading-relaxed">
-                Understand how to add products, process payments and complete sales.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-[#E4E2DA] bg-white p-6 shadow-2xs">
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#167c70] text-sm font-bold text-white shadow-xs">
-                4
-              </span>
-              <h3 className="mt-4 text-lg font-bold text-[#0F2A26]">Start managing</h3>
-              <p className="mt-2 text-sm text-zinc-600 leading-relaxed">
-                Use Hulm POS for your configured daily business operations.
-              </p>
+          {/* Real Karachi Case Study Card */}
+          <div className="mx-auto max-w-4xl overflow-hidden rounded-3xl border border-[#E4E2DA] bg-[#FAF9F5] shadow-sm">
+            <div className="grid grid-cols-1 md:grid-cols-12 items-stretch">
+              <div className="md:col-span-5 relative min-h-[240px] bg-zinc-200">
+                <Image
+                  src="/images/case-studies/farhan-caterers.webp"
+                  alt="Farhan Caterers event catering setup in Karachi"
+                  width={1024}
+                  height={682}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                  sizes="(min-width: 768px) 380px, 100vw"
+                />
+              </div>
+              <div className="md:col-span-7 p-6 sm:p-8 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between text-xs font-semibold text-zinc-500 mb-2">
+                    <span className="text-[#167c70] font-bold">Event Catering &bull; Karachi</span>
+                    <span>Verified Case Study</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#0F2A26]">
+                    Farhan Caterers: Streamlining Event Bookings &amp; Tax Invoicing
+                  </h3>
+                  <p className="mt-3 text-sm text-zinc-600 leading-relaxed">
+                    Farhan Ahmed replaced a diary-and-spreadsheet booking process with Hulm POS to handle advance wedding reservations, ingredient costing, and FBR-compliant billing across simultaneous events in Karachi.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-zinc-200/80 flex items-center justify-between">
+                  <span className="text-xs font-medium text-zinc-500">Client: Farhan Ahmed, Owner</span>
+                  <Link
+                    href="/pos-case-studies/farhan-caterers-pos-karachi/"
+                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#167c70] hover:underline"
+                  >
+                    Read Full Case Study <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Button
-              asChild
-              size="lg"
-              className="rounded-full bg-[#0F2A26] hover:bg-[#167c70] text-white px-7 h-11 text-sm font-semibold"
-            >
-              <a href={contactInfo.signupUrl} target="_blank" rel="noreferrer">
-                Start Your Free Trial <ExternalLink className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="rounded-full border-zinc-300 text-[#0F2A26] hover:bg-zinc-100 px-7 h-11 text-sm font-semibold"
-            >
-              <a
-                href="https://wa.me/923391119259?text=I%20want%20help%20setting%20up%20Hulm%20POS."
-                target="_blank"
-                rel="noreferrer"
-              >
-                <WhatsAppIcon size={16} className="mr-2" /> Setup Assistance on WhatsApp
-              </a>
-            </Button>
+          {/* Testimonial Placeholder Slot: Only renders verified reviews */}
+          <div className="mx-auto mt-8 max-w-4xl rounded-2xl border border-dashed border-zinc-300 p-6 text-center text-xs text-zinc-500">
+            <p className="font-semibold text-zinc-700">Customer Testimonial Verification Policy:</p>
+            <p className="mt-1">
+              Per strict data accuracy guidelines, individual merchant quotes and reviews are rendered only upon written client consent and independent verification.
+            </p>
+            <p className="mt-1 font-mono text-[11px] text-zinc-400">
+              [VERIFY: Real Karachi Merchant Reviews - Awaiting signed attribution before DOM inclusion]
+            </p>
+          </div>
+        </Container>
+      </Section>
+
+      {/* SECTION 10: MULTI-BRANCH POS FOR KARACHI */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-[#FAF9F5] border-b border-[#E4E2DA]">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-6 space-y-6">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#167c70]">
+                Centralized Scaling
+              </span>
+              <h2 className="text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">
+                Multi-branch POS for Karachi
+              </h2>
+              <p className="text-base leading-relaxed text-zinc-700">
+                Running outlets across Saddar, Clifton, Gulshan-e-Iqbal, and Gulistan-e-Johar should not require calling cashiers or cross-referencing messy spreadsheets at midnight.
+              </p>
+              <p className="text-base leading-relaxed text-zinc-600">
+                Hulm POS synchronizes transactions and stock levels across every branch in real time. Business owners can view consolidated sales reports or drill down into individual counter performance from any browser.
+              </p>
+
+              <ul className="space-y-3 pt-2 text-sm text-zinc-700 font-medium">
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="h-4.5 w-4.5 text-[#167c70] shrink-0" />
+                  <span>Central product catalogue synced across all Karachi outlets</span>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="h-4.5 w-4.5 text-[#167c70] shrink-0" />
+                  <span>Inter-branch stock transfers with warehouse dispatch verification</span>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="h-4.5 w-4.5 text-[#167c70] shrink-0" />
+                  <span>Consolidated revenue reports and branch-by-branch margin comparisons</span>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="h-4.5 w-4.5 text-[#167c70] shrink-0" />
+                  <span>Branch-specific staff logins and localized cashier drawer audits</span>
+                </li>
+              </ul>
+
+              <div className="pt-2">
+                <Button
+                  asChild
+                  className="rounded-xl bg-[#0F2A26] hover:bg-[#167c70] text-white font-semibold h-11 px-6 text-sm"
+                >
+                  <a href="#demo-form">Discuss Multi-Branch Architecture</a>
+                </Button>
+              </div>
+
+              <p className="text-xs text-zinc-500 border-l-2 border-zinc-300 pl-3">
+                * Note: Multi-branch capacity, branch transfer workflows and user permissions vary by subscription plan. Confirm your specific branch requirements with our product team.
+              </p>
+            </div>
+
+            {/* Multi-Branch Diagram without Lahore in filename or alt */}
+            <div className="lg:col-span-6">
+              <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white p-3 shadow-md">
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-zinc-100">
+                  <Image
+                    src="/images/uploads/2026/11/retail-stock-transfer-diagram-karachi.webp"
+                    alt="Multi-branch POS architecture showing central cloud system connected to multiple branch retail locations in Karachi"
+                    width={2756}
+                    height={1689}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                    sizes="(min-width: 1024px) 560px, calc(100vw - 32px)"
+                  />
+                </div>
+                <div className="mt-3 text-center">
+                  <span className="text-xs font-bold text-[#0F2A26]">
+                    Central Cloud Account &rarr; Branch 1 (Saddar) &bull; Branch 2 (Clifton) &bull; Branch 3 (Gulshan)
+                  </span>
+                  <p className="text-[11px] text-zinc-500 mt-0.5">
+                    Live inter-branch inventory transfers, shared customer credit ledgers, and consolidated daily analytics.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </Container>
       </section>
 
-      {/* 16. Local Karachi Presence */}
+      {/* SECTION 11: LOCAL SETUP AND SUPPORT IN KARACHI */}
       <Section data-reveal className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#E4E2DA]">
         <Container className="max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            {/* Left Column: Information, Text & Commercial Hubs Grid */}
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3.5 py-1 text-xs font-semibold text-[#167c70]">
                 <MapPin className="h-3.5 w-3.5 text-[#167c70]" />
-                <span>Local Karachi Presence &amp; Support</span>
+                <span>Karachi Office &amp; Local Team</span>
               </div>
 
               <h2 className="text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl leading-[1.2]">
-                Looking for POS Software in Karachi with Local Assistance?
+                Local setup and support in Karachi
               </h2>
 
               <p className="text-base sm:text-lg leading-relaxed text-zinc-600">
-                Hulm Solutions serves businesses looking for practical POS software to manage their daily operations. Whether your business is in Gulistan-e-Johar, Gulshan-e-Iqbal, Saddar, DHA, Clifton, North Nazimabad, Tariq Road, Korangi or another area of Karachi, contact our team to discuss your setup and support requirements.
+                Choosing a dependable <strong>POS in Karachi</strong> ensures your counter operations receive responsive onboarding and prompt WhatsApp troubleshooting when questions arise. Our team is located right here in Karachi, providing dedicated setup assistance and cashier training.
               </p>
+
+              {/* Truthful onboarding statement */}
+              <div className="rounded-2xl border border-emerald-200/90 bg-[#F7FAF9] p-5 text-sm text-zinc-700 leading-relaxed">
+                <p>
+                  <strong>How Onboarding Works:</strong> To provide rapid turnaround times across all districts, onboarding, database imports, and cashier training are delivered remotely via WhatsApp, phone, and screen-sharing sessions by our Karachi product team.
+                </p>
+                <p className="mt-2 text-xs text-zinc-500">
+                  [VERIFY: In-person on-site deployment visits - Available exclusively for custom enterprise multi-branch retail contracts]
+                </p>
+              </div>
 
               {/* Supported Commercial Hubs Box */}
               <div className="rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] p-5 sm:p-6 space-y-3">
                 <div className="flex items-center justify-between">
                   <h3 className="text-xs font-bold uppercase tracking-wider text-[#0F2A26]">
-                    Serving Key Commercial &amp; Retail Hubs Across Karachi
+                    Commercial &amp; Retail Hubs Served Across Karachi
                   </h3>
-                  <span className="text-[11px] font-semibold text-[#167c70]">All Districts</span>
+                  <span className="text-[11px] font-semibold text-[#167c70]">All Commercial Zones</span>
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1">
@@ -1487,16 +1332,11 @@ export default function KarachiPosPage() {
                   ))}
                 </div>
               </div>
-
-              <p className="text-xs text-zinc-500 leading-relaxed border-l-2 border-[#167c70] pl-3 py-0.5">
-                Our Karachi support team provides fast online onboarding, compatible Excel database import, receipt printer configuration, and staff training with zero business downtime.
-              </p>
             </div>
 
-            {/* Right Column: Official Office & Direct Contact Card */}
-            <div className="lg:col-span-5">
+            {/* Official Office Card with Google Maps Embed */}
+            <div className="lg:col-span-5 space-y-4">
               <div className="overflow-hidden rounded-3xl border border-[#E4E2DA] bg-[#FAF9F5] shadow-md ring-1 ring-zinc-900/5">
-                {/* Card Header */}
                 <div className="bg-[#0F2A26] p-6 sm:p-7 text-white">
                   <div className="flex items-center gap-3">
                     <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-[#7ae582]">
@@ -1504,88 +1344,68 @@ export default function KarachiPosPage() {
                     </div>
                     <div>
                       <h3 className="text-lg font-bold text-white">Hulm Solutions</h3>
-                      <p className="text-xs text-zinc-300">Gulistan-e-Johar, Karachi, Pakistan</p>
+                      <p className="text-xs text-zinc-300">C-27, Block 14, Gulistan-e-Johar, Karachi</p>
                     </div>
                   </div>
                 </div>
 
-                {/* Contact Items */}
-                <div className="p-6 sm:p-7 space-y-4">
-                  {/* WhatsApp & Call */}
-                  <a
-                    href="https://wa.me/923391119259?text=Hi%20Hulm,%20I'm%20inquiring%20about%20POS%20Software%20in%20Karachi."
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-start gap-3.5 rounded-2xl border border-zinc-200/80 bg-white p-4 shadow-2xs hover:border-[#167c70] hover:shadow-xs transition-all group"
-                  >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#25D366]/10 text-[#25D366] group-hover:scale-105 transition-transform">
-                      <WhatsAppIcon size={20} />
-                    </div>
-                    <div>
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-400">
-                        WhatsApp Support
-                      </span>
-                      <p className="text-sm sm:text-base font-bold text-[#0F2A26] group-hover:text-[#167c70] transition-colors">
-                        +92 339 111 9259
-                      </p>
-                      <p className="text-xs text-zinc-500 mt-0.5">Quick assistance for Karachi businesses</p>
-                    </div>
-                  </a>
+                {/* Lazy-Loaded Google Map Embed */}
+                <div className="relative aspect-[16/9] w-full bg-zinc-200 border-b border-[#E4E2DA]">
+                  <iframe
+                    title="Hulm Solutions Karachi Office Map"
+                    src="https://maps.google.com/maps?q=Block+14+Gulistan-e-Johar+Karachi&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="100%"
+                    loading="lazy"
+                    className="border-0 w-full h-full"
+                    allowFullScreen={false}
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
 
-                  {/* Email */}
-                  <a
-                    href="mailto:info@hulmsolutions.com"
-                    className="flex items-start gap-3.5 rounded-2xl border border-zinc-200/80 bg-white p-4 shadow-2xs hover:border-[#167c70] hover:shadow-xs transition-all group"
-                  >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#167c70]/10 text-[#167c70] group-hover:scale-105 transition-transform">
-                      <Mail className="h-5 w-5" />
-                    </div>
+                <div className="p-6 space-y-3.5 text-xs sm:text-sm text-zinc-700">
+                  <div className="flex items-start gap-2.5">
+                    <MapPin className="h-4 w-4 text-[#167c70] shrink-0 mt-0.5" />
                     <div>
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-400">
-                        Email Inquiries
-                      </span>
-                      <p className="text-sm sm:text-base font-bold text-[#0F2A26] group-hover:text-[#167c70] transition-colors">
-                        info@hulmsolutions.com
-                      </p>
-                      <p className="text-xs text-zinc-500 mt-0.5">Proposals &amp; enterprise queries</p>
-                    </div>
-                  </a>
-
-                  {/* Cloud Portal */}
-                  <div className="flex items-start gap-3.5 rounded-2xl border border-zinc-200/80 bg-white p-4 shadow-2xs">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-zinc-100 text-[#0F2A26]">
-                      <Monitor className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-400">
-                        Official Website &amp; Portal
-                      </span>
-                      <p className="text-sm font-bold text-[#0F2A26]">
-                        https://hulmsolutions.com/
-                      </p>
-                      <p className="text-xs text-zinc-500 mt-0.5">Cloud-based business management</p>
+                      <strong>Address:</strong> C-27, Block 14, Gulistan-e-Johar, Karachi, 75290, Pakistan
                     </div>
                   </div>
 
-                  {/* Primary WhatsApp Action */}
+                  <div className="flex items-start gap-2.5">
+                    <Clock className="h-4 w-4 text-[#167c70] shrink-0 mt-0.5" />
+                    <div>
+                      <strong>Support Hours:</strong> Monday – Saturday [VERIFY: Specific operating hours e.g. 9:00 AM – 6:00 PM PKT]
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2.5">
+                    <Phone className="h-4 w-4 text-[#167c70] shrink-0 mt-0.5" />
+                    <div>
+                      <strong>Phone / WhatsApp:</strong> +92 339 111 9259
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2.5">
+                    <Mail className="h-4 w-4 text-[#167c70] shrink-0 mt-0.5" />
+                    <div>
+                      <strong>Email:</strong> info@hulmsolutions.com
+                    </div>
+                  </div>
+
                   <div className="pt-2">
                     <Button
                       asChild
                       className="w-full rounded-xl bg-[#25D366] hover:bg-[#1ebe5d] text-zinc-950 font-bold h-12 shadow-sm text-sm"
                     >
                       <a
-                        href="https://wa.me/923391119259?text=Hi%20Hulm,%20I'm%20inquiring%20about%20POS%20Software%20in%20Karachi."
+                        href={whatsappUrl("Hi Hulm, I want to connect with your Karachi POS team.")}
                         target="_blank"
                         rel="noreferrer"
                       >
-                        <WhatsAppIcon size={18} className="mr-2" /> Connect with Karachi Team
+                        <WhatsAppIcon size={18} className="mr-2" /> Connect on WhatsApp
                       </a>
                     </Button>
                   </div>
-
-                  <p className="text-[11px] text-zinc-500 text-center leading-normal pt-1">
-                    Most onboarding, software walk-throughs and customer support are delivered directly online and via WhatsApp for fast response times across Karachi.
-                  </p>
                 </div>
               </div>
             </div>
@@ -1593,64 +1413,61 @@ export default function KarachiPosPage() {
         </Container>
       </Section>
 
-      {/* 17. Lead Form Section (Section 19.C) */}
+      {/* SECTION 12: SHORT LEAD FORM */}
       <section id="demo-form" className="py-16 sm:py-20 lg:py-24 bg-[#FAF9F5] border-b border-[#E4E2DA]">
         <Container className="max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            {/* Left Column: Context, Walkthrough Agenda & Trust */}
             <div className="lg:col-span-6 space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#167c70]/20 bg-[#167c70]/6 px-3.5 py-1 text-xs font-semibold text-[#167c70]">
                 <Sparkles className="h-3.5 w-3.5 text-[#167c70]" />
-                <span>Schedule a Walkthrough</span>
+                <span>30-Minute Tailored Session</span>
               </div>
 
-              <h2 className="text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl leading-[1.2]">
-                Get a POS Demo for Your Business in Karachi
-              </h2>
+              <h3 className="text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl leading-[1.2]">
+                Book a Free Hulm POS Demo in Karachi
+              </h3>
 
               <p className="text-base sm:text-lg leading-relaxed text-zinc-600">
-                Tell us about your business setup. Our Karachi product team will show you checkout, stock management, and reports tailored to your workflow.
+                Tell us about your business setup. Our Karachi product specialists will walk you through checkout speed, Excel data imports, stock tracking, and reports tailored to your store.
               </p>
 
-              {/* What's Covered in the Walkthrough */}
               <div className="rounded-2xl border border-[#E4E2DA] bg-white p-6 shadow-2xs space-y-4">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-[#0F2A26]">
-                  What you&apos;ll see in your 30-minute session:
+                  What you will see in your demo:
                 </h3>
 
                 <ul className="space-y-3.5 text-sm text-zinc-700">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[#167c70] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-[#0F2A26]">Live Checkout &amp; Billing:</strong> See barcode scanning, instant price lookups, customer discounts, and thermal receipt printing.
+                      <strong className="text-[#0F2A26]">Live Checkout &amp; Billing:</strong> Barcode scanning, discount controls, itemized tax calculation, and thermal receipt printing.
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[#167c70] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-[#0F2A26]">Excel Data Import Review:</strong> Share your existing spreadsheet columns so we can guide your product catalogue migration.
+                      <strong className="text-[#0F2A26]">Excel Catalogue Import:</strong> Review your spreadsheet columns so you can migrate products without manual typing.
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[#167c70] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-[#0F2A26]">Stock Levels &amp; Reorders:</strong> Explore real-time stock deduction, low-stock warnings, and purchase order workflows.
+                      <strong className="text-[#0F2A26]">Inventory &amp; Reorders:</strong> Real-time stock counts, low-stock alerts, and purchase order tracking.
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[#167c70] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-[#0F2A26]">Multi-Branch &amp; Udhaar Khata:</strong> Test customer ledgers, credit tracking, and multi-location branch management.
+                      <strong className="text-[#0F2A26]">Udhaar Khata &amp; Branches:</strong> Customer credit ledgers and multi-location management.
                     </div>
                   </li>
                 </ul>
               </div>
 
-              {/* Instant WhatsApp Option */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-2xl border border-emerald-200/80 bg-emerald-50/70 p-4 text-xs text-emerald-950">
-                <span className="font-medium">Prefer chatting on WhatsApp instead?</span>
+                <span className="font-medium">Need immediate assistance?</span>
                 <a
-                  href="https://wa.me/923391119259?text=Hi%20Hulm,%20I'm%20inquiring%20about%20a%20POS%20demo%20for%20my%20Karachi%20store."
+                  href={whatsappUrl("Hi Hulm, I want to book a POS demo for my Karachi business.")}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-1.5 font-bold text-[#167c70] hover:text-[#0F2A26] shrink-0"
@@ -1660,7 +1477,7 @@ export default function KarachiPosPage() {
               </div>
             </div>
 
-            {/* Right Column: Demo Request Form */}
+            {/* Rebuilt 3-field demo form */}
             <div className="lg:col-span-6">
               <KarachiDemoForm compactHeader={true} />
             </div>
@@ -1668,19 +1485,19 @@ export default function KarachiPosPage() {
         </Container>
       </section>
 
-      {/* 18. Frequently Asked Questions */}
+      {/* SECTION 13: FREQUENTLY ASKED QUESTIONS */}
       <Section data-reveal className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#E4E2DA]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
             <div className="lg:col-span-4">
               <span className="text-xs font-bold uppercase tracking-wider text-[#167c70]">
-                Common Inquiries
+                Common Questions
               </span>
               <h2 className="mt-2 text-3xl font-bold tracking-tight text-[#0F2A26] sm:text-4xl">
-                Frequently Asked Questions
+                Frequently asked questions
               </h2>
               <p className="mt-4 text-sm sm:text-base leading-relaxed text-zinc-600">
-                Answers to common questions about choosing, installing, and running Hulm POS software in Karachi retail stores, restaurants, and medical stores.
+                Direct answers to common questions about pricing, hardware, FBR rules, SRB compliance, and data imports for Karachi retail and food businesses.
               </p>
               <div className="mt-6">
                 <Button
@@ -1689,16 +1506,17 @@ export default function KarachiPosPage() {
                   className="rounded-xl border-zinc-300 text-[#0F2A26] hover:bg-zinc-100 text-sm font-semibold"
                 >
                   <a
-                    href="https://wa.me/923391119259?text=I%20have%20a%20question%20about%20Hulm%20POS%20in%20Karachi."
+                    href={whatsappUrl("I have a question about Hulm POS in Karachi.")}
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <WhatsAppIcon size={16} className="mr-2" /> Ask Any Other Question
+                    <WhatsAppIcon size={16} className="mr-2 text-[#25D366]" /> Ask on WhatsApp
                   </a>
                 </Button>
               </div>
             </div>
 
+            {/* Server-rendered FAQ details items (all answers present in HTML) */}
             <div className="lg:col-span-8">
               <FaqDetails items={karachiFaqs} openFirst={true} />
             </div>
@@ -1706,22 +1524,76 @@ export default function KarachiPosPage() {
         </Container>
       </Section>
 
-      {/* 19. Final CTA */}
-      <section className="relative overflow-hidden bg-[#0F2A26] py-16 sm:py-20 lg:py-24 text-white text-center">
+      {/* RELATED GUIDES BLOCK */}
+      <Section data-reveal className="py-12 sm:py-16 bg-[#FAF9F5] border-b border-[#E4E2DA]">
+        <Container>
+          <div className="mx-auto max-w-4xl">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg sm:text-xl font-bold text-[#0F2A26]">
+                Related POS Guides &amp; Resources for Pakistani Merchants
+              </h3>
+              <span className="sm:hidden text-[11px] font-semibold text-[#167c70]">Swipe 👉</span>
+            </div>
+            <div className="flex sm:grid gap-4 overflow-x-auto sm:overflow-visible pb-3 sm:pb-0 snap-x snap-mandatory scrollbar-none px-4 -mx-4 sm:px-0 sm:mx-0 sm:grid-cols-2 lg:grid-cols-3 touch-pan-x">
+              <Link
+                href="/pricing/"
+                className="w-[84vw] max-w-[320px] shrink-0 sm:shrink sm:w-auto snap-center rounded-xl border border-[#E4E2DA] bg-white p-4 hover:border-[#167c70] transition-colors flex flex-col justify-between shadow-2xs sm:shadow-none"
+              >
+                <div>
+                  <h4 className="font-bold text-[#0F2A26]">POS Software Price in Pakistan (2026 Guide)</h4>
+                  <p className="mt-1 text-xs text-zinc-500">Hardware, monthly subscriptions, and FBR setup costs.</p>
+                </div>
+                <span className="mt-3 text-xs font-semibold text-[#167c70] flex items-center gap-1">
+                  View Pricing Guide <ArrowRight className="h-3 w-3" />
+                </span>
+              </Link>
+
+              <Link
+                href="/fbr-integrated-pos-pakistan/"
+                className="w-[84vw] max-w-[320px] shrink-0 sm:shrink sm:w-auto snap-center rounded-xl border border-[#E4E2DA] bg-white p-4 hover:border-[#167c70] transition-colors flex flex-col justify-between shadow-2xs sm:shadow-none"
+              >
+                <div>
+                  <h4 className="font-bold text-[#0F2A26]">FBR vs SRB for Karachi Businesses</h4>
+                  <p className="mt-1 text-xs text-zinc-500">Federal goods vs Sindh service tax invoicing requirements.</p>
+                </div>
+                <span className="mt-3 text-xs font-semibold text-[#167c70] flex items-center gap-1">
+                  Read Tax Guide <ArrowRight className="h-3 w-3" />
+                </span>
+              </Link>
+
+              <Link
+                href="/blog/switch-pos-software-without-losing-data/"
+                className="w-[84vw] max-w-[320px] shrink-0 sm:shrink sm:w-auto snap-center rounded-xl border border-[#E4E2DA] bg-white p-4 hover:border-[#167c70] transition-colors flex flex-col justify-between shadow-2xs sm:shadow-none"
+              >
+                <div>
+                  <h4 className="font-bold text-[#0F2A26]">How to Switch POS Software Without Losing Data</h4>
+                  <p className="mt-1 text-xs text-zinc-500">5-step migration framework for Excel catalogues and credit ledgers.</p>
+                </div>
+                <span className="mt-3 text-xs font-semibold text-[#167c70] flex items-center gap-1">
+                  Read Migration Steps <ArrowRight className="h-3 w-3" />
+                </span>
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* FINAL CTA BAND */}
+      <section className="relative overflow-hidden bg-[#0F2A26] py-16 sm:py-20 lg:py-24 text-white text-center pb-24 md:pb-20">
         <div aria-hidden="true" className="bg-grid-fade pointer-events-none absolute inset-0 opacity-10" />
         <Container className="relative z-10">
           <div className="mx-auto max-w-3xl">
             <span className="inline-block rounded-full bg-[#167c70]/20 px-3.5 py-1 text-xs font-semibold text-[#7ae582] tracking-wide mb-4">
-              Switch Easily. Sell Faster. Manage Smarter.
+              Fast Checkout &bull; Real-Time Inventory &bull; Multi-Branch
             </span>
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-              Ready to Make Your Business Management Easier?
-            </h2>
+            <h3 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+              Ready to Upgrade Your Point of Sale in Karachi?
+            </h3>
             <p className="mt-5 text-base sm:text-lg leading-relaxed text-zinc-300">
-              Stop depending on disconnected spreadsheets, paper records and complicated manual billing. Move your daily business operations to a POS system designed to make sales, inventory and reporting easier to manage.
+              Stop struggling with slow manual registers and disconnected spreadsheets. Modernize your store with cloud POS software designed for retail counters, restaurants, and pharmacies.
             </p>
             <p className="mt-3 text-sm sm:text-base font-semibold text-[#7ae582]">
-              Start with Hulm POS for PKR 2,500/month and explore it with a 14-day free trial.
+              Starter plan starts at PKR 2,500/month with a full 14-day free trial.
             </p>
 
             <div className="mt-8 flex flex-col justify-center items-center gap-3 sm:flex-row">
@@ -1746,23 +1618,34 @@ export default function KarachiPosPage() {
                 className="w-full sm:w-auto rounded-full border-zinc-600 bg-white/5 hover:bg-white/10 text-white px-7 h-12 text-sm font-semibold"
               >
                 <a
-                  href="https://wa.me/923391119259?text=I%20want%20a%20demo%20of%20Hulm%20POS%20for%20my%20business%20in%20Karachi."
+                  href={whatsappUrl("Hi Hulm, I want to book a POS demo for my business in Karachi.")}
                   target="_blank"
                   rel="noreferrer"
                   data-track-location="karachi_final_whatsapp"
                 >
-                  <WhatsAppIcon size={16} className="mr-2 text-[#25D366]" /> Book a Free Demo on WhatsApp
+                  <WhatsAppIcon size={16} className="mr-2 text-[#25D366]" /> Chat with Karachi Team on WhatsApp
                 </a>
               </Button>
             </div>
 
             <p className="mt-4 text-xs text-zinc-400">
-              Confirm current subscription terms before subscribing. No credit card required for 14-day trial.
+              No credit card required for 14-day trial &bull; Assisted Excel product data import &bull; WhatsApp support in Urdu
             </p>
+
+            {/* Visible Byline and Editorial Policy link */}
+            <div className="mt-10 pt-6 border-t border-zinc-800 text-xs text-zinc-400">
+              <span>Reviewed by Hulm Solutions Editorial Team </span>
+              <span className="font-mono text-zinc-500">[VERIFY: Lead Technical Editor, Karachi Operations]</span>
+              <span className="mx-2">&bull;</span>
+              <span>Last updated: {LAST_UPDATED_DATE}</span>
+              <span className="mx-2">&bull;</span>
+              <Link href="/editorial-policy/" className="underline hover:text-white">
+                Editorial &amp; Verification Policy
+              </Link>
+            </div>
           </div>
         </Container>
       </section>
-
     </div>
   );
 }

@@ -29,11 +29,11 @@ export function DashboardGraphsInteractive() {
       {/* Header with Switcher Tabs */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#E4E2DA] bg-[#FAF9F5] p-5 sm:px-8">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#167c70]">
-            Live Reporting & Visibility
-          </span>
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-amber-300 bg-amber-50 px-2.5 py-0.5 text-[11px] font-semibold text-amber-900 mb-1">
+            <span>Illustrative Data (Demo Preview)</span>
+          </div>
           <h3 className="text-lg sm:text-xl font-bold text-[#0F2A26]">
-            Interactive Business Intelligence Preview
+            Business Intelligence &amp; Reporting Preview
           </h3>
         </div>
 

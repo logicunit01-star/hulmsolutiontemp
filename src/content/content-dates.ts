@@ -82,4 +82,5 @@ export const PAGE_CONTENT_UPDATED: Record<string, string> = {
     ].map((route) => [route, KEYWORD_PASS]),
   ),
   "/pos-software-karachi/": "2026-11-12T15:52:52+05:00",
+  "/pos-software-lahore/": "2026-11-26T17:00:00+05:00",
 };

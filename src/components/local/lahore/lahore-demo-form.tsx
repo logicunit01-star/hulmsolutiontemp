@@ -69,6 +69,7 @@ export function LahoreDemoForm({
     const name = String(form.get("fullName") || "").trim();
     const rawPhone = String(form.get("phone") || "").trim();
     const businessType = String(form.get("businessType") || "").trim();
+    const email = String(form.get("email") || "").trim();
     const businessName = String(form.get("businessName") || "").trim();
     const branches = String(form.get("branches") || "").trim();
     const currentMethod = String(form.get("currentMethod") || "").trim();
@@ -108,6 +109,7 @@ export function LahoreDemoForm({
     const ok = await submitLead({
       name,
       phone: fullPhone,
+      email: email || undefined,
       businessName: businessName || undefined,
       industry: businessType,
       message: messageLines.join("\n"),
@@ -335,6 +337,19 @@ export function LahoreDemoForm({
                     </select>
                     <ChevronDown className="pointer-events-none absolute right-3 top-3.5 h-4 w-4 text-zinc-400" />
                   </div>
+                </div>
+
+                <div>
+                  <label htmlFor="lahore-email" className="block text-xs font-medium text-zinc-600 mb-1">
+                    Email Address (optional)
+                  </label>
+                  <input
+                    id="lahore-email"
+                    name="email"
+                    type="email"
+                    placeholder="e.g. store@example.com"
+                    className={inputClass}
+                  />
                 </div>
               </div>
             </div>

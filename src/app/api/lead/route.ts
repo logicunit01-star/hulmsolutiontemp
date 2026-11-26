@@ -58,7 +58,7 @@ export async function POST(request: Request) {
   if (!lead.name || !/^\+?[\d\s()-]{9,20}$/.test(lead.phone)) {
     return NextResponse.json({ ok: false, error: "validation" }, { status: 422 });
   }
-  if (!lead.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)) {
+  if (lead.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)) {
     return NextResponse.json({ ok: false, error: "validation" }, { status: 422 });
   }
 
@@ -85,8 +85,14 @@ export async function POST(request: Request) {
 
     const finalMessage = [lead.message, extraDetails ? `(${extraDetails})` : ""].filter(Boolean).join("\n\n");
 
+    // HubSpot CRM requires an email to create a contact record. If user only gave phone, use phone@leads.hulmsolutions.com
+    const cleanPhoneDigits = lead.phone ? lead.phone.replace(/\D/g, "") : "";
+    const effectiveEmail =
+      lead.email ||
+      (cleanPhoneDigits ? `${cleanPhoneDigits}@leads.hulmsolutions.com` : undefined);
+
     const fields = [
-      { name: "email", value: lead.email },
+      { name: "email", value: effectiveEmail },
       { name: "firstname", value: firstname },
       ...(lastname ? [{ name: "lastname", value: lastname }] : []),
       { name: "phone", value: lead.phone },

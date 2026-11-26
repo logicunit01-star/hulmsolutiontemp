@@ -114,13 +114,14 @@ export default function ProductPage() {
 
           <div className="relative lg:pl-4">
             <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#167c70]/15 via-[#7ae582]/10 to-transparent blur-2xl -z-10" />
-            <div className="overflow-hidden rounded-2xl border border-[#E4E2DA] bg-[#FAF9F5] p-2 shadow-xl">
+            <div className="overflow-hidden rounded-2xl border border-[#E4E2DA] bg-white p-2 shadow-xl">
               <Image
-                src="/images/product/hulm-solutions-products-sales-order.webp"
-                alt="Hulm POS product catalogue screen"
-                width={1197}
-                height={688}
+                src="/images/product/hulm-apps-hero.gif"
+                alt="Hulm POS connected applications and operations"
+                width={640}
+                height={360}
                 priority
+                unoptimized
                 sizes="(min-width: 1280px) 620px, (min-width: 1024px) 52vw, calc(100vw - 32px)"
                 className="h-auto w-full rounded-xl"
               />

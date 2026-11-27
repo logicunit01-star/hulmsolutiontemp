@@ -30,6 +30,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/blogs/forget-to-update-stock',
+        destination: '/blog/forget-to-update-stock/',
+        permanent: true,
+      },
+      {
         source: '/blogs/track-cash-card-bank-transfer-payments',
         destination: '/blog/track-cash-card-bank-transfer-payments/',
         permanent: true,

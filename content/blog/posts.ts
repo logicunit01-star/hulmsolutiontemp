@@ -10,6 +10,19 @@ export const EDITORIAL_AUTHOR: Author = {
 // Replace these with actual blog posts when provided by the user.
 export const blogPosts: BlogPost[] = [
   {
+    id: "forget-to-update-stock",
+    slug: "forget-to-update-stock",
+    title: "Your Staff Sell Products but Forget to Update Stock. How Do You Stop Inventory Confusion?",
+    excerpt: "Staff sell products but forget stock updates? Learn how POS software helps track sales, update inventory and prevent stock confusion in your store.",
+    featuredImage: {
+      src: "/images/uploads/2026/11/forget-to-update-stock-inventory-discrepancy.webp",
+      alt: "Your Staff Sell Products but Forget to Update Stock: How POS Software Stops Inventory Confusion"
+    },
+    authorId: "hulm-editorial-team",
+    publishedAt: "2026-11-27",
+    readingTime: "8 min read"
+  },
+  {
     id: "track-cash-card-bank-transfer-payments",
     slug: "track-cash-card-bank-transfer-payments",
     title: "Customers Are Paying by Cash, Card and Bank Transfer. How Do You Track Everything?",

@@ -20,6 +20,7 @@ export const newSitePaths = [
   "/blog/cloud-pos-vs-desktop-pos/",
   "/blog/cash-drawer-management-start-end-day/",
   "/blog/track-cash-card-bank-transfer-payments/",
+  "/blog/forget-to-update-stock/",
 ];
 
 // Non-blog pages were rebuilt with the new site; blog posts keep their original modified date.

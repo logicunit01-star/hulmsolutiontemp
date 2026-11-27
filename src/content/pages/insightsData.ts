@@ -14,6 +14,19 @@ export type Insight = {
 
 export const insightsData: Insight[] = [
   {
+    id: "forget-to-update-stock",
+    title: "Your Staff Sell Products but Forget to Update Stock. How Do You Stop Inventory Confusion?",
+    slug: "forget-to-update-stock",
+    excerpt: "Staff sell products but forget stock updates? Learn how POS software helps track sales, update inventory and prevent stock confusion in your store.",
+    category: "Inventory Management",
+    date: "2026-11-27",
+    readTime: "8 min read",
+    author: "Aamir Khan",
+    authorSlug: "aamir-khan",
+    imageUrl: "/images/uploads/2026/11/forget-to-update-stock-inventory-discrepancy.webp",
+    content: ""
+  },
+  {
     id: "track-cash-card-bank-transfer-payments",
     title: "Customers Are Paying by Cash, Card and Bank Transfer. How Do You Track Everything?",
     slug: "track-cash-card-bank-transfer-payments",

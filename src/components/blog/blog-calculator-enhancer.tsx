@@ -693,6 +693,361 @@ export function BlogCalculatorEnhancer() {
 
       updateSplitTender();
     }
+
+    // =========================================================================
+    // 8. Stock Discrepancy & Inventory Confusion Cost Calculator
+    // =========================================================================
+    const stockCalc = document.querySelector<HTMLElement>(".stock-discrepancy-calculator-widget");
+    if (stockCalc && stockCalc.dataset.stockEnhanced !== "true") {
+      stockCalc.dataset.stockEnhanced = "true";
+      const widget = stockCalc;
+
+      const inAvgPrice = widget.querySelector<HTMLInputElement>("#stock-calc-avg-price");
+      const inDailySales = widget.querySelector<HTMLInputElement>("#stock-calc-daily-sales");
+      const inForgottenRate = widget.querySelector<HTMLInputElement>("#stock-calc-forgotten-rate");
+      const inLostSales = widget.querySelector<HTMLInputElement>("#stock-calc-lost-sales");
+      const inAuditHours = widget.querySelector<HTMLInputElement>("#stock-calc-audit-hours");
+      const inHourlyRate = widget.querySelector<HTMLInputElement>("#stock-calc-hourly-rate");
+
+      const outMonthlyDiscrepancy = widget.querySelector<HTMLElement>("#stock-calc-out-monthly-discrepancy");
+      const outMonthlyLostSales = widget.querySelector<HTMLElement>("#stock-calc-out-monthly-lost-sales");
+      const outMonthlyAuditCost = widget.querySelector<HTMLElement>("#stock-calc-out-monthly-audit-cost");
+      const outTotalLoss = widget.querySelector<HTMLElement>("#stock-calc-out-total-loss");
+      const outNetSavings = widget.querySelector<HTMLElement>("#stock-calc-out-net-savings");
+      const outRoiBadge = widget.querySelector<HTMLElement>("#stock-calc-out-roi-badge");
+      const outAnalysis = widget.querySelector<HTMLElement>("#stock-calc-out-analysis");
+
+      const btnBoutique = widget.querySelector<HTMLButtonElement>("#stock-preset-boutique");
+      const btnGrocery = widget.querySelector<HTMLButtonElement>("#stock-preset-grocery");
+      const btnPharmacy = widget.querySelector<HTMLButtonElement>("#stock-preset-pharmacy");
+
+      function calculateStockLoss() {
+        const avgPrice = Math.max(0, parseFloat(inAvgPrice?.value || "0") || 0);
+        const forgottenPerWeek = Math.max(0, parseFloat(inForgottenRate?.value || "0") || 0);
+        const lostSalesPerWeek = Math.max(0, parseFloat(inLostSales?.value || "0") || 0);
+        const auditHoursMonth = Math.max(0, parseFloat(inAuditHours?.value || "0") || 0);
+        const hourlyRate = Math.max(0, parseFloat(inHourlyRate?.value || "0") || 0);
+
+        // 4.33 weeks per month
+        const monthlyForgottenItems = forgottenPerWeek * 4.33;
+        const monthlyDiscrepancyCost = monthlyForgottenItems * avgPrice;
+
+        const monthlyLostSalesItems = lostSalesPerWeek * 4.33;
+        const monthlyLostSalesCost = monthlyLostSalesItems * avgPrice;
+
+        const monthlyLaborCost = auditHoursMonth * hourlyRate;
+
+        const totalMonthlyLoss = monthlyDiscrepancyCost + monthlyLostSalesCost + monthlyLaborCost;
+        const hulmCost = 2500; // Rs. 2,500/month
+        const netMonthlyBenefit = Math.max(0, totalMonthlyLoss - hulmCost);
+        const roiMultiple = totalMonthlyLoss > 0 ? (totalMonthlyLoss / hulmCost).toFixed(1) : "0";
+
+        if (outMonthlyDiscrepancy) outMonthlyDiscrepancy.textContent = `Rs. ${Math.round(monthlyDiscrepancyCost).toLocaleString()}`;
+        if (outMonthlyLostSales) outMonthlyLostSales.textContent = `Rs. ${Math.round(monthlyLostSalesCost).toLocaleString()}`;
+        if (outMonthlyAuditCost) outMonthlyAuditCost.textContent = `Rs. ${Math.round(monthlyLaborCost).toLocaleString()}`;
+        if (outTotalLoss) outTotalLoss.textContent = `Rs. ${Math.round(totalMonthlyLoss).toLocaleString()}`;
+        if (outNetSavings) outNetSavings.textContent = `Rs. ${Math.round(netMonthlyBenefit).toLocaleString()}/month`;
+
+        if (outRoiBadge && outAnalysis) {
+          if (totalMonthlyLoss <= 2500) {
+            outRoiBadge.textContent = "Low Friction (1.0x Break-even)";
+            outRoiBadge.className = "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-zinc-200 text-zinc-800";
+            outAnalysis.innerHTML = `
+              <p class="text-xs sm:text-sm text-zinc-700 leading-relaxed font-normal m-0">
+                Even at minimal stock variance, connecting checkout to inventory guarantees clean daily audit trails and eliminates hours spent in year-end manual inventory recounts.
+              </p>
+            `;
+          } else if (totalMonthlyLoss <= 15000) {
+            outRoiBadge.textContent = `High Value: ${roiMultiple}x Return on Investment`;
+            outRoiBadge.className = "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-900 border border-blue-300";
+            outAnalysis.innerHTML = `
+              <p class="text-xs sm:text-sm text-blue-950 leading-relaxed font-normal m-0">
+                You are currently losing approx. <strong class="text-blue-900 font-bold">Rs. ${Math.round(totalMonthlyLoss).toLocaleString()}</strong> every month to untracked stock sales and manual recounts. HulmPOS (Rs. 2,500/mo) pays for itself in just <strong>${Math.max(1, Math.round(30 / parseFloat(roiMultiple)))} days</strong>!
+              </p>
+            `;
+          } else {
+            outRoiBadge.textContent = `Critical Leakage: ${roiMultiple}x ROI with HulmPOS`;
+            outRoiBadge.className = "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-900 border border-rose-300";
+            outAnalysis.innerHTML = `
+              <p class="text-xs sm:text-sm text-rose-950 leading-relaxed font-normal m-0">
+                Critical financial drain! Disconnected registers are costing your retail business an estimated <strong class="text-rose-900 font-bold">Rs. ${Math.round(totalMonthlyLoss).toLocaleString()} per month</strong>. Moving to HulmPOS puts Rs. ${Math.round(netMonthlyBenefit).toLocaleString()} back into your business profit every single month.
+              </p>
+            `;
+          }
+        }
+      }
+
+      [inAvgPrice, inDailySales, inForgottenRate, inLostSales, inAuditHours, inHourlyRate].forEach((el) => {
+        el?.addEventListener("input", calculateStockLoss);
+      });
+
+      btnBoutique?.addEventListener("click", () => {
+        if (inAvgPrice) inAvgPrice.value = "2800";
+        if (inDailySales) inDailySales.value = "25";
+        if (inForgottenRate) inForgottenRate.value = "4";
+        if (inLostSales) inLostSales.value = "3";
+        if (inAuditHours) inAuditHours.value = "10";
+        if (inHourlyRate) inHourlyRate.value = "500";
+        calculateStockLoss();
+      });
+
+      btnGrocery?.addEventListener("click", () => {
+        if (inAvgPrice) inAvgPrice.value = "450";
+        if (inDailySales) inDailySales.value = "180";
+        if (inForgottenRate) inForgottenRate.value = "15";
+        if (inLostSales) inLostSales.value = "8";
+        if (inAuditHours) inAuditHours.value = "20";
+        if (inHourlyRate) inHourlyRate.value = "400";
+        calculateStockLoss();
+      });
+
+      btnPharmacy?.addEventListener("click", () => {
+        if (inAvgPrice) inAvgPrice.value = "1200";
+        if (inDailySales) inDailySales.value = "60";
+        if (inForgottenRate) inForgottenRate.value = "6";
+        if (inLostSales) inLostSales.value = "4";
+        if (inAuditHours) inAuditHours.value = "14";
+        if (inHourlyRate) inHourlyRate.value = "500";
+        calculateStockLoss();
+      });
+
+      calculateStockLoss();
+    }
+
+    // =========================================================================
+    // 9. Stock Reconciliation Balance Simulator (Expected vs Shelf Count)
+    // =========================================================================
+    const reconWidget = document.querySelector<HTMLElement>(".stock-reconciliation-simulator-widget");
+    if (reconWidget && reconWidget.dataset.reconEnhanced !== "true") {
+      reconWidget.dataset.reconEnhanced = "true";
+      const widget = reconWidget;
+
+      const inOpening = widget.querySelector<HTMLInputElement>("#recon-opening");
+      const inPurchases = widget.querySelector<HTMLInputElement>("#recon-purchases");
+      const inSales = widget.querySelector<HTMLInputElement>("#recon-sales");
+      const inReturns = widget.querySelector<HTMLInputElement>("#recon-returns");
+      const inDamage = widget.querySelector<HTMLInputElement>("#recon-damage");
+      const inActual = widget.querySelector<HTMLInputElement>("#recon-actual");
+
+      const outExpected = widget.querySelector<HTMLElement>("#recon-out-expected");
+      const outActual = widget.querySelector<HTMLElement>("#recon-out-actual");
+      const outVariance = widget.querySelector<HTMLElement>("#recon-out-variance");
+      const outContainer = widget.querySelector<HTMLElement>("#recon-out-container");
+      const outBadge = widget.querySelector<HTMLElement>("#recon-out-badge");
+      const outAnalysis = widget.querySelector<HTMLElement>("#recon-out-analysis");
+
+      const btnReset = widget.querySelector<HTMLButtonElement>("#recon-btn-reset");
+      const btnExample = widget.querySelector<HTMLButtonElement>("#recon-btn-example");
+
+      function updateRecon() {
+        const opening = Math.max(0, parseInt(inOpening?.value || "0", 10) || 0);
+        const purchases = Math.max(0, parseInt(inPurchases?.value || "0", 10) || 0);
+        const sales = Math.max(0, parseInt(inSales?.value || "0", 10) || 0);
+        const returns = Math.max(0, parseInt(inReturns?.value || "0", 10) || 0);
+        const damage = Math.max(0, parseInt(inDamage?.value || "0", 10) || 0);
+        const actual = Math.max(0, parseInt(inActual?.value || "0", 10) || 0);
+
+        // Expected = Opening + Purchases - Sales + Returns - Damage
+        const expected = opening + purchases - sales + returns - damage;
+        const variance = actual - expected;
+
+        if (outExpected) outExpected.textContent = `${expected} Pcs`;
+        if (outActual) outActual.textContent = `${actual} Pcs`;
+
+        if (outVariance) {
+          if (variance === 0) {
+            outVariance.textContent = `0 Pcs (Balanced)`;
+          } else if (variance > 0) {
+            outVariance.textContent = `+${variance} Pcs (Surplus)`;
+          } else {
+            outVariance.textContent = `${variance} Pcs (Missing / Shortage)`;
+          }
+        }
+
+        if (outContainer && outBadge && outAnalysis) {
+          if (variance === 0) {
+            outContainer.className = "p-4 sm:p-5 rounded-2xl border-2 border-emerald-300 bg-emerald-50/80 transition-all";
+            if (outVariance) outVariance.className = "text-2xl sm:text-3xl font-extrabold text-emerald-700 font-mono";
+            outBadge.textContent = "100% Balanced & Reconciled";
+            outBadge.className = "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-200 text-emerald-900 border border-emerald-300";
+            outAnalysis.innerHTML = `
+              <p class="font-semibold text-emerald-900 text-sm m-0">Zero Inventory Variance!</p>
+              <p class="text-xs text-emerald-800 leading-relaxed font-normal mt-1 m-0">
+                Your physical shelf count (${actual} pcs) matches expected inventory exactly. All sales, incoming supplier batches, and customer returns have been recorded accurately.
+              </p>
+            `;
+          } else if (variance < 0) {
+            const missing = Math.abs(variance);
+            outContainer.className = "p-4 sm:p-5 rounded-2xl border-2 border-rose-300 bg-rose-50/80 transition-all";
+            if (outVariance) outVariance.className = "text-2xl sm:text-3xl font-extrabold text-rose-700 font-mono";
+            outBadge.textContent = "Inventory Shortage / Phantom Stock";
+            outBadge.className = "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-rose-200 text-rose-900 border border-rose-300";
+            outAnalysis.innerHTML = `
+              <p class="font-semibold text-rose-900 text-sm m-0">${missing} units missing from shelves!</p>
+              <p class="text-xs text-rose-800 leading-relaxed font-normal mt-1 m-0">
+                <strong>Probable Causes:</strong> (1) Staff sold ${missing} units at counter but forgot to ring them up on POS/register. (2) Damaged items were discarded without logging write-offs. (3) Stock shrinkage or theft.
+              </p>
+            `;
+          } else {
+            outContainer.className = "p-4 sm:p-5 rounded-2xl border-2 border-blue-300 bg-blue-50/80 transition-all";
+            if (outVariance) outVariance.className = "text-2xl sm:text-3xl font-extrabold text-blue-700 font-mono";
+            outBadge.textContent = "Inventory Surplus / Unrecorded Inward";
+            outBadge.className = "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-blue-200 text-blue-900 border border-blue-300";
+            outAnalysis.innerHTML = `
+              <p class="font-semibold text-blue-900 text-sm m-0">${variance} extra units counted on shelf.</p>
+              <p class="text-xs text-blue-800 leading-relaxed font-normal mt-1 m-0">
+                <strong>Probable Causes:</strong> (1) Supplier delivered new carton but staff forgot to log the Goods Received Note (GRN). (2) Customer returned items that were placed back on shelves without a digital POS return.
+              </p>
+            `;
+          }
+        }
+      }
+
+      [inOpening, inPurchases, inSales, inReturns, inDamage, inActual].forEach((el) => {
+        el?.addEventListener("input", updateRecon);
+      });
+
+      btnReset?.addEventListener("click", () => {
+        if (inOpening) inOpening.value = "100";
+        if (inPurchases) inPurchases.value = "0";
+        if (inSales) inSales.value = "0";
+        if (inReturns) inReturns.value = "0";
+        if (inDamage) inDamage.value = "0";
+        if (inActual) inActual.value = "100";
+        updateRecon();
+      });
+
+      btnExample?.addEventListener("click", () => {
+        if (inOpening) inOpening.value = "100";
+        if (inPurchases) inPurchases.value = "20";
+        if (inSales) inSales.value = "35";
+        if (inReturns) inReturns.value = "0";
+        if (inDamage) inDamage.value = "0";
+        if (inActual) inActual.value = "75";
+        updateRecon();
+      });
+
+      updateRecon();
+    }
+
+    // =========================================================================
+    // 10. Interactive Stock Management Health Quiz
+    // =========================================================================
+    const stockQuiz = document.querySelector<HTMLElement>(".stock-audit-quiz-widget");
+    if (stockQuiz && stockQuiz.dataset.stockQuizEnhanced !== "true") {
+      stockQuiz.dataset.stockQuizEnhanced = "true";
+      const widget = stockQuiz;
+
+      const answers: Record<string, string> = {
+        sq1: "a",
+        sq2: "a",
+        sq3: "a",
+        sq4: "a",
+        sq5: "a",
+      };
+
+      const optionButtons = Array.from(widget.querySelectorAll<HTMLElement>(".stock-quiz-btn"));
+      const resultTitle = widget.querySelector<HTMLElement>("#stock-quiz-result-title");
+      const resultBadge = widget.querySelector<HTMLElement>("#stock-quiz-result-badge");
+      const resultDesc = widget.querySelector<HTMLElement>("#stock-quiz-result-desc");
+      const riskScoreEl = widget.querySelector<HTMLElement>("#stock-quiz-score");
+
+      function updateStockQuiz() {
+        let riskScore = 0;
+
+        // Q1: Sales & Stock Records
+        if (answers.sq1 === "a") riskScore += 25;
+        else if (answers.sq1 === "b") riskScore += 25;
+        else if (answers.sq1 === "c") riskScore += 0;
+
+        // Q2: When Discovered
+        if (answers.sq2 === "a") riskScore += 20;
+        else if (answers.sq2 === "b") riskScore += 15;
+        else if (answers.sq2 === "c") riskScore += 0;
+
+        // Q3: Multiple Counters / Branches
+        if (answers.sq3 === "a") riskScore += 20;
+        else if (answers.sq3 === "b") riskScore += 15;
+        else if (answers.sq3 === "c") riskScore += 0;
+
+        // Q4: Inward Supplier Shipments
+        if (answers.sq4 === "a") riskScore += 20;
+        else if (answers.sq4 === "b") riskScore += 10;
+        else if (answers.sq4 === "c") riskScore += 0;
+
+        // Q5: Returns & Damages
+        if (answers.sq5 === "a") riskScore += 15;
+        else if (answers.sq5 === "b") riskScore += 10;
+        else if (answers.sq5 === "c") riskScore += 0;
+
+        if (riskScoreEl) riskScoreEl.textContent = `${riskScore}% Confusion Risk`;
+
+        if (riskScore >= 60) {
+          if (resultTitle) resultTitle.textContent = "High Inventory Confusion Risk (Critical Action Required)";
+          if (resultBadge) {
+            resultBadge.textContent = "High Risk • Disconnected Systems";
+            resultBadge.className = "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-900 border border-rose-300";
+          }
+          if (resultDesc) {
+            resultDesc.textContent =
+              "Your retail store is heavily reliant on manual human memory to update stock registers. This leads directly to duplicate supplier orders, embarrassing customer stockouts, and phantom inventory. Deploying HulmPOS to automate checkout stock deductions will immediately eliminate 90%+ of these errors.";
+          }
+        } else if (riskScore >= 30) {
+          if (resultTitle) resultTitle.textContent = "Moderate Inventory Risk (Partial Blindspots)";
+          if (resultBadge) {
+            resultBadge.textContent = "Moderate Risk • Needs Unification";
+            resultBadge.className = "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300";
+          }
+          if (resultDesc) {
+            resultDesc.textContent =
+              "While some transactions are tracked, gaps around supplier inward receiving, returns, or branch transfers are creating stock creep. Moving to a cloud POS system with native multi-location inventory will protect your profit margins.";
+          }
+        } else {
+          if (resultTitle) resultTitle.textContent = "Low Inventory Confusion Risk (Best Practice)";
+          if (resultBadge) {
+            resultBadge.textContent = "Optimized & Reconciled";
+            resultBadge.className = "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-900 border border-emerald-300";
+          }
+          if (resultDesc) {
+            resultDesc.textContent =
+              "Your processes are well-structured. Continuing with digital barcode scanning and automated cloud inventory management ensures your shelves and reports stay perfectly in sync.";
+          }
+        }
+      }
+
+      optionButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const q = btn.dataset.sq;
+          const val = btn.dataset.val;
+          if (!q || !val) return;
+
+          answers[q] = val;
+
+          const siblings = widget.querySelectorAll<HTMLElement>(`.stock-quiz-btn[data-sq="${q}"]`);
+          siblings.forEach((sib) => {
+            if (sib.dataset.val === val) {
+              sib.classList.add("border-[#167c70]", "bg-[#167c70]/10", "text-[#0F2A26]", "ring-2", "ring-[#167c70]/20");
+              sib.classList.remove("border-[#E4E2DA]", "bg-white", "text-zinc-600");
+              const dot = sib.querySelector(".quiz-radio-dot");
+              if (dot) dot.classList.replace("border-zinc-300", "border-[#167c70]");
+              const inner = sib.querySelector(".quiz-radio-inner");
+              if (inner) inner.classList.remove("hidden");
+            } else {
+              sib.classList.remove("border-[#167c70]", "bg-[#167c70]/10", "text-[#0F2A26]", "ring-2", "ring-[#167c70]/20");
+              sib.classList.add("border-[#E4E2DA]", "bg-white", "text-zinc-600");
+              const dot = sib.querySelector(".quiz-radio-dot");
+              if (dot) dot.classList.replace("border-[#167c70]", "border-zinc-300");
+              const inner = sib.querySelector(".quiz-radio-inner");
+              if (inner) inner.classList.add("hidden");
+            }
+          });
+
+          updateStockQuiz();
+        });
+      });
+
+      updateStockQuiz();
+    }
   }, []);
 
   return null;

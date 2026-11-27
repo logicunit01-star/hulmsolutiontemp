@@ -14,6 +14,7 @@
 const KEYWORD_PASS = "2026-10-02T12:00:00+05:00";
 
 export const BLOG_CONTENT_UPDATED: Record<string, string> = {
+  "forget-to-update-stock": "2026-11-27T12:00:00+05:00",
   "track-cash-card-bank-transfer-payments": "2026-11-24T12:00:00+05:00",
   "cash-drawer-management-start-end-day": "2026-11-18T12:00:00+05:00",
   "cloud-pos-vs-desktop-pos": "2026-11-17T12:00:00+05:00",

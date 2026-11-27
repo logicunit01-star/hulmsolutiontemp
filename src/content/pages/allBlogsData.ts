@@ -7,6 +7,7 @@ import { restaurantFoodCostCalculatorBlog } from "@/content/pages/blogs/restaura
 import { cloudPosVsDesktopPosBlog } from "@/content/pages/blogs/cloud-pos-vs-desktop-pos";
 import { cashDrawerManagementStartEndDayBlog } from "@/content/pages/blogs/cash-drawer-management-start-end-day";
 import { trackCashCardBankTransferPaymentsBlog } from "@/content/pages/blogs/track-cash-card-bank-transfer-payments";
+import { forgetToUpdateStockBlog } from "@/content/pages/blogs/forget-to-update-stock";
 
 export interface SingleBlogData {
   slug: string;
@@ -25,6 +26,7 @@ export interface SingleBlogData {
 }
 
 export const allBlogsData: Record<string, SingleBlogData> = {
+  "forget-to-update-stock": forgetToUpdateStockBlog,
   "track-cash-card-bank-transfer-payments": trackCashCardBankTransferPaymentsBlog,
   "cash-drawer-management-start-end-day": cashDrawerManagementStartEndDayBlog,
   "cloud-pos-vs-desktop-pos": cloudPosVsDesktopPosBlog,
